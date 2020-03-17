@@ -43,7 +43,8 @@ CACHE_MAX_AGE_SECONDS = 300
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 app = Flask(__name__)
-CACHE = firestore.Client().collection("cache")
+FBCACHE = firestore.Client().collection("cache")
+FBCACHE_NOW_DOC = FBCACHE.document("gernow")
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -58,39 +59,69 @@ logging.basicConfig(
 # gunicorn's threaded worker or use uwsgi's thread worker.
 
 
+try:
+    log.info('invalidate cache for "now" doc')
+    FBCACHE_NOW_DOC.delete()
+except Exception as err:
+    log.warning("cache invalidation failed: %s", err)
+
+
 @app.route("/now")
 def germany_now():
-    ckey = "gernow"
-    cdoc = CACHE.document(ckey)
-    cdata = cdoc.get()
     t_current = time()
+
+    def _get_data():
+        """
+        Fetch fresh data from external source.
+        Create the dictionary to be injected via firebase client.
+        """
+        cases, deaths, recovered, t_source_last_updated = get_fresh_data()
+        return {
+            "cases": cases,
+            "deaths": deaths,
+            "recovered": recovered,
+            "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
+            "t_obtained_from_source": t_current,  #
+        }
+
+    cdata = FBCACHE_NOW_DOC.get()
 
     if cdata.exists:
 
         log.info("db cache hit")
         data = cdata.to_dict()
 
-        if (t_current - data["timestamp"]) > CACHE_MAX_AGE_SECONDS:
+        if (
+            "t_obtained_from_source" not in data
+            or (t_current - data["t_obtained_from_source"]) > CACHE_MAX_AGE_SECONDS
+        ):
             log.info("db cache expired, get fresh data")
-            count = get_case_count_germany()
-            data = {"count": count, "timestamp": t_current}
-            cdoc.update(data)
+            data = _get_data()
+            log.info("got data dict: %s", data)
+            FBCACHE_NOW_DOC.update(data)
 
     else:
         log.info("db cache miss, get fresh data, store to db")
-        count = get_case_count_germany()
-        data = {"count": count, "timestamp": t_current}
-        cdoc.set(data)
+        data = _get_data()
+        log.info("got data dict: %s", data)
+        FBCACHE_NOW_DOC.set(data)
 
-    return jsonify(
-        {
-            "total_cases_confirmed_until_now": data["count"],
-            "last_update_from_source_iso8601": datetime.fromtimestamp(
-                int(data["timestamp"]), pytz.utc
-            ).isoformat(),
-            "source": "zeit.de",
-        }
-    )
+    # mangle `data` dict (obtained from DB cache) into the state that we want
+    # to return to HTTP clients. It's OK to not deep-copy here, any mutation
+    # allowed.
+    output_dict = data
+    output_dict["time_source_last_consulted_iso8601"] = datetime.fromtimestamp(
+        int(data["t_obtained_from_source"]), pytz.utc
+    ).isoformat()
+    output_dict["tested"] = "unknown"
+    output_dict["source"] = "zeit.de"
+
+    # Delete key that was used for cache (in)validation (implementation
+    # detail).
+    del output_dict["t_obtained_from_source"]
+
+    # Generate HTTP response with JSON body
+    return jsonify(output_dict)
 
 
 @app.route("/")
@@ -98,23 +129,49 @@ def rootpath():
     return "Brorona! See /now"
 
 
-def get_case_count_germany():
+def get_fresh_data():
     url = f"{ZEIT_JSON_URL}?time={int(time())}"
     log.info("try to get current case count for germany")
 
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    # today = datetime.utcnow().strftime("%Y-%m-%d")
 
     resp = requests.get(url, timeout=(3.05, 10))
     resp.raise_for_status()
     data = resp.json()
 
-    for sample in data["chronology"]:
-        if "date" in sample:
-            if sample["date"] == today:
-                log.info("sample for today: %s", sample["count"])
-                return sample["count"]
+    # First let's see that data is roughly in the shape that's expected
+    ttls = data["totals"]
+    assert "count" in ttls
+    assert "dead" in ttls
+    assert "recovered" in ttls
 
-    raise Exception("unexpected data shape: %s", data)
+    # Now let's see when this was last updated.
+    # This timestamp is a string of the following format:
+    #
+    #    '17. März 2020, 21:22 Uhr'
+    #
+    # This is pretty horrible as an interface, but of course we can work
+    # on that, yolo! But let's not plan into the future longer than May.
+    # Who would need that, right?
+    t = data["changeTimestamp"]
+    t = t.replace("März", "03").replace("April", "04").replace("Mai", "05")
+    t = t.replace(",", "").replace(".", "")
+
+    try:
+        t_source_last_updated = datetime.strptime(t, "%d %m %Y %H:%M Uhr")
+    except ValueError as err:
+        log.error(
+            "could not parse changeTimestamp %s: %s", data["changeTimestamp"], err
+        )
+
+    # `t_source_last_updated` is so far not timezone-aware (no timezone set).
+    # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
+    # JSON doc imply).
+    t_source_last_updated = pytz.timezone("Europe/Amsterdam").localize(
+        t_source_last_updated
+    )
+
+    return ttls["count"], ttls["dead"], ttls["recovered"], t_source_last_updated
 
 
 if __name__ == "__main__":
