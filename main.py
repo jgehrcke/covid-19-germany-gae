@@ -45,6 +45,7 @@ ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 app = Flask(__name__)
 FBCACHE = firestore.Client().collection("cache")
 FBCACHE_NOW_DOC = FBCACHE.document("gernow")
+FIRSTREQUEST = True
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -59,15 +60,19 @@ logging.basicConfig(
 # gunicorn's threaded worker or use uwsgi's thread worker.
 
 
-try:
-    log.info('invalidate cache for "now" doc')
-    FBCACHE_NOW_DOC.delete()
-except Exception as err:
-    log.warning("cache invalidation failed: %s", err)
-
-
 @app.route("/now")
 def germany_now():
+
+    # Clear db cache upon first request after re-deployment.
+    global FIRSTREQUEST
+    if FIRSTREQUEST:
+        try:
+            log.info('invalidate cache for "now" doc')
+            FBCACHE_NOW_DOC.delete()
+        except Exception as err:
+            log.warning("cache invalidation failed: %s", err)
+        FIRSTREQUEST = False
+
     t_current = time()
 
     def _get_data():
