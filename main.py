@@ -109,16 +109,24 @@ def germany_now():
     # mangle `data` dict (obtained from DB cache) into the state that we want
     # to return to HTTP clients. It's OK to not deep-copy here, any mutation
     # allowed.
-    output_dict = data
-    output_dict["time_source_last_consulted_iso8601"] = datetime.fromtimestamp(
-        int(data["t_obtained_from_source"]), pytz.utc
-    ).isoformat()
-    output_dict["tested"] = "unknown"
-    output_dict["source"] = "zeit.de"
-
-    # Delete key that was used for cache (in)validation (implementation
-    # detail).
-    del output_dict["t_obtained_from_source"]
+    output_dict = {
+        "current_totals": {
+            "cases": data["cases"],
+            "deaths": data["deaths"],
+            "recovered": data["recovered"],
+            "tested": "unknown",
+        },
+        "meta": {
+            "source": "zeit.de (aggregates data from individual ministries of health in Germany)",
+            "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
+            "time_source_last_updated_iso8601": data[
+                "time_source_last_updated_iso8601"
+            ],
+            "time_source_last_consulted_iso8601": datetime.fromtimestamp(
+                int(data["t_obtained_from_source"]), pytz.utc
+            ).isoformat(),
+        },
+    }
 
     # Generate HTTP response with JSON body
     return jsonify(output_dict)
