@@ -37,20 +37,19 @@ from google.cloud import firestore
 import google.cloud.exceptions
 from flask import Flask, jsonify
 
-# firebase_admin.initialize_app()
-CACHE = firestore.Client().collection("cache")
 
 CACHE_MAX_AGE_SECONDS = 300
-
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 app = Flask(__name__)
+CACHE = firestore.Client().collection("cache")
 
-logging.basicConfig(
-    format="%(asctime)s,%(msecs)-6.1f|%(module)s# %(message)s", datefmt="%H:%M:%S"
-)
 log = logging.getLogger()
-log.setLevel(logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
+    datefmt="%y%m%d-%H:%M:%S",
+)
 
 
 @app.route("/germany/now")
@@ -77,7 +76,7 @@ def germany_now():
 
 @app.route("/")
 def rootpath():
-    return "brorona"
+    return "Brorona! See /germany/now"
 
 
 def get_case_count_germany():
