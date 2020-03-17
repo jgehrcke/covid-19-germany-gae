@@ -28,10 +28,11 @@ import os
 import logging
 import sys
 import re
-import time
+from time import time
 from datetime import datetime
 
 import requests
+import pytz
 
 from google.cloud import firestore
 import google.cloud.exceptions
@@ -57,21 +58,34 @@ def germany_now():
     ckey = "gernow"
     cdoc = CACHE.document(ckey)
     cdata = cdoc.get()
+    t_current = time()
 
     if cdata.exists:
-        log.info("cache hit")
-        data = cdata.to_dict()
-        if (time.time() - data["timestamp"]) > CACHE_MAX_AGE_SECONDS:
-            log.info("cache expiry")
-            count = get_case_count_germany()
-            cdoc.update({"count": count, "timestamp": time.time()})
-        count = data["count"]
-    else:
-        log.info("cache miss")
-        count = get_case_count_germany()
-        cdoc.set({"count": count, "timestamp": time.time()})
 
-    return jsonify({"total_cases_confirmed_until_now": count})
+        log.info("db cache hit")
+        data = cdata.to_dict()
+
+        if (t_current - data["timestamp"]) > CACHE_MAX_AGE_SECONDS:
+            log.info("db cache expired, get fresh data")
+            count = get_case_count_germany()
+            data = {"count": count, "timestamp": t_current}
+            cdoc.update(data)
+
+    else:
+        log.info("db cache miss, get fresh data, store to db")
+        count = get_case_count_germany()
+        data = {"count": count, "timestamp": t_current}
+        cdoc.set(data)
+
+    return jsonify(
+        {
+            "total_cases_confirmed_until_now": data["count"],
+            "last_update_from_source_iso8601": datetime.fromtimestamp(
+                int(data["timestamp"]), pytz.utc
+            ).isoformat(),
+            "source": "zeit.de",
+        }
+    )
 
 
 @app.route("/")
@@ -80,7 +94,7 @@ def rootpath():
 
 
 def get_case_count_germany():
-    url = f"{ZEIT_JSON_URL}?time={int(time.time())}"
+    url = f"{ZEIT_JSON_URL}?time={int(time())}"
     log.info("try to get current case count for germany")
 
     today = datetime.utcnow().strftime("%Y-%m-%d")
