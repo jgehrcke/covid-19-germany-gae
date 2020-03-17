@@ -52,6 +52,11 @@ logging.basicConfig(
     datefmt="%y%m%d-%H:%M:%S",
 )
 
+# Note(JP): serve this from a thread pool and add another cross-thread caching
+# layer using https://github.com/dgilland/cacheout. For serving from multiple
+# threads use the GAE entrypoint configuration parameter, and either serve via
+# gunicorn's threaded worker or use uwsgi's thread worker.
+
 
 @app.route("/now")
 def germany_now():
