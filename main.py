@@ -53,7 +53,7 @@ logging.basicConfig(
 )
 
 
-@app.route("/germany/now")
+@app.route("/now")
 def germany_now():
     ckey = "gernow"
     cdoc = CACHE.document(ckey)
@@ -90,7 +90,7 @@ def germany_now():
 
 @app.route("/")
 def rootpath():
-    return "Brorona! See /germany/now"
+    return "Brorona! See /now"
 
 
 def get_case_count_germany():
