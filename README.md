@@ -152,3 +152,10 @@ Notably, the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus
 seems to do a similarly well job of _quickly_ aggregating the state-level data.
 
 Quick aggregation is important during the phase of exponential growth.
+
+## Random notes
+
+- The MDC Berlin has published [this visualization](https://covid19germany.mdc-berlin.de/)
+  and [this article](https://www.mdc-berlin.de/news/press/state-state-breakdown-covid-19-germany), but
+  they seemingly decided to not publish the time series data. I got my hopes
+  up here at first!
