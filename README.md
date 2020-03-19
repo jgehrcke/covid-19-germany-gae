@@ -4,7 +4,7 @@ The data set is provided via an **HTTP (JSON) API** as well as through a comma-s
 
 How is this different from other data sources?
 
-- It exposes historical data for individual states (Bundesländer), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html). I did not find any other up-to-date structured data source for that.
+- Offers **historical data for individual Bundesländer** (states), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html). To my knowledge that is unique and the main reason I started this project.
 - https://covid19-germany.appspot.com/now consults multiple sources to be as
   fresh as possible (as of the time of writing: ZEIT ONLINE, Berliner
   Morgenpost). See [attribution](https://github.com/jgehrcke/covid-19-germany-gae#attribution).
@@ -20,7 +20,7 @@ For the HTTP API the primary motivation is:
 
 - [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
 - HTTP API endpoint for the current state: https://covid19-germany.appspot.com/now
-- HTTP API endpoint for historical data: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
+- HTTP API endpoint for historical data, example for Bayern: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
 
 More details below.
 
