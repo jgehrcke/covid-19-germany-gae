@@ -1,10 +1,29 @@
 # Covid-19: case count in Germany by state over time
 
-The data set is provided as an HTTP API as well as a CSV file.
+The data set is provided via an HTTP API as well as through a comma-separated value (CSV) file.
+
+## Data sources and flow
+
+These are official numbers published by public health offices in Germany.
+
+Data flow:
+
+The numbers from the individual (hundreds of) public German health offices
+(Gesundheitsämter) are first collected and aggregated on the state level, by
+the individual state health ministries. From here, they are further collected
+and published through ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html)
+by the Robert Koch-Institut (yielding the data points in this database before
+March 17), but also by ZEIT ONLINE (yielding the data points in my database
+from March 17 on).
+
+In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)
+post I explain why as of today the numbers reported in the RKI and WHO
+situation reports lag behind by 1-3 days.
 
 ## CSV file
 
-This is manually curated.
+I curate this file based on, as clarified above, using Gesundheitsamt data from
+the RKI situation reports.
 
 ### Example: parsing and plotting
 
@@ -92,3 +111,8 @@ $ curl -s https://covid19-germany.appspot.com/now | jq
   }
 }
 ```
+
+## Attribution
+
+Shout-out to as well as from ZEIT ONLINE for continuously collecting and
+publishing the state-level data with little delay.
