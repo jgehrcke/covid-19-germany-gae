@@ -3,8 +3,11 @@
 The data set is provided via an HTTP API as well as through a comma-separated value (CSV) file.
 
 - [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
-- HTTP API example 1: https://covid19-germany.appspot.com/now
-- HTTP API example 2: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
+- HTTP API endpoint for the current state: https://covid19-germany.appspot.com/now
+- HTTP API endpoint for historical data: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
+
+Note that https://covid19-germany.appspot.com/now is based on multiple sources
+and reports the more recent case count.
 
 More details below.
 
@@ -122,6 +125,11 @@ $ curl -s https://covid19-germany.appspot.com/now | jq
   }
 }
 ```
+
+Notably, the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
+seems to also do a great job at _quickly_ aggregating the state-level data.
+This API endpoint chooses either that source or ZEIT ONLINE depending on
+the higher case count.
 
 ## Attribution
 
