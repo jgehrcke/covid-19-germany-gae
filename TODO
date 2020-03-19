@@ -1,0 +1,3 @@
+- Move to a model where we never fetch external resources in the hot path.
+  Instead, use the GAE cron mechanism to periodically trigger refreshing
+  external resources.
