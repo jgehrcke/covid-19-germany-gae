@@ -39,7 +39,6 @@ import google.cloud.exceptions
 from flask import Flask, jsonify
 
 
-CACHE_MAX_AGE_SECONDS = 300
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 app = Flask(__name__)
@@ -62,6 +61,8 @@ logging.basicConfig(
 
 @app.route("/now")
 def germany_now():
+
+    cache_max_age_seconds = 300
 
     # Clear db cache upon first request after re-deployment.
     global FIRSTREQUEST
@@ -98,7 +99,7 @@ def germany_now():
 
         if (
             "t_obtained_from_source" not in data
-            or (t_current - data["t_obtained_from_source"]) > CACHE_MAX_AGE_SECONDS
+            or (t_current - data["t_obtained_from_source"]) > cache_max_age_seconds
         ):
             log.info("db cache expired, get fresh data")
             data = _get_data()
