@@ -86,14 +86,7 @@ def germany_now():
         Fetch fresh data from external source.
         Create the dictionary to be injected via firebase client.
         """
-        cases, deaths, recovered, t_source_last_updated = get_fresh_data()
-        return {
-            "cases": cases,
-            "deaths": deaths,
-            "recovered": recovered,
-            "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
-            "t_obtained_from_source": t_current,  #
-        }
+        return fetch_now_data()
 
     cdata = FBCACHE_NOW_DOC.get()
 
@@ -128,7 +121,7 @@ def germany_now():
             "tested": "unknown",
         },
         "meta": {
-            "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
+            "source": data["source"],
             "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
             "time_source_last_updated_iso8601": data[
                 "time_source_last_updated_iso8601"
@@ -277,9 +270,9 @@ def fetch_timeseries_gsheet_and_construct_dataframe():
 
 
 
-def get_fresh_data():
+def get_fresh_now_data_from_zeit():
     url = f"{ZEIT_JSON_URL}?time={int(time())}"
-    log.info("try to get current case count for germany")
+    log.info("try to get current case count for germany from zeit online")
 
     # today = datetime.utcnow().strftime("%Y-%m-%d")
 
@@ -319,7 +312,14 @@ def get_fresh_data():
         t_source_last_updated
     )
 
-    return ttls["count"], ttls["dead"], ttls["recovered"], t_source_last_updated
+    return {
+        "cases": ttls["count"],
+        "deaths": ttls["dead"],
+        "recovered": ttls["recovered"],
+        "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
+        "t_obtained_from_source": time(),
+        "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
+    }
 
 
 if __name__ == "__main__":
