@@ -52,12 +52,12 @@ the RKI and WHO situation reports lag behind by 1-3 days.
 - Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)
 - Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
 - [Blog post about delay of RKI numbers](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German)
-- Discussion on [a GitHub issue](https://github.com/iceweasel1/COVID-19-Germany/issues/10)
 
 ## CSV file details
 
-- The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual state.
+- The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
 - The points in time are encoded using localized ISO8601 time string notation.
+- I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
 
 ### Example: parsing and plotting
 
