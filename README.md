@@ -2,6 +2,12 @@
 
 The data set is provided via an HTTP API as well as through a comma-separated value (CSV) file.
 
+- [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
+- HTTP API example 1: https://covid19-germany.appspot.com/now
+- HTTP API example 2: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
+
+More details below
+
 ## Data sources and flow
 
 These are official numbers published by individual state health ministries in
