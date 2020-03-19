@@ -1,13 +1,26 @@
 # COVID-19 case count in Germany by state, over time
 
-The data set is provided via an HTTP API as well as through a comma-separated value (CSV) file.
+The data set is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
+
+How is this different from other data sources?
+
+- It exposes historical data for individual states (Bundesländer), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html). I did not find any other up-to-date structured data source for that.
+- https://covid19-germany.appspot.com/now consults multiple sources to be as
+  fresh as possible (as of the time of writing: ZEIT ONLINE, Berliner
+  Morgenpost). See [attribution](https://github.com/jgehrcke/covid-19-germany-gae#attribution).
+
+For the HTTP API the primary motivation is:
+
+- convenience (easy to consume for you in the tooling of your choice!)
+- interface stability
+- data _credibility_ and data _freshness_
+- availability
+
+## Quick overview
 
 - [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
 - HTTP API endpoint for the current state: https://covid19-germany.appspot.com/now
 - HTTP API endpoint for historical data: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
-
-Note that https://covid19-germany.appspot.com/now is based on multiple sources
-and reports the more recent case count.
 
 More details below.
 
@@ -17,7 +30,7 @@ You probably have many questions, just as I did (and still do). Your feedback an
 Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
 or contact me via mail at jgehrcke@googlemail.com.
 
-## Data sources and flow
+## Sources and information flow
 
 These are official numbers published by individual state health ministries in
 Germany.
@@ -31,12 +44,19 @@ March 17), but also by ZEIT ONLINE (yielding the data points in my database
 from March 17 on).
 
 In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)
-post I explain why as of today the numbers reported in the RKI and WHO
-situation reports lag behind by 1-3 days.
+post I explain why as of the time of writing (March 18) the numbers reported in
+the RKI and WHO situation reports lag behind by 1-3 days.
 
-## CSV file
+## Further resources:
 
-- The column names use the [ISO_3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual state.
+- Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)
+- Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
+- [Blog post about delay of RKI numbers](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German)
+- Discussion on [a GitHub issue](https://github.com/iceweasel1/COVID-19-Germany/issues/10)
+
+## CSV file details
+
+- The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual state.
 - The points in time are encoded using localized ISO8601 time string notation.
 
 ### Example: parsing and plotting
@@ -55,31 +75,23 @@ df["DE-BW_cases"].plot(
 plt.savefig("bw_cases_over_time.png", dpi=200)
 ```
 
-## HTTP API
+## HTTP API details
 
 - The HTTP API is served under https://covid19-germany.appspot.com
 - It is served by Google App Engine from a European data center
 - The code behind this can be found in the `gae` directory in this repository.
 
-Further resources:
+### How to use the HTTP/JSON API
 
-- Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)
-- Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
-- Discussion on [a GitHub issue](https://github.com/iceweasel1/COVID-19-Germany/issues/10)
-
-Feedback welcome.
-
-## How to use the HTTP/JSON API
-
-### Get the time series information for a specific German state:
+#### Get historical data for a specific German state/Bundesland:
 
 First, construct the URL based on this pattern:
 
 `https://covid19-germany.appspot.com/timeseries/<state>/<metric>`:
 
-For `<state>` use the [ISO_3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code, for `<metric>` use `cases` or `deaths`.
+For `<state>` use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code, for `<metric>` use `cases` or `deaths`.
 
-For example, to fetch the time evolution of the number of confirmed Covid-19 cases for Bayern (Bavaria):
+For example, to fetch the time evolution of the number of confirmed COVID-19 cases for Bayern (Bavaria):
 
 ```
 $ curl -s https://covid19-germany.appspot.com/timeseries/DE-BY/cases | jq
