@@ -224,7 +224,7 @@ def get_timeseries_dataframe():
             "write dataframe to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_TIMESERIES_DOC.set({"dataframe.picle": byteseq})
+        FBCACHE_TIMESERIES_DOC.set({"dataframe.pickle": byteseq})
 
     return df
 
