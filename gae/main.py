@@ -30,6 +30,7 @@ import sys
 import re
 import io
 import tempfile
+import pickle
 from time import time
 from datetime import datetime
 
@@ -68,48 +69,7 @@ def rootpath():
 @app.route("/now")
 def germany_now():
 
-    cache_max_age_seconds = 300
-
-    # Clear db cache upon first request after re-deployment.
-    global FIRSTREQUEST
-    if FIRSTREQUEST:
-        try:
-            log.info('invalidate cache for "now" doc')
-            FBCACHE_NOW_DOC.delete()
-        except Exception as err:
-            log.warning("cache invalidation failed: %s", err)
-        FIRSTREQUEST = False
-
-    t_current = time()
-
-    def _get_data():
-        """
-        Fetch fresh data from external source.
-        Create the dictionary to be injected via firebase client.
-        """
-        return fetch_now_data()
-
-    cdata = FBCACHE_NOW_DOC.get()
-
-    if cdata.exists:
-
-        log.info("db cache hit")
-        data = cdata.to_dict()
-
-        if (
-            "t_obtained_from_source" not in data
-            or (t_current - data["t_obtained_from_source"]) > cache_max_age_seconds
-        ):
-            log.info("db cache expired, get fresh data")
-            data = _get_data()
-            log.info("got data dict: %s", data)
-            FBCACHE_NOW_DOC.update(data)
-
-    else:
-        log.info("db cache miss, get fresh data, store to db")
-        data = _get_data()
-        log.info("got data dict: %s", data)
-        FBCACHE_NOW_DOC.set(data)
+    data = get_now_data_from_cache()
 
     # mangle `data` dict (obtained from DB cache) into the state that we want
     # to return to HTTP clients. It's OK to not deep-copy here, any mutation
@@ -269,26 +229,25 @@ def fetch_timeseries_gsheet_and_construct_dataframe():
     return df
 
 
-def get_now_data():
+def get_now_data_from_cache():
     """
     From, in that order
     - file system cache or (if empty or not fresh)
     - google sheets (HTTP API, csv) or (if not available or erroneous)
     - firebase (fallback)
     """
-
     maxage_minutes = 15
-    cpath = os.path.join(tempfile.gettempdir(), "now.json.cache")
+    cpath = os.path.join(tempfile.gettempdir(), "now.pickle.cache")
 
     # Read from cache if it exists and is not too old.
     if os.path.exists(cpath):
         if time() - os.stat(cpath).st_mtime < 60 * maxage_minutes:
             with open(cpath, "rb") as f:
                 log.info("read /now data from file cache %s", cpath)
-                return pd.read_pickle(cpath)
+                return pickle.load(f)
 
     try:
-        df = fetch_now_data()
+        datadict = fetch_fresh_now_data()
     except Exception as err:
         # TODO: if that fails read from firestore (last good state backup)
         raise
@@ -298,7 +257,7 @@ def get_now_data():
     tmppath = cpath + "new"
     log.info("write /now data (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
-        df.to_pickle(tmppath)
+        pickle.dump(datadict, f, protocol=pickle.HIGHEST_PROTOCOL)
     os.rename(tmppath, cpath)
 
     with open(cpath, "rb") as f:
@@ -307,14 +266,14 @@ def get_now_data():
             "write /now data to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_TIMESERIES_DOC.set({"now.json": byteseq})
+        FBCACHE_TIMESERIES_DOC.set({"now.pickle": byteseq})
 
-    return df
+    return datadict
 
 
-def fetch_now_data():
-
-    data1 = get_fresh_now_data_from_zeit()
+def fetch_fresh_now_data():
+    # TODO: decide between both, use most recent
+    # data1 = get_fresh_now_data_from_zeit()
     data2 = get_fresh_now_data_from_be_mopo()
     return data2
 
