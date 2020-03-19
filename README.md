@@ -4,9 +4,8 @@ The data set is provided via an HTTP API as well as through a comma-separated va
 
 ## Data sources and flow
 
-These are official numbers published by public health offices in Germany.
-
-Data flow:
+These are official numbers published by individual state health ministries in
+Germany.
 
 The numbers from the individual (hundreds of) public German health offices
 (Gesundheitsämter) are first collected and aggregated on the state level, by
@@ -20,10 +19,12 @@ In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-r
 post I explain why as of today the numbers reported in the RKI and WHO
 situation reports lag behind by 1-3 days.
 
+Questions? Please ask them, for example right in this repository here.
+
 ## CSV file
 
-I curate this file based on, as clarified above, using Gesundheitsamt data from
-the RKI situation reports.
+- The column names use the [ISO_3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual state.
+- The points in time are encoded using localized ISO8601 time string notation.
 
 ### Example: parsing and plotting
 
@@ -116,3 +117,8 @@ $ curl -s https://covid19-germany.appspot.com/now | jq
 
 Shout-out to as well as from ZEIT ONLINE for continuously collecting and
 publishing the state-level data with little delay.
+
+Notably, the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
+seems to do a similarly well job of _quickly_ aggregating the state-level data.
+
+Quick aggregation is important during the phase of exponential growth.
