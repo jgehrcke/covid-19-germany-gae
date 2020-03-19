@@ -43,6 +43,7 @@ from flask import Flask, jsonify, abort
 
 
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
+BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
 
 app = Flask(__name__)
 
@@ -268,6 +269,54 @@ def fetch_timeseries_gsheet_and_construct_dataframe():
     return df
 
 
+def get_now_data():
+    """
+    From, in that order
+    - file system cache or (if empty or not fresh)
+    - google sheets (HTTP API, csv) or (if not available or erroneous)
+    - firebase (fallback)
+    """
+
+    maxage_minutes = 15
+    cpath = os.path.join(tempfile.gettempdir(), "now.json.cache")
+
+    # Read from cache if it exists and is not too old.
+    if os.path.exists(cpath):
+        if time() - os.stat(cpath).st_mtime < 60 * maxage_minutes:
+            with open(cpath, "rb") as f:
+                log.info("read /now data from file cache %s", cpath)
+                return pd.read_pickle(cpath)
+
+    try:
+        df = fetch_now_data()
+    except Exception as err:
+        # TODO: if that fails read from firestore (last good state backup)
+        raise
+
+    # Atomic switch (in case there are concurrently running threads
+    # reading/writing this, too).
+    tmppath = cpath + "new"
+    log.info("write /now data (atomic rename) to file cache %s:", tmppath)
+    with open(tmppath, "wb") as f:
+        df.to_pickle(tmppath)
+    os.rename(tmppath, cpath)
+
+    with open(cpath, "rb") as f:
+        byteseq = f.read()
+        log.info(
+            "write /now data to firebase (last good state backup), %s bytes",
+            len(byteseq),
+        )
+        FBCACHE_TIMESERIES_DOC.set({"now.json": byteseq})
+
+    return df
+
+
+def fetch_now_data():
+
+    data1 = get_fresh_now_data_from_zeit()
+    data2 = get_fresh_now_data_from_be_mopo()
+    return data2
 
 
 def get_fresh_now_data_from_zeit():
@@ -319,6 +368,33 @@ def get_fresh_now_data_from_zeit():
         "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
         "t_obtained_from_source": time(),
         "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
+    }
+
+
+def get_fresh_now_data_from_be_mopo():
+    url = f"{BE_MOPO_CSV_URL}?{int(time())}"
+    log.info("try to get current case count for germany from berliner mopo")
+
+    for attempt in (1, 2, 3):
+        # TODO: back-off, but only when this is not in hot path
+        try:
+            resp = requests.get(url, timeout=(3.05, 10))
+            resp.raise_for_status()
+        except Exception as err:
+            log.info("attempt %s: failed getting data: %s", attempt, err)
+
+    df = pd.read_csv(io.StringIO(resp.text))
+    df = df.dropna()
+    df = df[df["parent"].str.match("Deutschland")]
+    t_source_last_updated = pd.to_datetime(df["date"]).max()
+
+    return {
+        "cases": int(df["confirmed"].sum()),
+        "deaths": int(df["deaths"].sum()),
+        "recovered": int(df["recovered"].sum()),
+        "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
+        "t_obtained_from_source": time(),
+        "source": "Berliner Morgenpost (aggregated data from individual ministries of health in Germany)",
     }
 
 
