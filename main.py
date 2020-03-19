@@ -28,22 +28,27 @@ import os
 import logging
 import sys
 import re
+import io
+import tempfile
 from time import time
 from datetime import datetime
 
+import pandas as pd
 import requests
 import pytz
 
 from google.cloud import firestore
 import google.cloud.exceptions
-from flask import Flask, jsonify
+from flask import Flask, jsonify, abort
 
 
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 app = Flask(__name__)
+
 FBCACHE = firestore.Client().collection("cache")
 FBCACHE_NOW_DOC = FBCACHE.document("gernow")
+FBCACHE_TIMESERIES_DOC = FBCACHE.document("gerhistory")
 FIRSTREQUEST = True
 
 log = logging.getLogger()
@@ -136,6 +141,138 @@ def germany_now():
 
     # Generate HTTP response with JSON body
     return jsonify(output_dict)
+
+
+STATE_WHITELIST = [
+    "DE-BW",
+    "DE-BY",
+    "DE-BE",
+    "DE-BB",
+    "DE-HB",
+    "DE-HH",
+    "DE-HE",
+    "DE-MV",
+    "DE-NI",
+    "DE-NW",
+    "DE-RP",
+    "DE-SL",
+    "DE-SN",
+    "DE-ST",
+    "DE-SH",
+    "DE-TH",
+]
+
+
+METRIC_WHITELIST = ["cases", "deaths"]
+
+METRIC_SUFFIX_MAP = {"cases": "_c", "deaths": "_d"}
+
+TIMESERIES_JSON_OUTPUT_META_DICT = {
+    "source": "Official numbers published by public health offices (Gesundheitsaemter) in Germany",
+    "info": "https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries",
+}
+
+
+@app.route("/timeseries/<state>/<metric>")
+def get_timeseries(state, metric):
+
+    if state not in STATE_WHITELIST:
+        abort(400, f"Bad state name. Must be one of: {', '.join(STATE_WHITELIST)}")
+
+    if metric not in METRIC_WHITELIST:
+        abort(400, f"Bad metric name. Must be one of: {', '.join(METRIC_WHITELIST)}")
+
+    df = get_timeseries_dataframe()
+
+    # Construct column name like DE-BW_c
+    column_name = state + METRIC_SUFFIX_MAP[metric]
+    output_dict = {
+        "data": df[column_name].to_dict(),
+        "meta": TIMESERIES_JSON_OUTPUT_META_DICT,
+    }
+    return jsonify(output_dict)
+
+
+def get_timeseries_dataframe():
+    """
+    From, in that order
+    - file system cache or (if empty or not fresh)
+    - google sheets (HTTP API, csv) or (if not available or erroneous)
+    - firebase (fallback)
+    """
+
+    maxage_minutes = 15
+    cpath = os.path.join(tempfile.gettempdir(), "timeseries.df.cache.pickle")
+
+    # Read from cache if it exists and is not too old.
+    if os.path.exists(cpath):
+        if time() - os.stat(cpath).st_mtime < 60 * maxage_minutes:
+            with open(cpath, "rb") as f:
+                log.info("read dataframe from file cache %s", cpath)
+                return pd.read_pickle(cpath)
+
+    try:
+        df = fetch_timeseries_gsheet_and_construct_dataframe()
+    except Exception as err:
+        # TODO: if that fails read from firestore (last good state backup)
+        raise
+
+    # Atomic switch (in case there are concurrently running threads
+    # reading/writing this, too).
+    tmppath = cpath + "new"
+    log.info("write dataframe (atomic rename) to file cache %s:", tmppath)
+    with open(tmppath, "wb") as f:
+        df.to_pickle(tmppath)
+    os.rename(tmppath, cpath)
+
+    with open(cpath, "rb") as f:
+        byteseq = f.read()
+        log.info(
+            "write dataframe to firebase (last good state backup), %s bytes",
+            len(byteseq),
+        )
+        FBCACHE_TIMESERIES_DOC.set({"dataframe.picle": byteseq})
+
+    return df
+
+
+def fetch_timeseries_gsheet_and_construct_dataframe():
+    dockey = os.environ["FEDSTATE_TIMESERIES_GSHEET_KEY"]
+    docid = os.environ["FEDSTATE_TIMESERIES_GSHEET_ID"]
+    url = (
+        f"https://docs.google.com/spreadsheets/d/{dockey}/export?format=csv&gid={docid}"
+    )
+    log.info("read csv data from google sheets: %s", url)
+    resp = requests.get(url)
+    resp.raise_for_status()
+
+    df = pd.read_csv(io.StringIO(resp.text))
+    df = df.dropna()
+    # print(df)
+
+    # datetimes = []
+    datetime_strings = []
+    for _, row in df.iterrows():
+        ts = datetime(
+            2020,
+            int(row["month"]),
+            int(row["day"]),
+            int(row["hour"]),
+            int(row["min"]),
+            0,
+            0,
+        )
+
+        ts = pytz.timezone("Europe/Amsterdam").localize(ts)
+        tsstring = ts.isoformat()
+        # datetimes.append(ts)
+        datetime_strings.append(tsstring)
+
+    # Using the iso8601 time strings as index has the advantage that individual
+    # colunmns (Series objects) are JSON-encode-ready by just doing
+    df.index = datetime_strings
+    df.drop(["month", "day", "hour", "min"], axis=1, inplace=True)
+    return df
 
 
 @app.route("/")

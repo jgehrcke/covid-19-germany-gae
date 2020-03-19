@@ -3,3 +3,4 @@ requests
 google-cloud-firestore
 pytz
 uwsgi
+pandas
