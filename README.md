@@ -6,7 +6,12 @@ The data set is provided via an HTTP API as well as through a comma-separated va
 - HTTP API example 1: https://covid19-germany.appspot.com/now
 - HTTP API example 2: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
 
-More details below
+More details below.
+
+## Contact and questions
+
+You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
+Please contact me via mail at jgehrcke@googlemail.com or use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues).
 
 ## Data sources and flow
 
@@ -24,8 +29,6 @@ from March 17 on).
 In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)
 post I explain why as of today the numbers reported in the RKI and WHO
 situation reports lag behind by 1-3 days.
-
-Questions? Please ask them, for example right in this repository here.
 
 ## CSV file
 
