@@ -1,4 +1,32 @@
-This is the code behind https://covid19-germany.appspot.com
+# Covid-19: case count in Germany by state over time
+
+The data set is provided as an HTTP API as well as a CSV file.
+
+## CSV file
+
+This is manually curated.
+
+### Example: parsing and plotting
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv("data.csv", index_col=["time_iso8601"], parse_dates=["time_iso8601"])
+df.index.name = "time"
+
+df["DE-BW_cases"].plot(
+    title="DE-BW confirmed cases", marker="x", grid=True, figsize=[12, 9]
+)
+plt.savefig("bw_cases_over_time.png", dpi=200)
+```
+
+## HTTP API
+
+- The HTTP API is served under https://covid19-germany.appspot.com
+- It is served by Google App Engine from a European data center
+- The code behind this can be found in the `gae` directory in this repository.
 
 Further resources:
 
