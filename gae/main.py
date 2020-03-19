@@ -272,10 +272,23 @@ def get_now_data_from_cache():
 
 
 def fetch_fresh_now_data():
-    # TODO: decide between both, use most recent
-    # data1 = get_fresh_now_data_from_zeit()
+    # Fetch both, use most recent, or use higher case count?
+
+    data1 = get_fresh_now_data_from_zeit()
     data2 = get_fresh_now_data_from_be_mopo()
-    return data2
+
+    if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
+        log.info("zeit online data appears to be more recent")
+    else:
+        log.info("bemopo data appears to be more recent")
+
+    if data1["cases"] > data2["cases"]:
+        log.info("zeit online data reports more cases")
+        return data1
+
+    else:
+        log.info("bemopo data reports more cases")
+        return data2
 
 
 def get_fresh_now_data_from_zeit():
@@ -325,6 +338,7 @@ def get_fresh_now_data_from_zeit():
         "deaths": ttls["dead"],
         "recovered": ttls["recovered"],
         "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
+        "time_source_last_updated": t_source_last_updated.timestamp(),
         "t_obtained_from_source": time(),
         "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
     }
@@ -352,6 +366,7 @@ def get_fresh_now_data_from_be_mopo():
         "deaths": int(df["deaths"].sum()),
         "recovered": int(df["recovered"].sum()),
         "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
+        "time_source_last_updated": t_source_last_updated.timestamp(),
         "t_obtained_from_source": time(),
         "source": "Berliner Morgenpost (aggregated data from individual ministries of health in Germany)",
     }
