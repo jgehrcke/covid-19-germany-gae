@@ -123,7 +123,7 @@ def germany_now():
             "tested": "unknown",
         },
         "meta": {
-            "source": "zeit.de (aggregates data from individual ministries of health in Germany)",
+            "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
             "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
             "time_source_last_updated_iso8601": data[
                 "time_source_last_updated_iso8601"
