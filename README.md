@@ -1,4 +1,4 @@
-# Covid-19: case count in Germany by state over time
+# COVID-19 case count in Germany by state, over time
 
 The data set is provided via an HTTP API as well as through a comma-separated value (CSV) file.
 
@@ -11,7 +11,8 @@ More details below.
 ## Contact and questions
 
 You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
-Please contact me via mail at jgehrcke@googlemail.com or use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues).
+Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
+or contact me via mail at jgehrcke@googlemail.com.
 
 ## Data sources and flow
 
