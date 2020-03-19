@@ -1,2 +1,2 @@
-.secrets/*
-env-sensitive.yaml
+*/.secrets/*
+*/env-sensitive.yaml
