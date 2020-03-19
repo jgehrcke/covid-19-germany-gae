@@ -1,4 +1,4 @@
-# COVID-19 case count in Germany by state, over time
+# COVID-19 case numbers in Germany by state, over time
 
 The data set is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
