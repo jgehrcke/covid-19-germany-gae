@@ -125,14 +125,6 @@ def fetch_current_data_for_each_bundesland_as_df():
     url = "https://interactive.zeit.de/cronjobs/2020/corona/data.json"
     jdata = requests.get(url).json()
 
-    # Translate this into our consolidated data format.
-    # outdict = {}
-    # for obj in jdata["states"]:
-    #     outdict[STATE_NAME_ISONAME_MAP[obj["state"]]] = {
-    #         "cases": obj["count"],
-    #         "deaths": obj["dead"],
-    #     }
-
     t_source_last_updated = parse_zo_timestring_into_dt(jdata["changeTimestamp"])
 
     # Now turn this newly obtained snapshot (numbers for all states for a
@@ -164,14 +156,11 @@ def parse_zo_timestring_into_dt(timestring):
     ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
     ts = ts.replace(",", "").replace(".", "")
 
-    # This crashes if our parsing is too brittle or if they change their data
-    # format. Let it crash in that case. TODO: make error paths robust, don't
-    # expose to HTTP clients.
     t = datetime.strptime(ts, "%d %m %Y %H:%M Uhr")
 
-    # `t_source_last_updated` is so far not timezone-aware (no timezone set).
-    # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
-    # JSON doc imply).
+    # `t` is so far not timezone-aware (no timezone set). Set the
+    # Amsterdam/Berlin tz explicitly (which is what the authors of this JSON
+    # doc imply).
     t = pytz.timezone("Europe/Amsterdam").localize(t)
     return t
 
