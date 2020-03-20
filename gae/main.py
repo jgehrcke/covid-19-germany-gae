@@ -43,11 +43,12 @@ import google.cloud.exceptions
 from flask import Flask, jsonify, abort
 
 
-ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
-BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
-
 app = Flask(__name__)
 
+app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
+
+ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
+BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
 FBCACHE = firestore.Client().collection("cache")
 FBCACHE_NOW_DOC = FBCACHE.document("gernow")
 FBCACHE_TIMESERIES_DOC = FBCACHE.document("gerhistory")
