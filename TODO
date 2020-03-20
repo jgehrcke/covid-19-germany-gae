@@ -9,3 +9,6 @@
   consistency
 
 - Add more state resources to the README
+
+- Always set JSONIFY_PRETTYPRINT_REGULAR to true. We have the bandwidth.
+

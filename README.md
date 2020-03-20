@@ -4,7 +4,7 @@ The data set is provided via an **HTTP (JSON) API** as well as through a comma-s
 
 How is this different from other data sources?
 
-- Offers **historical data for individual Bundesländer** (states), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html). To my knowledge that is unique and the main reason I started this project.
+- Offers **historical data for individual Bundesländer** (states), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) until March 17, and for the more recent days based on the more up-to-date reports by the individual states themselves. To my knowledge that is unique and the main reason I started this project.
 - https://covid19-germany.appspot.com/now consults multiple sources to be as
   fresh as possible (as of the time of writing: ZEIT ONLINE, Berliner
   Morgenpost). See [attribution](https://github.com/jgehrcke/covid-19-germany-gae#attribution).
@@ -43,9 +43,11 @@ by the Robert Koch-Institut (yielding the data points in this database before
 March 17), but also by ZEIT ONLINE (yielding the data points in my database
 from March 17 on).
 
-In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)
-post I explain why as of the time of writing (March 18) the numbers reported in
+In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)(German)
+post I try to shed light on why -- as of the time of writing (March 18) -- the numbers reported in
 the RKI and WHO situation reports lag behind by 1-3 days.
+
+Also [this comment](https://github.com/CSSEGISandData/COVID-19/issues/1008#issuecomment-601210784) (and that entire thread) is rather insightful.
 
 ## Further resources:
 
