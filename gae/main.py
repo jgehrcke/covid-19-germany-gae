@@ -124,7 +124,7 @@ METRIC_SUFFIX_MAP = {"cases": "_c", "deaths": "_d"}
 
 TIMESERIES_JSON_OUTPUT_META_DICT = {
     "source": "Official numbers published by public health offices (Gesundheitsaemter) in Germany",
-    "info": "https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries",
+    "info": "https://github.com/jgehrcke/covid-19-germany-gae",
 }
 
 
@@ -142,7 +142,7 @@ def get_timeseries(state, metric):
     # Construct column name like DE-BW_c
     column_name = state + METRIC_SUFFIX_MAP[metric]
     output_dict = {
-        "data": df[column_name].to_dict(),
+        "data": [{time: value} for time, value in df[column_name].to_dict().items()],
         "meta": TIMESERIES_JSON_OUTPUT_META_DICT,
     }
     return jsonify(output_dict)
