@@ -145,13 +145,14 @@ the higher case count.
 
 ## Attribution
 
-Shout-out to as well as from ZEIT ONLINE for continuously collecting and
+Shout-out to ZEIT ONLINE for continuously collecting and
 publishing the state-level data with little delay.
 
-Notably, the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
-seems to do a similarly well job of _quickly_ aggregating the state-level data.
+Edit: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
+seems to do an equally well job of _quickly_ aggregating the state-level data.
+We are using that in here, too. Thanks!
 
-Quick aggregation is important during the phase of exponential growth.
+Fast aggregation & communication is important during the phase of exponential growth.
 
 ## Quality data sources published by Bundesländer
 
