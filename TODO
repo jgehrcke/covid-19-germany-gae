@@ -1,3 +1,11 @@
 - Move to a model where we never fetch external resources in the hot path.
   Instead, use the GAE cron mechanism to periodically trigger refreshing
   external resources.
+
+- Potentially use uwsgi cache to get response generation times down towards
+  microseconds (now we have ~5-10 ms spent in the WSGI app)
+
+- Make /timeseries endpoint use the CSV file in the repository, for
+  consistency
+
+- Add more state resources to the README
