@@ -153,6 +153,24 @@ seems to do a similarly well job of _quickly_ aggregating the state-level data.
 
 Quick aggregation is important during the phase of exponential growth.
 
+## Quality data sources published by Bundesländer
+
+This list is supposed to grow over time.
+
+- Bayern: [case numbers, map, LK table](https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/coronavirus/karte_coronavirus/index.htm)
+- Berlin: [case numbers, map, intensive care numbers](https://www.berlin.de/corona/fallstatistik/)
+- Baden-Württemberg:
+  - [case numbers, map, discussion](https://sozialministerium.baden-wuerttemberg.de/de/gesundheit-pflege/gesundheitsschutz/infektionsschutz-hygiene/informationen-zu-coronavirus/)
+  - [spreadsheet, xlsx, with historical data](https://sozialministerium.baden-wuerttemberg.de/fileadmin/redaktion/m-sm/intern/downloads/Downloads_Gesundheitsschutz/Tabelle_Coronavirus-Faelle-BW.xlsx)
+- Hamburg: [current numbers](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- NRW: [current numbers, LK table](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- Niedersachsen (pretty well done!):
+  - [current numbers, map, LK table](https://www.niedersachsen.de/Coronavirus/aktuelle_lage_in_niedersachsen/)
+  - [CSV](https://www.apps.nlga.niedersachsen.de/corona/download.php?csv) / [GeoJSON](https://www.apps.nlga.niedersachsen.de/corona/download.php?json)
+  - so close, but no historical data :-(
+- Saarland: [Pressemitteilungen](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
+- Sachsen: [current numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
+
 ## Random notes
 
 - The MDC Berlin has published [this visualization](https://covid19germany.mdc-berlin.de/)
