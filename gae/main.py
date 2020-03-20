@@ -286,31 +286,7 @@ def get_fresh_now_data_from_zeit():
     assert "dead" in ttls
     assert "recovered" in ttls
 
-    # Now let's see when this was last updated.
-    # This timestamp is a string of the following format:
-    #
-    #    '17. März 2020, 21:22 Uhr'
-    #
-    # This is pretty horrible as an interface, but of course we can work
-    # on that, yolo! But let's not plan into the future longer than May.
-    # Who would need that, right?
-    t = data["changeTimestamp"]
-    t = t.replace("März", "03").replace("April", "04").replace("Mai", "05")
-    t = t.replace(",", "").replace(".", "")
-
-    try:
-        t_source_last_updated = datetime.strptime(t, "%d %m %Y %H:%M Uhr")
-    except ValueError as err:
-        log.error(
-            "could not parse changeTimestamp %s: %s", data["changeTimestamp"], err
-        )
-
-    # `t_source_last_updated` is so far not timezone-aware (no timezone set).
-    # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
-    # JSON doc imply).
-    t_source_last_updated = pytz.timezone("Europe/Amsterdam").localize(
-        t_source_last_updated
-    )
+    t_source_last_updated = parse_zo_timestring_into_dt(data["changeTimestamp"])
 
     return {
         "cases": ttls["count"],
@@ -349,6 +325,30 @@ def get_fresh_now_data_from_be_mopo():
         "t_obtained_from_source": time(),
         "source": "Berliner Morgenpost (aggregated data from individual ministries of health in Germany)",
     }
+
+
+def parse_zo_timestring_into_dt(timestring):
+    # This timestamp is a string of the following format:
+    #
+    #    '17. März 2020, 21:22 Uhr'
+    #
+    # This is pretty horrible as an interface, but of course we can work
+    # on that, yolo! But let's not plan into the future longer than May.
+    # Who would need that, right?
+    ts = timestring
+    ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
+    ts = ts.replace(",", "").replace(".", "")
+
+    # This crashes if our parsing is too brittle or if they change their data
+    # format. Let it crash in that case. TODO: make error paths robust, don't
+    # expose to HTTP clients.
+    t = datetime.strptime(ts, "%d %m %Y %H:%M Uhr")
+
+    # `t_source_last_updated` is so far not timezone-aware (no timezone set).
+    # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
+    # JSON doc imply).
+    t = pytz.timezone("Europe/Amsterdam").localize(t)
+    return t
 
 
 if __name__ == "__main__":
