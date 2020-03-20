@@ -1,19 +1,20 @@
 # COVID-19 case numbers in Germany by state, over time
 
-The data set is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
+This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
-How is this different from other data sources?
+How is this different from other datasets?
 
-- Offers **historical data for individual Bundesländer** (states), manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) until March 17, and for the more recent days based on the more up-to-date reports by the individual states themselves. To my knowledge that is unique and the main reason I started this project.
+The primary concern is data _credibility_ while maintaining data _freshness_ (can be a challenging trade-off in the current phase of exponential growth).
+
+- The dataset includes **historical data for individual Bundesländer** (states). Manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html), until March 17. Since then, based on the more up-to-date reports by the individual states themselves. To my knowledge that is unique and the main reason I started this project.
 - https://covid19-germany.appspot.com/now consults multiple sources to be as
   fresh as possible (as of the time of writing: ZEIT ONLINE, Berliner
   Morgenpost). See [attribution](https://github.com/jgehrcke/covid-19-germany-gae#attribution).
 
-For the HTTP API the primary motivation is:
+For the HTTP API some of the motivations are:
 
-- convenience (easy to consume for you in the tooling of your choice!)
+- convenience: easy to consume in the tooling of your choice!
 - interface stability
-- data _credibility_ and data _freshness_
 - availability
 
 ## Quick overview
@@ -43,9 +44,7 @@ by the Robert Koch-Institut (yielding the data points in this database before
 March 17), but also by ZEIT ONLINE (yielding the data points in my database
 from March 17 on).
 
-In [this blog](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/)(German)
-post I try to shed light on why -- as of the time of writing (March 18) -- the numbers reported in
-the RKI and WHO situation reports lag behind by 1-3 days.
+In [this blog post](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German) I try to shed light on why — as of the time of writing (March 18) — the numbers reported in the RKI and WHO situation reports lag behind by 1-3 days.
 
 Also [this comment](https://github.com/CSSEGISandData/COVID-19/issues/1008#issuecomment-601210784) (and that entire thread) is rather insightful.
 
@@ -60,6 +59,8 @@ Also [this comment](https://github.com/CSSEGISandData/COVID-19/issues/1008#issue
 - The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
 - The points in time are encoded using localized ISO8601 time string notation.
 - I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
+- Right now my idea is to update this file daily during the (German) evening hours, after ZEIT ONLINE and Berliner Morgenpost have published their last update of the day.
+- As a differentiator from other datasets the sample timestamps contain the time of the day so that consumers can at least have a vague impression if the sample represents the state in the morning or evening (a common confusion about the RKI-derived datasets).
 
 ### Example: parsing and plotting
 
