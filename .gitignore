@@ -1,2 +1,2 @@
 */.secrets/*
-*/env-sensitive.yaml
+gae/env-sensitive.yaml
