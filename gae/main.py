@@ -31,6 +31,7 @@ import re
 import io
 import tempfile
 import pickle
+import uuid
 from time import time
 from datetime import datetime
 
@@ -43,15 +44,16 @@ import google.cloud.exceptions
 from flask import Flask, jsonify, abort
 
 
-ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
-BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
-
 app = Flask(__name__)
 
+app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
+
+ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
+BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
 FBCACHE = firestore.Client().collection("cache")
 FBCACHE_NOW_DOC = FBCACHE.document("gernow")
 FBCACHE_TIMESERIES_DOC = FBCACHE.document("gerhistory")
-FIRSTREQUEST = True
+FS_CACHE_SUFFIX = uuid.uuid4().hex
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -119,11 +121,11 @@ STATE_WHITELIST = [
 
 METRIC_WHITELIST = ["cases", "deaths"]
 
-METRIC_SUFFIX_MAP = {"cases": "_c", "deaths": "_d"}
+METRIC_SUFFIX_MAP = {"cases": "_cases", "deaths": "_deaths"}
 
 TIMESERIES_JSON_OUTPUT_META_DICT = {
     "source": "Official numbers published by public health offices (Gesundheitsaemter) in Germany",
-    "info": "https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries",
+    "info": "https://github.com/jgehrcke/covid-19-germany-gae",
 }
 
 
@@ -141,7 +143,7 @@ def get_timeseries(state, metric):
     # Construct column name like DE-BW_c
     column_name = state + METRIC_SUFFIX_MAP[metric]
     output_dict = {
-        "data": df[column_name].to_dict(),
+        "data": [{time: value} for time, value in df[column_name].to_dict().items()],
         "meta": TIMESERIES_JSON_OUTPUT_META_DICT,
     }
     return jsonify(output_dict)
@@ -156,7 +158,9 @@ def get_timeseries_dataframe():
     """
 
     maxage_minutes = 15
-    cpath = os.path.join(tempfile.gettempdir(), "timeseries.df.cache.pickle")
+    cpath = os.path.join(
+        tempfile.gettempdir(), f"timeseries.df.cache.pickle-{FS_CACHE_SUFFIX}"
+    )
 
     # Read from cache if it exists and is not too old.
     if os.path.exists(cpath):
@@ -166,14 +170,14 @@ def get_timeseries_dataframe():
                 return pd.read_pickle(cpath)
 
     try:
-        df = fetch_timeseries_gsheet_and_construct_dataframe()
+        df = fetch_timeseries_csv_and_construct_dataframe()
     except Exception as err:
         # TODO: if that fails read from firestore (last good state backup)
         raise
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
-    tmppath = cpath + "new"
+    tmppath = cpath + "_new"
     log.info("write dataframe (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         df.to_pickle(tmppath)
@@ -190,42 +194,17 @@ def get_timeseries_dataframe():
     return df
 
 
-def fetch_timeseries_gsheet_and_construct_dataframe():
-    dockey = os.environ["FEDSTATE_TIMESERIES_GSHEET_KEY"]
-    docid = os.environ["FEDSTATE_TIMESERIES_GSHEET_ID"]
-    url = (
-        f"https://docs.google.com/spreadsheets/d/{dockey}/export?format=csv&gid={docid}"
-    )
-    log.info("read csv data from google sheets: %s", url)
+def fetch_timeseries_csv_and_construct_dataframe():
+    url = "https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv"
+    log.info("read csv data from github: %s", url)
     resp = requests.get(url)
     resp.raise_for_status()
 
-    df = pd.read_csv(io.StringIO(resp.text))
-    df = df.dropna()
-    # print(df)
-
-    # datetimes = []
-    datetime_strings = []
-    for _, row in df.iterrows():
-        ts = datetime(
-            2020,
-            int(row["month"]),
-            int(row["day"]),
-            int(row["hour"]),
-            int(row["min"]),
-            0,
-            0,
-        )
-
-        ts = pytz.timezone("Europe/Amsterdam").localize(ts)
-        tsstring = ts.isoformat()
-        # datetimes.append(ts)
-        datetime_strings.append(tsstring)
-
     # Using the iso8601 time strings as index has the advantage that individual
     # colunmns (Series objects) are JSON-encode-ready by just doing
-    df.index = datetime_strings
-    df.drop(["month", "day", "hour", "min"], axis=1, inplace=True)
+    # `Series.to_dict()` yields an ordered map of timestamp:value pairs.
+    df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
+    df = df.dropna()
     return df
 
 
@@ -237,7 +216,7 @@ def get_now_data_from_cache():
     - firebase (fallback)
     """
     maxage_minutes = 15
-    cpath = os.path.join(tempfile.gettempdir(), "now.pickle.cache")
+    cpath = os.path.join(tempfile.gettempdir(), f"now.pickle.cache-{FS_CACHE_SUFFIX}")
 
     # Read from cache if it exists and is not too old.
     if os.path.exists(cpath):
@@ -254,7 +233,7 @@ def get_now_data_from_cache():
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
-    tmppath = cpath + "new"
+    tmppath = cpath + "_new"
     log.info("write /now data (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         pickle.dump(datadict, f, protocol=pickle.HIGHEST_PROTOCOL)
