@@ -73,9 +73,14 @@ def germany_now():
 
     data = get_now_data_from_cache()
 
-    # mangle `data` dict (obtained from DB cache) into the state that we want
-    # to return to HTTP clients. It's OK to not deep-copy here, any mutation
-    # allowed.
+    # Generate timezone-aware ISO 8601 timestring indicating when the external
+    # source was last polled. Put it into Germany's timezone.
+    t_consulted_ger_tz_iso8601 = (
+        pytz.timezone("Europe/Amsterdam")
+        .localize(datetime.fromtimestamp(int(data["t_obtained_from_source"])))
+        .isoformat()
+    )
+
     output_dict = {
         "current_totals": {
             "cases": data["cases"],
@@ -90,9 +95,7 @@ def germany_now():
             "time_source_last_updated_iso8601": data[
                 "time_source_last_updated_iso8601"
             ],
-            "time_source_last_consulted_iso8601": datetime.fromtimestamp(
-                int(data["t_obtained_from_source"]), pytz.utc
-            ).isoformat(),
+            "time_source_last_consulted_iso8601": t_consulted_ger_tz_iso8601,
         },
     }
 
