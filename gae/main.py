@@ -85,6 +85,7 @@ def germany_now():
         },
         "meta": {
             "source": data["source"],
+            "info": "https://github.com/jgehrcke/covid-19-germany-gae",
             "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
             "time_source_last_updated_iso8601": data[
                 "time_source_last_updated_iso8601"
