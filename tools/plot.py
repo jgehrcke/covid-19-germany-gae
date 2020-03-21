@@ -75,10 +75,14 @@ STATE_ISONAME_NAME_MAP = {v: k for k, v in STATE_NAME_ISONAME_MAP.items()}
 
 def main():
 
-    df = fetch_current_csv_as_df()
+    # Parse iso 8601 timestrings into native DatetimeIndex
+    df = pd.read_csv(
+        sys.argv[1], index_col=["time_iso8601"], parse_dates=["time_iso8601"]
+    )
+    df.index.name = "date"
+
     for state_isoname in STATE_ISONAME_NAME_MAP:
         generate_plot_html_file(df, state_isoname)
-        sys.exit()
 
 
 def generate_plot_html_file(df_case_data, state_isoname):
@@ -107,6 +111,8 @@ def generate_plot_html_file(df_case_data, state_isoname):
     Last case count: {df_case_data[cname][-1]} ({df_case_data.index[-1].strftime("%Y-%m-%d")})
 
     <strong>Doubling time: ~{doubling_time_days:.1f} days</strong> (from exponential fit, via ln(2)/ln(b), with count(days) = a*e^(b*days))
+
+    How useful is this number? Depends on the quality of the fit. See for yourself below.
     <br /><br />
     """
     ).replace("\n\n", "<br />")
@@ -182,10 +188,11 @@ def generate_plot_html_file(df_case_data, state_isoname):
     )
     figlin.legend.location = "top_left"
 
-    bokeh.plotting.show(
+    bokeh.plotting.save(
         column(preamble, figlog, figlin, sizing_mode="stretch_both", max_width=900),
         browser="firefox",
     )
+    log.info("wrote %s", html_file_path)
 
 
 def expfit(df, cname):
@@ -236,21 +243,6 @@ def expfit(df, cname):
     df_fit = df.copy()
     df_fit["expfit"] = fit_ys
     return df_fit, doubling_time_days
-
-
-def fetch_current_csv_as_df():
-
-    url = "https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv"
-    log.info("fetch csv data from github: %s", url)
-    resp = requests.get(url)
-    resp.raise_for_status()
-
-    # Parse iso 8601 timestrings into a native DateTimeIndex
-    df = pd.read_csv(
-        "data.csv", index_col=["time_iso8601"], parse_dates=["time_iso8601"]
-    )
-    df.index.name = "date"
-    return df
 
 
 if __name__ == "__main__":
