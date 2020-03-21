@@ -25,6 +25,29 @@ For the HTTP API some of the motivations are:
 
 More details below.
 
+## Plots
+
+Confirmed COVID-19 cases over time with exponential fit, for
+
+- [Baden-Württemberg](https://covid19-germany.appspot.com/static/plots/plot-DE-BW.html)
+- [Bayern](https://covid19-germany.appspot.com/static/plots/plot-DE-BY.html)
+- [Brandenburg](https://covid19-germany.appspot.com/static/plots/plot-DE-BB.html)
+- [Berlin](https://covid19-germany.appspot.com/static/plots/plot-DE-BE.html)
+- [Bremen](https://covid19-germany.appspot.com/static/plots/plot-DE-HB.html)
+- [Hamburg](https://covid19-germany.appspot.com/static/plots/plot-DE-HH.html)
+- [Hessen](https://covid19-germany.appspot.com/static/plots/plot-DE-HE.html)
+- [Mecklenburg-Vorpommern](https://covid19-germany.appspot.com/static/plots/plot-DE-MV.html)
+- [Niedersachsen](https://covid19-germany.appspot.com/static/plots/plot-DE-NI.html)
+- [Nordrhein-Westfalen](https://covid19-germany.appspot.com/static/plots/plot-DE-NW.html)
+- [Rheinland-Pfalz](https://covid19-germany.appspot.com/static/plots/plot-DE-RP.html)
+- [Saarland](https://covid19-germany.appspot.com/static/plots/plot-DE-SL.html)
+- [Sachsen-Anhalt](https://covid19-germany.appspot.com/static/plots/plot-DE-ST.html)
+- [Sachsen](https://covid19-germany.appspot.com/static/plots/plot-DE-SN.html)
+- [Schleswig-Holstein](https://covid19-germany.appspot.com/static/plots/plot-DE-SH.html)
+- [Thüringen](https://covid19-germany.appspot.com/static/plots/plot-DE-TH.html)
+
+Automatically generated (captain obvious: based on this dataset :-)).
+
 ## Contact and questions
 
 You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
