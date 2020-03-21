@@ -29,6 +29,7 @@ More details below.
 
 Confirmed COVID-19 cases over time with exponential fit, for
 
+- [All Germany](https://covid19-germany.appspot.com/static/plots/plot-DEU.html)
 - [Baden-Württemberg](https://covid19-germany.appspot.com/static/plots/plot-DE-BW.html)
 - [Bayern](https://covid19-germany.appspot.com/static/plots/plot-DE-BY.html)
 - [Brandenburg](https://covid19-germany.appspot.com/static/plots/plot-DE-BB.html)
