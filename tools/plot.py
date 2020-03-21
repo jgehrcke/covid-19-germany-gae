@@ -82,21 +82,28 @@ def main():
     df.index.name = "date"
 
     for state_isoname in STATE_ISONAME_NAME_MAP:
-        generate_plot_html_file(df, state_isoname)
+        generate_plot_html_file(
+            df,
+            cname=state_isoname + "_cases",
+            fullname=STATE_ISONAME_NAME_MAP[state_isoname],
+            shortname=state_isoname,
+        )
+
+    generate_plot_html_file(
+        df, cname="sum_cases", fullname="all states/counties", shortname="DEU",
+    )
 
 
-def generate_plot_html_file(df_case_data, state_isoname):
-    log.info("generate plot for %s", state_isoname)
-    statename = STATE_ISONAME_NAME_MAP[state_isoname]
+def generate_plot_html_file(df_case_data, cname, fullname, shortname):
+    log.info("generate plot for %s", shortname)
     now = datetime.utcnow()
-    cname = state_isoname + "_cases"
-    html_file_path = f"plot-{state_isoname}.html"
+    html_file_path = f"plot-{shortname}.html"
 
     cases_total_fit, doubling_time_days = expfit(df_case_data, cname)
 
     preamble_text = dedent(
         f"""
-    <h2>Confirmed COVID-19 cases for Germany, {statename}, over time</h2>
+    <h2>Confirmed COVID-19 cases for Germany, {fullname}, over time</h2>
 
     Background information and code: <a href="https://github.com/jgehrcke/covid-19-germany-gae">github.com/jgehrcke/covid-19-germany-gae</a>
 
@@ -133,7 +140,7 @@ def generate_plot_html_file(df_case_data, state_isoname):
         fig.yaxis.axis_label = "cumulative number of confirmed cases"
 
     figlog = bokeh.plotting.figure(
-        title=f"cumulative COVID-19 case count over time (semi-logarithmic), {state_isoname}",
+        title=f"cumulative COVID-19 case count over time (semi-logarithmic), {shortname}",
         x_axis_type="datetime",
         y_axis_type="log",
         toolbar_location=None,
@@ -163,7 +170,7 @@ def generate_plot_html_file(df_case_data, state_isoname):
     figlog.legend.location = "top_left"
 
     figlin = bokeh.plotting.figure(
-        title=f"cumulative COVID-19 case count over time (linear), {state_isoname}",
+        title=f"cumulative COVID-19 case count over time (linear), {shortname}",
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#F2F2F7",
