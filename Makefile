@@ -9,6 +9,11 @@ update-csv:
 	@echo "Diff looks good? Run git commit data.csv -m 'data.csv: automated update'"
 
 
+.PHONY: plots
+plots:
+	cd plots && python ../tools/plot.py ../data.csv
+
+
 .PHONY: install-python-dependencies
 install-python-dependencies:
 	pip install gae/requirements.txt
