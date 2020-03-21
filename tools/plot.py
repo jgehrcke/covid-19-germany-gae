@@ -88,13 +88,15 @@ def generate_plot_html_file(df_case_data, state_isoname):
     cname = state_isoname + "_cases"
     html_file_path = f"plot-{state_isoname}.html"
 
+    cases_total_fit, doubling_time_days = expfit(df_case_data, cname)
+
     preamble_text = dedent(
         f"""
-    <h2>Confirmed COVID-19 cases for {statename}, over time</h2>
-
-    Data sources: Gesundheitsministerien (aggregated by RKI, ZEIT ONLINE)
+    <h2>Confirmed COVID-19 cases for Germany, {statename}, over time</h2>
 
     Background information and code: <a href="https://github.com/jgehrcke/covid-19-germany-gae">github.com/jgehrcke/covid-19-germany-gae</a>
+
+    Data sources: Gesundheitsministerien (aggregated by RKI, ZEIT ONLINE)
 
     Author: <a href="https://gehrcke.de">Dr. Jan-Philip Gehrcke</a>
 
@@ -103,13 +105,14 @@ def generate_plot_html_file(df_case_data, state_isoname):
     Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}
 
     Last case count: {df_case_data[cname][-1]} ({df_case_data.index[-1].strftime("%Y-%m-%d")})
+
+    <strong>Doubling time: ~{doubling_time_days:.1f} days</strong> (from exponential fit, via ln(2)/ln(b), with count(days) = a*e^(b*days))
+    <br /><br />
     """
     ).replace("\n\n", "<br />")
 
     bokeh.plotting.output_file(html_file_path)
     preamble = bokeh.models.Div(text=preamble_text, height=120)
-
-    cases_total_fit = expfit(df_case_data, cname)
 
     def _set_common_bokeh_fig_props(fig):
         fig.toolbar.active_drag = None
@@ -188,44 +191,52 @@ def generate_plot_html_file(df_case_data, state_isoname):
 
 def expfit(df, cname):
 
-    # Parameterize a simple linear function.
+    # Goal: Get day-representing time values as numpy array containing float
+    # data type. First, get timestamps as numpy.datetime64 values from pandas
+    # dataframe.
+    ts = np.array(df.index.to_pydatetime(), dtype=np.datetime64)
+
+    # Forget absolute time since epoch, we care about the relative time
+    # between data points. Get these time differences as native
+    # numpy.timedelta64 data points.
+    time_deltas = ts - ts.min()
+
+    # Most likely `time_deltas` have microsecond precision,
+    # but we do not need to care about that. Use this normalization trick
+    # to turn these time deltas into floats:
+    # https://stackoverflow.com/a/14921192/145400
+    time_deltas_seconds = time_deltas / np.timedelta64(1, "s")
+    time_delta_days = time_deltas_seconds / 86400.0
+    log.info("time deltas [days]: %s", time_delta_days)
+
+    # Method: exponential fit by doing a linear fit to natural logarithm of
+    # data values.
+    ln_values = np.log(df[cname].to_numpy())
+    log.info("time [days] for fit: %s", time_delta_days)
+    log.info("ln values/count for fit: %s", ln_values)
+
+    # Function for simple linear regression.
     def linfunc(x, a, b):
         return a + x * b
 
-    # Get date-representing x values as numpy array containing float data type.
-    x = np.array(df.index.to_pydatetime(), dtype=np.datetime64).astype("float")
+    # Perform the fit.
+    popt, pcov = scipy.optimize.curve_fit(linfunc, time_delta_days, ln_values)
+    # log.info("fit paramters: %s, %s", popt, pcov)
+    log.info("In `count(days) = a*e^(b*days)` b was found as %.3f", popt[1])
 
-    minx = x.min()
+    doubling_time_days = np.log(2) / popt[1]
+    log.info("Doubling time: ln(2)/ln(b): %.1f days", doubling_time_days)
 
-    # For the fit don't deal with crazy large x values, transform to time
-    # deltas (by substracting mininum), and also transform from nanoseconds
-    # seconds.
-    fitx = (x - minx) / (10 ** 9 * 86400)
-
-    # Get natural logarithm of data values
-    y = np.log(df[cname].to_numpy())
-    # log.info(fitx)
-    # log.info(y)
-    # log.info(", ".join("{%s, %s}" % (x, y) for x, y in zip(fitx, y)))
-
-    # Choose starting parameters for iterative fit.
-    p0 = [minx, 3]
-
-    popt, pcov = scipy.optimize.curve_fit(linfunc, fitx, y, p0=p0)
-    log.info("fit paramters: %s, %s", popt, pcov)
-
-    # Get data values from fit for the time values corresponding to the time
-    # values in the original time series used for fitting.
-    fit_ys_log = linfunc(fitx, *popt)
-
-    # Generate corresponding fit values by inverting logarithm.
+    # Get data values from fit function, generate corresponding fit values by
+    # inverting logarithm.
+    fit_ys_log = linfunc(time_delta_days, *popt)
     fit_ys = np.exp(fit_ys_log)
 
     # Create a data frame with the original time values as index, and the
     # values from the fit as a series named `expfit`
     df_fit = df.copy()
     df_fit["expfit"] = fit_ys
-    return df_fit
+    return df_fit, doubling_time_days
 
 
 def fetch_current_csv_as_df():
