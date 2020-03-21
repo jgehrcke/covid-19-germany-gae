@@ -11,7 +11,17 @@ update-csv:
 
 .PHONY: plots
 plots:
-	cd plots && python ../tools/plot.py ../data.csv
+	cd gae/static/plots && python ../../../tools/plot.py ../../../data.csv
+
+
+.PHONY: deploy-staging
+deploy-staging:
+	cd gae && gcloud app deploy --no-promote
+
+
+.PHONY: deploy-prod
+deploy-prod:
+	cd gae && gcloud app deploy --promote
 
 
 .PHONY: install-python-dependencies
