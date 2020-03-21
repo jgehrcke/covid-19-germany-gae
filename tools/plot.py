@@ -124,9 +124,10 @@ def generate_plot_html_file(df_case_data, state_isoname):
         fig.xaxis.ticker.desired_num_ticks = 15
         fig.xaxis.axis_label = "Date"
         fig.y_range.start = 1
+        fig.yaxis.axis_label = "cumulative number of confirmed cases"
 
     figlog = bokeh.plotting.figure(
-        title="evolution of total case count (half-logarithmic)",
+        title=f"cumulative COVID-19 case count over time (semi-logarithmic), {state_isoname}",
         x_axis_type="datetime",
         y_axis_type="log",
         toolbar_location=None,
@@ -145,7 +146,6 @@ def generate_plot_html_file(df_case_data, state_isoname):
 
     figlog.y_range.bounds = (1, df_case_data[cname].max() * 10)
     figlog.y_range.end = df_case_data[cname].max() * 10
-    figlog.yaxis.axis_label = "total number of confirmed cases"
     figlog.line(
         "date",
         "expfit",
@@ -157,7 +157,7 @@ def generate_plot_html_file(df_case_data, state_isoname):
     figlog.legend.location = "top_left"
 
     figlin = bokeh.plotting.figure(
-        title="evolution of total case count (linear)",
+        title=f"cumulative COVID-19 case count over time (linear), {state_isoname}",
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#F2F2F7",
@@ -174,7 +174,6 @@ def generate_plot_html_file(df_case_data, state_isoname):
     _set_common_bokeh_fig_props(figlin)
 
     figlin.y_range.end = df_case_data[cname].max() * 1.3
-    figlin.yaxis.axis_label = "total number of confirmed cases"
     figlin.line(
         "date",
         "expfit",
