@@ -22,13 +22,12 @@
 
 import io
 import logging
-
+import sys
 from datetime import datetime
-import pytz
 
 import pandas as pd
+import pytz
 import requests
-
 
 STATE_NAME_ISONAME_MAP = {
     "Baden-Württemberg": "DE-BW",
@@ -76,10 +75,19 @@ def main():
     log.info("source last updated at: %s", t_source_last_updated.isoformat())
     seconds_newer = (t_source_last_updated - currentdata_last_time).total_seconds()
     hours_newer = seconds_newer / 3600.0
+
     log.info(
-        "source is %.2f hours newer (if that is fishy or negative: don't commit this)",
-        hours_newer,
+        "source is %.2f hours newer", hours_newer,
     )
+
+    if hours_newer < 0:
+        sys.exit("new data is old data? that seems quite wrong, aborting")
+
+    if hours_newer < 12:
+        sys.exit("new data not new enough")
+
+    if hours_newer > 24:
+        log.warning("more than a day between the new data point and the last one")
 
     log.info("add new sample to existing data set")
     df_new = df_previous_csv.append(df_current)
