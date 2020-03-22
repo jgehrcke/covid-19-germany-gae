@@ -176,8 +176,10 @@ def get_timeseries_dataframe():
     try:
         df = fetch_timeseries_csv_and_construct_dataframe()
     except Exception as err:
-        # TODO: if that fails read from firestore (last good state backup)
-        raise
+        # Fall back to reading from firestore (last good state backup)
+        log.exception("err during timeseries fetch: %s", err)
+        log.info("falling back to firebase state for timeseries data")
+        return pickle.loads(FBCACHE_TIMESERIES_DOC.get().to_dict()["dataframe.pickle"])
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
@@ -185,7 +187,12 @@ def get_timeseries_dataframe():
     log.info("write dataframe (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         df.to_pickle(tmppath)
-    os.rename(tmppath, cpath)
+
+    try:
+        os.rename(tmppath, cpath)
+    except FileNotFoundError:
+        # another racer switched the file underneath us
+        log.info("atomic file switch: congrats, a rare case happened!")
 
     with open(cpath, "rb") as f:
         byteseq = f.read()
@@ -232,8 +239,10 @@ def get_now_data_from_cache():
     try:
         datadict = fetch_fresh_now_data()
     except Exception as err:
-        # TODO: if that fails read from firestore (last good state backup)
-        raise
+        # Fall back to reading from firestore (last good state backup)
+        log.exception("err during /now fetch: %s", err)
+        log.info("falling back to firebase state")
+        return pickle.loads(FBCACHE_NOW_DOC.get().to_dict()["now.pickle"])
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
@@ -241,7 +250,12 @@ def get_now_data_from_cache():
     log.info("write /now data (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         pickle.dump(datadict, f, protocol=pickle.HIGHEST_PROTOCOL)
-    os.rename(tmppath, cpath)
+
+    try:
+        os.rename(tmppath, cpath)
+    except FileNotFoundError:
+        # another racer switched the file underneath us
+        log.info("atomic file switch: congrats, a rare case happened!")
 
     with open(cpath, "rb") as f:
         byteseq = f.read()
@@ -249,17 +263,35 @@ def get_now_data_from_cache():
             "write /now data to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_TIMESERIES_DOC.set({"now.pickle": byteseq})
+        FBCACHE_NOW_DOC.set({"now.pickle": byteseq})
 
     return datadict
 
 
 def fetch_fresh_now_data():
-    # Fetch both, use most recent, or use higher case count?
 
-    data1 = get_fresh_now_data_from_zeit()
-    data2 = get_fresh_now_data_from_be_mopo()
+    data1 = None
+    data2 = None
 
+    try:
+        data1 = get_fresh_now_data_from_zeit()
+    except Exception as err:
+        log.exception("err during ZO /now fetch: %s", err)
+
+    try:
+        data2 = get_fresh_now_data_from_be_mopo()
+    except Exception as err:
+        log.exception("err during BM /now fetch: %s", err)
+
+    # If one of the sources let us down, short-cut to returning data from
+    # the other right away.
+    if data1 is None:
+        return data2
+
+    if data2 is None:
+        return data1
+
+    # Got data from both. Use more recent or use higher case count?
     if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
         log.info("zeit online data appears to be more recent")
     else:
@@ -339,6 +371,11 @@ def parse_zo_timestring_into_dt(timestring):
     # This is pretty horrible as an interface, but of course we can work
     # on that, yolo! But let's not plan into the future longer than May.
     # Who would need that, right?
+    #
+    # Update: the time format was changed to
+    #
+    #    22. März 2020, 13.55 Uhr
+    #
     ts = timestring
     ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
     ts = ts.replace(",", "").replace(".", "")
@@ -346,7 +383,7 @@ def parse_zo_timestring_into_dt(timestring):
     # This crashes if our parsing is too brittle or if they change their data
     # format. Let it crash in that case. TODO: make error paths robust, don't
     # expose to HTTP clients.
-    t = datetime.strptime(ts, "%d %m %Y %H:%M Uhr")
+    t = datetime.strptime(ts, "%d %m %Y %H%M Uhr")
 
     # `t_source_last_updated` is so far not timezone-aware (no timezone set).
     # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
