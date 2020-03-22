@@ -257,11 +257,29 @@ def get_now_data_from_cache():
 
 
 def fetch_fresh_now_data():
-    # Fetch both, use most recent, or use higher case count?
 
-    data1 = get_fresh_now_data_from_zeit()
-    data2 = get_fresh_now_data_from_be_mopo()
+    data1 = None
+    data2 = None
 
+    try:
+        data1 = get_fresh_now_data_from_zeit()
+    except Exception as err:
+        log.exception("err during ZO /now fetch: %s", err)
+
+    try:
+        data2 = get_fresh_now_data_from_be_mopo()
+    except Exception as err:
+        log.exception("err during BM /now fetch: %s", err)
+
+    # If one of the sources let us down, short-cut to returning data from
+    # the other right away.
+    if data1 is None:
+        return data2
+
+    if data2 is None:
+        return data1
+
+    # Got data from both. Use more recent or use higher case count?
     if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
         log.info("zeit online data appears to be more recent")
     else:
