@@ -359,6 +359,11 @@ def parse_zo_timestring_into_dt(timestring):
     # This is pretty horrible as an interface, but of course we can work
     # on that, yolo! But let's not plan into the future longer than May.
     # Who would need that, right?
+    #
+    # Update: the time format was changed to
+    #
+    #    22. März 2020, 13.55 Uhr
+    #
     ts = timestring
     ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
     ts = ts.replace(",", "").replace(".", "")
@@ -366,7 +371,7 @@ def parse_zo_timestring_into_dt(timestring):
     # This crashes if our parsing is too brittle or if they change their data
     # format. Let it crash in that case. TODO: make error paths robust, don't
     # expose to HTTP clients.
-    t = datetime.strptime(ts, "%d %m %Y %H:%M Uhr")
+    t = datetime.strptime(ts, "%d %m %Y %H%M Uhr")
 
     # `t_source_last_updated` is so far not timezone-aware (no timezone set).
     # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
