@@ -233,7 +233,9 @@ def get_now_data_from_cache():
         datadict = fetch_fresh_now_data()
     except Exception as err:
         # TODO: if that fails read from firestore (last good state backup)
-        raise
+        log.exception("err during /now fetch: %s", err)
+        log.info("falling back to firebase state")
+        return pickle.loads(FBCACHE_NOW_DOC.get().to_dict()["now.pickle"])
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
