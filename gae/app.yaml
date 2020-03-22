@@ -4,10 +4,12 @@ entrypoint: uwsgi --http-socket :$PORT --wsgi-file main.py --callable app --mast
 includes:
   - env-sensitive.yaml
 
-instance_class: B2
+instance_class: F2
 
-manual_scaling:
-  instances: 1
+automatic_scaling:
+  min_instances: 1
+  max_instances: 1
+  max_idle_instances: 1
 
 # global default cache ttl for all static file handlers
 default_expiration: "10m"
