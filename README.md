@@ -1,5 +1,7 @@
 # COVID-19 case numbers in Germany by state, over time
 
+**Important notice (Sunday, March 22, 6 pm):** take the current weekend numbers with a grain of salt. It is not so likely that the daily infection count actually went down. It is more likely that data processing in the Ämter slowed down. Holy weekend.
+
 This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
 How is this different from other datasets?
