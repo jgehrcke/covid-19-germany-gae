@@ -1,14 +1,15 @@
 runtime: python37
-entrypoint: uwsgi --http-socket :$PORT --wsgi-file main.py --callable app --master --processes 1 --threads 4
+entrypoint: uwsgi --http-socket :$PORT --wsgi-file main.py --callable app --master --processes 1 --threads 5
 
 includes:
   - env-sensitive.yaml
 
-instance_class: B2
+instance_class: F2
 
-basic_scaling:
+automatic_scaling:
+  min_instances: 1
   max_instances: 1
-  idle_timeout: 10m
+  max_idle_instances: 1
 
 # global default cache ttl for all static file handlers
 default_expiration: "10m"
@@ -16,3 +17,7 @@ default_expiration: "10m"
 handlers:
   - url: /static
     static_dir: static
+
+  - url: /(.*\.(ico|png|webmanifest))$
+    static_files: faviconfiles/\1
+    upload: faviconfiles/.*\.(ico|png|webmanifest)$
