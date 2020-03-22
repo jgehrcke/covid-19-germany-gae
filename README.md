@@ -1,5 +1,9 @@
 # COVID-19 case numbers in Germany by state, over time
 
+**Important notice (Sunday, March 22, 6 pm):** take the current weekend numbers with a grain of salt. It is not so likely that the _actual_ daily infection count decreased. It is more likely that data processing in the Ämter slowed down. Holy weekend.
+
+---
+
 This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
 How is this different from other datasets?
@@ -16,6 +20,8 @@ For the HTTP API some of the motivations are:
 - convenience: easy to consume in the tooling of your choice!
 - interface stability
 - availability
+
+**Note**: We might change time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
 ## Quick overview
 
@@ -212,13 +218,18 @@ This list is supposed to grow over time.
 - Baden-Württemberg:
   - [case numbers, map, discussion](https://sozialministerium.baden-wuerttemberg.de/de/gesundheit-pflege/gesundheitsschutz/infektionsschutz-hygiene/informationen-zu-coronavirus/)
   - [spreadsheet, xlsx, with historical data](https://sozialministerium.baden-wuerttemberg.de/fileadmin/redaktion/m-sm/intern/downloads/Downloads_Gesundheitsschutz/Tabelle_Coronavirus-Faelle-BW.xlsx)
+- Brandenburg: [press releases](https://msgiv.brandenburg.de/msgiv/de/presse/pressemitteilungen/)
+- Bremen: [press releases](https://www.gesundheit.bremen.de/sixcms/detail.php?gsid=bremen229.c.32718.de)
 - Hamburg: [current numbers](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- Hessen: [press releases](https://soziales.hessen.de/)
 - NRW: [current numbers, LK table](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- Mecklenburg-Vorpommern: [press releases](https://www.regierung-mv.de/Aktuell/)
 - Niedersachsen (pretty well done!):
   - [current numbers, map, LK table](https://www.niedersachsen.de/Coronavirus/aktuelle_lage_in_niedersachsen/)
   - [CSV](https://www.apps.nlga.niedersachsen.de/corona/download.php?csv) / [GeoJSON](https://www.apps.nlga.niedersachsen.de/corona/download.php?json)
   - so close, but no historical data :-(
-- Saarland: [Pressemitteilungen](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
+- Rheinland-Pfalz: [case numbers, LK table](https://msagd.rlp.de/de/unsere-themen/gesundheit-und-pflege/gesundheitliche-versorgung/oeffentlicher-gesundheitsdienst-hygiene-und-infektionsschutz/infektionsschutz/informationen-zum-coronavirus-sars-cov-2/)
+- Saarland: [press releases](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
 - Sachsen: [current numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
 
 ## Random notes
