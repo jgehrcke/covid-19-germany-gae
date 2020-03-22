@@ -185,7 +185,12 @@ def get_timeseries_dataframe():
     log.info("write dataframe (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         df.to_pickle(tmppath)
-    os.rename(tmppath, cpath)
+
+    try:
+        os.rename(tmppath, cpath)
+    except FileNotFoundError:
+        # another racer switched the file underneath us
+        log.info("atomic file switch: congrats, a rare case happened!")
 
     with open(cpath, "rb") as f:
         byteseq = f.read()
@@ -243,7 +248,12 @@ def get_now_data_from_cache():
     log.info("write /now data (atomic rename) to file cache %s:", tmppath)
     with open(tmppath, "wb") as f:
         pickle.dump(datadict, f, protocol=pickle.HIGHEST_PROTOCOL)
-    os.rename(tmppath, cpath)
+
+    try:
+        os.rename(tmppath, cpath)
+    except FileNotFoundError:
+        # another racer switched the file underneath us
+        log.info("atomic file switch: congrats, a rare case happened!")
 
     with open(cpath, "rb") as f:
         byteseq = f.read()
