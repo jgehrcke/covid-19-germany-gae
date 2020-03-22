@@ -98,8 +98,8 @@ def main():
     cnames_for_cases = [iname + "_cases" for iname in STATE_NAME_ISONAME_MAP.values()]
     cnames_for_deaths = [iname + "_deaths" for iname in STATE_NAME_ISONAME_MAP.values()]
 
-    # df_new["sum_cases"] = df_new[cnames_for_cases].sum(axis=1)
-    # df_new["sum_deaths"] = df_new[cnames_for_deaths].sum(axis=1)
+    df_new["sum_cases"] = df_new[cnames_for_cases].sum(axis=1)
+    df_new["sum_deaths"] = df_new[cnames_for_deaths].sum(axis=1)
 
     # print(df_new["sum_cases"])
     # print(df_new["sum_deaths"])
