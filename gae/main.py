@@ -176,8 +176,10 @@ def get_timeseries_dataframe():
     try:
         df = fetch_timeseries_csv_and_construct_dataframe()
     except Exception as err:
-        # TODO: if that fails read from firestore (last good state backup)
-        raise
+        # Fall back to reading from firestore (last good state backup)
+        log.exception("err during timeseries fetch: %s", err)
+        log.info("falling back to firebase state for timeseries data")
+        return pickle.loads(FBCACHE_TIMESERIES_DOC.get().to_dict()["dataframe.pickle"])
 
     # Atomic switch (in case there are concurrently running threads
     # reading/writing this, too).
@@ -237,7 +239,7 @@ def get_now_data_from_cache():
     try:
         datadict = fetch_fresh_now_data()
     except Exception as err:
-        # TODO: if that fails read from firestore (last good state backup)
+        # Fall back to reading from firestore (last good state backup)
         log.exception("err during /now fetch: %s", err)
         log.info("falling back to firebase state")
         return pickle.loads(FBCACHE_NOW_DOC.get().to_dict()["now.pickle"])
