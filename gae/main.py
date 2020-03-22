@@ -249,7 +249,7 @@ def get_now_data_from_cache():
             "write /now data to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_TIMESERIES_DOC.set({"now.pickle": byteseq})
+        FBCACHE_NOW_DOC.set({"now.pickle": byteseq})
 
     return datadict
 
