@@ -2,6 +2,8 @@
 
 **Important notice (Sunday, March 22, 6 pm):** take the current weekend numbers with a grain of salt. It is not so likely that the _actual_ daily infection count decreased. It is more likely that data processing in the Ämter slowed down. Holy weekend.
 
+---
+
 This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
 How is this different from other datasets?
@@ -19,7 +21,7 @@ For the HTTP API some of the motivations are:
 - interface stability
 - availability
 
-**Note**: it might happen that we re-write history here, that we change time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but might happen as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
+**Note**: We might change time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
 ## Quick overview
 
