@@ -200,7 +200,13 @@ def get_timeseries_dataframe():
             "write dataframe to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_TIMESERIES_DOC.set({"dataframe.pickle": byteseq})
+        try:
+            # I have seen this fail transiently with
+            # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
+            FBCACHE_TIMESERIES_DOC.set({"dataframe.pickle": byteseq})
+        except Exception as err:
+            # don't let the http client suffer, but log the problem
+            log.exception("err during dataframe firestore set(): %s", err)
 
     return df
 
@@ -263,7 +269,13 @@ def get_now_data_from_cache():
             "write /now data to firebase (last good state backup), %s bytes",
             len(byteseq),
         )
-        FBCACHE_NOW_DOC.set({"now.pickle": byteseq})
+        try:
+            # I have seen this fail transiently with
+            # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
+            FBCACHE_NOW_DOC.set({"now.pickle": byteseq})
+        except Exception as err:
+            # don't let the http client suffer, but log the problem
+            log.exception("err during ZO /now firestore set(): %s", err)
 
     return datadict
 
