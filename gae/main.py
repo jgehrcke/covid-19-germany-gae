@@ -372,13 +372,15 @@ def parse_zo_timestring_into_dt(timestring):
     # on that, yolo! But let's not plan into the future longer than May.
     # Who would need that, right?
     #
-    # Update: the time format was changed to
+    # Update: the time format was then changed to
     #
     #    22. März 2020, 13.55 Uhr
     #
+    # Update2: and switched back again. Yeah, it's fun to consume an
+    # implementation detail.
     ts = timestring
     ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
-    ts = ts.replace(",", "").replace(".", "")
+    ts = ts.replace(",", "").replace(".", "").replace(":", "")
 
     # This crashes if our parsing is too brittle or if they change their data
     # format. Let it crash in that case. TODO: make error paths robust, don't
