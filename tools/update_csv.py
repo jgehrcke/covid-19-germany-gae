@@ -20,9 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
 import io
 import logging
+import json
 import sys
+from time import time
 from datetime import datetime
 
 import pandas as pd
@@ -47,7 +50,7 @@ STATE_NAME_ISONAME_MAP = {
     "Schleswig-Holstein": "DE-SH",
     "Thüringen": "DE-TH",
 }
-
+ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -55,6 +58,9 @@ logging.basicConfig(
     format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
     datefmt="%y%m%d-%H:%M:%S",
 )
+
+with open("lk-ags-to-bl.json", "rb") as f:
+    AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
 
 
 def main():
@@ -95,11 +101,21 @@ def main():
     log.info("new data set:")
     print(df_new)
 
+    last = df_new.tail(1)
+    for c in last:
+        print(last[c])
+
+    # sys.exit()
+
     cnames_for_cases = [iname + "_cases" for iname in STATE_NAME_ISONAME_MAP.values()]
     cnames_for_deaths = [iname + "_deaths" for iname in STATE_NAME_ISONAME_MAP.values()]
 
     df_new["sum_cases"] = df_new[cnames_for_cases].sum(axis=1)
     df_new["sum_deaths"] = df_new[cnames_for_deaths].sum(axis=1)
+
+    last = df_new.tail(1)
+    for c in last:
+        print(last[c])
 
     # print(df_new["sum_cases"])
     # print(df_new["sum_deaths"])
@@ -127,50 +143,53 @@ def fetch_current_csv_as_df():
 
 
 def fetch_current_data_for_each_bundesland_as_df():
+    def _parse_zo_timestring_into_dt(timestring):
+        # This is the third iteration already, as ZO changes their implementation
+        # often. They came to reason and now use ISO 8601.
+        return datetime.strptime(timestring, "%Y-%m-%dT%H:%M:%S%z")
 
     # TODO: add retries for robustness
-    log.info("fetch current data for each state/bundesland")
-    url = "https://interactive.zeit.de/cronjobs/2020/corona/data.json"
+    log.info("fetch current data for each state/bundesland (ZO)")
+    url = f"{ZEIT_JSON_URL}?time={time()}"
     jdata = requests.get(url).json()
+    t_source_last_updated = _parse_zo_timestring_into_dt(jdata["lastUpdate"])
 
-    t_source_last_updated = parse_zo_timestring_into_dt(jdata["changeTimestamp"])
+    agss = [k["ags"] for k in jdata["kreise"]]
+    log.info("got data for %s amtliche Gemeindeschluessel (LKs)", len(agss))
+
+    log.info("assign Gemeindeschluessel to Bundeslaender")
+    for kreis in jdata["kreise"]:
+        kreis["bland"] = AGS_BL_MAP[str(kreis["ags"])]
+
+    kreise_for_bland = {}
+    for bland in STATE_NAME_ISONAME_MAP:
+        log.info("aggregate kreise for %s", bland.upper())
+        kreise_for_bland[bland] = [k for k in jdata["kreise"] if k["bland"] == bland]
+
+    for bland, kreise in kreise_for_bland.items():
+        log.info("%s: %s kreis/ags", bland, len(kreise))
 
     # Now turn this newly obtained snapshot (numbers for all states for a
     # specific point in time) into a pandas DataFrame with n columns and a
     # single row, using the same structure as the DataFrame that is used to
     # construct the CSV in the first place.
-    new_row_dict = {"source": "zeit online"}
-    for obj in jdata["states"]:
-        state_isoname = STATE_NAME_ISONAME_MAP[obj["state"]]
-        new_row_dict[state_isoname + "_cases"] = [obj["count"]]
-        new_row_dict[state_isoname + "_deaths"] = [obj["dead"]]
+    new_row_dict = {"source": "zeit online (gen2, by Landkreis)"}
+    for bland, kreise in kreise_for_bland.items():
+        state_isoname = STATE_NAME_ISONAME_MAP[bland]
+        cases = sum(k["count"] for k in kreise)
+        deaths = sum(k["dead"] for k in kreise)
+        new_row_dict[state_isoname + "_cases"] = [cases]
+        new_row_dict[state_isoname + "_deaths"] = [deaths]
 
     new_row_df = pd.DataFrame(new_row_dict)
     new_row_df.index = [t_source_last_updated.isoformat()]
     new_row_df.index.name = "time_iso8601"
 
+    # print(new_row_df)
+
+    # sys.exit()
+
     return (t_source_last_updated, new_row_df)
-
-
-def parse_zo_timestring_into_dt(timestring):
-    # This timestamp is a string of the following format:
-    #
-    #    '17. März 2020, 21:22 Uhr'
-    #
-    # This is pretty horrible as an interface, but of course we can work
-    # on that, yolo! But let's not plan into the future longer than May.
-    # Who would need that, right?
-    ts = timestring
-    ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
-    ts = ts.replace(",", "").replace(".", "")
-
-    t = datetime.strptime(ts, "%d %m %Y %H:%M Uhr")
-
-    # `t` is so far not timezone-aware (no timezone set). Set the
-    # Amsterdam/Berlin tz explicitly (which is what the authors of this JSON
-    # doc imply).
-    t = pytz.timezone("Europe/Amsterdam").localize(t)
-    return t
 
 
 if __name__ == "__main__":
