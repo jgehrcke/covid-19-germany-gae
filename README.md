@@ -111,15 +111,15 @@ plt.savefig("bw_cases_over_time.png", dpi=200)
 
 ## HTTP API details
 
+For the HTTP API some of the motivations are **convenience** ( easy to consume in the tooling of your choice!), **interface stability**, and **availability**.
+
 - The HTTP API is served under https://covid19-germany.appspot.com
 - It is served by Google App Engine from a European data center
 - The code behind this can be found in the `gae` directory in this repository.
 
-### How to use the HTTP/JSON API
+**How to get historical data for a specific German state/Bundesland:**
 
-#### Get historical data for a specific German state/Bundesland:
-
-First, construct the URL based on this pattern:
+Construct the URL based on this pattern:
 
 `https://covid19-germany.appspot.com/timeseries/<state>/<metric>`:
 
@@ -134,46 +134,14 @@ $ curl -s https://covid19-germany.appspot.com/timeseries/DE-BY/cases | jq
     {
       "2020-03-10T12:00:00+01:00": "314"
     },
-    {
-      "2020-03-11T12:00:00+01:00": "366"
-    },
-    {
-      "2020-03-12T12:00:00+01:00": "500"
-    },
-    {
-      "2020-03-13T12:00:00+01:00": "558"
-    },
-    {
-      "2020-03-14T12:00:00+01:00": "681"
-    },
-    {
-      "2020-03-15T12:00:00+01:00": "886"
-    },
-    {
-      "2020-03-16T12:00:00+01:00": "1067"
-    },
-    {
-      "2020-03-17T21:00:00+01:00": "1352"
-    },
-    {
-      "2020-03-18T23:00:00+01:00": "1798"
-    },
-    {
-      "2020-03-19T23:40:00+01:00": "2282"
-    }
-  ],
-  "meta": {
-    "info": "https://github.com/jgehrcke/covid-19-germany-gae",
-    "source": "Official numbers published by public health offices (Gesundheitsaemter) in Germany"
-  }
-}
+[...]
 ```
 
-The points in time are encoded using localized ISO8601 time string notation.
+The points in time are encoded using localized ISO 8601 time string notation.
 Any decent datetime library can parse that into timezone-aware native timestamp
 representations.
 
-### Get the current snapshot for all of Germany (no time series)
+**How to get the current snapshot for all of Germany (no time series):**
 
 ```
 $ curl -s https://covid19-germany.appspot.com/now | jq
