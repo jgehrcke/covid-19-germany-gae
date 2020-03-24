@@ -38,7 +38,7 @@ import numpy as np
 
 # original data source for this association is documented in
 # https://github.com/jgehrcke/covid-19-germany-gae/issues/46
-df = pd.read_csv("rki_corona_landkreise.csv")
+df = pd.read_csv("landkreise.csv")
 
 # NaNs for kreisefreie Stadt Berlin need to be replaced with 0 before casting.
 df["AGS"] = df["AGS"].fillna(0.0).astype("int")
@@ -46,7 +46,9 @@ all_agss = list(df["AGS"])
 ags_bl_map = {}
 for ags in all_agss:
     if ags == 0:
-        # These are rows for Berlin, kreisfreie Stadt
+        # These are rows for Berlin, kreisfreie Stadt. Manually set this to
+        # 11000 (which seems to be what some use).
+        ags_bl_map["11000"] = "Berlin"
         continue
     matches = df[df["AGS"] == ags]["BL"].tolist()
     # double-check that data set is clean, one row per non-zero AGS
