@@ -93,11 +93,9 @@ def germany_now():
 
     # Generate timezone-aware ISO 8601 timestring indicating when the external
     # source was last polled. Put it into Germany's timezone.
-    t_consulted_ger_tz_iso8601 = (
-        pytz.timezone("Europe/Amsterdam")
-        .localize(datetime.fromtimestamp(int(data["t_obtained_from_source"])))
-        .isoformat()
-    )
+    t_consulted_ger_tz_iso8601 = datetime.fromtimestamp(
+        int(data["t_obtained_from_source"]), tz=pytz.timezone("Europe/Amsterdam")
+    ).isoformat()
 
     output_dict = {
         "current_totals": {
