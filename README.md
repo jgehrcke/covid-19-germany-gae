@@ -20,11 +20,26 @@ How is this different from other datasets?
 - JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases)
 - Endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
 
+## Contact, questions, contributions
+
+You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
+Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
+or contact me via mail at jgehrcke@googlemail.com.
+
 ## Changelog: data source
 
-Every step along the chain of reporting (Meldekette) introduces a noticeable delay. This is not necessary, but sadly the current state of affairs. The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future. Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to they physical tests. Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
+In Germany, every step along the chain of reporting (Meldekette) introduces a noticeable delay.
+This is not necessary, but sadly the current state of affairs.
+The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future.
+Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to they physical tests. Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
 
-In short, the data flow situation is far from ideal. The primary concern of this dataset here is to maximize data _credibility_ while maintaining data _freshness_; a challenging trade-off in this initial phase of pandemic growth in Germany. That is, the goal is to provide you with the least shitty numbers from the set of shitty numbers. To that end, the data source changed over time, as indicated below.
+**Wishlist:** every case should be tracked with its own time line, and transparently change state over time.
+The individual cases (and their time lines) should be aggregated on a country-wide level, anonymously, and get published in almost real time, through an official, structured data source, free to consume for everyone.
+
+As discussed, the actual data flow situation is far from this ideal.
+Nevertheless, the primary concern of this dataset here is to maximize data _credibility_ while also trying to maximize data _freshness_; a challenging trade-off in this initial phase of pandemic growth in Germany.
+That is, the goal is to provide you with the least shitty numbers from a set of generally pretty shitty numbers.
+To that end, I took liberty to iterate on the data source behind _this_ dataset — as indicated below.
 
 ### `/now` (current state):
 
@@ -33,6 +48,8 @@ In short, the data flow situation is far from ideal. The primary concern of this
 
 ### `/timeseries/...` (historical data):
 
+Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
+
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
 - **Before March 18**: Meldekette step 4: RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) (PDF documents).
@@ -40,7 +57,11 @@ In short, the data flow situation is far from ideal. The primary concern of this
 **Note:**
 
 - The `source` identifier in the CSV file changes correspondingly over time.
-- A mix of sources in a time series is of course far from ideal. However, many aspects about these data are far from ideal, and in the overall trade-off, I think switching to better sources as they come up is fair and useful approach. We might also change (read: _rewrite_) time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
+- A mix of sources in a time series is of course far from ideal.
+  However — given the boundary conditions — I think switching to better sources as they come up is fair and useful.
+  We might also change (read: _rewrite_) time series data in hindsight.
+  Towards enhancing overall credibility.
+  That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
 ## Quality data sources published by Bundesländer
 
@@ -90,36 +111,13 @@ Confirmed COVID-19 cases over time with exponential fit, for
 - [Schleswig-Holstein](https://covid19-germany.appspot.com/static/plots/plot-DE-SH.html)
 - [Thüringen](https://covid19-germany.appspot.com/static/plots/plot-DE-TH.html)
 
-Automatically generated (captain obvious: based on this dataset :-)).
-
-## Contact and questions
-
-You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
-Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
-or contact me via mail at jgehrcke@googlemail.com.
-
-## Sources and information flow
-
-These are official numbers published by individual state health ministries in
-Germany.
-
-The numbers from the individual (hundreds of) public German health offices
-(Gesundheitsämter) are first collected and aggregated on the state level, by
-the individual state health ministries. From here, they are further collected
-and published through ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html)
-by the Robert Koch-Institut (yielding the data points in this database before
-March 17), but also by ZEIT ONLINE (yielding the data points in my database
-from March 17 on).
-
-In [this blog post](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German) I try to shed light on why — as of the time of writing (March 18) — the numbers reported in the RKI and WHO situation reports lag behind by 1-3 days.
-
-Also [this comment](https://github.com/CSSEGISandData/COVID-19/issues/1008#issuecomment-601210784) (and that entire thread) is rather insightful.
+Automatically generated based on this data set, but possibly not every day.
 
 ## Further resources:
 
+- In [this blog post](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German) I try to shed light on why — as of the time of writing (March 18) — the numbers reported in the RKI and WHO situation reports lag behind by 1-3 days.
 - Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)
 - Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
-- [Blog post about delay of RKI numbers](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German)
 
 ## CSV file details
 
