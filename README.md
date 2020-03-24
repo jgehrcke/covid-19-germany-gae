@@ -1,35 +1,46 @@
 # COVID-19 case numbers in Germany by state, over time
 
-https://covid19-germany.appspot.com
-
----
+**Landing page**: https://covid19-germany.appspot.com
 
 This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
 
 How is this different from other datasets?
 
-The primary concern is data _credibility_ while maintaining data _freshness_ (can be a challenging trade-off in the current phase of exponential growth).
+- The dataset includes **historical data for individual Bundesländer** (states).
+- [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
 
-- The dataset includes **historical data for individual Bundesländer** (states). Manually curated from RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html), until March 17. Since then, based on the more up-to-date reports by the individual states themselves. To my knowledge that is unique and the main reason I started this project.
-- https://covid19-germany.appspot.com/now consults multiple sources to be as
-  fresh as possible (as of the time of writing: ZEIT ONLINE, Berliner
-  Morgenpost). See [attribution](https://github.com/jgehrcke/covid-19-germany-gae#attribution).
+**Disclaimer: please consume COVID-19 case numbers responsibly. Question their conclusiveness.**
 
-For the HTTP API some of the motivations are:
-
-- convenience: easy to consume in the tooling of your choice!
-- interface stability
-- availability
-
-**Note**: We might change time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
+---
 
 ## Quick overview
 
 - [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
-- HTTP API endpoint for the current state: https://covid19-germany.appspot.com/now
-- HTTP API endpoint for historical data, example for Bayern: https://covid19-germany.appspot.com/timeseries/DE-BY/cases
+- JSON endpoint for the current state: [/now](https://covid19-germany.appspot.com/now)
+- JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases)
+- Endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
 
-More details below.
+## Changelog: data source
+
+Every step along the chain of reporting (Meldekette) introduces a noticeable delay. This is not necessary, but sadly the current state of affairs. The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future. Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to they physical tests. Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
+
+In short, the data flow situation is far from ideal. The primary concern of this dataset here is to maximize data _credibility_ while maintaining data _freshness_; a challenging trade-off in this initial phase of pandemic growth in Germany. That is, the goal is to provide you with the least shitty numbers from the set of shitty numbers. To that end, the data source changed over time, as indicated below.
+
+### `/now` (current state):
+
+- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
+- **Since (incl) March 19**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE, and Berliner Morgenpost.
+
+### `/timeseries/...` (historical data):
+
+- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
+- **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
+- **Before March 18**: Meldekette step 4: RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) (PDF documents).
+
+**Note:**
+
+- The `source` identifier in the CSV file changes correspondingly over time.
+- A mix of sources in a time series is of course far from ideal. However, many aspects about these data are far from ideal, and in the overall trade-off, I think switching to better sources as they come up is fair and useful approach. We might also change (read: _rewrite_) time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
 ## Plots
 
