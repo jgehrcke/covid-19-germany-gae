@@ -9,7 +9,11 @@ How is this different from other datasets?
 - The dataset includes **historical data for individual Bundesländer** (states).
 - [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
 
-**Disclaimer: please consume COVID-19 case numbers responsibly. Question their conclusiveness.**
+**These are raw COVID-19 case numbers. Please consume them responsibly. Question their conclusiveness. Some directions along which you want to think:**
+
+- We do hope that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. But we do not know, exactly.
+- Although Germany seems to perform a large number of tests, we (the public) do not know how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before starting to draw conclusions from the time evolution of case count numbers.
+- Yet, we (the media, and the RKI itself) seem to believe that the raw rate of the change of the number of confirmed COVID-19 cases over time is somewhat expressive: just for what, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The virus' potential to exhibit COVID-19 in an infected human body? A mixture thereof? Think about all that.
 
 ---
 
