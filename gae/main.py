@@ -32,6 +32,7 @@ import io
 import tempfile
 import pickle
 import uuid
+import json
 from time import time
 from datetime import datetime
 
@@ -41,9 +42,8 @@ import pytz
 
 from google.cloud import firestore
 import google.cloud.exceptions
-from flask import Flask, jsonify, abort
+from flask import Flask, jsonify, abort, Response
 import flask
-
 
 app = Flask(__name__)
 
@@ -88,34 +88,8 @@ def rootpath():
 
 @app.route("/now")
 def germany_now():
-
-    data = CACHE_NOW.get()
-
-    # Generate timezone-aware ISO 8601 timestring indicating when the external
-    # source was last polled. Put it into Germany's timezone.
-    t_consulted_ger_tz_iso8601 = datetime.fromtimestamp(
-        int(data["t_obtained_from_source"]), tz=pytz.timezone("Europe/Amsterdam")
-    ).isoformat()
-
-    output_dict = {
-        "current_totals": {
-            "cases": data["cases"],
-            "deaths": data["deaths"],
-            "recovered": data["recovered"],
-            "tested": "unknown",
-        },
-        "meta": {
-            "source": data["source"],
-            "info": "https://github.com/jgehrcke/covid-19-germany-gae",
-            "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
-            "time_source_last_updated_iso8601": data[
-                "time_source_last_updated_iso8601"
-            ],
-            "time_source_last_consulted_iso8601": t_consulted_ger_tz_iso8601,
-        },
-    }
-
-    return jsonify(output_dict)
+    # Cached value is JSON text, encoded into a byte sequences via.
+    return Response(CACHE_NOW.get(), content_type="application/json; charset=utf-8")
 
 
 STATE_WHITELIST = [
@@ -292,40 +266,69 @@ class CacheTimeseries(Cache):
 
 class CacheNow(Cache):
     def fetch_func(self):
-        data1 = None
-        data2 = None
+        def _to_json_doc(data):
+            log.info("%s: serialize data to JSON", self)
+            # Generate timezone-aware ISO 8601 timestring indicating when the
+            # external source was last polled. Put it into Germany's timezone.
+            t_consulted_ger_tz_iso8601 = datetime.fromtimestamp(
+                int(data["t_obtained_from_source"]),
+                tz=pytz.timezone("Europe/Amsterdam"),
+            ).isoformat()
+
+            output_dict = {
+                "current_totals": {
+                    "cases": data["cases"],
+                    "deaths": data["deaths"],
+                    "recovered": data["recovered"],
+                    "tested": "unknown",
+                },
+                "meta": {
+                    "source": data["source"],
+                    "info": "https://github.com/jgehrcke/covid-19-germany-gae",
+                    "contact": "Dr. Jan-Philip Gehrcke, jgehrcke@googlemail.com",
+                    "time_source_last_updated_iso8601": data[
+                        "time_source_last_updated_iso8601"
+                    ],
+                    "time_source_last_consulted_iso8601": t_consulted_ger_tz_iso8601,
+                },
+            }
+
+            return json.dumps(output_dict, indent=2, ensure_ascii=False).encode("utf-8")
+
+        data_zo = None
+        data_mopo = None
 
         try:
-            data1 = get_fresh_now_data_from_zeit()
+            data_zo = get_fresh_now_data_from_zeit()
         except Exception as err:
             log.exception("err during ZO /now fetch: %s", err)
 
         try:
-            data2 = get_fresh_now_data_from_be_mopo()
+            data_mopo = get_fresh_now_data_from_be_mopo()
         except Exception as err:
             log.exception("err during BM /now fetch: %s", err)
 
         # If one of the sources let us down, short-cut to returning data from
         # the other right away.
-        if data1 is None:
-            return data2
+        if data_zo is None:
+            return _to_json_doc(data_zo)
 
-        if data2 is None:
-            return data1
+        if data_mopo is None:
+            return _to_json_doc(data_mopo)
 
         # Got data from both. Use more recent or use higher case count?
-        if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
+        if data_zo["time_source_last_updated"] > data_mopo["time_source_last_updated"]:
             log.info("zeit online data appears to be more recent")
         else:
             log.info("bemopo data appears to be more recent")
 
-        if data1["cases"] > data2["cases"]:
+        if data_zo["cases"] > data_mopo["cases"]:
             log.info("zeit online data reports more cases")
-            return data1
+            return _to_json_doc(data_zo)
 
         else:
             log.info("bemopo data reports more cases")
-            return data2
+            return _to_json_doc(data_mopo)
 
 
 def get_fresh_now_data_from_zeit():
