@@ -42,6 +42,32 @@ In short, the data flow situation is far from ideal. The primary concern of this
 - The `source` identifier in the CSV file changes correspondingly over time.
 - A mix of sources in a time series is of course far from ideal. However, many aspects about these data are far from ideal, and in the overall trade-off, I think switching to better sources as they come up is fair and useful approach. We might also change (read: _rewrite_) time series data in hindsight. Towards enhancing overall credibility. That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
+## Quality data sources published by Bundesländer
+
+I tried to discover these step-by-step, they are possibly underrated:
+
+- Bayern: [case numbers, map, LK table](https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/coronavirus/karte_coronavirus/index.htm)
+- Berlin: [case numbers, map, intensive care numbers](https://www.berlin.de/corona/fallstatistik/)
+- Baden-Württemberg:
+  - [case numbers, map, discussion](https://sozialministerium.baden-wuerttemberg.de/de/gesundheit-pflege/gesundheitsschutz/infektionsschutz-hygiene/informationen-zu-coronavirus/)
+  - [spreadsheet, xlsx, with historical data](https://sozialministerium.baden-wuerttemberg.de/fileadmin/redaktion/m-sm/intern/downloads/Downloads_Gesundheitsschutz/Tabelle_Coronavirus-Faelle-BW.xlsx)
+- Brandenburg: [press releases](https://msgiv.brandenburg.de/msgiv/de/presse/pressemitteilungen/)
+- Bremen: [press releases](https://www.gesundheit.bremen.de/sixcms/detail.php?gsid=bremen229.c.32718.de)
+- Hamburg: [case numbers](https://www.hamburg.de/coronavirus/), [press releases](https://www.hamburg.de/coronavirus/pressemeldungen/)
+- Hessen: [press releases](https://soziales.hessen.de/)
+- NRW: [case numbers, LK table](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- Mecklenburg-Vorpommern: [press releases](https://www.regierung-mv.de/Aktuell/)
+- Niedersachsen (pretty well done!):
+  - [case numbers, map, LK table](https://www.niedersachsen.de/Coronavirus/aktuelle_lage_in_niedersachsen/)
+  - [CSV](https://www.apps.nlga.niedersachsen.de/corona/download.php?csv) / [GeoJSON](https://www.apps.nlga.niedersachsen.de/corona/download.php?json)
+  - so close, but no historical data :-(
+- Rheinland-Pfalz: [case numbers, LK table](https://msagd.rlp.de/de/unsere-themen/gesundheit-und-pflege/gesundheitliche-versorgung/oeffentlicher-gesundheitsdienst-hygiene-und-infektionsschutz/infektionsschutz/informationen-zum-coronavirus-sars-cov-2/)
+- Saarland: [press releases](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
+- Sachsen: [case numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
+- Sachsen-Anhalt: [case numbers, LK table, intensive care numbers](https://ms.sachsen-anhalt.de/themen/gesundheit/aktuell/coronavirus/)
+- Schleswig-Holstein: [case numbers, LK table](https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html)
+- Thüringen: [case numbers, LK table, intensive car numbers](https://www.landesregierung-thueringen.de/corona-bulletin)
+
 ## Plots
 
 Confirmed COVID-19 cases over time with exponential fit, for
@@ -187,32 +213,6 @@ seems to do an equally well job of _quickly_ aggregating the state-level data.
 We are using that in here, too. Thanks!
 
 Fast aggregation & communication is important during the phase of exponential growth.
-
-## Quality data sources published by Bundesländer
-
-This list is supposed to grow over time.
-
-- Bayern: [case numbers, map, LK table](https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/coronavirus/karte_coronavirus/index.htm)
-- Berlin: [case numbers, map, intensive care numbers](https://www.berlin.de/corona/fallstatistik/)
-- Baden-Württemberg:
-  - [case numbers, map, discussion](https://sozialministerium.baden-wuerttemberg.de/de/gesundheit-pflege/gesundheitsschutz/infektionsschutz-hygiene/informationen-zu-coronavirus/)
-  - [spreadsheet, xlsx, with historical data](https://sozialministerium.baden-wuerttemberg.de/fileadmin/redaktion/m-sm/intern/downloads/Downloads_Gesundheitsschutz/Tabelle_Coronavirus-Faelle-BW.xlsx)
-- Brandenburg: [press releases](https://msgiv.brandenburg.de/msgiv/de/presse/pressemitteilungen/)
-- Bremen: [press releases](https://www.gesundheit.bremen.de/sixcms/detail.php?gsid=bremen229.c.32718.de)
-- Hamburg: [case numbers](https://www.hamburg.de/coronavirus/), [press releases](https://www.hamburg.de/coronavirus/pressemeldungen/)
-- Hessen: [press releases](https://soziales.hessen.de/)
-- NRW: [case numbers, LK table](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
-- Mecklenburg-Vorpommern: [press releases](https://www.regierung-mv.de/Aktuell/)
-- Niedersachsen (pretty well done!):
-  - [case numbers, map, LK table](https://www.niedersachsen.de/Coronavirus/aktuelle_lage_in_niedersachsen/)
-  - [CSV](https://www.apps.nlga.niedersachsen.de/corona/download.php?csv) / [GeoJSON](https://www.apps.nlga.niedersachsen.de/corona/download.php?json)
-  - so close, but no historical data :-(
-- Rheinland-Pfalz: [case numbers, LK table](https://msagd.rlp.de/de/unsere-themen/gesundheit-und-pflege/gesundheitliche-versorgung/oeffentlicher-gesundheitsdienst-hygiene-und-infektionsschutz/infektionsschutz/informationen-zum-coronavirus-sars-cov-2/)
-- Saarland: [press releases](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
-- Sachsen: [case numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
-- Sachsen-Anhalt: [case numbers, LK table, intensive care numbers](https://ms.sachsen-anhalt.de/themen/gesundheit/aktuell/coronavirus/)
-- Schleswig-Holstein: [case numbers, LK table](https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html)
-- Thüringen: [case numbers, LK table, intensive car numbers](https://www.landesregierung-thueringen.de/corona-bulletin)
 
 ## Random notes
 
