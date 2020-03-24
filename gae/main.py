@@ -332,6 +332,11 @@ class CacheNow(Cache):
 
 
 def get_fresh_now_data_from_zeit():
+    def _parse_zo_timestring_into_dt(timestring):
+        # This is the third iteration already, as ZO changes their implementation
+        # often. They came to reason and now use ISO 8601.
+        return datetime.strptime(timestring, "%Y-%m-%dT%H:%M:%S%z")
+
     url = f"{ZEIT_JSON_URL}?time={int(time())}"
     log.info("try to get current case count for germany from zeit online")
 
@@ -347,7 +352,7 @@ def get_fresh_now_data_from_zeit():
     assert "dead" in ttls
     assert "recovered" in ttls
 
-    t_source_last_updated = parse_zo_timestring_into_dt(data["changeTimestamp"])
+    t_source_last_updated = _parse_zo_timestring_into_dt(data["lastUpdate"])
 
     return {
         "cases": ttls["count"],
@@ -356,7 +361,7 @@ def get_fresh_now_data_from_zeit():
         "time_source_last_updated_iso8601": t_source_last_updated.isoformat(),
         "time_source_last_updated": t_source_last_updated.timestamp(),
         "t_obtained_from_source": time(),
-        "source": "ZEIT ONLINE (aggregated data from individual ministries of health in Germany)",
+        "source": "ZEIT ONLINE (aggregated data from individual Landkreise in Germany)",
     }
 
 
@@ -386,37 +391,6 @@ def get_fresh_now_data_from_be_mopo():
         "t_obtained_from_source": time(),
         "source": "Berliner Morgenpost (aggregated data from individual ministries of health in Germany)",
     }
-
-
-def parse_zo_timestring_into_dt(timestring):
-    # This timestamp is a string of the following format:
-    #
-    #    '17. März 2020, 21:22 Uhr'
-    #
-    # This is pretty horrible as an interface, but of course we can work
-    # on that, yolo! But let's not plan into the future longer than May.
-    # Who would need that, right?
-    #
-    # Update: the time format was then changed to
-    #
-    #    22. März 2020, 13.55 Uhr
-    #
-    # Update2: and switched back again. Yeah, it's fun to consume an
-    # implementation detail.
-    ts = timestring
-    ts = ts.replace("März", "03").replace("April", "04").replace("Mai", "05")
-    ts = ts.replace(",", "").replace(".", "").replace(":", "")
-
-    # This crashes if our parsing is too brittle or if they change their data
-    # format. Let it crash in that case. TODO: make error paths robust, don't
-    # expose to HTTP clients.
-    t = datetime.strptime(ts, "%d %m %Y %H%M Uhr")
-
-    # `t_source_last_updated` is so far not timezone-aware (no timezone set).
-    # Set the Amsterdam/Berlin tz explicitly (which is what the authors of this
-    # JSON doc imply).
-    t = pytz.timezone("Europe/Amsterdam").localize(t)
-    return t
 
 
 CACHE_NOW = CacheNow("now", FS_NOW_DOC)
