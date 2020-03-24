@@ -59,7 +59,7 @@ logging.basicConfig(
     datefmt="%y%m%d-%H:%M:%S",
 )
 
-with open("lk-ags-to-bl.json", "rb") as f:
+with open(f"{os.path.dirname(__file__)}/lk-ags-to-bl.json", "rb") as f:
     AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
 
 
@@ -99,23 +99,13 @@ def main():
     df_new = df_previous_csv.append(df_current)
 
     log.info("new data set:")
-    print(df_new)
-
-    last = df_new.tail(1)
-    for c in last:
-        print(last[c])
-
-    # sys.exit()
+    # print(df_new)
 
     cnames_for_cases = [iname + "_cases" for iname in STATE_NAME_ISONAME_MAP.values()]
     cnames_for_deaths = [iname + "_deaths" for iname in STATE_NAME_ISONAME_MAP.values()]
 
     df_new["sum_cases"] = df_new[cnames_for_cases].sum(axis=1)
     df_new["sum_deaths"] = df_new[cnames_for_deaths].sum(axis=1)
-
-    last = df_new.tail(1)
-    for c in last:
-        print(last[c])
 
     # print(df_new["sum_cases"])
     # print(df_new["sum_deaths"])
