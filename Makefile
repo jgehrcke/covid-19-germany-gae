@@ -22,9 +22,14 @@ deploy-staging:
 .PHONY: deploy-prod
 deploy-prod:
 	cd gae && gcloud app deploy --promote
+	echo "do you need to 'make deploy-cron'?"
+
+
+.PHONY: deploy-cron
+deploy-cron:
+	cd gae && gcloud app deploy cron.yaml
 
 
 .PHONY: install-python-dependencies
 install-python-dependencies:
 	pip install gae/requirements.txt
-
