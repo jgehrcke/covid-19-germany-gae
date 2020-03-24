@@ -65,7 +65,7 @@ logging.basicConfig(
 )
 
 
-@app.route("/_tasks/update/now")
+@app.route("/_tasks/update_now")
 def task_update_now():
     if flask.request.headers.get("X-Appengine-Cron") or app.debug:
         CACHE_NOW.refresh()
@@ -73,7 +73,7 @@ def task_update_now():
     abort(403, "go away")
 
 
-@app.route("/_tasks/update/timeseries")
+@app.route("/_tasks/update_timeseries")
 def task_update_timeseries():
     if flask.request.headers.get("X-Appengine-Cron") or app.debug:
         CACHE_TIMESERIES.refresh()
