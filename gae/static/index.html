@@ -1,162 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>COVID-19 data for Germany 😷 Fallzahlen Deutschland</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+      href="https://unpkg.com/bulmaswatch/lux/bulmaswatch.min.css"
     />
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
+    <style media="screen">
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      #wrapper {
+        flex: 1;
+      }
+    </style>
   </head>
   <body>
-    <section class="hero is-medium is-primary is-bold">
-      <div class="hero-body">
+    <div id="wrapper">
+      <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              COVID-19 case numbers for Germany 🦠
+            </h1>
+            <h2 class="subtitle">
+              JSON API by <a href="https://gehrcke.de">Jan-Philip Gehrcke</a>
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="container">
-          <h1 class="title">
-            Welcome 🦠
-          </h1>
-          <h2 class="subtitle">
-            COVID-19 data for Germany, JSON API
-          </h2>
-        </div>
-      </div>
-    </section>
+          <div class="tile is-ancestor">
+            <div class="tile is-parent is-vertical">
+              <div class="tile is-child box">
+                <p class="title is-4">Current state (JSON)</p>
+                <a href="/now" class="is-size-5 is-family-monospace">/now</a>
+              </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="tile is-ancestor">
-          <div class="tile is-parent is-vertical">
-            <div class="tile is-child box">
-              <p class="title is-4">Current state</p>
-              <a href="/now" class="is-size-5 is-family-monospace">/now</a>
+              <div class="tile is-child box">
+                <p class="title is-4">Time series (JSON)</p>
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-BW/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Baden-Württemberg</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-BY/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Bayern</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-BB/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Brandenburg</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-BE/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Berlin</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-HB/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Bremen</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-HH/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Hamburg</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-HE/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Hessen</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-MV/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Mecklenburg-Vorpommern</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-NI/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Niedersachsen</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-NW/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Nordrhein-Westfalen</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-RP/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Rheinland-Pfalz</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-SL/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Saarland</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-ST/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Sachsen-Anhalt</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-SN/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Sachsen</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-SH/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Schleswig-Holstein</a
+                ><br />
+                <span class="icon"><i class="fas fa-chart-bar"></i></span
+                ><a
+                  href="/timeseries/DE-TH/cases"
+                  class="is-size-5 is-family-monospace"
+                  >Thüringen</a
+                ><br />
+              </div>
             </div>
+            <div class="tile is-parent is-vertical">
+              <div class="tile is-child box">
+                <p class="title is-4">Documentation, resources, code</p>
+                <a
+                  href="https://github.com/jgehrcke/covid-19-germany-gae"
+                  class="is-size-5 is-family-monospace"
+                  >github.com/jgehrcke/covid-19-germany-gae</a
+                >
+              </div>
 
-            <div class="tile is-child box">
-              <p class="title is-4">Project home, documentation</p>
-              <a
-                href="https://github.com/jgehrcke/covid-19-germany-gae"
-                class="is-size-5 is-family-monospace"
-                >github.com/jgehrcke/covid-19-germany-gae</a
-              >
+              <div class="tile is-child box">
+                <p class="title is-4">Official resources</p>
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://sozialministerium.baden-wuerttemberg.de/de/gesundheit-pflege/gesundheitsschutz/infektionsschutz-hygiene/informationen-zu-coronavirus/"
+                  class="is-size-5 is-family-monospace"
+                  >Baden-Württemberg</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/coronavirus/karte_coronavirus/index.htm"
+                  class="is-size-5 is-family-monospace"
+                  >Bayern</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://msgiv.brandenburg.de/msgiv/de/presse/pressemitteilungen/"
+                  class="is-size-5 is-family-monospace"
+                  >Brandenburg</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.berlin.de/corona/fallstatistik/"
+                  class="is-size-5 is-family-monospace"
+                  >Berlin</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.gesundheit.bremen.de/sixcms/detail.php?gsid=bremen229.c.32718.de"
+                  class="is-size-5 is-family-monospace"
+                  >Bremen</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.hamburg.de/coronavirus/"
+                  class="is-size-5 is-family-monospace"
+                  >Hamburg</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://soziales.hessen.de/"
+                  class="is-size-5 is-family-monospace"
+                  >Hessen</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.regierung-mv.de/Aktuell/"
+                  class="is-size-5 is-family-monospace"
+                  >Mecklenburg-Vorpommern</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.niedersachsen.de/Coronavirus/aktuelle_lage_in_niedersachsen/"
+                  class="is-size-5 is-family-monospace"
+                  >Niedersachsen</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.mags.nrw/coronavirus-fallzahlen-nrw"
+                  class="is-size-5 is-family-monospace"
+                  >Nordrhein-Westfalen</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://msagd.rlp.de/de/unsere-themen/gesundheit-und-pflege/gesundheitliche-versorgung/oeffentlicher-gesundheitsdienst-hygiene-und-infektionsschutz/infektionsschutz/informationen-zum-coronavirus-sars-cov-2/"
+                  class="is-size-5 is-family-monospace"
+                  >Rheinland-Pfalz</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.saarland.de/254259.htm"
+                  class="is-size-5 is-family-monospace"
+                  >Saarland</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://ms.sachsen-anhalt.de/themen/gesundheit/aktuell/coronavirus/"
+                  class="is-size-5 is-family-monospace"
+                  >Sachsen-Anhalt</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html"
+                  class="is-size-5 is-family-monospace"
+                  >Sachsen</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html"
+                  class="is-size-5 is-family-monospace"
+                  >Schleswig-Holstein</a
+                ><br />
+                <span class="icon"
+                  ><i class="fas fa-external-link-alt"></i></span
+                ><a
+                  href="https://www.landesregierung-thueringen.de/corona-bulletin"
+                  class="is-size-5 is-family-monospace"
+                  >Thüringen</a
+                ><br />
+              </div>
             </div>
           </div>
-          <div class="tile is-parent is-vertical">
-            <div class="tile is-child box">
-              <p class="title is-4">Timeseries</p>
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-BW/cases"
-                class="is-size-5 is-family-monospace"
-                >Baden-Württemberg</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-BY/cases"
-                class="is-size-5 is-family-monospace"
-                >Bayern</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-BB/cases"
-                class="is-size-5 is-family-monospace"
-                >Brandenburg</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-BE/cases"
-                class="is-size-5 is-family-monospace"
-                >Berlin</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-HB/cases"
-                class="is-size-5 is-family-monospace"
-                >Bremen</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-HH/cases"
-                class="is-size-5 is-family-monospace"
-                >Hamburg</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-HE/cases"
-                class="is-size-5 is-family-monospace"
-                >Hessen</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-MV/cases"
-                class="is-size-5 is-family-monospace"
-                >Mecklenburg-Vorpommern</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-NI/cases"
-                class="is-size-5 is-family-monospace"
-                >Niedersachsen</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-NW/cases"
-                class="is-size-5 is-family-monospace"
-                >Nordrhein-Westfalen</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-RP/cases"
-                class="is-size-5 is-family-monospace"
-                >Rheinland-Pfalz</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-SL/cases"
-                class="is-size-5 is-family-monospace"
-                >Saarland</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-ST/cases"
-                class="is-size-5 is-family-monospace"
-                >Sachsen-Anhalt</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-SN/cases"
-                class="is-size-5 is-family-monospace"
-                >Sachsen</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-SH/cases"
-                class="is-size-5 is-family-monospace"
-                >Schleswig-Holstein</a
-              ><br />
-              <span class="icon"><i class="fas fa-chart-bar"></i></span
-              ><a
-                href="/timeseries/DE-TH/cases"
-                class="is-size-5 is-family-monospace"
-                >Thüringen</a
-              ><br />
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container"></div>
-    </section>
+      </section>
+      <section class="section">
+        <div class="container"></div>
+      </section>
+    </div>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          Built with love by <a href="https://gehrcke.de">Jan-Philip</a>. Stay
-          safe! 😷
+          Built with care and some love. Stay safe! 😷
+          <a href="https://gehrcke.de">gehrcke.de</a>
         </p>
       </div>
     </footer>
