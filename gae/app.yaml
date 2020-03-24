@@ -6,10 +6,16 @@ includes:
 
 instance_class: F2
 
+# Even with min_instances set to 1 there seems to be down-scaling to 0
+# instances, resulting multi-second request latency during up-scaling. "if you
+# specify a number of minimum idle instances, that specified number of
+# instances run as resident instances while any additional instances are
+# dynamic."
 automatic_scaling:
   min_instances: 1
   max_instances: 1
   max_idle_instances: 1
+  min_idle_instances: 1
 
 # global default cache ttl for all static file handlers
 default_expiration: "10m"
