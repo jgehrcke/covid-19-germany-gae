@@ -220,7 +220,7 @@ This list is supposed to grow over time.
   - [spreadsheet, xlsx, with historical data](https://sozialministerium.baden-wuerttemberg.de/fileadmin/redaktion/m-sm/intern/downloads/Downloads_Gesundheitsschutz/Tabelle_Coronavirus-Faelle-BW.xlsx)
 - Brandenburg: [press releases](https://msgiv.brandenburg.de/msgiv/de/presse/pressemitteilungen/)
 - Bremen: [press releases](https://www.gesundheit.bremen.de/sixcms/detail.php?gsid=bremen229.c.32718.de)
-- Hamburg: [case numbers](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
+- Hamburg: [case numbers](https://www.hamburg.de/coronavirus/), [press releases](https://www.hamburg.de/coronavirus/pressemeldungen/)
 - Hessen: [press releases](https://soziales.hessen.de/)
 - NRW: [case numbers, LK table](https://www.mags.nrw/coronavirus-fallzahlen-nrw)
 - Mecklenburg-Vorpommern: [press releases](https://www.regierung-mv.de/Aktuell/)
