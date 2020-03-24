@@ -1,6 +1,6 @@
 # COVID-19 case numbers in Germany by state, over time
 
-**Important notice (Sunday, March 22, 6 pm):** take the current weekend numbers with a grain of salt. It is not so likely that the _actual_ daily infection count decreased. It is more likely that data processing in the Ämter slowed down. Holy weekend.
+https://covid19-germany.appspot.com
 
 ---
 
