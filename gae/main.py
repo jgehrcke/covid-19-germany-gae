@@ -42,6 +42,7 @@ import pytz
 from google.cloud import firestore
 import google.cloud.exceptions
 from flask import Flask, jsonify, abort
+import flask
 
 
 app = Flask(__name__)
@@ -50,10 +51,11 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
-FBCACHE = firestore.Client().collection("cache")
-FBCACHE_NOW_DOC = FBCACHE.document("gernow")
-FBCACHE_TIMESERIES_DOC = FBCACHE.document("gerhistory")
-FS_CACHE_SUFFIX = uuid.uuid4().hex
+
+FIRESTORE = firestore.Client().collection("cache")
+FS_NOW_DOC = FIRESTORE.document("gernow-2")
+FS_TIMESERIES_DOC = FIRESTORE.document("gerhistory-2")
+
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -61,6 +63,22 @@ logging.basicConfig(
     format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
     datefmt="%y%m%d-%H:%M:%S",
 )
+
+
+@app.route("/_tasks/update/now")
+def task_update_now():
+    if flask.request.headers.get("X-Appengine-Cron") or app.debug:
+        CACHE_NOW.refresh()
+        return "Accepted, Sir", 202
+    abort(403, "go away")
+
+
+@app.route("/_tasks/update/timeseries")
+def task_update_timeseries():
+    if flask.request.headers.get("X-Appengine-Cron") or app.debug:
+        CACHE_TIMESERIES.refresh()
+        return "Accepted, Sir", 202
+    abort(403, "go away")
 
 
 @app.route("/")
@@ -71,7 +89,7 @@ def rootpath():
 @app.route("/now")
 def germany_now():
 
-    data = get_now_data_from_cache()
+    data = CACHE_NOW.get()
 
     # Generate timezone-aware ISO 8601 timestring indicating when the external
     # source was last polled. Put it into Germany's timezone.
@@ -99,7 +117,6 @@ def germany_now():
         },
     }
 
-    # Generate HTTP response with JSON body
     return jsonify(output_dict)
 
 
@@ -142,7 +159,7 @@ def get_timeseries(state, metric):
     if metric not in METRIC_WHITELIST:
         abort(400, f"Bad metric name. Must be one of: {', '.join(METRIC_WHITELIST)}")
 
-    df = get_timeseries_dataframe()
+    df = CACHE_TIMESERIES.get()
 
     # Construct column name like DE-BW_c
     column_name = state + METRIC_SUFFIX_MAP[metric]
@@ -153,169 +170,164 @@ def get_timeseries(state, metric):
     return jsonify(output_dict)
 
 
-def get_timeseries_dataframe():
+class Cache:
     """
-    From, in that order
-    - file system cache or (if empty or not fresh)
-    - google sheets (HTTP API, csv) or (if not available or erroneous)
-    - firebase (fallback)
+    This cache is special in that it is not invalidated. It is only refreshed
+    explicitly, and read. A warning/error is emitted when it it stale upon
+    reading.
+
+    The read path is simple, and does not include transient error paths.
+
+    The write path is complex, but is never part of processing consumer HTTP
+    requests. The write path is triggered only by GAE cron jobs.
+
+    If a fresh instance of this app comes up and neither has a local file
+    system cache entry nor can it consult the external sources (for which ever
+    rare reason) then fall back to using the last known good state in
+    Firestore.
     """
 
-    maxage_minutes = 15
-    cpath = os.path.join(
-        tempfile.gettempdir(), f"timeseries.df.cache.pickle-{FS_CACHE_SUFFIX}"
-    )
+    def __init__(self, name, fbdoc):
+        # Warn when the entry is older than that upon reading
+        self.maxage_seconds = 15 * 60
+        self.fbdoc = fbdoc
 
-    # Read from cache if it exists and is not too old.
-    if os.path.exists(cpath):
-        if time() - os.stat(cpath).st_mtime < 60 * maxage_minutes:
-            with open(cpath, "rb") as f:
-                log.info("read dataframe from file cache %s", cpath)
-                return pd.read_pickle(cpath)
+        self.picklekey = f"{name}.pickle"
 
-    try:
-        df = fetch_timeseries_csv_and_construct_dataframe()
-    except Exception as err:
-        # Fall back to reading from firestore (last good state backup)
-        log.exception("err during timeseries fetch: %s", err)
-        log.info("falling back to firebase state for timeseries data")
-        return pickle.loads(FBCACHE_TIMESERIES_DOC.get().to_dict()["dataframe.pickle"])
+        # The currenly held value: None: not initialized. 2-tuple: first item
+        # time, second item payload Remember: tuple is immutalbe (atomic
+        # switching happens). A note on thread safety: on CPython the lookup of
+        # `self.current_value` is through a dictionary, and changing the value
+        # is atopic. Looking the value up is atomic, too. Even if unpacking the
+        # value upon lookup through tuple unpacking there is no danger to get a
+        # corrupted view.
+        self.current_value = (None, None)
 
-    # Atomic switch (in case there are concurrently running threads
-    # reading/writing this, too).
-    tmppath = cpath + "_new"
-    log.info("write dataframe (atomic rename) to file cache %s:", tmppath)
-    with open(tmppath, "wb") as f:
-        df.to_pickle(tmppath)
+    def get(self):
 
-    try:
-        os.rename(tmppath, cpath)
-    except FileNotFoundError:
-        # another racer switched the file underneath us
-        log.info("atomic file switch: congrats, a rare case happened!")
+        (valtime, val) = self.current_value
 
-    with open(cpath, "rb") as f:
-        byteseq = f.read()
-        log.info(
-            "write dataframe to firebase (last good state backup), %s bytes",
-            len(byteseq),
-        )
+        if val is None:
+            # During app init this code path can be entered by more than one
+            # thread. Could be optimized, but does not lead to incorrect
+            # behavior: we let more than one racer start, and all of the racers
+            # will try setting the initial value. The slowest one wins (that's
+            # not how things are in real life, right?).
+            log.info("%s: not yet set, _refresh()", self)
+            self.refresh()
+
+            # `refresh()` above either errors out or has the guaranteed side
+            # effect of leaving behind a `current_value`.
+            (valtime, val) = self.current_value
+
+        age_seconds = time() - valtime
+        if age_seconds > self.maxage_seconds:
+            log.warning("%s cache is stale: %s s", self, age_seconds)
+
+        return val
+
+    def _set_value_from_firestore_backup(self):
+        log.info("%s: falling back to fetching firestore state", self)
+        old_backup_dict = self.fbdoc.get().to_dict()
+        backup_value = pickle.loads(old_backup_dict[self.picklekey])
+        backup_time = old_backup_dict["time"]
+        age_seconds = time() - backup_time
+        log.info("%s: got value from firestore (age: %s s", self, age_seconds)
+
+        # Atomically set what we've got.
+        self.current_value = (backup_time, backup_value)
+
+    def refresh(self):
+
+        curtime = time()
+        log.info("%s: refresh triggered", self)
+
+        # `newval` can be a dict, or a pandas dataframe, anything pickleable.
+        try:
+            newval = self.fetch_func()
+        except Exception as err:
+            log.exception("%s: error during fetch", self)
+            if self.current_value is not None:
+                log.info("%s: keep current cache value", self)
+            else:
+                self._set_value_from_firestore_backup()
+                # Consumers rely on the fact that when _refresh() does not
+                # error out, that the current value is _not_ the initial value
+                # anymore, i.e. that either the actual refresh or the restore
+                # from backup have succeeded.
+                return
+
+        # Atomically set what we've got (for other racers to potentially
+        # consume this already).
+        self.current_value = (curtime, newval)
+
+        byteseq = pickle.dumps(newval, protocol=pickle.HIGHEST_PROTOCOL)
+        log.info("%s: write backup to firestore, %s bytes", self, len(byteseq))
+        backup_dict = {"time": curtime, self.picklekey: byteseq}
+
         try:
             # I have seen this fail transiently with
             # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
-            FBCACHE_TIMESERIES_DOC.set({"dataframe.pickle": byteseq})
+            FS_NOW_DOC.set(backup_dict)
         except Exception as err:
-            # don't let the http client suffer, but log the problem
-            log.exception("err during dataframe firestore set(): %s", err)
+            log.exception("%s: err during firestore set(): %s", self, err)
+            # Not being able to set a fresh backup is sad, but not fatal.
 
-    return df
-
-
-def fetch_timeseries_csv_and_construct_dataframe():
-    url = "https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv"
-    log.info("read csv data from github: %s", url)
-    resp = requests.get(url)
-    resp.raise_for_status()
-
-    # Using the iso8601 time strings as index has the advantage that individual
-    # colunmns (Series objects) are JSON-encode-ready by just doing
-    # `Series.to_dict()` yields an ordered map of timestamp:value pairs.
-    df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
-    df = df.dropna()
-    return df
+    def __str__(self):
+        return self.__class__.__name__
 
 
-def get_now_data_from_cache():
-    """
-    From, in that order
-    - file system cache or (if empty or not fresh)
-    - google sheets (HTTP API, csv) or (if not available or erroneous)
-    - firebase (fallback)
-    """
-    maxage_minutes = 15
-    cpath = os.path.join(tempfile.gettempdir(), f"now.pickle.cache-{FS_CACHE_SUFFIX}")
+class CacheTimeseries(Cache):
+    def fetch_func(self):
+        url = "https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv"
+        log.info("read csv data from github: %s", url)
+        resp = requests.get(url)
+        resp.raise_for_status()
 
-    # Read from cache if it exists and is not too old.
-    if os.path.exists(cpath):
-        if time() - os.stat(cpath).st_mtime < 60 * maxage_minutes:
-            with open(cpath, "rb") as f:
-                log.info("read /now data from file cache %s", cpath)
-                return pickle.load(f)
+        # Using the iso8601 time strings as index has the advantage that individual
+        # colunmns (Series objects) are JSON-encode-ready by just doing
+        # `Series.to_dict()` yields an ordered map of timestamp:value pairs.
+        df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
+        df = df.dropna()
+        return df
 
-    try:
-        datadict = fetch_fresh_now_data()
-    except Exception as err:
-        # Fall back to reading from firestore (last good state backup)
-        log.exception("err during /now fetch: %s", err)
-        log.info("falling back to firebase state")
-        return pickle.loads(FBCACHE_NOW_DOC.get().to_dict()["now.pickle"])
 
-    # Atomic switch (in case there are concurrently running threads
-    # reading/writing this, too).
-    tmppath = cpath + "_new"
-    log.info("write /now data (atomic rename) to file cache %s:", tmppath)
-    with open(tmppath, "wb") as f:
-        pickle.dump(datadict, f, protocol=pickle.HIGHEST_PROTOCOL)
+class CacheNow(Cache):
+    def fetch_func(self):
+        data1 = None
+        data2 = None
 
-    try:
-        os.rename(tmppath, cpath)
-    except FileNotFoundError:
-        # another racer switched the file underneath us
-        log.info("atomic file switch: congrats, a rare case happened!")
-
-    with open(cpath, "rb") as f:
-        byteseq = f.read()
-        log.info(
-            "write /now data to firebase (last good state backup), %s bytes",
-            len(byteseq),
-        )
         try:
-            # I have seen this fail transiently with
-            # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
-            FBCACHE_NOW_DOC.set({"now.pickle": byteseq})
+            data1 = get_fresh_now_data_from_zeit()
         except Exception as err:
-            # don't let the http client suffer, but log the problem
-            log.exception("err during ZO /now firestore set(): %s", err)
+            log.exception("err during ZO /now fetch: %s", err)
 
-    return datadict
+        try:
+            data2 = get_fresh_now_data_from_be_mopo()
+        except Exception as err:
+            log.exception("err during BM /now fetch: %s", err)
 
+        # If one of the sources let us down, short-cut to returning data from
+        # the other right away.
+        if data1 is None:
+            return data2
 
-def fetch_fresh_now_data():
+        if data2 is None:
+            return data1
 
-    data1 = None
-    data2 = None
+        # Got data from both. Use more recent or use higher case count?
+        if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
+            log.info("zeit online data appears to be more recent")
+        else:
+            log.info("bemopo data appears to be more recent")
 
-    try:
-        data1 = get_fresh_now_data_from_zeit()
-    except Exception as err:
-        log.exception("err during ZO /now fetch: %s", err)
+        if data1["cases"] > data2["cases"]:
+            log.info("zeit online data reports more cases")
+            return data1
 
-    try:
-        data2 = get_fresh_now_data_from_be_mopo()
-    except Exception as err:
-        log.exception("err during BM /now fetch: %s", err)
-
-    # If one of the sources let us down, short-cut to returning data from
-    # the other right away.
-    if data1 is None:
-        return data2
-
-    if data2 is None:
-        return data1
-
-    # Got data from both. Use more recent or use higher case count?
-    if data1["time_source_last_updated"] > data2["time_source_last_updated"]:
-        log.info("zeit online data appears to be more recent")
-    else:
-        log.info("bemopo data appears to be more recent")
-
-    if data1["cases"] > data2["cases"]:
-        log.info("zeit online data reports more cases")
-        return data1
-
-    else:
-        log.info("bemopo data reports more cases")
-        return data2
+        else:
+            log.info("bemopo data reports more cases")
+            return data2
 
 
 def get_fresh_now_data_from_zeit():
@@ -404,6 +416,10 @@ def parse_zo_timestring_into_dt(timestring):
     # JSON doc imply).
     t = pytz.timezone("Europe/Amsterdam").localize(t)
     return t
+
+
+CACHE_NOW = CacheNow("now", FS_NOW_DOC)
+CACHE_TIMESERIES = CacheTimeseries("ts", FS_TIMESERIES_DOC)
 
 
 if __name__ == "__main__":

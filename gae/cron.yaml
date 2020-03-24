@@ -1,0 +1,15 @@
+cron:
+  - description: "/now data update job"
+    url: /_tasks/update/now
+    schedule: every 5 mins
+    retry_parameters:
+      min_backoff_seconds: 2.5
+      max_backoff_seconds: 20
+      job_age_limit: 3m
+  - description: "/timeseries data update job"
+    url: /_tasks/update/timeseries
+    schedule: every 5 mins
+    retry_parameters:
+      min_backoff_seconds: 2.5
+      max_backoff_seconds: 20
+      job_age_limit: 3m
