@@ -1,4 +1,4 @@
-# COVID-19 case numbers in Germany by state, over time
+# COVID-19 case numbers in Germany by state, over time 😷
 
 **Landing page**: https://covid19-germany.appspot.com
 
@@ -9,11 +9,11 @@ How is this different from other datasets?
 - The dataset includes **historical data for individual Bundesländer** (states).
 - [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
 
-**These are raw COVID-19 case numbers. Please consume them responsibly. Question their conclusiveness. Some directions along which you want to think:**
+**These are raw COVID-19 case numbers. Please consume them responsibly. Question their conclusiveness. Some directions along which you may want to think:**
 
-- We do hope that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. But we do not know, exactly.
+- We believe that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. I really hope that's true!
 - Although Germany seems to perform a large number of tests, we (the public) do not know how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before starting to draw conclusions from the time evolution of case count numbers.
-- Yet, we (the media, and the RKI itself) seem to believe that the raw rate of the change of the number of confirmed COVID-19 cases over time is somewhat expressive: just for what, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The virus' potential to exhibit COVID-19 in an infected human body? A mixture thereof? Think about all that.
+- Yet, we seem to believe that the change of the number of confirmed COVID-19 cases over time is somewhat expressive: but what does it shed light on, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The actual, absolute number of people infected? The virus' potential to exhibit COVID-19 in an infected human body? If you keep these (and more) ambiguities in mind then I think you're ready to look at these numbers :-) 😷.
 
 ---
 
