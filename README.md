@@ -9,12 +9,6 @@ How is this different from other datasets?
 - The dataset includes **historical data for individual Bundesländer** (states).
 - [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
 
-**These are raw COVID-19 case numbers. Please consume them responsibly. Question their conclusiveness. Some directions along which you may want to think:**
-
-- We believe that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. I really hope that's true!
-- Although Germany seems to perform a large number of tests, we (the public) do not know how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before starting to draw conclusions from the time evolution of case count numbers.
-- Yet, we seem to believe that the change of the number of confirmed COVID-19 cases over time is somewhat expressive: but what does it shed light on, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The actual, absolute number of people infected? The virus' potential to exhibit COVID-19 in an infected human body? If you keep these (and more) ambiguities in mind then I think you're ready to look at these numbers :-) 😷.
-
 ---
 
 ## Quick overview
@@ -29,6 +23,18 @@ How is this different from other datasets?
 You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
 Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
 or contact me via mail at jgehrcke@googlemail.com.
+
+## What you should know before reading these numbers
+
+Please question the conclusiveness of these numbers.
+Some directions along which you may want to think:
+
+- Although Germany seems to perform a large number of tests, we (the public) do not have good insight into how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before drawing conclusions from the time evolution of case count numbers.
+- Each confirmed case is implicitly associated with a reporting date. We do not know for sure how that reporting date relates to the date of taking the sample (there might be _days_ between those two points in time).
+- We believe that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. This is quite probably true, but we cannot verify this end-to-end, we have to trust Landkreise, doctors, and labs.
+- Yet, we seem to believe that the change of the number of confirmed COVID-19 cases over time is somewhat expressive: but what does it shed light on, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The actual, absolute number of people infected? The virus' potential to exhibit COVID-19 in an infected human body?
+
+If you keep these (and more) ambiguities and questions in mind then I think you are ready to look at these numbers :-) 😷.
 
 ## Changelog: data source
 
@@ -47,12 +53,13 @@ To that end, I took liberty to iterate on the data source behind _this_ dataset 
 
 ### `/now` (current state):
 
+- **Since (incl) March 26**: Meldekette step 2: reports by the individual counties (Landkreise), curated by [Tagesspiegel](https://twitter.com/Tagesspiegel) and [Risklayer](https://twitter.com/risklayer) for the current case count, curated by ZEIT ONLINE for `deaths`.
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 19**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE, and Berliner Morgenpost.
 
 ### `/timeseries/...` (historical data):
 
-Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
+Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [Risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
 
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
@@ -207,12 +214,14 @@ the higher case count.
 
 ## Attribution
 
-Shout-out to ZEIT ONLINE for continuously collecting and
-publishing the state-level data with little delay.
+Shout-out to ZEIT ONLINE for continuously collecting and publishing the state-level data with little delay.
 
 Edit: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
 seems to do an equally well job of _quickly_ aggregating the state-level data.
 We are using that in here, too. Thanks!
+
+Edit March 26: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
+As far as I can tell this is so far the most transparent data flow, and also the fastest, getting us the freshest case count numbers. Great work!
 
 Fast aggregation & communication is important during the phase of exponential growth.
 

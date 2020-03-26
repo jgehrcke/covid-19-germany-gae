@@ -33,6 +33,7 @@ import tempfile
 import pickle
 import uuid
 import json
+from textwrap import dedent
 from time import time
 from datetime import datetime
 
@@ -51,6 +52,7 @@ app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 
 ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 BE_MOPO_CSV_URL = os.environ["BE_MOPO_CSV_URL"]
+RL_TS_CSV_URL = os.environ["RL_TS_CSV_URL"]
 
 FIRESTORE = firestore.Client().collection("cache")
 FS_NOW_DOC = FIRESTORE.document("gernow-2")
@@ -266,7 +268,7 @@ class CacheTimeseries(Cache):
 
 class CacheNow(Cache):
     def fetch_func(self):
-        def _to_json_doc(data):
+        def _to_json_doc(data, current_case_count_risklayer):
             log.info("%s: serialize data to JSON", self)
             # Generate timezone-aware ISO 8601 timestring indicating when the
             # external source was last polled. Put it into Germany's timezone.
@@ -293,10 +295,39 @@ class CacheNow(Cache):
                 },
             }
 
+            # Risklayer / Tagesspiegel case count correction.
+            source_addendum = dedent(
+                """
+                . Note: in this JSON response, the 'cases' value is based on
+                a Tagesspiegel-verified, Risklayer-initated crowd-sourcing
+                effort based on official Landkreis data. See 'info' URL."""
+            )
+            # Remove newlines
+            source_addendum = " ".join(source_addendum.strip().split())
+
+            if current_case_count_risklayer is not None:
+                if (
+                    current_case_count_risklayer
+                    > output_dict["current_totals"]["cases"]
+                ):
+                    output_dict["current_totals"][
+                        "cases"
+                    ] = current_case_count_risklayer
+
+                    output_dict["meta"]["source"] = (
+                        output_dict["meta"]["source"] + source_addendum
+                    )
+
             return json.dumps(output_dict, indent=2, ensure_ascii=False).encode("utf-8")
 
         data_zo = None
         data_mopo = None
+        current_case_count_rl = None
+
+        try:
+            current_case_count_rl = get_fresh_case_data_from_ts_rl()
+        except Exception as err:
+            log.exception("err during TS/Rl/CS case count fetch: %s", err)
 
         try:
             data_zo = get_fresh_now_data_from_zeit()
@@ -311,10 +342,10 @@ class CacheNow(Cache):
         # If one of the sources let us down, short-cut to returning data from
         # the other right away.
         if data_zo is None:
-            return _to_json_doc(data_zo)
+            return _to_json_doc(data_zo, current_case_count_rl)
 
         if data_mopo is None:
-            return _to_json_doc(data_mopo)
+            return _to_json_doc(data_mopo, current_case_count_rl)
 
         # Got data from both. Use more recent or use higher case count?
         if data_zo["time_source_last_updated"] > data_mopo["time_source_last_updated"]:
@@ -324,11 +355,11 @@ class CacheNow(Cache):
 
         if data_zo["cases"] > data_mopo["cases"]:
             log.info("zeit online data reports more cases")
-            return _to_json_doc(data_zo)
+            return _to_json_doc(data_zo, current_case_count_rl)
 
         else:
             log.info("bemopo data reports more cases")
-            return _to_json_doc(data_mopo)
+            return _to_json_doc(data_mopo, current_case_count_rl)
 
 
 def get_fresh_now_data_from_zeit():
@@ -363,6 +394,19 @@ def get_fresh_now_data_from_zeit():
         "t_obtained_from_source": time(),
         "source": "ZEIT ONLINE (aggregated data from individual Landkreise in Germany)",
     }
+
+
+def get_fresh_case_data_from_ts_rl():
+    log.info("fetch RL/TS/CS data from gsheets")
+    for attempt in (1, 2):
+        try:
+            resp = requests.get(os.environ["RL_TS_CSV_URL"], timeout=(1.0, 5.0))
+            resp.raise_for_status()
+        except Exception as err:
+            log.info("attempt %s: failed getting data: %s", attempt, err)
+
+    df = pd.read_csv(io.StringIO(resp.text))
+    return int(df["current"].sum())
 
 
 def get_fresh_now_data_from_be_mopo():
