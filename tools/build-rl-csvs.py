@@ -53,7 +53,6 @@ STATE_NAME_ISONAME_MAP = {
     "Schleswig-Holstein": "DE-SH",
     "Thüringen": "DE-TH",
 }
-ZEIT_JSON_URL = os.environ["ZEIT_JSON_URL"]
 
 log = logging.getLogger()
 logging.basicConfig(
@@ -131,12 +130,12 @@ def aggregate_by_bland(df_by_lk):
 
 
 def fetch_and_clean_data():
-    log.info("fetch risklayer data from gsheets")
+    log.info("fetch RL/TS/CS data from gsheets")
     # risklayer history as CSV from google sheets
     csv = requests.get(os.environ["RISKLAYER_HISTORY_CSV_URL"]).text
     df = pd.read_csv(io.StringIO(csv))
 
-    log.info("parse rk data and normalize")
+    log.info("parse RL/TS/CS data and normalize")
     # Drop text info, keep using AGS (amtlicher Gemeindeschluessel).
     df.drop(["GEN"], axis=1, inplace=True)
 
