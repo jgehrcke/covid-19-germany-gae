@@ -41,7 +41,9 @@ If you keep these (and more) ambiguities and questions in mind then I think you 
 In Germany, every step along the chain of reporting (Meldekette) introduces a noticeable delay.
 This is not necessary, but sadly the current state of affairs.
 The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future.
-Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to they physical tests. Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
+Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to the physical tests.
+In some cases, the Meldekette might even be entirely disrupted, as discussed in this [SPIEGEL article](https://www.spiegel.de/wissenschaft/coronavirus-wie-belastbar-sind-die-rki-daten-a-13bd06d7-22a1-4b3d-af23-ff43e5e8abd6), German.
+Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
 
 **Wishlist:** every case should be tracked with its own time line, and transparently change state over time.
 The individual cases (and their time lines) should be aggregated on a country-wide level, anonymously, and get published in almost real time, through an official, structured data source, free to consume for everyone.
