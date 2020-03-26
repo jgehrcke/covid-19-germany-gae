@@ -47,12 +47,13 @@ To that end, I took liberty to iterate on the data source behind _this_ dataset 
 
 ### `/now` (current state):
 
+- **Since (incl) March 26**: Meldekette step 2: reports by the individual counties (Landkreise), curated by [Tagesspiegel](https://twitter.com/Tagesspiegel) and [Risklayer](https://twitter.com/risklayer).
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 19**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE, and Berliner Morgenpost.
 
 ### `/timeseries/...` (historical data):
 
-Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
+Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [Risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
 
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
@@ -207,12 +208,14 @@ the higher case count.
 
 ## Attribution
 
-Shout-out to ZEIT ONLINE for continuously collecting and
-publishing the state-level data with little delay.
+Shout-out to ZEIT ONLINE for continuously collecting and publishing the state-level data with little delay.
 
 Edit: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
 seems to do an equally well job of _quickly_ aggregating the state-level data.
 We are using that in here, too. Thanks!
+
+Edit March 26: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
+As far as I can tell this is so far the most transparent data flow, and also the fastest, getting us the freshest case count numbers. Great work!
 
 Fast aggregation & communication is important during the phase of exponential growth.
 
