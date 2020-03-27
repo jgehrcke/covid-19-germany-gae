@@ -90,12 +90,12 @@ def main():
     df_by_lk.index.name = "time_iso8601"
     print(df_by_lk)
 
-    csv_filepath_bk = "data-rl-crowdsource-by-state.csv"
+    csv_filepath_bk = "cases-rl-crowdsource-by-state.csv"
     log.info("write data to CSV file %s", csv_filepath_bk)
     with open(csv_filepath_bk, "wb") as f:
         f.write(df_by_bl.to_csv().encode("utf-8"))
 
-    csv_filepath_lk = "data-rl-crowdsource-by-ags.csv"
+    csv_filepath_lk = "cases-rl-crowdsource-by-ags.csv"
     log.info("write data to CSV file %s", csv_filepath_lk)
     with open(csv_filepath_lk, "wb") as f:
         f.write(df_by_lk.to_csv().encode("utf-8"))
