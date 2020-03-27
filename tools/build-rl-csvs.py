@@ -135,6 +135,8 @@ def fetch_and_clean_data():
     csv = requests.get(os.environ["RISKLAYER_HISTORY_CSV_URL"]).text
     df = pd.read_csv(io.StringIO(csv))
 
+    print(df)
+
     log.info("parse RL/TS/CS data and normalize")
     # Drop text info, keep using AGS (amtlicher Gemeindeschluessel).
     df.drop(["GEN"], axis=1, inplace=True)
@@ -144,6 +146,8 @@ def fetch_and_clean_data():
 
     df["AGS"] = df["AGS"].astype("int")
     df = df.set_index("AGS")
+    # helps understand when that LK was updates last, ignore for now
+    df.drop(columns=["current_time"], inplace=True)
 
     # Set new column names, including hour of the day and the Germany
     # timezone set for each day, as ISO 8601 string.
