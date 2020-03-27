@@ -31,7 +31,7 @@ import logging
 import sys
 import pytz
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timedelta
 from itertools import zip_longest
 
 import pandas as pd
@@ -264,7 +264,8 @@ def fetch_history_for_many_ags(ags_list):
     ts = "timestamp"
     idlk = "IdLandkreis"
     t_start = "2020-03-01 22:00:00"
-    t_end = f"{datetime.now().strftime('%Y-%m-%d')} 23:59:59"
+    d_end = datetime.today() - timedelta(days=1)
+    t_end = f"{d_end.strftime('%Y-%m-%d')} 23:59:59"
     ags_padded_list = [str(ags).zfill(5) for ags in ags_list]
 
     # create list of quoted strings, e.g. ["'05366'", "'05370'"]
