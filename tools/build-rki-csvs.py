@@ -81,6 +81,13 @@ def main():
     # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
     # new_row_df.index.name = "time_iso8601"
 
+    # csv_filepath = "data-rki-by-lk.csv"
+    # log.info("write data to CSV file %s", csv_filepath)
+    # with open(csv_filepath, "wb") as f:
+    #     f.write(df.to_csv().encode("utf-8"))
+
+    # sys.exit()
+
     log.info("Turn DatetimeIndex into index of ISO 8601 strings")
 
     # CPython 3.7 for the %z format specifier behavior.
@@ -92,12 +99,12 @@ def main():
     df_by_lk.index.name = "time_iso8601"
     print(df_by_lk)
 
-    csv_filepath_bk = "data-rl-crowdsource-by-state.csv"
+    csv_filepath_bk = "data-rki-by-state.csv"
     log.info("write data to CSV file %s", csv_filepath_bk)
     with open(csv_filepath_bk, "wb") as f:
         f.write(df_by_bl.to_csv().encode("utf-8"))
 
-    csv_filepath_lk = "data-rl-crowdsource-by-ags.csv"
+    csv_filepath_lk = "data-rki-by-lk.csv"
     log.info("write data to CSV file %s", csv_filepath_lk)
     with open(csv_filepath_lk, "wb") as f:
         f.write(df_by_lk.to_csv().encode("utf-8"))
@@ -142,30 +149,28 @@ def fetch_and_clean_data():
     ags_list_ref = [int(a) for a in AGS_BL_MAP.keys()]
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
-    # ags_list = ags_list[200:250]
-
-    # ags_list = [5366, 5370, 5374, 5378]
-    # for ags in ags_list:
-    #    fetch_history_for_ags(ags)
-
     dataframes = []
     for subset in chunks(ags_list_from_rki, 50):
-        # The chunker fills the last chunks with Nones.
-        subset = [a for a in subset if a is not None]
-        ndfs = fetch_history_for_many_ags(subset)
+        # The chunker fills the last chunk with Nones.
+        agss = [ags for ags in subset if ags is not None]
+
+        # `ndfs` is a dict with AGS as key, and a per-LK dataframe as val.
+        ndfs = fetch_history_for_many_ags(agss)
+
+        # I have seen that this can happen. Not quite sure why/now.
         for ags, df in ndfs.items():
             if not len(df):
                 log.warning("dataframe empty for ags %s", ags)
-            # print("-----------------------")
-            # print(f"AGS: {ags}")
-            # print(df)
+
         log.info("concatenate non-empty chunk dataframes")
         dfs_chunk = [df[ags] for ags, df in ndfs.items() if len(df)]
-        if dfs_chunk:
-            log.info("chunk df from %s non-empty ags series", len(dfs_chunk))
-            dataframes.append(pd.concat(dfs_chunk, axis=1))
-        else:
-            log.info("no non-empty chunk dataframes")
+
+        if not dfs_chunk:
+            log.warning("no non-empty chunk dataframes, skip chunk")
+            continue
+
+        log.info("build chunk df from %s non-empty ags series", len(dfs_chunk))
+        dataframes.append(pd.concat(dfs_chunk, axis=1))
 
     log.info("concatenate chunk dataframes")
     df_all_agss = pd.concat(dataframes, axis=1)
@@ -201,14 +206,9 @@ def fetch_and_clean_data():
     df[11000] = df_berlin_sum
     print(df)
 
-    df.index = df.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df.index.name = "time_iso8601"
-    csv_filepath = "data-rki-by-lk.csv"
-    log.info("write data to CSV file %s", csv_filepath)
-    with open(csv_filepath, "wb") as f:
-        f.write(df.to_csv().encode("utf-8"))
-
-    sys.exit()
+    # df.index = df.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    # df.index.name = "time_iso8601"
+    return df
 
 
 def chunks(iterable, n, fillvalue=None):
@@ -219,11 +219,14 @@ def chunks(iterable, n, fillvalue=None):
 
 
 def fetch_lks():
+    """
+    Conduct a synthetic query towards getting the set of Landkreise w/o being
+    hard on the back-end.
+    """
+
     # Trailing `?`.
     AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
 
-    # Synthetic query towards getting the set of Landkreise w/o being hard
-    # on the back-end
     params = urllib.parse.urlencode(
         {
             "where": "(Meldedatum>timestamp '2020-03-17') AND (Meldedatum<timestamp '2020-03-21')",
@@ -240,7 +243,6 @@ def fetch_lks():
     log.info("Query for set of LKs")
     resp = requests.get(url)
     resp.raise_for_status()
-    # print(resp.text)
     objs = [o["attributes"] for o in resp.json()["features"]]
 
     # create simple dictionary with AGS (int) as key and per-LK detail as val.
@@ -327,7 +329,6 @@ def fetch_history_for_many_ags(ags_list):
 
     # case_numbers_over_time = [o["SummeFall"] for o in objs]
     # timestrings = [o["Meldedatum"] for o in objs]
-
     # print(json.dumps(data_by_ags, indent=2))
 
     dataframes = {}
@@ -339,82 +340,6 @@ def fetch_history_for_many_ags(ags_list):
 
     log.info("aggregated %s dataframes", len(dataframes))
     return dataframes
-
-
-def fetch_history_for_ags(ags):
-    """
-    Args:
-        ags: int, allgemeiner gemeindeschluessel
-    """
-    # Trailing `?`.
-    AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
-    md = "Meldedatum"
-    ts = "timestamp"
-    idlk = "IdLandkreis"
-    t_start = "2020-03-01 22:00:00"
-    t_end = "2020-03-27 23:00:00"
-    ags_padded = str(ags).zfill(5)
-    where_clause = (
-        f"({md}>{ts} '{t_start}') AND ({md}<{ts} '{t_end}') AND ({idlk}='{ags_padded}')"
-    )
-
-    # print(where_clause)
-    # sys.exit()
-    params = urllib.parse.urlencode(
-        {
-            "where": where_clause,
-            "returnGeometry": "false",
-            # "outFields": "SummeFall,Meldedatum,GEN",
-            "outFields": "*",
-            "orderByFields": "Meldedatum asc",
-            "resultOffset": 0,
-            "resultRecordCount": 2000,
-            "f": "json",
-        }
-    )
-
-    url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
-    resp = requests.get(url)
-    resp.raise_for_status()
-    log.info("Got OK response, parse through data")
-    data = resp.json()
-
-    # This is what a feature object looks like:
-    #     {
-    #       "attributes": {
-    #         "AnzahlFall": 1,
-    #         "AnzahlTodesfall": 0,
-    #         "SummeFall": 6,
-    #         "SummeTodesfall": 0,
-    #         "ObjectId": 72726,
-    #         "Datenstand": "26.03.2020 00:00",
-    #         "Meldedatum": 1584316800000,
-    #         "Bundesland": "Nordrhein-Westfalen",
-    #         "IdBundesland": 5,
-    #         "Landkreis": "LK Euskirchen",
-    #         "IdLandkreis": "05366"
-    #       }
-    #     }
-
-    objs = [o["attributes"] for o in data["features"]]
-
-    for obj in objs:
-        # Mutate Meldedatum (milliseconds since epoch) into isoformat
-        md_naive = datetime.fromtimestamp(int(obj["Meldedatum"] / 1000.0))
-        md_aware = pytz.timezone("Europe/Amsterdam").localize(md_naive)
-        obj["Meldedatum"] = md_aware.isoformat()
-
-    case_numbers_over_time = [o["SummeFall"] for o in objs]
-    timestrings = [o["Meldedatum"] for o in objs]
-
-    log.info(case_numbers_over_time)
-    log.info(timestrings)
-
-    df = pd.DataFrame(data={ags: case_numbers_over_time}, index=timestrings)
-    df.index = pd.to_datetime(df.index)
-    df.index.name = "time_iso8601"
-
-    print(df)
 
 
 if __name__ == "__main__":
