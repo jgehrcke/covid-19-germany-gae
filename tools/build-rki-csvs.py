@@ -134,7 +134,13 @@ def aggregate_by_bland(df_by_lk):
 def fetch_and_clean_data():
     log.info("fetch LK-resolved RKI data from arcgis system")
 
-    ags_list = [int(a) for a in AGS_BL_MAP.keys()]
+    # `landkreise` is a dictionary where each item represents a Landkreis or
+    # kreisfreie Stadt. Keys are AGS, value has some detail about Landkreis
+    # such as Bundesland and LK name.
+    landkreise = fetch_lks()
+
+    ags_list_ref = [int(a) for a in AGS_BL_MAP.keys()]
+    ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     # ags_list = ags_list[200:250]
 
@@ -143,7 +149,7 @@ def fetch_and_clean_data():
     #    fetch_history_for_ags(ags)
 
     dataframes = []
-    for subset in chunks(ags_list, 50):
+    for subset in chunks(ags_list_from_rki, 50):
         # The chunker fills the last chunks with Nones.
         subset = [a for a in subset if a is not None]
         ndfs = fetch_history_for_many_ags(subset)
@@ -161,19 +167,39 @@ def fetch_and_clean_data():
         else:
             log.info("no non-empty chunk dataframes")
 
-    # for ags, df in dataframes.items():
-    #     print()
-    #     print(f"AGS: {ags}")
-    #     print(df)
-
-    # pd.concat([df1['c'], df2['c']], axis=1, keys=['df1', 'df2'])
-
     log.info("concatenate chunk dataframes")
-    df = pd.concat(dataframes, axis=1)
-    print(df)
+    df_all_agss = pd.concat(dataframes, axis=1)
+    print(df_all_agss)
 
-    lacking_ags = set(ags_list) - set([c for c in df])
-    log.info("missing data for these ags: %s", lacking_ags)
+    missed = set(ags_list_from_rki) - set([c for c in df_all_agss])
+    if len(missed):
+        log.error("missing data for these ags: %s", missed)
+
+    lacking_wrt_ref = set(ags_list_ref) - set([c for c in df_all_agss])
+    log.info("missing AGS compared to ref AGS list: %s", lacking_wrt_ref)
+
+    # The reference set has one AGS for entire Berlin -> what follows is
+    # expected.
+    assert lacking_wrt_ref == set([11000])
+
+    added_wrt_ref = set([c for c in df_all_agss]) - set(ags_list_ref)
+    log.info("on top of ref AGS list: %s", added_wrt_ref)
+    # The RKI data set hasthe  11001..11012 for Berlin.
+    assert len(added_wrt_ref) == 12
+    for a in added_wrt_ref:
+        assert str(a).startswith("110")
+
+    # Give Berlin some special treatment. Aggregate.
+    # Create view from big DF with Berlin AGSs.
+    df_berlin_ags = df_all_agss[[c for c in df_all_agss if str(c).startswith("110")]]
+    print(df_berlin_ags)
+    df_berlin_sum = df_berlin_ags.sum(axis=1)
+    print(df_berlin_sum)
+
+    # "Final" dataframe, with one column for all of Berlin.
+    df = df_all_agss[[c for c in df_all_agss if not str(c).startswith("110")]].copy()
+    df[11000] = df_berlin_sum
+    print(df)
 
     df.index = df.index.strftime("%Y-%m-%dT%H:%M:%S%z")
     df.index.name = "time_iso8601"
@@ -190,6 +216,39 @@ def chunks(iterable, n, fillvalue=None):
     # https://stackoverflow.com/a/434411/145400
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
+
+
+def fetch_lks():
+    # Trailing `?`.
+    AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
+
+    # Synthetic query towards getting the set of Landkreise w/o being hard
+    # on the back-end
+    params = urllib.parse.urlencode(
+        {
+            "where": "(Meldedatum>timestamp '2020-03-17') AND (Meldedatum<timestamp '2020-03-21')",
+            "returnGeometry": "false",
+            "outFields": "IdLandkreis, Landkreis, Bundesland",
+            "orderByFields": "IdLandkreis asc",
+            "resultOffset": 0,
+            "resultRecordCount": 100000,
+            "f": "json",
+        }
+    )
+    url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
+
+    log.info("Query for set of LKs")
+    resp = requests.get(url)
+    resp.raise_for_status()
+    # print(resp.text)
+    objs = [o["attributes"] for o in resp.json()["features"]]
+
+    # create simple dictionary with AGS (int) as key and per-LK detail as val.
+    landkreise = {}
+    for o in objs:
+        landkreise[int(o["IdLandkreis"])] = o
+
+    return landkreise
 
 
 def fetch_history_for_many_ags(ags_list):
