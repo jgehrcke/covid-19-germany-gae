@@ -262,7 +262,7 @@ def fetch_history_for_many_ags(ags_list):
     ts = "timestamp"
     idlk = "IdLandkreis"
     t_start = "2020-03-01 22:00:00"
-    t_end = "2020-03-27 23:00:00"
+    t_end = f"{datetime.now().strftime('%Y-%m-%d')} 23:59:59"
     ags_padded_list = [str(ags).zfill(5) for ags in ags_list]
 
     # create list of quoted strings, e.g. ["'05366'", "'05370'"]
