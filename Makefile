@@ -1,5 +1,6 @@
 SHELL=/bin/bash -o pipefail -o errexit -o nounset
 
+JHU_REPO_DIR?=jhu-csse-covid-19-data
 
 .PHONY: update-csv
 update-csv:
@@ -28,6 +29,16 @@ deploy-prod:
 .PHONY: deploy-cron
 deploy-cron:
 	cd gae && gcloud app deploy cron.yaml
+
+
+.PHONY: update-jhu-data
+update-jhu-data:
+	@if [ -d "${JHU_REPO_DIR}" ]; then \
+	    echo "updating ..." && \
+		cd ${JHU_REPO_DIR} && git pull; \
+	else \
+		git clone https://github.com/CSSEGISandData/COVID-19 ${JHU_REPO_DIR}; \
+	fi
 
 
 .PHONY: install-python-dependencies
