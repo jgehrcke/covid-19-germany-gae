@@ -1,2 +1,8 @@
 */.secrets/*
 gae/env-sensitive.yaml
+jhu-csse-covid-19-data/*
+*env.sh
+tools/*csv
+tools/*csv*new
+not-needed-anymore
+data.csv.new
