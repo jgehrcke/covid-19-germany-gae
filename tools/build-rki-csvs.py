@@ -206,8 +206,22 @@ def fetch_and_clean_data():
     df[11000] = df_berlin_sum
     print(df)
 
-    # df.index = df.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    # df.index.name = "time_iso8601"
+    lr_has_nan = df.tail(1).isnull().values.any()
+    lr_has_zero = df.tail(1).eq(0).values.any()
+
+    if lr_has_nan:
+        log.info("last row has NaNs")
+
+    if lr_has_zero:
+        log.info("last row has zeros")
+
+    if lr_has_nan or lr_has_zero:
+        log.info("drop last row")
+        # df.head(-1) ## creates a view, I suppose
+        df.drop(df.tail(1).index, inplace=True)
+
+    log.info("turn df to int64")
+    df = df.astype("int64")
     return df
 
 
