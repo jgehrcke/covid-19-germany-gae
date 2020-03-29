@@ -253,7 +253,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         resources=bokeh.resources.CDN,
     )
 
-    with open("index-w-plot.html", "wb") as f:
+    with open("gae/static/index.html", "wb") as f:
         f.write(html.encode("utf-"))
 
     # bokeh.plotting.save(
