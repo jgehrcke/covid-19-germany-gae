@@ -146,6 +146,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#eeeeee",
+        height=500,
     )
 
     # Scatter and line seemingly need to be done separately.
@@ -176,7 +177,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         line_color="black",
         line_width=2,
         line_dash="solid",
-        legend_label="JHU (GitHub CSSEGISandData/COVID-19)",
+        legend_label="JHU (GitHub)",
         source=bokeh.models.ColumnDataSource(data=df_jhu),
     )
     fig.scatter(
@@ -269,18 +270,20 @@ def _set_common_bokeh_fig_props(fig):
     fig.outline_line_color = "#333333"
     fig.outline_line_width = 1
     fig.outline_line_alpha = 0.7
+
+    fig.legend.label_text_font_size = "11px"
     # fig.text_font_size = "12pt"
     fig.xaxis.ticker.desired_num_ticks = 15
     fig.xaxis.axis_label = "Date"
-    fig.xaxis.axis_label_text_font_size = "20px"
-    fig.xaxis.major_label_text_font_size = "10pt"
+    fig.xaxis.axis_label_text_font_size = "16px"
+    fig.xaxis.major_label_text_font_size = "10px"
     fig.xaxis.axis_label_text_font_style = "normal"
 
     fig.y_range.start = 1
     fig.yaxis.axis_label = "cumulative number of confirmed cases"
-    fig.yaxis.axis_label_text_font_size = "20px"
+    fig.yaxis.axis_label_text_font_size = "16px"
     fig.yaxis.axis_label_text_font_style = "normal"
-    fig.yaxis.major_label_text_font_size = "10pt"
+    fig.yaxis.major_label_text_font_size = "10px"
 
 
 def jhu_csse_csv_to_dataframe(data_file_path, location_name):

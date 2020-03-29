@@ -44,6 +44,15 @@
 
       <section class="section">
         <div class="container">
+            <div class="tile is-12 is-parent box">
+              <div class="tile is-child">
+              <p class="title is-4">Data sources in comparison</p>
+              <div>
+                {{ plot_div|indent(8) }}
+                {{ plot_script|indent(8) }}
+              </div>
+              </div>
+            </div>
           <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
@@ -153,7 +162,7 @@
             </div>
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
-                <p class="title is-4">Documentation, resources, code</p>
+                <p class="title is-4">Documentation, resources, code, data</p>
                 <a
                   href="https://github.com/jgehrcke/covid-19-germany-gae"
                   class="is-size-5 is-family-monospace"
@@ -278,25 +287,9 @@
               </div>
             </div>
           </div>
+
         </div>
       </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="tile is-ancestor">
-            <div class="tile is-parent">
-              <div class="tile is-child is-12 box">
-              <p class="title is-4">Data sources in comparison</p>
-              <div>
-                {{ plot_div|indent(8) }}
-                {{ plot_script|indent(8) }}
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="section">
         <div class="container"></div>
       </section>
