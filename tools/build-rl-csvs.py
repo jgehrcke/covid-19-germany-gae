@@ -200,9 +200,8 @@ def fetch_and_clean_data():
 
     df = df.transpose()
     # df.index = pd.to_datetime(df.index, format="%d.%m.%Y %H:%M:%S")
-    df.index = pd.to_datetime(df.index)
+    df.index = pd.to_datetime(df.index, infer_datetime_format=True, utc=True)
     df.index.rename("time", inplace=True)
-    print(df.index)
     return df
 
 
