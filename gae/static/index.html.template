@@ -42,13 +42,18 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section is-medium">
         <div class="container">
           <p class="title is-4">Data sources in comparison</p>
           <div>
             {{ plot_div|indent(8) }}
             {{ plot_script|indent(8) }}
           </div>
+        </div>
+      </section>
+
+      <section class="section is-medium">
+        <div class="container">
           <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
@@ -285,9 +290,6 @@
           </div>
 
         </div>
-      </section>
-      <section class="section">
-        <div class="container"></div>
       </section>
     </div>
     <footer class="footer">
