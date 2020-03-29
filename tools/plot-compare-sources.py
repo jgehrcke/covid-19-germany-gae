@@ -66,7 +66,7 @@ def main():
     # werden in der Grafik Neue COVID-19-Fälle/Tag dann bei dem jeweiligen
     # Datum ergänzt.
 
-    START_DATE = "2020-03-10"
+    START_DATE = "2020-03-08"
 
     df_mixed_data = pd.read_csv(
         "data.csv",
@@ -141,17 +141,11 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     cname = "sum_cases"
     now = datetime.utcnow()
 
-    # "RKI data, by Meldedatum, obtained March 28",
-    # "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
-    # "ZEIT ONLINE daily snapshots",
-    # ",
-
     fig = bokeh.plotting.figure(
         title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
         x_axis_type="datetime",
-        # y_axis_type="log",
         toolbar_location=None,
-        background_fill_color="#F2F2F7",
+        background_fill_color="#eeeeee",
     )
 
     # Scatter and line seemingly need to be done separately.
@@ -272,9 +266,9 @@ def _set_common_bokeh_fig_props(fig):
     fig.toolbar.active_drag = None
     fig.toolbar.active_scroll = None
     fig.toolbar.active_tap = None
-    fig.outline_line_color = "#aec6cf"
-    fig.outline_line_width = 4
-    fig.outline_line_alpha = 0.3
+    fig.outline_line_color = "#333333"
+    fig.outline_line_width = 1
+    fig.outline_line_alpha = 0.7
     # fig.text_font_size = "12pt"
     fig.xaxis.ticker.desired_num_ticks = 15
     fig.xaxis.axis_label = "Date"
