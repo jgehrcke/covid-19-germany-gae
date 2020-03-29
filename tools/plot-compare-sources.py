@@ -69,8 +69,12 @@ def main():
     START_DATE = "2020-03-10"
 
     df_mixed_data = pd.read_csv(
-        "data.csv", index_col=["time_iso8601"], parse_dates=["time_iso8601"]
+        "data.csv",
+        index_col=["time_iso8601"],
+        parse_dates=["time_iso8601"],
+        date_parser=lambda col: pd.to_datetime(col, utc=True),
     )[START_DATE:]
+
     df_mixed_data.index.name = "time"
 
     df_rl = pd.read_csv(
