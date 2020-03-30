@@ -77,8 +77,12 @@ def main():
 
     # Parse iso 8601 timestrings into native DatetimeIndex
     df = pd.read_csv(
-        sys.argv[1], index_col=["time_iso8601"], parse_dates=["time_iso8601"]
+        sys.argv[1],
+        index_col=["time_iso8601"],
+        parse_dates=["time_iso8601"],
+        date_parser=lambda col: pd.to_datetime(col, utc=True),
     )
+
     df.index.name = "date"
 
     for state_isoname in STATE_ISONAME_NAME_MAP:
