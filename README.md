@@ -2,7 +2,7 @@
 
 **Landing page**: https://covid19-germany.appspot.com
 
-This dataset is provided via an **HTTP (JSON) API** as well as through a comma-separated value (**CSV**) file.
+This dataset is provided via an **HTTP (JSON) API** as well as through comma-separated value (**CSV**) files.
 
 How is this different from other datasets?
 
@@ -13,9 +13,12 @@ How is this different from other datasets?
 
 ## Quick overview
 
-- [CSV file](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/data.csv)
+- CSV files
+  - `data.csv`: history, based on RKI/ZEIT ONLINE
+  - `cases-rki-*.csv`: history, based on RKI, best view into the past (accounts for Meldeverzug)
+  - `cases-rl-*.csv`: history, based on Risklayer crowdsource effort
 - JSON endpoint for the current state: [/now](https://covid19-germany.appspot.com/now)
-- JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases)
+- JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`
 - Endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
 
 ## Contact, questions, contributions
@@ -61,7 +64,7 @@ To that end, I took liberty to iterate on the data source behind _this_ dataset 
 
 ### `/timeseries/...` (historical data):
 
-Update (evening March 24): in the near future I consider incorporating data obtained through a crowd-sourcing effort coordinated by [Risklayer](https://twitter.com/risklayer); that might get us even fresher data from individual counties.
+Update (evening March 29): in the near future I consider re-writing the history exposed by these endpoints (`data.csv`) using RKI data, accounting for long reporting delays.
 
 - **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
 - **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
