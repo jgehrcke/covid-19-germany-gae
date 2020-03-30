@@ -64,12 +64,12 @@
           <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
-                <p class="title is-4">Current state (JSON over HTTP)</p>
+                <p class="title is-4">Current state (JSON)</p>
                 <a href="/now" class="is-size-5 is-family-monospace">/now</a>
               </div>
 
               <div class="tile is-child box">
-                <p class="title is-4">Time series (JSON over HTTP)</p>
+                <p class="title is-4">Time series (JSON)</p>
                 <span class="icon"><i class="fas fa-chart-bar"></i></span
                 ><a
                   href="/timeseries/DE-BW/cases"
