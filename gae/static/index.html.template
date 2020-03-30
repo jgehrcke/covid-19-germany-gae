@@ -36,7 +36,7 @@
               COVID-19 case numbers for Germany 🦠
             </h1>
             <h2 class="subtitle">
-              HTTP (JSON) API
+              HTTP API, historical data, and more
             </h2>
           </div>
         </div>
@@ -44,24 +44,25 @@
 
       <section class="section">
         <div class="container">
-            <div class="tile is-12 is-parent box">
-              <div class="tile is-child">
-              <p class="title is-4">Data sources in comparison</p>
-              <div>
-                {{ plot_div|indent(8) }}
-                {{ plot_script|indent(8) }}
-              </div>
-              </div>
-            </div>
+          <p class="title is-4">Data sources in comparison</p>
+          <div>
+            {{ plot_div|indent(8) }}
+            {{ plot_script|indent(8) }}
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
           <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
-                <p class="title is-4">Current state (JSON)</p>
+                <p class="title is-4">Current state (JSON over HTTP)</p>
                 <a href="/now" class="is-size-5 is-family-monospace">/now</a>
               </div>
 
               <div class="tile is-child box">
-                <p class="title is-4">Time series (JSON)</p>
+                <p class="title is-4">Time series (JSON over HTTP)</p>
                 <span class="icon"><i class="fas fa-chart-bar"></i></span
                 ><a
                   href="/timeseries/DE-BW/cases"
@@ -162,7 +163,7 @@
             </div>
             <div class="tile is-parent is-vertical">
               <div class="tile is-child box">
-                <p class="title is-4">Documentation, resources, code, data</p>
+                <p class="title is-4">Documentation, resources, code, more data</p>
                 <a
                   href="https://github.com/jgehrcke/covid-19-germany-gae"
                   class="is-size-5 is-family-monospace"
@@ -171,7 +172,7 @@
               </div>
 
               <div class="tile is-child box">
-                <p class="title is-4">Official resources</p>
+                <p class="title is-4">Collection of official resources</p>
                 <span class="icon"
                   ><i class="fas fa-external-link-alt"></i></span
                 ><a
@@ -289,9 +290,6 @@
           </div>
 
         </div>
-      </section>
-      <section class="section">
-        <div class="container"></div>
       </section>
     </div>
     <footer class="footer">

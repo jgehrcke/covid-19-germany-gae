@@ -96,6 +96,10 @@ def main():
     ]
     df_jhu.index.name = "time"
 
+    # Normalize for plot
+    for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
+        _df["sum_cases"] = _df["sum_cases"] / 10000
+
     plt.figure()
 
     ax = df_rki["sum_cases"].plot(linestyle="solid", marker="x", color="red",)
@@ -103,7 +107,7 @@ def main():
     df_mixed_data["sum_cases"].plot(
         linestyle="dashdot", marker="x", color="black", ax=ax
     )
-    df_jhu["germany"].plot(linestyle="dashdot", marker="x", color="gray", ax=ax)
+    df_jhu["sum_cases"].plot(linestyle="dashdot", marker="x", color="gray", ax=ax)
 
     ax.legend(
         [
@@ -119,7 +123,7 @@ def main():
     ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
 
     plt.xlabel("Time")
-    plt.ylabel("cumulative case count")
+    plt.ylabel("cumulative case count / 10^4")
     plt.title("COVID-19 case count, Germany, comparison of data sources")
     # set_title('Override command rate (from both DC/OS repositories)')
     # set_subtitle('Arithmetic mean over rolling time window')
@@ -142,11 +146,12 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     now = datetime.utcnow()
 
     fig = bokeh.plotting.figure(
-        title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
+        # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
+        title="confirmed cases / 10000 (cumulative, all Germany)",
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#eeeeee",
-        height=500,
+        height=450,
     )
 
     # Scatter and line seemingly need to be done separately.
@@ -173,19 +178,19 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     # JHU
     fig.line(
         "time",
-        "germany",
+        "sum_cases",
         line_color="black",
-        line_width=2,
+        line_width=1,
         line_dash="solid",
         legend_label="JHU (GitHub)",
         source=bokeh.models.ColumnDataSource(data=df_jhu),
     )
     fig.scatter(
         "time",
-        "germany",
+        "sum_cases",
         marker="x",
         line_color="black",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_jhu),
     )
@@ -195,7 +200,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "time",
         "sum_cases",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         line_dash="dashdot",
         legend_label="Risklayer / Tagesspiegel",
         source=bokeh.models.ColumnDataSource(data=df_rl),
@@ -205,7 +210,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "sum_cases",
         marker="x",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_rl),
     )
@@ -214,7 +219,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "time",
         "sum_cases",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         line_dash="solid",
         legend_label="ZEIT ONLINE, daily snapshots",
         source=bokeh.models.ColumnDataSource(data=df_mixed_data),
@@ -224,7 +229,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "sum_cases",
         marker="x",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_mixed_data),
     )
@@ -256,12 +261,6 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     with open("gae/static/index.html", "wb") as f:
         f.write(html.encode("utf-"))
 
-    # bokeh.plotting.save(
-    #    column(figlog, sizing_mode="stretch_both"),
-    #    browser="firefox",
-    # )
-    # log.info("wrote %s", html_file_path)
-
 
 def _set_common_bokeh_fig_props(fig):
     fig.toolbar.active_drag = None
@@ -271,16 +270,22 @@ def _set_common_bokeh_fig_props(fig):
     fig.outline_line_width = 1
     fig.outline_line_alpha = 0.7
 
+    fig.title.text_font_size = "11px"
+
     fig.legend.label_text_font_size = "11px"
     # fig.text_font_size = "12pt"
-    fig.xaxis.ticker.desired_num_ticks = 15
-    fig.xaxis.axis_label = "Date"
+    fig.xaxis.ticker.desired_num_ticks = 11
+
+    fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
+    fig.xaxis.major_label_orientation = 3.1415 / 4
+
+    # fig.xaxis.axis_label = "Date"
     fig.xaxis.axis_label_text_font_size = "16px"
     fig.xaxis.major_label_text_font_size = "10px"
     fig.xaxis.axis_label_text_font_style = "normal"
 
-    fig.y_range.start = 1
-    fig.yaxis.axis_label = "cumulative number of confirmed cases"
+    fig.y_range.start = 0
+    # fig.yaxis.axis_label =
     fig.yaxis.axis_label_text_font_size = "16px"
     fig.yaxis.axis_label_text_font_style = "normal"
     fig.yaxis.major_label_text_font_size = "10px"
@@ -335,8 +340,9 @@ def jhu_csse_csv_to_dataframe(data_file_path, location_name):
     # Only return series for specific location
 
     loc = location_name.lower()
-    # Ignore early data in subsequent processing.
-    return df[loc].to_frame()
+    # rename column for consistency with other dfs
+    df["sum_cases"] = df[loc]
+    return df["sum_cases"].to_frame()
 
 
 def matplotlib_config():
