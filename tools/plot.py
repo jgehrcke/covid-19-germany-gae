@@ -75,20 +75,23 @@ STATE_ISONAME_NAME_MAP = {v: k for k, v in STATE_NAME_ISONAME_MAP.items()}
 
 def main():
 
-    # Parse iso 8601 timestrings into native DatetimeIndex
+    # Parse iso 8601 timestrings into native DatetimeIndex.
     df = pd.read_csv(
         sys.argv[1],
         index_col=["time_iso8601"],
         parse_dates=["time_iso8601"],
         date_parser=lambda col: pd.to_datetime(col, utc=True),
-    )
+    )["2020-03-10":]
 
+    # Don't show the last two days for RKI data, they are too affected by
+    # Meldeverzug.
+    df = df.head(-2)
     df.index.name = "date"
 
     for state_isoname in STATE_ISONAME_NAME_MAP:
         generate_plot_html_file(
             df,
-            cname=state_isoname + "_cases",
+            cname=state_isoname,  # + "_cases",
             fullname=STATE_ISONAME_NAME_MAP[state_isoname],
             shortname=state_isoname,
         )
@@ -103,7 +106,11 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
     now = datetime.utcnow()
     html_file_path = f"plot-{shortname}.html"
 
-    cases_total_fit, doubling_time_days = expfit(df_case_data, cname)
+    fit_start = "2020-03-10"
+    fit_end = "2020-03-21"
+    cases_total_fit, doubling_time_days = expfit(
+        df_case_data, cname, fit_start, fit_end
+    )
 
     preamble_text = dedent(
         f"""
@@ -121,10 +128,9 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
 
     Last case count: {df_case_data[cname][-1]} ({df_case_data.index[-1].strftime("%Y-%m-%d")})
 
-    <strong>Doubling time: ~{doubling_time_days:.1f} days</strong> (from exponential fit, via ln(2)/ln(b), with count(days) = a*e^(b*days))
+    Exponential fit between {fit_start} and {fit_end} (doubling time was: ~{doubling_time_days:.1f} days).
 
-    How useful is this number? Depends on the quality of the fit. See for yourself below.
-    <br /><br />
+    This mildly suggests that the numbers do not grow exponentially (anymore?).
     """
     ).replace("\n\n", "<br />")
 
@@ -206,28 +212,42 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
     log.info("wrote %s", html_file_path)
 
 
-def expfit(df, cname):
+def expfit(df, cname, fit_start, fit_end):
+    def _df_to_timedeltas(_df):
+        ts = np.array(_df.index.to_pydatetime(), dtype=np.datetime64)
+
+        # Forget absolute time since epoch, we care about the relative time
+        # between data points. Get these time differences as native
+        # numpy.timedelta64 data points.
+        time_deltas = ts - ts.min()
+
+        # Most likely `time_deltas` have microsecond precision,
+        # but we do not need to care about that. Use this normalization trick
+        # to turn these time deltas into floats:
+        # https://stackoverflow.com/a/14921192/145400
+        time_deltas_seconds = time_deltas / np.timedelta64(1, "s")
+        time_delta_days = time_deltas_seconds / 86400.0
+        log.info("time deltas [days]: %s", time_delta_days)
+        return time_delta_days
 
     # Goal: Get day-representing time values as numpy array containing float
     # data type. First, get timestamps as numpy.datetime64 values from pandas
     # dataframe.
-    ts = np.array(df.index.to_pydatetime(), dtype=np.datetime64)
 
-    # Forget absolute time since epoch, we care about the relative time
-    # between data points. Get these time differences as native
-    # numpy.timedelta64 data points.
-    time_deltas = ts - ts.min()
+    # Create a dataframe with the index time window over which we'd like to
+    # draw the fit function
+    df_fit = df[fit_start:].copy()
 
-    # Most likely `time_deltas` have microsecond precision,
-    # but we do not need to care about that. Use this normalization trick
-    # to turn these time deltas into floats:
-    # https://stackoverflow.com/a/14921192/145400
-    time_deltas_seconds = time_deltas / np.timedelta64(1, "s")
-    time_delta_days = time_deltas_seconds / 86400.0
-    log.info("time deltas [days]: %s", time_delta_days)
+    # Choose a sub time window in the original data set.
+    # start 2020-03-10 (pragmatic solution to 0 case count for some states and our
+    # goal to build logarithm here), and end March 21 because we clearly don't
+    # have an exponential curve and this is to indicate that we don't.
+
+    df = df[fit_start:fit_end]
 
     # Method: exponential fit by doing a linear fit to natural logarithm of
     # data values.
+    time_delta_days = _df_to_timedeltas(df)
     ln_values = np.log(df[cname].to_numpy())
     log.info("time [days] for fit: %s", time_delta_days)
     log.info("ln values/count for fit: %s", ln_values)
@@ -246,12 +266,11 @@ def expfit(df, cname):
 
     # Get data values from fit function, generate corresponding fit values by
     # inverting logarithm.
-    fit_ys_log = linfunc(time_delta_days, *popt)
+    fit_ys_log = linfunc(_df_to_timedeltas(df_fit), *popt)
     fit_ys = np.exp(fit_ys_log)
 
     # Create a data frame with the original time values as index, and the
     # values from the fit as a series named `expfit`
-    df_fit = df.copy()
     df_fit["expfit"] = fit_ys
     return df_fit, doubling_time_days
 
