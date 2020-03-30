@@ -51,6 +51,9 @@ logging.basicConfig(
 )
 
 
+NOW = datetime.utcnow()
+
+
 def main():
 
     # About "Meldedatum", vom RKI dashboard: Für die Darstellung der
@@ -111,9 +114,9 @@ def main():
 
     ax.legend(
         [
-            "RKI data, by Meldedatum, obtained March 28",
+            "RKI data, by Meldedatum",
             "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
-            "ZEIT ONLINE daily snapshots",
+            "ZEIT ONLINE, daily snapshots",
             "JHU (GitHub CSSEGISandData/COVID-19)",
         ],
         numpoints=4,
@@ -123,17 +126,62 @@ def main():
     ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
 
     plt.xlabel("Time")
-    plt.ylabel("cumulative case count / 10^4")
-    plt.title("COVID-19 case count, Germany, comparison of data sources")
+    plt.ylabel("cumulative case count, all Germany / 10^4")
+    # plt.title("COVID-19 case count, Germany, comparison of data sources")
     # set_title('Override command rate (from both DC/OS repositories)')
     # set_subtitle('Arithmetic mean over rolling time window')
     # plt.tight_layout(rect=(0, 0, 1, 0.95))
 
-    # plt.tight_layout()
-    # plt.savefig("data-sources-comparison.png", dpi=150)
+    plt.tight_layout()
+    fig_filepath_wo_ext = (
+        f"gae/static/data-sources-comparison-{NOW.strftime('%Y-%m-%d')}"
+    )
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    plt.savefig(fig_filepath_wo_ext + ".pdf")
+
+    # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
+
     # plt.show()
 
     plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
+
+
+def _set_common_bokeh_fig_props(fig):
+    fig.toolbar.active_drag = None
+    fig.toolbar.active_scroll = None
+    fig.toolbar.active_tap = None
+    fig.outline_line_color = "#333333"
+    fig.outline_line_width = 1
+    fig.outline_line_alpha = 0.7
+
+    fig.title.text_font_size = "10px"
+
+    fig.legend.label_text_font_size = "10px"
+    # fig.legend.label_text_font = "'Open Sans Condensed', sans-serif"
+    fig.legend.spacing = 0
+    fig.legend.margin = 3
+    fig.legend.label_standoff = 5
+    fig.legend.label_height = 0
+
+    # import json
+    # print(json.dumps(dir(fig.legend), indent=2))
+
+    # fig.text_font_size = "12pt"
+    fig.xaxis.ticker.desired_num_ticks = 11
+
+    fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
+    fig.xaxis.major_label_orientation = 3.1415 / 4 + 0.5
+
+    # fig.xaxis.axis_label = "Date"
+    fig.xaxis.axis_label_text_font_size = "16px"
+    fig.xaxis.major_label_text_font_size = "10px"
+    fig.xaxis.axis_label_text_font_style = "normal"
+
+    fig.y_range.start = 0
+    # fig.yaxis.axis_label = "confirmed cases / 10000"
+    fig.yaxis.axis_label_text_font_size = "10px"
+    fig.yaxis.axis_label_text_font_style = "normal"
+    fig.yaxis.major_label_text_font_size = "10px"
 
 
 def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
@@ -143,11 +191,10 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     # bokeh.io.curdoc().theme = "dark_minimal"
 
     cname = "sum_cases"
-    now = datetime.utcnow()
 
     fig = bokeh.plotting.figure(
         # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
-        title="confirmed cases / 10000 (cumulative, all Germany)",
+        title="Germany, cumulative cases / 10000",
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#eeeeee",
@@ -221,7 +268,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         line_color="gray",
         line_width=1,
         line_dash="solid",
-        legend_label="ZEIT ONLINE, daily snapshots",
+        legend_label="ZEIT ONLINE",
         source=bokeh.models.ColumnDataSource(data=df_mixed_data),
     )
     fig.scatter(
@@ -256,39 +303,11 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         column(fig, sizing_mode="stretch_both"),
         template=template,
         resources=bokeh.resources.CDN,
+        template_variables={"today_string": NOW.strftime("%Y-%m-%d")},
     )
 
     with open("gae/static/index.html", "wb") as f:
-        f.write(html.encode("utf-"))
-
-
-def _set_common_bokeh_fig_props(fig):
-    fig.toolbar.active_drag = None
-    fig.toolbar.active_scroll = None
-    fig.toolbar.active_tap = None
-    fig.outline_line_color = "#333333"
-    fig.outline_line_width = 1
-    fig.outline_line_alpha = 0.7
-
-    fig.title.text_font_size = "11px"
-
-    fig.legend.label_text_font_size = "11px"
-    # fig.text_font_size = "12pt"
-    fig.xaxis.ticker.desired_num_ticks = 11
-
-    fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
-    fig.xaxis.major_label_orientation = 3.1415 / 4
-
-    # fig.xaxis.axis_label = "Date"
-    fig.xaxis.axis_label_text_font_size = "16px"
-    fig.xaxis.major_label_text_font_size = "10px"
-    fig.xaxis.axis_label_text_font_style = "normal"
-
-    fig.y_range.start = 0
-    # fig.yaxis.axis_label =
-    fig.yaxis.axis_label_text_font_size = "16px"
-    fig.yaxis.axis_label_text_font_style = "normal"
-    fig.yaxis.major_label_text_font_size = "10px"
+        f.write(html.encode("utf-8"))
 
 
 def jhu_csse_csv_to_dataframe(data_file_path, location_name):

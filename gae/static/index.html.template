@@ -49,6 +49,13 @@
             {{ plot_div|indent(8) }}
             {{ plot_script|indent(8) }}
           </div>
+        <div>
+        <span class="is-size-7"><br /></span>
+          <span class="icon"><i class="fas fa-file-image fa-lg"></i></span>
+          <a href="static/data-sources-comparison-{{ today_string }}.png" class="is-size-6 is-family-monospace">PNG</a>
+          <span class="icon"><i class="fas fa-file-pdf fa-lg"></i></span>
+          <a href="static/data-sources-comparison-{{ today_string }}.pdf" class="is-size-6 is-family-monospace">PDF</a>
+        </div>
         </div>
       </section>
 
