@@ -141,20 +141,56 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
         fig.toolbar.active_drag = None
         fig.toolbar.active_scroll = None
         fig.toolbar.active_tap = None
-        fig.outline_line_color = "#aec6cf"
-        fig.outline_line_width = 4
-        fig.outline_line_alpha = 0.3
+        # fig.outline_line_color = "#aec6cf"
+        # fig.outline_line_width = 4
+        # fig.outline_line_alpha = 0.3
         fig.xaxis.ticker.desired_num_ticks = 15
         fig.xaxis.axis_label = "Date"
         fig.y_range.start = 1
         fig.yaxis.axis_label = "cumulative number of confirmed cases"
+
+        fig.toolbar.active_drag = None
+        fig.toolbar.active_scroll = None
+        fig.toolbar.active_tap = None
+        fig.outline_line_color = "#333333"
+        fig.outline_line_width = 1
+        fig.outline_line_alpha = 0.7
+
+        fig.title.text_font_size = "10px"
+
+        fig.legend.label_text_font_size = "10px"
+        # fig.legend.label_text_font = "'Open Sans Condensed', sans-serif"
+        fig.legend.spacing = 0
+        fig.legend.margin = 3
+        fig.legend.label_standoff = 5
+        fig.legend.label_height = 0
+
+        # import json
+        # print(json.dumps(dir(fig.legend), indent=2))
+
+        # fig.text_font_size = "12pt"
+        fig.xaxis.ticker.desired_num_ticks = 15
+
+        fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
+        fig.xaxis.major_label_orientation = 3.1415 / 4 + 0.5
+
+        # fig.xaxis.axis_label = "Date"
+        fig.xaxis.axis_label_text_font_size = "16px"
+        fig.xaxis.major_label_text_font_size = "10px"
+        fig.xaxis.axis_label_text_font_style = "normal"
+
+        fig.y_range.start = 0
+        # fig.yaxis.axis_label = "confirmed cases / 10000"
+        fig.yaxis.axis_label_text_font_size = "10px"
+        fig.yaxis.axis_label_text_font_style = "normal"
+        fig.yaxis.major_label_text_font_size = "10px"
 
     figlog = bokeh.plotting.figure(
         title=f"cumulative COVID-19 case count over time (semi-logarithmic), {shortname}",
         x_axis_type="datetime",
         y_axis_type="log",
         toolbar_location=None,
-        background_fill_color="#F2F2F7",
+        background_fill_color="#eeeeee",
     )
     figlog.scatter(
         "date",
@@ -183,7 +219,7 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
         title=f"cumulative COVID-19 case count over time (linear), {shortname}",
         x_axis_type="datetime",
         toolbar_location=None,
-        background_fill_color="#F2F2F7",
+        background_fill_color="#eeeeee",
     )
     figlin.scatter(
         "date",
