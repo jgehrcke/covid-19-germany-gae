@@ -12,7 +12,7 @@ update-csv:
 
 .PHONY: plots
 plots:
-	cd gae/static/plots && python ../../../tools/plot.py ../../../data.csv
+	cd gae/static/plots && python ../../../tools/plot.py ../../../cases-rki-by-state.csv
 
 
 .PHONY: deploy-staging
