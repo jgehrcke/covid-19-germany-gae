@@ -1,5 +1,7 @@
 # COVID-19 case numbers in Germany by state, over time 😷
 
+(COVID-19 Fallzahlen für Deutschland)
+
 **Landing page**: https://covid19-germany.appspot.com
 
 This dataset is provided via an **HTTP (JSON) API** as well as through comma-separated value (**CSV**) files.
