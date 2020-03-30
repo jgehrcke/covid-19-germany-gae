@@ -150,7 +150,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 80):
+    for subset in chunks(ags_list_from_rki, 70):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -198,7 +198,9 @@ def fetch_and_clean_data():
     # Create view from big DF with Berlin AGSs.
     df_berlin_ags = df_all_agss[[c for c in df_all_agss if str(c).startswith("110")]]
     print(df_berlin_ags)
-    df_berlin_sum = df_berlin_ags.sum(axis=1)
+    # If there's any NaN in a row then keep the NaN sum (otherwise even if all
+    # values along a row are NaNs the sum would be 0.0)
+    df_berlin_sum = df_berlin_ags.sum(axis=1, skipna=False)
     print(df_berlin_sum)
 
     # "Final" dataframe, with one column for all of Berlin.
@@ -209,6 +211,8 @@ def fetch_and_clean_data():
     lr_has_nan = df.tail(1).isnull().values.any()
     lr_has_zero = df.tail(1).eq(0).values.any()
 
+    # During the week easily the last row can contain NaN as of slow RKI
+    # updates/Meldeverzug.
     if lr_has_nan:
         log.info("last row has NaNs")
 
@@ -219,6 +223,20 @@ def fetch_and_clean_data():
         log.info("drop last row")
         # df.head(-1) ## creates a view, I suppose
         df.drop(df.tail(1).index, inplace=True)
+
+    # After a weekend it's possible that even more data hasn't come in yet.
+    # Example:
+    # 2020-03-26 01:00:00+01:00   18.0   75.0   68.0   13.0   20.0   69.0   28.0  ...     14     32     21     11    103     16  2022.0
+    # 2020-03-27 01:00:00+01:00    NaN    NaN    NaN    NaN    NaN    NaN    NaN  ...     16     32     22     27    111     18     0.0
+    # 2020-03-28 01:00:00+01:00    NaN    NaN    NaN    NaN    NaN    NaN    NaN  ...     20     32     27     27    121     19     0.0
+    # 2020-03-29 01:00:00+01:00    NaN    NaN    NaN    NaN    NaN    NaN    NaN  ...     20     32     27     27    130     19     0.0
+
+    lr_has_nan = df.tail(1).isnull().values.any()
+    if lr_has_nan:
+        log.info("(at least the) last row still has NaNs -- forward-fill")
+        df.fillna(method="ffill", inplace=True)
+
+    print(df)
 
     log.info("turn df to int64")
     df = df.astype("int64")
@@ -248,7 +266,7 @@ def fetch_lks():
             "outFields": "IdLandkreis, Landkreis, Bundesland",
             "orderByFields": "IdLandkreis asc",
             "resultOffset": 0,
-            "resultRecordCount": 100000,
+            "resultRecordCount": 10 ** 6,
             "f": "json",
         }
     )
@@ -295,7 +313,7 @@ def fetch_history_for_many_ags(ags_list):
             "outFields": "*",
             "orderByFields": "Meldedatum asc",
             "resultOffset": 0,
-            "resultRecordCount": 10000,
+            "resultRecordCount": 10 ** 6,
             "f": "json",
         }
     )
