@@ -153,7 +153,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-df = pd.read_csv("data.csv", index_col=["time_iso8601"], parse_dates=["time_iso8601"])
+df = pd.read_csv(
+    sys.argv[1],
+    index_col=["time_iso8601"],
+    parse_dates=["time_iso8601"],
+    date_parser=lambda col: pd.to_datetime(col, utc=True),
+)
 df.index.name = "time"
 
 df["DE-BW_cases"].plot(
