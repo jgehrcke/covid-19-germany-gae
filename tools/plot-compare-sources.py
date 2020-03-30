@@ -147,7 +147,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
 
     fig = bokeh.plotting.figure(
         # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
-        title="cumulative confirmed cases / 10000",
+        title="confirmed cases / 10000 (cumulative, all Germany)",
         x_axis_type="datetime",
         toolbar_location=None,
         background_fill_color="#eeeeee",
@@ -180,7 +180,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "time",
         "sum_cases",
         line_color="black",
-        line_width=2,
+        line_width=1,
         line_dash="solid",
         legend_label="JHU (GitHub)",
         source=bokeh.models.ColumnDataSource(data=df_jhu),
@@ -190,7 +190,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "sum_cases",
         marker="x",
         line_color="black",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_jhu),
     )
@@ -200,7 +200,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "time",
         "sum_cases",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         line_dash="dashdot",
         legend_label="Risklayer / Tagesspiegel",
         source=bokeh.models.ColumnDataSource(data=df_rl),
@@ -210,7 +210,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "sum_cases",
         marker="x",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_rl),
     )
@@ -219,7 +219,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "time",
         "sum_cases",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         line_dash="solid",
         legend_label="ZEIT ONLINE, daily snapshots",
         source=bokeh.models.ColumnDataSource(data=df_mixed_data),
@@ -229,7 +229,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         "sum_cases",
         marker="x",
         line_color="gray",
-        line_width=2,
+        line_width=1,
         size=8,
         source=bokeh.models.ColumnDataSource(data=df_mixed_data),
     )
@@ -274,9 +274,9 @@ def _set_common_bokeh_fig_props(fig):
 
     fig.legend.label_text_font_size = "11px"
     # fig.text_font_size = "12pt"
-    fig.xaxis.ticker.desired_num_ticks = 15
+    fig.xaxis.ticker.desired_num_ticks = 11
 
-    fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%m-%d"])
+    fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
     fig.xaxis.major_label_orientation = 3.1415 / 4
 
     # fig.xaxis.axis_label = "Date"
