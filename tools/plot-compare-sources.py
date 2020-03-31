@@ -167,7 +167,7 @@ def _set_common_bokeh_fig_props(fig):
     # print(json.dumps(dir(fig.legend), indent=2))
 
     # fig.text_font_size = "12pt"
-    fig.xaxis.ticker.desired_num_ticks = 11
+    fig.xaxis.ticker.desired_num_ticks = 21
 
     fig.xaxis.formatter = bokeh.models.DatetimeTickFormatter(days=["%b-%d"])
     fig.xaxis.major_label_orientation = 3.1415 / 4 + 0.5
