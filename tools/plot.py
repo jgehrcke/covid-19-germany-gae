@@ -118,7 +118,7 @@ def generate_plot_html_file(df_case_data, cname, fullname, shortname):
 
     Background information and code: <a href="https://github.com/jgehrcke/covid-19-germany-gae">github.com/jgehrcke/covid-19-germany-gae</a>
 
-    Data sources: Gesundheitsministerien (aggregated by RKI, ZEIT ONLINE)
+    Data sources: Gesundheitsministerien (aggregated by Robert Koch-Institut)
 
     Author: <a href="https://gehrcke.de">Dr. Jan-Philip Gehrcke</a>
 
