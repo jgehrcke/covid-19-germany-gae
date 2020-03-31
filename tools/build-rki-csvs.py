@@ -353,7 +353,23 @@ def fetch_history_for_many_ags(ags_list):
     for obj in (o["attributes"] for o in data["features"]):
         # Mutate Meldedatum (milliseconds since epoch) into isoformat
         md_naive = datetime.fromtimestamp(int(obj["Meldedatum"] / 1000.0))
-        md_aware = pytz.timezone("Europe/Amsterdam").localize(md_naive)
+
+        # Read naive timestamp as in GER tz, and then convert value to UTC (so
+        # that all tz indicators in the datetimeindex show the same offset, so
+        # that we don't get mixed-tz CSV files which can be difficult to
+        # parse).
+        md_aware = (
+            pytz.timezone("Europe/Amsterdam").localize(md_naive).astimezone(pytz.utc)
+        )
+
+        # Now this one is tricky. The timestamps we get from the RKI's ArcGIS
+        # system suggest a local time of 01:00 in the morning. However, it
+        # seems like this number is actually rater meaningless. The case count
+        # for, say, March 27 01:00 in the morning are not (as suggested by the
+        # time) for March 26, but actually appear to be end-of-day March 27
+        # case counts. We don't know exactly, though. To make comparion with
+        # other data sources more fair: shift this to ~6/7 pm on the same day.
+        md_aware = md_aware + timedelta(hours=17)
         # obj["Meldedatum"] = md_aware.isoformat()
         ags = int(obj["IdLandkreis"])
         data_by_ags[ags]["timestrings"].append(md_aware.isoformat())
