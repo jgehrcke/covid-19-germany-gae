@@ -15,10 +15,11 @@ How is this different from other datasets?
 
 ## Quick overview
 
-- CSV files
-  - `data.csv`: history, based on RKI/ZEIT ONLINE
-  - `cases-rki-*.csv`: history, based on RKI, best view into the past (accounts for Meldeverzug)
-  - `cases-rl-*.csv`: history, based on Risklayer crowdsource effort
+- Data files:
+  - `cases-rki-*.csv` and `deaths-rki-*.csv`: history, based on Robert Koch-Institut data, most credible view into the past: accounts for Meldeverzug. The historical evolution of data points in here is updated daily based on the (less accessible) RKI ArcGIS system.
+  - `ags.json`: a map for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details.
+  - `cases-rl-*.csv`: history, based on Risklayer crowdsource effort.
+  - `data.csv`: history, mixed data source based on RKI/ZEIT ONLINE, drives API.
 - JSON endpoint for the current state: [/now](https://covid19-germany.appspot.com/now)
 - JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`
 - Endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
