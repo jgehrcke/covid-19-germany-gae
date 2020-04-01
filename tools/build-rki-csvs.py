@@ -64,7 +64,7 @@ logging.basicConfig(
 )
 
 
-with open(os.path.join(os.path.dirname(__file__), "lk-ags-to-bl.json"), "rb") as f:
+with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
     AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
 
 
@@ -129,7 +129,7 @@ def aggregate_by_bland(df_by_lk):
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
-        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]]
+        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
         else:
@@ -189,10 +189,6 @@ def fetch_and_clean_data():
 
     added_wrt_ref = set([c for c in df_all_agss]) - set(ags_list_ref)
     log.info("on top of ref AGS list: %s", added_wrt_ref)
-    # The RKI data set hasthe  11001..11012 for Berlin.
-    assert len(added_wrt_ref) == 12
-    for a in added_wrt_ref:
-        assert str(a).startswith("110")
 
     # Give Berlin some special treatment. Aggregate.
     # Create view from big DF with Berlin AGSs.
