@@ -1,0 +1,1655 @@
+{
+  "1001": {
+    "name": "SK Flensburg",
+    "state": "Schleswig-Holstein"
+  },
+  "1002": {
+    "name": "SK Kiel",
+    "state": "Schleswig-Holstein"
+  },
+  "1003": {
+    "name": "SK Lübeck",
+    "state": "Schleswig-Holstein"
+  },
+  "1004": {
+    "name": "SK Neumünster",
+    "state": "Schleswig-Holstein"
+  },
+  "1051": {
+    "name": "LK Dithmarschen",
+    "state": "Schleswig-Holstein"
+  },
+  "1053": {
+    "name": "LK Herzogtum Lauenburg",
+    "state": "Schleswig-Holstein"
+  },
+  "1054": {
+    "name": "LK Nordfriesland",
+    "state": "Schleswig-Holstein"
+  },
+  "1055": {
+    "name": "LK Ostholstein",
+    "state": "Schleswig-Holstein"
+  },
+  "1056": {
+    "name": "LK Pinneberg",
+    "state": "Schleswig-Holstein"
+  },
+  "1057": {
+    "name": "LK Plön",
+    "state": "Schleswig-Holstein"
+  },
+  "1058": {
+    "name": "LK Rendsburg-Eckernförde",
+    "state": "Schleswig-Holstein"
+  },
+  "1059": {
+    "name": "LK Schleswig-Flensburg",
+    "state": "Schleswig-Holstein"
+  },
+  "1060": {
+    "name": "LK Segeberg",
+    "state": "Schleswig-Holstein"
+  },
+  "1061": {
+    "name": "LK Steinburg",
+    "state": "Schleswig-Holstein"
+  },
+  "1062": {
+    "name": "LK Stormarn",
+    "state": "Schleswig-Holstein"
+  },
+  "2000": {
+    "name": "SK Hamburg",
+    "state": "Hamburg"
+  },
+  "3101": {
+    "name": "SK Braunschweig",
+    "state": "Niedersachsen"
+  },
+  "3102": {
+    "name": "SK Salzgitter",
+    "state": "Niedersachsen"
+  },
+  "3103": {
+    "name": "SK Wolfsburg",
+    "state": "Niedersachsen"
+  },
+  "3151": {
+    "name": "LK Gifhorn",
+    "state": "Niedersachsen"
+  },
+  "3153": {
+    "name": "LK Goslar",
+    "state": "Niedersachsen"
+  },
+  "3154": {
+    "name": "LK Helmstedt",
+    "state": "Niedersachsen"
+  },
+  "3155": {
+    "name": "LK Northeim",
+    "state": "Niedersachsen"
+  },
+  "3157": {
+    "name": "LK Peine",
+    "state": "Niedersachsen"
+  },
+  "3158": {
+    "name": "LK Wolfenbüttel",
+    "state": "Niedersachsen"
+  },
+  "3159": {
+    "name": "LK Göttingen",
+    "state": "Niedersachsen"
+  },
+  "3241": {
+    "name": "Region Hannover",
+    "state": "Niedersachsen"
+  },
+  "3251": {
+    "name": "LK Diepholz",
+    "state": "Niedersachsen"
+  },
+  "3252": {
+    "name": "LK Hameln-Pyrmont",
+    "state": "Niedersachsen"
+  },
+  "3254": {
+    "name": "LK Hildesheim",
+    "state": "Niedersachsen"
+  },
+  "3255": {
+    "name": "LK Holzminden",
+    "state": "Niedersachsen"
+  },
+  "3256": {
+    "name": "LK Nienburg (Weser)",
+    "state": "Niedersachsen"
+  },
+  "3257": {
+    "name": "LK Schaumburg",
+    "state": "Niedersachsen"
+  },
+  "3351": {
+    "name": "LK Celle",
+    "state": "Niedersachsen"
+  },
+  "3352": {
+    "name": "LK Cuxhaven",
+    "state": "Niedersachsen"
+  },
+  "3353": {
+    "name": "LK Harburg",
+    "state": "Niedersachsen"
+  },
+  "3354": {
+    "name": "LK Lüchow-Dannenberg",
+    "state": "Niedersachsen"
+  },
+  "3355": {
+    "name": "LK Lüneburg",
+    "state": "Niedersachsen"
+  },
+  "3356": {
+    "name": "LK Osterholz",
+    "state": "Niedersachsen"
+  },
+  "3357": {
+    "name": "LK Rotenburg (Wümme)",
+    "state": "Niedersachsen"
+  },
+  "3358": {
+    "name": "LK Heidekreis",
+    "state": "Niedersachsen"
+  },
+  "3359": {
+    "name": "LK Stade",
+    "state": "Niedersachsen"
+  },
+  "3360": {
+    "name": "LK Uelzen",
+    "state": "Niedersachsen"
+  },
+  "3361": {
+    "name": "LK Verden",
+    "state": "Niedersachsen"
+  },
+  "3401": {
+    "name": "SK Delmenhorst",
+    "state": "Niedersachsen"
+  },
+  "3402": {
+    "name": "SK Emden",
+    "state": "Niedersachsen"
+  },
+  "3403": {
+    "name": "SK Oldenburg",
+    "state": "Niedersachsen"
+  },
+  "3404": {
+    "name": "SK Osnabrück",
+    "state": "Niedersachsen"
+  },
+  "3405": {
+    "name": "SK Wilhelmshaven",
+    "state": "Niedersachsen"
+  },
+  "3451": {
+    "name": "LK Ammerland",
+    "state": "Niedersachsen"
+  },
+  "3452": {
+    "name": "LK Aurich",
+    "state": "Niedersachsen"
+  },
+  "3453": {
+    "name": "LK Cloppenburg",
+    "state": "Niedersachsen"
+  },
+  "3454": {
+    "name": "LK Emsland",
+    "state": "Niedersachsen"
+  },
+  "3455": {
+    "name": "LK Friesland",
+    "state": "Niedersachsen"
+  },
+  "3456": {
+    "name": "LK Grafschaft Bentheim",
+    "state": "Niedersachsen"
+  },
+  "3457": {
+    "name": "LK Leer",
+    "state": "Niedersachsen"
+  },
+  "3458": {
+    "name": "LK Oldenburg",
+    "state": "Niedersachsen"
+  },
+  "3459": {
+    "name": "LK Osnabrück",
+    "state": "Niedersachsen"
+  },
+  "3460": {
+    "name": "LK Vechta",
+    "state": "Niedersachsen"
+  },
+  "3461": {
+    "name": "LK Wesermarsch",
+    "state": "Niedersachsen"
+  },
+  "3462": {
+    "name": "LK Wittmund",
+    "state": "Niedersachsen"
+  },
+  "4011": {
+    "name": "SK Bremen",
+    "state": "Bremen"
+  },
+  "4012": {
+    "name": "SK Bremerhaven",
+    "state": "Bremen"
+  },
+  "5111": {
+    "name": "SK Düsseldorf",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5112": {
+    "name": "SK Duisburg",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5113": {
+    "name": "SK Essen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5114": {
+    "name": "SK Krefeld",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5116": {
+    "name": "SK Mönchengladbach",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5117": {
+    "name": "SK Mülheim a.d.Ruhr",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5119": {
+    "name": "SK Oberhausen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5120": {
+    "name": "SK Remscheid",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5122": {
+    "name": "SK Solingen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5124": {
+    "name": "SK Wuppertal",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5154": {
+    "name": "LK Kleve",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5158": {
+    "name": "LK Mettmann",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5162": {
+    "name": "LK Rhein-Kreis Neuss",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5166": {
+    "name": "LK Viersen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5170": {
+    "name": "LK Wesel",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5314": {
+    "name": "SK Bonn",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5315": {
+    "name": "SK Köln",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5316": {
+    "name": "SK Leverkusen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5334": {
+    "name": "StadtRegion Aachen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5358": {
+    "name": "LK Düren",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5362": {
+    "name": "LK Rhein-Erft-Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5366": {
+    "name": "LK Euskirchen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5370": {
+    "name": "LK Heinsberg",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5374": {
+    "name": "LK Oberbergischer Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5378": {
+    "name": "LK Rheinisch-Bergischer Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5382": {
+    "name": "LK Rhein-Sieg-Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5512": {
+    "name": "SK Bottrop",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5513": {
+    "name": "SK Gelsenkirchen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5515": {
+    "name": "SK Münster",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5554": {
+    "name": "LK Borken",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5558": {
+    "name": "LK Coesfeld",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5562": {
+    "name": "LK Recklinghausen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5566": {
+    "name": "LK Steinfurt",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5570": {
+    "name": "LK Warendorf",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5711": {
+    "name": "SK Bielefeld",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5754": {
+    "name": "LK Gütersloh",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5758": {
+    "name": "LK Herford",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5762": {
+    "name": "LK Höxter",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5766": {
+    "name": "LK Lippe",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5770": {
+    "name": "LK Minden-Lübbecke",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5774": {
+    "name": "LK Paderborn",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5911": {
+    "name": "SK Bochum",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5913": {
+    "name": "SK Dortmund",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5914": {
+    "name": "SK Hagen",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5915": {
+    "name": "SK Hamm",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5916": {
+    "name": "SK Herne",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5954": {
+    "name": "LK Ennepe-Ruhr-Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5958": {
+    "name": "LK Hochsauerlandkreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5962": {
+    "name": "LK Märkischer Kreis",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5966": {
+    "name": "LK Olpe",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5970": {
+    "name": "LK Siegen-Wittgenstein",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5974": {
+    "name": "LK Soest",
+    "state": "Nordrhein-Westfalen"
+  },
+  "5978": {
+    "name": "LK Unna",
+    "state": "Nordrhein-Westfalen"
+  },
+  "6411": {
+    "name": "SK Darmstadt",
+    "state": "Hessen"
+  },
+  "6412": {
+    "name": "SK Frankfurt am Main",
+    "state": "Hessen"
+  },
+  "6413": {
+    "name": "SK Offenbach",
+    "state": "Hessen"
+  },
+  "6414": {
+    "name": "SK Wiesbaden",
+    "state": "Hessen"
+  },
+  "6431": {
+    "name": "LK Bergstraße",
+    "state": "Hessen"
+  },
+  "6432": {
+    "name": "LK Darmstadt-Dieburg",
+    "state": "Hessen"
+  },
+  "6433": {
+    "name": "LK Groß-Gerau",
+    "state": "Hessen"
+  },
+  "6434": {
+    "name": "LK Hochtaunuskreis",
+    "state": "Hessen"
+  },
+  "6435": {
+    "name": "LK Main-Kinzig-Kreis",
+    "state": "Hessen"
+  },
+  "6436": {
+    "name": "LK Main-Taunus-Kreis",
+    "state": "Hessen"
+  },
+  "6437": {
+    "name": "LK Odenwaldkreis",
+    "state": "Hessen"
+  },
+  "6438": {
+    "name": "LK Offenbach",
+    "state": "Hessen"
+  },
+  "6439": {
+    "name": "LK Rheingau-Taunus-Kreis",
+    "state": "Hessen"
+  },
+  "6440": {
+    "name": "LK Wetteraukreis",
+    "state": "Hessen"
+  },
+  "6531": {
+    "name": "LK Gießen",
+    "state": "Hessen"
+  },
+  "6532": {
+    "name": "LK Lahn-Dill-Kreis",
+    "state": "Hessen"
+  },
+  "6533": {
+    "name": "LK Limburg-Weilburg",
+    "state": "Hessen"
+  },
+  "6534": {
+    "name": "LK Marburg-Biedenkopf",
+    "state": "Hessen"
+  },
+  "6535": {
+    "name": "LK Vogelsbergkreis",
+    "state": "Hessen"
+  },
+  "6611": {
+    "name": "SK Kassel",
+    "state": "Hessen"
+  },
+  "6631": {
+    "name": "LK Fulda",
+    "state": "Hessen"
+  },
+  "6632": {
+    "name": "LK Hersfeld-Rotenburg",
+    "state": "Hessen"
+  },
+  "6633": {
+    "name": "LK Kassel",
+    "state": "Hessen"
+  },
+  "6634": {
+    "name": "LK Schwalm-Eder-Kreis",
+    "state": "Hessen"
+  },
+  "6635": {
+    "name": "LK Waldeck-Frankenberg",
+    "state": "Hessen"
+  },
+  "6636": {
+    "name": "LK Werra-Meißner-Kreis",
+    "state": "Hessen"
+  },
+  "7111": {
+    "name": "SK Koblenz",
+    "state": "Rheinland-Pfalz"
+  },
+  "7131": {
+    "name": "LK Ahrweiler",
+    "state": "Rheinland-Pfalz"
+  },
+  "7132": {
+    "name": "LK Altenkirchen",
+    "state": "Rheinland-Pfalz"
+  },
+  "7133": {
+    "name": "LK Bad Kreuznach",
+    "state": "Rheinland-Pfalz"
+  },
+  "7134": {
+    "name": "LK Birkenfeld",
+    "state": "Rheinland-Pfalz"
+  },
+  "7135": {
+    "name": "LK Cochem-Zell",
+    "state": "Rheinland-Pfalz"
+  },
+  "7137": {
+    "name": "LK Mayen-Koblenz",
+    "state": "Rheinland-Pfalz"
+  },
+  "7138": {
+    "name": "LK Neuwied",
+    "state": "Rheinland-Pfalz"
+  },
+  "7140": {
+    "name": "LK Rhein-Hunsrück-Kreis",
+    "state": "Rheinland-Pfalz"
+  },
+  "7141": {
+    "name": "LK Rhein-Lahn-Kreis",
+    "state": "Rheinland-Pfalz"
+  },
+  "7143": {
+    "name": "LK Westerwaldkreis",
+    "state": "Rheinland-Pfalz"
+  },
+  "7211": {
+    "name": "SK Trier",
+    "state": "Rheinland-Pfalz"
+  },
+  "7231": {
+    "name": "LK Bernkastel-Wittlich",
+    "state": "Rheinland-Pfalz"
+  },
+  "7232": {
+    "name": "LK Bitburg-Prüm",
+    "state": "Rheinland-Pfalz"
+  },
+  "7233": {
+    "name": "LK Vulkaneifel",
+    "state": "Rheinland-Pfalz"
+  },
+  "7235": {
+    "name": "LK Trier-Saarburg",
+    "state": "Rheinland-Pfalz"
+  },
+  "7311": {
+    "name": "SK Frankenthal",
+    "state": "Rheinland-Pfalz"
+  },
+  "7312": {
+    "name": "SK Kaiserslautern",
+    "state": "Rheinland-Pfalz"
+  },
+  "7313": {
+    "name": "SK Landau i.d.Pfalz",
+    "state": "Rheinland-Pfalz"
+  },
+  "7314": {
+    "name": "SK Ludwigshafen",
+    "state": "Rheinland-Pfalz"
+  },
+  "7315": {
+    "name": "SK Mainz",
+    "state": "Rheinland-Pfalz"
+  },
+  "7316": {
+    "name": "SK Neustadt a.d.Weinstraße",
+    "state": "Rheinland-Pfalz"
+  },
+  "7317": {
+    "name": "SK Pirmasens",
+    "state": "Rheinland-Pfalz"
+  },
+  "7318": {
+    "name": "SK Speyer",
+    "state": "Rheinland-Pfalz"
+  },
+  "7319": {
+    "name": "SK Worms",
+    "state": "Rheinland-Pfalz"
+  },
+  "7320": {
+    "name": "SK Zweibrücken",
+    "state": "Rheinland-Pfalz"
+  },
+  "7331": {
+    "name": "LK Alzey-Worms",
+    "state": "Rheinland-Pfalz"
+  },
+  "7332": {
+    "name": "LK Bad Dürkheim",
+    "state": "Rheinland-Pfalz"
+  },
+  "7333": {
+    "name": "LK Donnersbergkreis",
+    "state": "Rheinland-Pfalz"
+  },
+  "7334": {
+    "name": "LK Germersheim",
+    "state": "Rheinland-Pfalz"
+  },
+  "7335": {
+    "name": "LK Kaiserslautern",
+    "state": "Rheinland-Pfalz"
+  },
+  "7336": {
+    "name": "LK Kusel",
+    "state": "Rheinland-Pfalz"
+  },
+  "7337": {
+    "name": "LK Südliche Weinstraße",
+    "state": "Rheinland-Pfalz"
+  },
+  "7338": {
+    "name": "LK Rhein-Pfalz-Kreis",
+    "state": "Rheinland-Pfalz"
+  },
+  "7339": {
+    "name": "LK Mainz-Bingen",
+    "state": "Rheinland-Pfalz"
+  },
+  "7340": {
+    "name": "LK Südwestpfalz",
+    "state": "Rheinland-Pfalz"
+  },
+  "8111": {
+    "name": "SK Stuttgart",
+    "state": "Baden-Württemberg"
+  },
+  "8115": {
+    "name": "LK Böblingen",
+    "state": "Baden-Württemberg"
+  },
+  "8116": {
+    "name": "LK Esslingen",
+    "state": "Baden-Württemberg"
+  },
+  "8117": {
+    "name": "LK Göppingen",
+    "state": "Baden-Württemberg"
+  },
+  "8118": {
+    "name": "LK Ludwigsburg",
+    "state": "Baden-Württemberg"
+  },
+  "8119": {
+    "name": "LK Rems-Murr-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8121": {
+    "name": "SK Heilbronn",
+    "state": "Baden-Württemberg"
+  },
+  "8125": {
+    "name": "LK Heilbronn",
+    "state": "Baden-Württemberg"
+  },
+  "8126": {
+    "name": "LK Hohenlohekreis",
+    "state": "Baden-Württemberg"
+  },
+  "8127": {
+    "name": "LK Schwäbisch Hall",
+    "state": "Baden-Württemberg"
+  },
+  "8128": {
+    "name": "LK Main-Tauber-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8135": {
+    "name": "LK Heidenheim",
+    "state": "Baden-Württemberg"
+  },
+  "8136": {
+    "name": "LK Ostalbkreis",
+    "state": "Baden-Württemberg"
+  },
+  "8211": {
+    "name": "SK Baden-Baden",
+    "state": "Baden-Württemberg"
+  },
+  "8212": {
+    "name": "SK Karlsruhe",
+    "state": "Baden-Württemberg"
+  },
+  "8215": {
+    "name": "LK Karlsruhe",
+    "state": "Baden-Württemberg"
+  },
+  "8216": {
+    "name": "LK Rastatt",
+    "state": "Baden-Württemberg"
+  },
+  "8221": {
+    "name": "SK Heidelberg",
+    "state": "Baden-Württemberg"
+  },
+  "8222": {
+    "name": "SK Mannheim",
+    "state": "Baden-Württemberg"
+  },
+  "8225": {
+    "name": "LK Neckar-Odenwald-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8226": {
+    "name": "LK Rhein-Neckar-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8231": {
+    "name": "SK Pforzheim",
+    "state": "Baden-Württemberg"
+  },
+  "8235": {
+    "name": "LK Calw",
+    "state": "Baden-Württemberg"
+  },
+  "8236": {
+    "name": "LK Enzkreis",
+    "state": "Baden-Württemberg"
+  },
+  "8237": {
+    "name": "LK Freudenstadt",
+    "state": "Baden-Württemberg"
+  },
+  "8311": {
+    "name": "SK Freiburg i.Breisgau",
+    "state": "Baden-Württemberg"
+  },
+  "8315": {
+    "name": "LK Breisgau-Hochschwarzwald",
+    "state": "Baden-Württemberg"
+  },
+  "8316": {
+    "name": "LK Emmendingen",
+    "state": "Baden-Württemberg"
+  },
+  "8317": {
+    "name": "LK Ortenaukreis",
+    "state": "Baden-Württemberg"
+  },
+  "8325": {
+    "name": "LK Rottweil",
+    "state": "Baden-Württemberg"
+  },
+  "8326": {
+    "name": "LK Schwarzwald-Baar-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8327": {
+    "name": "LK Tuttlingen",
+    "state": "Baden-Württemberg"
+  },
+  "8335": {
+    "name": "LK Konstanz",
+    "state": "Baden-Württemberg"
+  },
+  "8336": {
+    "name": "LK Lörrach",
+    "state": "Baden-Württemberg"
+  },
+  "8337": {
+    "name": "LK Waldshut",
+    "state": "Baden-Württemberg"
+  },
+  "8415": {
+    "name": "LK Reutlingen",
+    "state": "Baden-Württemberg"
+  },
+  "8416": {
+    "name": "LK Tübingen",
+    "state": "Baden-Württemberg"
+  },
+  "8417": {
+    "name": "LK Zollernalbkreis",
+    "state": "Baden-Württemberg"
+  },
+  "8421": {
+    "name": "SK Ulm",
+    "state": "Baden-Württemberg"
+  },
+  "8425": {
+    "name": "LK Alb-Donau-Kreis",
+    "state": "Baden-Württemberg"
+  },
+  "8426": {
+    "name": "LK Biberach",
+    "state": "Baden-Württemberg"
+  },
+  "8435": {
+    "name": "LK Bodenseekreis",
+    "state": "Baden-Württemberg"
+  },
+  "8436": {
+    "name": "LK Ravensburg",
+    "state": "Baden-Württemberg"
+  },
+  "8437": {
+    "name": "LK Sigmaringen",
+    "state": "Baden-Württemberg"
+  },
+  "9161": {
+    "name": "SK Ingolstadt",
+    "state": "Bayern"
+  },
+  "9162": {
+    "name": "SK München",
+    "state": "Bayern"
+  },
+  "9163": {
+    "name": "SK Rosenheim",
+    "state": "Bayern"
+  },
+  "9171": {
+    "name": "LK Altötting",
+    "state": "Bayern"
+  },
+  "9172": {
+    "name": "LK Berchtesgadener Land",
+    "state": "Bayern"
+  },
+  "9173": {
+    "name": "LK Bad Tölz-Wolfratshausen",
+    "state": "Bayern"
+  },
+  "9174": {
+    "name": "LK Dachau",
+    "state": "Bayern"
+  },
+  "9175": {
+    "name": "LK Ebersberg",
+    "state": "Bayern"
+  },
+  "9176": {
+    "name": "LK Eichstätt",
+    "state": "Bayern"
+  },
+  "9177": {
+    "name": "LK Erding",
+    "state": "Bayern"
+  },
+  "9178": {
+    "name": "LK Freising",
+    "state": "Bayern"
+  },
+  "9179": {
+    "name": "LK Fürstenfeldbruck",
+    "state": "Bayern"
+  },
+  "9180": {
+    "name": "LK Garmisch-Partenkirchen",
+    "state": "Bayern"
+  },
+  "9181": {
+    "name": "LK Landsberg a.Lech",
+    "state": "Bayern"
+  },
+  "9182": {
+    "name": "LK Miesbach",
+    "state": "Bayern"
+  },
+  "9183": {
+    "name": "LK Mühldorf a.Inn",
+    "state": "Bayern"
+  },
+  "9184": {
+    "name": "LK München",
+    "state": "Bayern"
+  },
+  "9185": {
+    "name": "LK Neuburg-Schrobenhausen",
+    "state": "Bayern"
+  },
+  "9186": {
+    "name": "LK Pfaffenhofen a.d.Ilm",
+    "state": "Bayern"
+  },
+  "9187": {
+    "name": "LK Rosenheim",
+    "state": "Bayern"
+  },
+  "9188": {
+    "name": "LK Starnberg",
+    "state": "Bayern"
+  },
+  "9189": {
+    "name": "LK Traunstein",
+    "state": "Bayern"
+  },
+  "9190": {
+    "name": "LK Weilheim-Schongau",
+    "state": "Bayern"
+  },
+  "9261": {
+    "name": "SK Landshut",
+    "state": "Bayern"
+  },
+  "9262": {
+    "name": "SK Passau",
+    "state": "Bayern"
+  },
+  "9263": {
+    "name": "SK Straubing",
+    "state": "Bayern"
+  },
+  "9271": {
+    "name": "LK Deggendorf",
+    "state": "Bayern"
+  },
+  "9272": {
+    "name": "LK Freyung-Grafenau",
+    "state": "Bayern"
+  },
+  "9273": {
+    "name": "LK Kelheim",
+    "state": "Bayern"
+  },
+  "9274": {
+    "name": "LK Landshut",
+    "state": "Bayern"
+  },
+  "9275": {
+    "name": "LK Passau",
+    "state": "Bayern"
+  },
+  "9276": {
+    "name": "LK Regen",
+    "state": "Bayern"
+  },
+  "9277": {
+    "name": "LK Rottal-Inn",
+    "state": "Bayern"
+  },
+  "9278": {
+    "name": "LK Straubing-Bogen",
+    "state": "Bayern"
+  },
+  "9279": {
+    "name": "LK Dingolfing-Landau",
+    "state": "Bayern"
+  },
+  "9361": {
+    "name": "SK Amberg",
+    "state": "Bayern"
+  },
+  "9362": {
+    "name": "SK Regensburg",
+    "state": "Bayern"
+  },
+  "9363": {
+    "name": "SK Weiden i.d.OPf.",
+    "state": "Bayern"
+  },
+  "9371": {
+    "name": "LK Amberg-Sulzbach",
+    "state": "Bayern"
+  },
+  "9372": {
+    "name": "LK Cham",
+    "state": "Bayern"
+  },
+  "9373": {
+    "name": "LK Neumarkt i.d.OPf.",
+    "state": "Bayern"
+  },
+  "9374": {
+    "name": "LK Neustadt a.d.Waldnaab",
+    "state": "Bayern"
+  },
+  "9375": {
+    "name": "LK Regensburg",
+    "state": "Bayern"
+  },
+  "9376": {
+    "name": "LK Schwandorf",
+    "state": "Bayern"
+  },
+  "9377": {
+    "name": "LK Tirschenreuth",
+    "state": "Bayern"
+  },
+  "9461": {
+    "name": "SK Bamberg",
+    "state": "Bayern"
+  },
+  "9462": {
+    "name": "SK Bayreuth",
+    "state": "Bayern"
+  },
+  "9463": {
+    "name": "SK Coburg",
+    "state": "Bayern"
+  },
+  "9464": {
+    "name": "SK Hof",
+    "state": "Bayern"
+  },
+  "9471": {
+    "name": "LK Bamberg",
+    "state": "Bayern"
+  },
+  "9472": {
+    "name": "LK Bayreuth",
+    "state": "Bayern"
+  },
+  "9473": {
+    "name": "LK Coburg",
+    "state": "Bayern"
+  },
+  "9474": {
+    "name": "LK Forchheim",
+    "state": "Bayern"
+  },
+  "9475": {
+    "name": "LK Hof",
+    "state": "Bayern"
+  },
+  "9476": {
+    "name": "LK Kronach",
+    "state": "Bayern"
+  },
+  "9477": {
+    "name": "LK Kulmbach",
+    "state": "Bayern"
+  },
+  "9478": {
+    "name": "LK Lichtenfels",
+    "state": "Bayern"
+  },
+  "9479": {
+    "name": "LK Wunsiedel i.Fichtelgebirge",
+    "state": "Bayern"
+  },
+  "9561": {
+    "name": "SK Ansbach",
+    "state": "Bayern"
+  },
+  "9562": {
+    "name": "SK Erlangen",
+    "state": "Bayern"
+  },
+  "9563": {
+    "name": "SK Fürth",
+    "state": "Bayern"
+  },
+  "9564": {
+    "name": "SK Nürnberg",
+    "state": "Bayern"
+  },
+  "9565": {
+    "name": "SK Schwabach",
+    "state": "Bayern"
+  },
+  "9571": {
+    "name": "LK Ansbach",
+    "state": "Bayern"
+  },
+  "9572": {
+    "name": "LK Erlangen-Höchstadt",
+    "state": "Bayern"
+  },
+  "9573": {
+    "name": "LK Fürth",
+    "state": "Bayern"
+  },
+  "9574": {
+    "name": "LK Nürnberger Land",
+    "state": "Bayern"
+  },
+  "9575": {
+    "name": "LK Neustadt a.d.Aisch-Bad Windsheim",
+    "state": "Bayern"
+  },
+  "9576": {
+    "name": "LK Roth",
+    "state": "Bayern"
+  },
+  "9577": {
+    "name": "LK Weißenburg-Gunzenhausen",
+    "state": "Bayern"
+  },
+  "9661": {
+    "name": "SK Aschaffenburg",
+    "state": "Bayern"
+  },
+  "9662": {
+    "name": "SK Schweinfurt",
+    "state": "Bayern"
+  },
+  "9663": {
+    "name": "SK Würzburg",
+    "state": "Bayern"
+  },
+  "9671": {
+    "name": "LK Aschaffenburg",
+    "state": "Bayern"
+  },
+  "9672": {
+    "name": "LK Bad Kissingen",
+    "state": "Bayern"
+  },
+  "9673": {
+    "name": "LK Rhön-Grabfeld",
+    "state": "Bayern"
+  },
+  "9674": {
+    "name": "LK Haßberge",
+    "state": "Bayern"
+  },
+  "9675": {
+    "name": "LK Kitzingen",
+    "state": "Bayern"
+  },
+  "9676": {
+    "name": "LK Miltenberg",
+    "state": "Bayern"
+  },
+  "9677": {
+    "name": "LK Main-Spessart",
+    "state": "Bayern"
+  },
+  "9678": {
+    "name": "LK Schweinfurt",
+    "state": "Bayern"
+  },
+  "9679": {
+    "name": "LK Würzburg",
+    "state": "Bayern"
+  },
+  "9761": {
+    "name": "SK Augsburg",
+    "state": "Bayern"
+  },
+  "9762": {
+    "name": "SK Kaufbeuren",
+    "state": "Bayern"
+  },
+  "9763": {
+    "name": "SK Kempten",
+    "state": "Bayern"
+  },
+  "9764": {
+    "name": "SK Memmingen",
+    "state": "Bayern"
+  },
+  "9771": {
+    "name": "LK Aichach-Friedberg",
+    "state": "Bayern"
+  },
+  "9772": {
+    "name": "LK Augsburg",
+    "state": "Bayern"
+  },
+  "9773": {
+    "name": "LK Dillingen a.d.Donau",
+    "state": "Bayern"
+  },
+  "9774": {
+    "name": "LK Günzburg",
+    "state": "Bayern"
+  },
+  "9775": {
+    "name": "LK Neu-Ulm",
+    "state": "Bayern"
+  },
+  "9776": {
+    "name": "LK Lindau",
+    "state": "Bayern"
+  },
+  "9777": {
+    "name": "LK Ostallgäu",
+    "state": "Bayern"
+  },
+  "9778": {
+    "name": "LK Unterallgäu",
+    "state": "Bayern"
+  },
+  "9779": {
+    "name": "LK Donau-Ries",
+    "state": "Bayern"
+  },
+  "9780": {
+    "name": "LK Oberallgäu",
+    "state": "Bayern"
+  },
+  "10041": {
+    "name": "LK Stadtverband Saarbrücken",
+    "state": "Saarland"
+  },
+  "10042": {
+    "name": "LK Merzig-Wadern",
+    "state": "Saarland"
+  },
+  "10043": {
+    "name": "LK Neunkirchen",
+    "state": "Saarland"
+  },
+  "10044": {
+    "name": "LK Saarlouis",
+    "state": "Saarland"
+  },
+  "10045": {
+    "name": "LK Saar-Pfalz-Kreis",
+    "state": "Saarland"
+  },
+  "10046": {
+    "name": "LK Sankt Wendel",
+    "state": "Saarland"
+  },
+  "11000": {
+    "name": "Berlin",
+    "state": "Berlin",
+    "note": "represents all of Berlin, includes 110XX"
+  },
+  "11001": {
+    "name": "SK Berlin Mitte",
+    "state": "Berlin"
+  },
+  "11002": {
+    "name": "SK Berlin Friedrichshain-Kreuzberg",
+    "state": "Berlin"
+  },
+  "11003": {
+    "name": "SK Berlin Pankow",
+    "state": "Berlin"
+  },
+  "11004": {
+    "name": "SK Berlin Charlottenburg-Wilmersdorf",
+    "state": "Berlin"
+  },
+  "11005": {
+    "name": "SK Berlin Spandau",
+    "state": "Berlin"
+  },
+  "11006": {
+    "name": "SK Berlin Steglitz-Zehlendorf",
+    "state": "Berlin"
+  },
+  "11007": {
+    "name": "SK Berlin Tempelhof-Schöneberg",
+    "state": "Berlin"
+  },
+  "11008": {
+    "name": "SK Berlin Neukölln",
+    "state": "Berlin"
+  },
+  "11009": {
+    "name": "SK Berlin Treptow-Köpenick",
+    "state": "Berlin"
+  },
+  "11010": {
+    "name": "SK Berlin Marzahn-Hellersdorf",
+    "state": "Berlin"
+  },
+  "11011": {
+    "name": "SK Berlin Lichtenberg",
+    "state": "Berlin"
+  },
+  "11012": {
+    "name": "SK Berlin Reinickendorf",
+    "state": "Berlin"
+  },
+  "12051": {
+    "name": "SK Brandenburg a.d.Havel",
+    "state": "Brandenburg"
+  },
+  "12052": {
+    "name": "SK Cottbus",
+    "state": "Brandenburg"
+  },
+  "12053": {
+    "name": "SK Frankfurt (Oder)",
+    "state": "Brandenburg"
+  },
+  "12054": {
+    "name": "SK Potsdam",
+    "state": "Brandenburg"
+  },
+  "12060": {
+    "name": "LK Barnim",
+    "state": "Brandenburg"
+  },
+  "12061": {
+    "name": "LK Dahme-Spreewald",
+    "state": "Brandenburg"
+  },
+  "12062": {
+    "name": "LK Elbe-Elster",
+    "state": "Brandenburg"
+  },
+  "12063": {
+    "name": "LK Havelland",
+    "state": "Brandenburg"
+  },
+  "12064": {
+    "name": "LK Märkisch-Oderland",
+    "state": "Brandenburg"
+  },
+  "12065": {
+    "name": "LK Oberhavel",
+    "state": "Brandenburg"
+  },
+  "12066": {
+    "name": "LK Oberspreewald-Lausitz",
+    "state": "Brandenburg"
+  },
+  "12067": {
+    "name": "LK Oder-Spree",
+    "state": "Brandenburg"
+  },
+  "12068": {
+    "name": "LK Ostprignitz-Ruppin",
+    "state": "Brandenburg"
+  },
+  "12069": {
+    "name": "LK Potsdam-Mittelmark",
+    "state": "Brandenburg"
+  },
+  "12070": {
+    "name": "LK Prignitz",
+    "state": "Brandenburg"
+  },
+  "12071": {
+    "name": "LK Spree-Neiße",
+    "state": "Brandenburg"
+  },
+  "12072": {
+    "name": "LK Teltow-Fläming",
+    "state": "Brandenburg"
+  },
+  "12073": {
+    "name": "LK Uckermark",
+    "state": "Brandenburg"
+  },
+  "13003": {
+    "name": "SK Rostock",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13004": {
+    "name": "SK Schwerin",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13071": {
+    "name": "LK Mecklenburgische Seenplatte",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13072": {
+    "name": "LK Rostock",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13073": {
+    "name": "LK Vorpommern-Rügen",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13074": {
+    "name": "LK Nordwestmecklenburg",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13075": {
+    "name": "LK Vorpommern-Greifswald",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "13076": {
+    "name": "LK Ludwigslust-Parchim",
+    "state": "Mecklenburg-Vorpommern"
+  },
+  "14511": {
+    "name": "SK Chemnitz",
+    "state": "Sachsen"
+  },
+  "14521": {
+    "name": "LK Erzgebirgskreis",
+    "state": "Sachsen"
+  },
+  "14522": {
+    "name": "LK Mittelsachsen",
+    "state": "Sachsen"
+  },
+  "14523": {
+    "name": "LK Vogtlandkreis",
+    "state": "Sachsen"
+  },
+  "14524": {
+    "name": "LK Zwickau",
+    "state": "Sachsen"
+  },
+  "14612": {
+    "name": "SK Dresden",
+    "state": "Sachsen"
+  },
+  "14625": {
+    "name": "LK Bautzen",
+    "state": "Sachsen"
+  },
+  "14626": {
+    "name": "LK Görlitz",
+    "state": "Sachsen"
+  },
+  "14627": {
+    "name": "LK Meißen",
+    "state": "Sachsen"
+  },
+  "14628": {
+    "name": "LK Sächsische Schweiz-Osterzgebirge",
+    "state": "Sachsen"
+  },
+  "14713": {
+    "name": "SK Leipzig",
+    "state": "Sachsen"
+  },
+  "14729": {
+    "name": "LK Leipzig",
+    "state": "Sachsen"
+  },
+  "14730": {
+    "name": "LK Nordsachsen",
+    "state": "Sachsen"
+  },
+  "15001": {
+    "name": "SK Dessau-Roßlau",
+    "state": "Sachsen-Anhalt"
+  },
+  "15002": {
+    "name": "SK Halle",
+    "state": "Sachsen-Anhalt"
+  },
+  "15003": {
+    "name": "SK Magdeburg",
+    "state": "Sachsen-Anhalt"
+  },
+  "15081": {
+    "name": "LK Altmarkkreis Salzwedel",
+    "state": "Sachsen-Anhalt"
+  },
+  "15082": {
+    "name": "LK Anhalt-Bitterfeld",
+    "state": "Sachsen-Anhalt"
+  },
+  "15083": {
+    "name": "LK Börde",
+    "state": "Sachsen-Anhalt"
+  },
+  "15084": {
+    "name": "LK Burgenlandkreis",
+    "state": "Sachsen-Anhalt"
+  },
+  "15085": {
+    "name": "LK Harz",
+    "state": "Sachsen-Anhalt"
+  },
+  "15086": {
+    "name": "LK Jerichower Land",
+    "state": "Sachsen-Anhalt"
+  },
+  "15087": {
+    "name": "LK Mansfeld-Südharz",
+    "state": "Sachsen-Anhalt"
+  },
+  "15088": {
+    "name": "LK Saalekreis",
+    "state": "Sachsen-Anhalt"
+  },
+  "15089": {
+    "name": "LK Salzlandkreis",
+    "state": "Sachsen-Anhalt"
+  },
+  "15090": {
+    "name": "LK Stendal",
+    "state": "Sachsen-Anhalt"
+  },
+  "15091": {
+    "name": "LK Wittenberg",
+    "state": "Sachsen-Anhalt"
+  },
+  "16051": {
+    "name": "SK Erfurt",
+    "state": "Thüringen"
+  },
+  "16052": {
+    "name": "SK Gera",
+    "state": "Thüringen"
+  },
+  "16053": {
+    "name": "SK Jena",
+    "state": "Thüringen"
+  },
+  "16054": {
+    "name": "SK Suhl",
+    "state": "Thüringen"
+  },
+  "16055": {
+    "name": "SK Weimar",
+    "state": "Thüringen"
+  },
+  "16056": {
+    "name": "SK Eisenach",
+    "state": "Thüringen"
+  },
+  "16061": {
+    "name": "LK Eichsfeld",
+    "state": "Thüringen"
+  },
+  "16062": {
+    "name": "LK Nordhausen",
+    "state": "Thüringen"
+  },
+  "16063": {
+    "name": "LK Wartburgkreis",
+    "state": "Thüringen"
+  },
+  "16064": {
+    "name": "LK Unstrut-Hainich-Kreis",
+    "state": "Thüringen"
+  },
+  "16065": {
+    "name": "LK Kyffhäuserkreis",
+    "state": "Thüringen"
+  },
+  "16066": {
+    "name": "LK Schmalkalden-Meiningen",
+    "state": "Thüringen"
+  },
+  "16067": {
+    "name": "LK Gotha",
+    "state": "Thüringen"
+  },
+  "16068": {
+    "name": "LK Sömmerda",
+    "state": "Thüringen"
+  },
+  "16069": {
+    "name": "LK Hildburghausen",
+    "state": "Thüringen"
+  },
+  "16070": {
+    "name": "LK Ilm-Kreis",
+    "state": "Thüringen"
+  },
+  "16071": {
+    "name": "LK Weimarer Land",
+    "state": "Thüringen"
+  },
+  "16072": {
+    "name": "LK Sonneberg",
+    "state": "Thüringen"
+  },
+  "16073": {
+    "name": "LK Saalfeld-Rudolstadt",
+    "state": "Thüringen"
+  },
+  "16074": {
+    "name": "LK Saale-Holzland-Kreis",
+    "state": "Thüringen"
+  },
+  "16075": {
+    "name": "LK Saale-Orla-Kreis",
+    "state": "Thüringen"
+  },
+  "16076": {
+    "name": "LK Greiz",
+    "state": "Thüringen"
+  },
+  "16077": {
+    "name": "LK Altenburger Land",
+    "state": "Thüringen"
+  }
+}

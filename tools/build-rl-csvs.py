@@ -62,7 +62,7 @@ logging.basicConfig(
 )
 
 
-with open(os.path.join(os.path.dirname(__file__), "lk-ags-to-bl.json"), "rb") as f:
+with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
     AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
 
 
@@ -120,7 +120,7 @@ def aggregate_by_bland(df_by_lk):
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
-        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]]
+        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
         else:
@@ -181,7 +181,7 @@ def fetch_and_clean_data():
         # to the _next day_. Example: late in the evening, towards midnight between
         # March 25 and March 26 they settle on the value that they then publish as
         # March 26. That is, set an _early_ hour of the day.
-        sample_time_naive = datetime.strptime(f"{cname} 01:00:00", "%d.%m.%Y %H:%M:%S")
+        sample_time_naive = datetime.strptime(f"{cname} 03:00:00", "%d.%m.%Y %H:%M:%S")
         # This only _sets_ tz info, does not do number conversion (super easy
         # to reason about).
         sample_time_aware = pytz.timezone("Europe/Amsterdam").localize(
