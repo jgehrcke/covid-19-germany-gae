@@ -72,11 +72,28 @@ def main():
 
     # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt)
     df_by_lk = fetch_and_clean_data()
-    df_by_bl = aggregate_by_bland(df_by_lk)
+
+    # split deaths into its own dataframe.
+    df_by_lk_deaths = pd.concat(
+        [df_by_lk[c] for c in df_by_lk if str(c).endswith("_deaths")], axis=1
+    )
+    df_by_lk_deaths.rename(
+        columns={c: int(c.split("_")[0]) for c in df_by_lk_deaths}, inplace=True
+    )
+    df_by_lk_cases = pd.concat(
+        [df_by_lk[c] for c in df_by_lk if "_" not in str(c)], axis=1
+    )
+
+    df_by_bl_cases = aggregate_by_bland(df_by_lk_cases)
+
+    df_by_bl_deaths = aggregate_by_bland(df_by_lk_deaths)
 
     log.info("build sum for each sample")
-    df_by_bl["sum_cases"] = df_by_bl.sum(axis=1)
-    df_by_lk["sum_cases"] = df_by_lk.sum(axis=1)
+    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1)
+    df_by_bl_deaths["sum_cases"] = df_by_bl_deaths.sum(axis=1)
+
+    df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1)
+    df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1)
 
     # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
     # new_row_df.index.name = "time_iso8601"
@@ -91,23 +108,37 @@ def main():
     log.info("Turn DatetimeIndex into index of ISO 8601 strings")
 
     # CPython 3.7 for the %z format specifier behavior.
-    df_by_bl.index = df_by_bl.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_bl.index.name = "time_iso8601"
-    print(df_by_bl)
+    df_by_bl_cases.index = df_by_bl_cases.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    df_by_bl_cases.index.name = "time_iso8601"
+    print(df_by_bl_cases)
+    csv_filepath_bl_cases = "cases-rki-by-state.csv"
+    log.info("write data to CSV file %s", csv_filepath_bl_cases)
+    with open(csv_filepath_bl_cases, "wb") as f:
+        f.write(df_by_bl_cases.to_csv().encode("utf-8"))
 
-    df_by_lk.index = df_by_lk.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_lk.index.name = "time_iso8601"
-    print(df_by_lk)
+    df_by_bl_deaths.index = df_by_bl_deaths.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    df_by_bl_deaths.index.name = "time_iso8601"
+    print(df_by_bl_deaths)
+    csv_filepath_bl_deaths = "deaths-rki-by-state.csv"
+    log.info("write data to CSV file %s", csv_filepath_bl_deaths)
+    with open(csv_filepath_bl_deaths, "wb") as f:
+        f.write(df_by_bl_deaths.to_csv().encode("utf-8"))
 
-    csv_filepath_bk = "cases-rki-by-state.csv"
-    log.info("write data to CSV file %s", csv_filepath_bk)
-    with open(csv_filepath_bk, "wb") as f:
-        f.write(df_by_bl.to_csv().encode("utf-8"))
+    df_by_lk_cases.index = df_by_lk_cases.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    df_by_lk_cases.index.name = "time_iso8601"
+    print(df_by_lk_cases)
+    csv_filepath_lk_cases = "cases-rki-by-ags.csv"
+    log.info("write data to CSV file %s", csv_filepath_lk_cases)
+    with open(csv_filepath_lk_cases, "wb") as f:
+        f.write(df_by_lk_cases.to_csv().encode("utf-8"))
 
-    csv_filepath_lk = "cases-rki-by-ags.csv"
-    log.info("write data to CSV file %s", csv_filepath_lk)
-    with open(csv_filepath_lk, "wb") as f:
-        f.write(df_by_lk.to_csv().encode("utf-8"))
+    df_by_lk_deaths.index = df_by_lk_deaths.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    df_by_lk_deaths.index.name = "time_iso8601"
+    print(df_by_lk_deaths)
+    csv_filepath_lk_deaths = "deaths-rki-by-ags.csv"
+    log.info("write data to CSV file %s", csv_filepath_lk_deaths)
+    with open(csv_filepath_lk_deaths, "wb") as f:
+        f.write(df_by_lk_deaths.to_csv().encode("utf-8"))
 
     log.info("done")
 
@@ -129,7 +160,8 @@ def aggregate_by_bland(df_by_lk):
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
-        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]["state"]]
+        ags = str(cname).split("_")[0]
+        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[ags]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
         else:
@@ -163,13 +195,13 @@ def fetch_and_clean_data():
                 log.warning("dataframe empty for ags %s", ags)
 
         log.info("concatenate non-empty chunk dataframes")
-        dfs_chunk = [df[ags] for ags, df in ndfs.items() if len(df)]
+        dfs_chunk = [df for _, df in ndfs.items() if len(df)]
 
         if not dfs_chunk:
             log.warning("no non-empty chunk dataframes, skip chunk")
             continue
 
-        log.info("build chunk df from %s non-empty ags series", len(dfs_chunk))
+        log.info("build chunk df from %s non-empty dfs", len(dfs_chunk))
         dataframes.append(pd.concat(dfs_chunk, axis=1))
 
     log.info("concatenate chunk dataframes")
@@ -192,16 +224,32 @@ def fetch_and_clean_data():
 
     # Give Berlin some special treatment. Aggregate.
     # Create view from big DF with Berlin AGSs.
-    df_berlin_ags = df_all_agss[[c for c in df_all_agss if str(c).startswith("110")]]
-    print(df_berlin_ags)
+    df_berlin = df_all_agss[[c for c in df_all_agss if str(c).startswith("110")]]
+
+    # split deaths for Berlin into its own dataframe.
+    df_berlin_deaths = pd.concat(
+        [df_berlin[c] for c in df_berlin if str(c).endswith("_deaths")], axis=1
+    )
+    df_berlin_deaths.rename(
+        columns={c: int(str(c).split("_")[0]) for c in df_berlin}, inplace=True
+    )
+    df_berlin_cases = pd.concat(
+        [df_berlin[c] for c in df_berlin if "_" not in str(c)], axis=1
+    )
+
+    log.info("berlin cases:\n%s", df_berlin_cases)
+    log.info("berlin deaths:\n%s", df_berlin_deaths)
     # If there's any NaN in a row then keep the NaN sum (otherwise even if all
     # values along a row are NaNs the sum would be 0.0)
-    df_berlin_sum = df_berlin_ags.sum(axis=1, skipna=False)
-    print(df_berlin_sum)
+    df_berlin_cases_sum = df_berlin_cases.sum(axis=1, skipna=False)
+    df_berlin_deaths_sum = df_berlin_deaths.sum(axis=1, skipna=False)
+    print(df_berlin_cases_sum)
+    print(df_berlin_deaths_sum)
 
     # "Final" dataframe, with one column for all of Berlin.
     df = df_all_agss[[c for c in df_all_agss if not str(c).startswith("110")]].copy()
-    df[11000] = df_berlin_sum
+    df[11000] = df_berlin_cases_sum
+    df["11000_deaths"] = df_berlin_deaths_sum
     print(df)
 
     lr_has_nan = df.tail(1).isnull().values.any()
@@ -378,7 +426,10 @@ def fetch_history_for_many_ags(ags_list):
 
     dataframes = {}
     for ags, data in data_by_ags.items():
-        df = pd.DataFrame(data={ags: data["cases"]}, index=data["timestrings"])
+        df = pd.DataFrame(
+            data={ags: data["cases"], f"{ags}_deaths": data["deaths"]},
+            index=data["timestrings"],
+        )
         df.index = pd.to_datetime(df.index)
         df.index.name = "time_iso8601"
         dataframes[ags] = df
