@@ -4,12 +4,13 @@
 
 **Landing page**: https://covid19-germany.appspot.com
 
-This dataset is provided via an **HTTP (JSON) API** as well as through comma-separated value (**CSV**) files.
+This dataset is provided through comma-separated value (**CSV**) files. In addition, this project offers an **HTTP (JSON) API**.
 
-How is this different from other datasets?
+How is this dataset different from others?
 
-- The dataset includes **historical data for individual Bundesländer** (states).
-- [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
+- It includes **historical data for individual Bundesländer and Landkreise** (states and counties).
+- Its time series data is being re-written as data gets better over time. This is based on official [RKI](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html)-provided time series data which receives daily updates even for days weeks in the past (accounting for delay in reporting).
+- The HTTP endpoint [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
 
 ---
 
