@@ -90,7 +90,7 @@ def main():
 
     log.info("build sum for each sample")
     df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1)
-    df_by_bl_deaths["sum_cases"] = df_by_bl_deaths.sum(axis=1)
+    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1)
 
     df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1)
     df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1)
