@@ -181,7 +181,7 @@ def fetch_and_clean_data():
         # to the _next day_. Example: late in the evening, towards midnight between
         # March 25 and March 26 they settle on the value that they then publish as
         # March 26. That is, set an _early_ hour of the day.
-        sample_time_naive = datetime.strptime(f"{cname} 01:00:00", "%d.%m.%Y %H:%M:%S")
+        sample_time_naive = datetime.strptime(f"{cname} 03:00:00", "%d.%m.%Y %H:%M:%S")
         # This only _sets_ tz info, does not do number conversion (super easy
         # to reason about).
         sample_time_aware = pytz.timezone("Europe/Amsterdam").localize(
