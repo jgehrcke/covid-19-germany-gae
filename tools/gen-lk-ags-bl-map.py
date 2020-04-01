@@ -31,30 +31,80 @@ https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel
 This association is constant, this tool is here for transparency.
 """
 
+import os
 import json
+import logging
+import urllib.parse
 
-import pandas as pd
-import numpy as np
+import requests
 
-# original data source for this association is documented in
-# https://github.com/jgehrcke/covid-19-germany-gae/issues/46
-df = pd.read_csv("landkreise.csv")
 
-# NaNs for kreisefreie Stadt Berlin need to be replaced with 0 before casting.
-df["AGS"] = df["AGS"].fillna(0.0).astype("int")
-all_agss = list(df["AGS"])
-ags_bl_map = {}
-for ags in all_agss:
-    if ags == 0:
-        # These are rows for Berlin, kreisfreie Stadt. Manually set this to
-        # 11000 (which seems to be what some use).
-        ags_bl_map["11000"] = "Berlin"
-        continue
-    matches = df[df["AGS"] == ags]["BL"].tolist()
-    # double-check that data set is clean, one row per non-zero AGS
-    assert len(matches) == 1
-    ags_bl_map[ags] = matches[0]
+log = logging.getLogger()
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
+    datefmt="%y%m%d-%H:%M:%S",
+)
+
+
+def fetch_lks():
+    """
+    Conduct a synthetic query towards getting the set of Landkreise. It's a
+    bit brute-force as this is a time series query, but it queries for a
+    small time window only, just to be sure to cover all Landkreise for which
+    there is time series data in the ArcGIS system.
+    """
+
+    # Trailing `?`.
+    AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
+
+    params = urllib.parse.urlencode(
+        {
+            "where": "(Meldedatum>timestamp '2020-03-17') AND (Meldedatum<timestamp '2020-03-21')",
+            "returnGeometry": "false",
+            "outFields": "IdLandkreis, Landkreis, Bundesland",
+            "orderByFields": "IdLandkreis asc",
+            "resultOffset": 0,
+            "resultRecordCount": 10 ** 6,
+            "f": "json",
+        }
+    )
+    url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
+
+    log.info("Query for set of LKs")
+    resp = requests.get(url)
+    resp.raise_for_status()
+    objs = [o["attributes"] for o in resp.json()["features"]]
+
+    # create simple dictionary with AGS (int) as key and per-LK detail as val.
+    landkreise = {}
+    log.info("got %s feature objects", len(objs))
+    for o in objs:
+        landkreise[int(o["IdLandkreis"])] = {
+            "name": o["Landkreis"],
+            "state": o["Bundesland"],
+        }
+
+    log.info("constructed %s LK objects", len(landkreise))
+    return landkreise
+
+
+lks = fetch_lks()
+
+# Add a special entry for all of Berlin (as ZEIT ONLINE for example does).
+# lks = {ags: l for ags, l in lks.items() if not str(ags).startswith("110")}
+lks[11000] = {
+    "name": "Berlin",
+    "state": "Berlin",
+    "note": "represents all of Berlin, includes 110XX",
+}
+
+# Sort by ags.
+lks = dict(sorted(lks.items()))
+
+log.info("write JSON file with %s AGS entries", len(lks))
+
 
 # Note that JSON only allows text keys, not numbers.
-with open("lk-ags-to-bl.json", "wb") as f:
-    f.write(json.dumps(ags_bl_map, indent=2, ensure_ascii=False).encode("utf-8"))
+with open("ags.json", "wb") as f:
+    f.write(json.dumps(lks, indent=2, ensure_ascii=False).encode("utf-8"))
