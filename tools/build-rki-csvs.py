@@ -182,7 +182,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 70):
+    for subset in chunks(ags_list_from_rki, 40):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -340,7 +340,7 @@ def fetch_history_for_many_ags(ags_list):
     ts = "timestamp"
     idlk = "IdLandkreis"
     t_start = "2020-03-01 22:00:00"
-    d_end = datetime.today() - timedelta(days=1)
+    d_end = datetime.today() - timedelta(days=0)
     t_end = f"{d_end.strftime('%Y-%m-%d')} 23:59:59"
     ags_padded_list = [str(ags).zfill(5) for ags in ags_list]
 
@@ -357,7 +357,7 @@ def fetch_history_for_many_ags(ags_list):
             "outFields": "*",
             "orderByFields": "Meldedatum asc",
             "resultOffset": 0,
-            "resultRecordCount": 10 ** 6,
+            "resultRecordCount": 10 ** 5,
             "f": "json",
         }
     )
