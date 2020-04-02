@@ -91,7 +91,9 @@ def rootpath():
 @app.route("/now")
 def germany_now():
     # Cached value is JSON text, encoded into a byte sequences via.
-    return Response(CACHE_NOW.get(), content_type="application/json; charset=utf-8")
+    r = Response(CACHE_NOW.get(), content_type="application/json; charset=utf-8")
+    r.headers.add("Access-Control-Allow-Origin", "*")
+    return r
 
 
 STATE_WHITELIST = [
@@ -141,7 +143,9 @@ def get_timeseries(state, metric):
         "data": [{time: value} for time, value in df[column_name].to_dict().items()],
         "meta": TIMESERIES_JSON_OUTPUT_META_DICT,
     }
-    return jsonify(output_dict)
+    resp = jsonify(output_dict)
+    resp.headers.add("Access-Control-Allow-Origin", "*")
+    return resp
 
 
 class Cache:
