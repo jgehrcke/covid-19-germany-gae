@@ -229,11 +229,11 @@ class Cache:
                 log.info("%s: keep current cache value", self)
             else:
                 self._set_value_from_firestore_backup()
-                # Consumers rely on the fact that when _refresh() does not
-                # error out, that the current value is _not_ the initial value
-                # anymore, i.e. that either the actual refresh or the restore
-                # from backup have succeeded.
-                return
+            # Consumers rely on the fact that when _refresh() does not
+            # error out, that the current value is _not_ the initial value
+            # anymore, i.e. that either the actual refresh or the restore
+            # from backup have succeeded.
+            return
 
         # Atomically set what we've got (for other racers to potentially
         # consume this already).
