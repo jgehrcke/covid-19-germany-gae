@@ -1,4 +1,5 @@
 */.secrets/*
+.gcloud-config/*
 gae/env-sensitive.yaml
 jhu-csse-covid-19-data/*
 *env.sh
