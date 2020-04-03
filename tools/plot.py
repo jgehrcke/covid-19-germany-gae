@@ -83,9 +83,9 @@ def main():
         date_parser=lambda col: pd.to_datetime(col, utc=True),
     )["2020-03-10":]
 
-    # Don't show the last two days for RKI data, they are too affected by
+    # Don't show the last day for RKI data, they are too affected by
     # Meldeverzug.
-    df = df.head(-2)
+    df = df.head(-1)
     df.index.name = "date"
 
     for state_isoname in STATE_ISONAME_NAME_MAP:
