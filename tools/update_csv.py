@@ -144,17 +144,19 @@ def fetch_current_data_for_each_bundesland_as_df():
     jdata = requests.get(url).json()
     t_source_last_updated = _parse_zo_timestring_into_dt(jdata["lastUpdate"])
 
-    agss = [k["ags"] for k in jdata["kreise"]]
+    agss = [k["ags"] for k in jdata["kreise"]["items"]]
     log.info("got data for %s amtliche Gemeindeschluessel (LKs)", len(agss))
 
     log.info("assign Gemeindeschluessel to Bundeslaender")
-    for kreis in jdata["kreise"]:
+    for kreis in jdata["kreise"]["items"]:
         kreis["bland"] = AGS_BL_MAP[str(kreis["ags"])]
 
     kreise_for_bland = {}
     for bland in STATE_NAME_ISONAME_MAP:
         log.info("aggregate kreise for %s", bland.upper())
-        kreise_for_bland[bland] = [k for k in jdata["kreise"] if k["bland"] == bland]
+        kreise_for_bland[bland] = [
+            k["currentStats"] for k in jdata["kreise"]["items"] if k["bland"] == bland
+        ]
 
     for bland, kreise in kreise_for_bland.items():
         log.info("%s: %s kreis/ags", bland, len(kreise))
@@ -163,7 +165,7 @@ def fetch_current_data_for_each_bundesland_as_df():
     # specific point in time) into a pandas DataFrame with n columns and a
     # single row, using the same structure as the DataFrame that is used to
     # construct the CSV in the first place.
-    new_row_dict = {"source": "zeit online (gen2, by Landkreis)"}
+    new_row_dict = {"source": "zeit online (gen3)"}
     for bland, kreise in kreise_for_bland.items():
         state_isoname = STATE_NAME_ISONAME_MAP[bland]
         cases = sum(k["count"] for k in kreise)
