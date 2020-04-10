@@ -383,7 +383,7 @@ def get_fresh_now_data_from_zeit():
     data = resp.json()
 
     # First let's see that data is roughly in the shape that's expected
-    ttls = data["totals"]
+    ttls = data["currentStats"]
     assert "count" in ttls
     assert "dead" in ttls
     assert "recovered" in ttls
