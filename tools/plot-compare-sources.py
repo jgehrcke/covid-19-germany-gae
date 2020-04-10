@@ -210,16 +210,17 @@ def main():
 
     ax.legend(
         [
-            "RKI data, by Meldedatum",
-            "RKI rwdw",
-            "RL rwdw",
-            "JHU rwdw"
+            'raw RKI data, by date of report ("Meldedatum")',
+            "RKI rolling window mean (width: 5 days)",
+            # "RL rwdw",
+            "JHU rolling window mean (width: 5 days)"
             # "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
             # "ZEIT ONLINE, daily snapshots",
             # "JHU (GitHub CSSEGISandData/COVID-19)",
         ],
         numpoints=4,
         handlelength=8,
+        loc="upper left",
     )
 
     # ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
