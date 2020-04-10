@@ -70,7 +70,7 @@ def main():
     # werden in der Grafik Neue COVID-19-Fälle/Tag dann bei dem jeweiligen
     # Datum ergänzt.
 
-    START_DATE = "2020-03-08"
+    START_DATE = "2020-03-09"
 
     def _build_case_rate(df):
         # Get time differences (unit: seconds) in the df's datetimeindex. `dt`
@@ -94,7 +94,7 @@ def main():
         # sys.exit()
 
         # Should be >= 7 to be meaningful.
-        window_width_days = 2
+        window_width_days = 5
         window = df_case_change.rolling(window="%sD" % window_width_days)
 
         # Manually build rolling window mean.
@@ -126,7 +126,7 @@ def main():
         date_parser=lambda col: pd.to_datetime(col, utc=True),
     )[START_DATE:]
     df_mixed_data.index.name = "time"
-    df_mixed_case_rate_rw = _build_case_rate(df_mixed_data)
+    df_mixed_case_rate_rw = _build_case_rate(df_mixed_data)[START_DATE:]
 
     df_rl = pd.read_csv(
         "cases-rl-crowdsource-by-state.csv",
@@ -134,7 +134,7 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rl.index.name = "time"
-    df_rl_case_rate_rw = _build_case_rate(df_rl)
+    df_rl_case_rate_rw = _build_case_rate(df_rl)[START_DATE:]
 
     df_rki = pd.read_csv(
         "cases-rki-by-state.csv",
@@ -142,13 +142,13 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rki.index.name = "time"
-    df_rki_case_rate_rw = _build_case_rate(df_rki)
+    df_rki_case_rate_rw = _build_case_rate(df_rki)[START_DATE:]
 
     df_jhu = jhu_csse_csv_to_dataframe(os.environ["JHU_TS_CSV_PATH"], "germany")[
         START_DATE:
     ]
     df_jhu.index.name = "time"
-    df_jhu_case_rate_rw = _build_case_rate(df_jhu)
+    df_jhu_case_rate_rw = _build_case_rate(df_jhu)[START_DATE:]
 
     # Normalize for 'sum_cases' plots
     for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
