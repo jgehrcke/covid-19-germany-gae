@@ -194,10 +194,12 @@ def main():
 
     plt.figure(figsize=(16.0, 9.0))
 
-    ax = df_rki["cases_change_per_day"].plot(linestyle="None", marker="x", color="red",)
-    df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="blue", ax=ax)
-    df_rl_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
-    df_jhu_case_rate_rw.plot(linestyle="solid", marker=None, color="green", ax=ax)
+    ax = df_rki["cases_change_per_day"].plot(
+        linestyle="None", marker="x", color="black",
+    )
+    df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
+    # df_rl_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
+    df_jhu_case_rate_rw.plot(linestyle="dashdot", marker=None, color="gray", ax=ax)
     # df_rl["cases_change_per_day"].plot(
     #     linestyle="solid", marker="x", color="black", ax=ax
     # )
