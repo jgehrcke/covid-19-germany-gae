@@ -207,6 +207,7 @@ class Cache:
     def _set_value_from_firestore_backup(self):
         log.info("%s: falling back to fetching firestore state", self)
         old_backup_dict = self.fbdoc.get().to_dict()
+        log.info(old_backup_dict)
         backup_value = pickle.loads(old_backup_dict[self.picklekey])
         backup_time = old_backup_dict["time"]
         age_seconds = time() - backup_time
