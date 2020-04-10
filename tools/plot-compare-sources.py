@@ -192,7 +192,7 @@ def main():
 
     # -----------
 
-    plt.figure()
+    plt.figure(figsize=(16.0, 9.0))
 
     ax = df_rki["cases_change_per_day"].plot(linestyle="None", marker="x", color="red",)
     df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="blue", ax=ax)
