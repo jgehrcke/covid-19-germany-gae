@@ -239,15 +239,15 @@ def main():
     # plt.tight_layout(rect=(0, 0, 1, 0.95))
 
     plt.tight_layout()
-    # fig_filepath_wo_ext = (
-    #     f"gae/static/data-sources-comparison-{NOW.strftime('%Y-%m-%d')}"
-    # )
-    # plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
-    # plt.savefig(fig_filepath_wo_ext + ".pdf")
+    fig_filepath_wo_ext = (
+        f"gae/static/data-sources-comparison-case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
+    )
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    plt.savefig(fig_filepath_wo_ext + ".pdf")
 
     # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
 
-    plt.show()
+    # plt.show()
 
     # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
 
