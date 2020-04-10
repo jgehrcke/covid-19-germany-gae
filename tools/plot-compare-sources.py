@@ -224,11 +224,11 @@ def main():
 
     # ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
 
-    plt.xlabel("Time")
-    plt.ylabel("case change per day")
-    plt.yscale("log")
-    ax.set_ylim(bottom=500)
-    ax.set_yticks([500, 1000, 2000, 3000, 5000, 10000])
+    plt.xlabel("")
+    plt.ylabel("COVID-19 cumulative case count, change per day (all Germany)")
+    # plt.yscale("log")
+    # ax.set_ylim(bottom=600)
+    # ax.set_yticks([500, 1000, 1500, 2000, 2500, 3000, 3500, 5000, 7000, 9000])
     import matplotlib.ticker as ticker
 
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, _: "{:g}".format(y)))
