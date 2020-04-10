@@ -207,6 +207,7 @@ class Cache:
     def _set_value_from_firestore_backup(self):
         log.info("%s: falling back to fetching firestore state", self)
         old_backup_dict = self.fbdoc.get().to_dict()
+        log.info(old_backup_dict)
         backup_value = pickle.loads(old_backup_dict[self.picklekey])
         backup_time = old_backup_dict["time"]
         age_seconds = time() - backup_time
@@ -225,7 +226,7 @@ class Cache:
             newval = self.fetch_func()
         except Exception as err:
             log.exception("%s: error during fetch", self)
-            if self.current_value is not None:
+            if self.current_value[0] is not None:
                 log.info("%s: keep current cache value", self)
             else:
                 self._set_value_from_firestore_backup()
@@ -246,7 +247,7 @@ class Cache:
         try:
             # I have seen this fail transiently with
             # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
-            FS_NOW_DOC.set(backup_dict)
+            self.fbdoc.set(backup_dict)
         except Exception as err:
             log.exception("%s: err during firestore set(): %s", self, err)
             # Not being able to set a fresh backup is sad, but not fatal.
@@ -382,7 +383,7 @@ def get_fresh_now_data_from_zeit():
     data = resp.json()
 
     # First let's see that data is roughly in the shape that's expected
-    ttls = data["totals"]
+    ttls = data["currentStats"]
     assert "count" in ttls
     assert "dead" in ttls
     assert "recovered" in ttls
