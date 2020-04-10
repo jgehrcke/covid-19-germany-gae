@@ -84,10 +84,12 @@ def main():
         cases_change_per_day = df["sum_cases"].diff().div(dt_days)
         df["cases_change_per_day"] = cases_change_per_day
         print(df)
-        # increase resolution and forward-fill values.
-        df_case_change = (
-            df["cases_change_per_day"].resample("1H").interpolate()
-        )  # pad()
+
+        # increase resolution and forward-fill values. Could also use
+        # `interpolate()` but that's too artificial, I think it's fair to see
+        # the actual discrete jumps in data as of "batch processing".
+        df_case_change = df["cases_change_per_day"].resample("1H").pad()
+
         print(type(df_case_change))
         # sys.exit()
 
