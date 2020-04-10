@@ -225,7 +225,7 @@ class Cache:
             newval = self.fetch_func()
         except Exception as err:
             log.exception("%s: error during fetch", self)
-            if self.current_value is not None:
+            if self.current_value[0] is not None:
                 log.info("%s: keep current cache value", self)
             else:
                 self._set_value_from_firestore_backup()
