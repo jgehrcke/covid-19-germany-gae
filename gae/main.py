@@ -246,7 +246,7 @@ class Cache:
         try:
             # I have seen this fail transiently with
             # google.api_core.exceptions.ServiceUnavailable: 503 Connection reset by peer
-            FS_NOW_DOC.set(backup_dict)
+            self.fbdoc.set(backup_dict)
         except Exception as err:
             log.exception("%s: err during firestore set(): %s", self, err)
             # Not being able to set a fresh backup is sad, but not fatal.
