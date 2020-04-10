@@ -26,13 +26,15 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 
 import os
 import logging
-from datetime import datetime
+import sys
+from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import matplotlib.ticker as ticker
 
 import bokeh.plotting
 import bokeh.models
@@ -69,7 +71,54 @@ def main():
     # werden in der Grafik Neue COVID-19-Fälle/Tag dann bei dem jeweiligen
     # Datum ergänzt.
 
-    START_DATE = "2020-03-08"
+    START_DATE = "2020-03-09"
+
+    def _build_case_rate(df):
+        # Get time differences (unit: seconds) in the df's datetimeindex. `dt`
+        # is a magic accessor that yields an array of time deltas.
+        dt_seconds = pd.Series(df.index).diff().dt.total_seconds()
+        # Construct new series with original datetimeindex as index and time
+        # differences (unit: days) as values.
+        dt_days = pd.Series(dt_seconds) / 86400.0
+        dt_days.index = df.index
+        # print(dt_days)
+        cases_change_per_day = df["sum_cases"].diff().div(dt_days)
+        df["cases_change_per_day"] = cases_change_per_day
+        print(df)
+
+        # increase resolution and forward-fill values. Could also use
+        # `interpolate()` but that's too artificial, I think it's fair to see
+        # the actual discrete jumps in data as of "batch processing".
+        df_case_change = df["cases_change_per_day"].resample("1H").pad()
+
+        print(type(df_case_change))
+        # sys.exit()
+
+        # Should be >= 7 to be meaningful.
+        window_width_days = 5
+        window = df_case_change.rolling(window="%sD" % window_width_days)
+
+        # Manually build rolling window mean.
+        wdw_norm = window.sum() / (window_width_days * 24.0)
+
+        # During the rolling window analysis the value derived from the current
+        # window position is assigned to the right window boundary (i.e. to the
+        # newest timestamp in the window). For presentation it is more convenient
+        # and intuitive to have it assigned to the temporal center of the time
+        # window. Invoking `rolling(..., center=True)` however yields
+        # `NotImplementedError: center is not implemented for datetimelike and
+        # offset based windows`. As a workaround, shift the data by half the window
+        # size to 'the left': shift the timestamp index by a constant / offset.
+        offset = pd.DateOffset(days=window_width_days / 2.0)
+        wdw_norm.index = wdw_norm.index - offset
+        print(wdw_norm)
+        # sys.exit()
+
+        # cut the last 2 days worth of data, at least for RKI this is just too
+        # much affected by Meldeverzug
+        d_end = NOW - timedelta(days=3)
+        # t_end = f"{d_end.strftime('%Y-%m-%d')} 23:59:59"
+        return wdw_norm[:f"{d_end.strftime('%Y-%m-%d')}"]
 
     df_mixed_data = pd.read_csv(
         "data.csv",
@@ -77,8 +126,8 @@ def main():
         parse_dates=["time_iso8601"],
         date_parser=lambda col: pd.to_datetime(col, utc=True),
     )[START_DATE:]
-
     df_mixed_data.index.name = "time"
+    df_mixed_case_rate_rw = _build_case_rate(df_mixed_data)[START_DATE:]
 
     df_rl = pd.read_csv(
         "cases-rl-crowdsource-by-state.csv",
@@ -86,6 +135,7 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rl.index.name = "time"
+    df_rl_case_rate_rw = _build_case_rate(df_rl)[START_DATE:]
 
     df_rki = pd.read_csv(
         "cases-rki-by-state.csv",
@@ -93,13 +143,15 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rki.index.name = "time"
+    df_rki_case_rate_rw = _build_case_rate(df_rki)[START_DATE:]
 
     df_jhu = jhu_csse_csv_to_dataframe(os.environ["JHU_TS_CSV_PATH"], "germany")[
         START_DATE:
     ]
     df_jhu.index.name = "time"
+    df_jhu_case_rate_rw = _build_case_rate(df_jhu)[START_DATE:]
 
-    # Normalize for plot
+    # Normalize for 'sum_cases' plots
     for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
         _df["sum_cases"] = _df["sum_cases"] / 10000
 
@@ -139,10 +191,33 @@ def main():
     plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
 
-    # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
+    # -----------
 
+    plt.figure(figsize=(16.0, 9.0))
+
+    ax = df_rki["cases_change_per_day"].plot(
+        linestyle="None", marker="x", color="black",
+    )
+    df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
+    df_jhu_case_rate_rw.plot(linestyle="dashdot", marker=None, color="gray", ax=ax)
+
+    ax.legend(
+        [
+            'raw RKI data, by date of report ("Meldedatum")',
+            "RKI rolling window mean (width: 5 days)",
+            "JHU rolling window mean (width: 5 days)",
+        ],
+        numpoints=4,
+        handlelength=8,
+        loc="upper left",
+    )
+    plt.xlabel("")
+    plt.ylabel("COVID-19 cumulative case count, change per day (all Germany)")
+    plt.tight_layout()
+    fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    plt.savefig(fig_filepath_wo_ext + ".pdf")
     # plt.show()
-
     plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
 
 
@@ -300,10 +375,10 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     template = templ_env.get_template("gae/static/index.html.template")
 
     html = bokeh.embed.file_html(
-        column(fig, sizing_mode="stretch_both"),
+        column(fig, fig, sizing_mode="stretch_both"),
         template=template,
         resources=bokeh.resources.CDN,
-        template_variables={"today_string": NOW.strftime("%Y-%m-%d")},
+        template_variables={"today_string": NOW.strftime("%Y-%m-%d"),},
     )
 
     with open("gae/static/index.html", "wb") as f:
