@@ -34,6 +34,7 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import matplotlib.ticker as ticker
 
 import bokeh.plotting
 import bokeh.models
@@ -198,60 +199,26 @@ def main():
         linestyle="None", marker="x", color="black",
     )
     df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
-    # df_rl_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
     df_jhu_case_rate_rw.plot(linestyle="dashdot", marker=None, color="gray", ax=ax)
-    # df_rl["cases_change_per_day"].plot(
-    #     linestyle="solid", marker="x", color="black", ax=ax
-    # )
-    # df_mixed_data["cases_change_per_day"].plot(
-    #     linestyle="dashdot", marker="x", color="black", ax=ax
-    # )
-    # df_jhu["cases_change_per_day"].plot(
-    #     linestyle="dashdot", marker="x", color="gray", ax=ax
-    # )
 
     ax.legend(
         [
             'raw RKI data, by date of report ("Meldedatum")',
             "RKI rolling window mean (width: 5 days)",
-            # "RL rwdw",
-            "JHU rolling window mean (width: 5 days)"
-            # "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
-            # "ZEIT ONLINE, daily snapshots",
-            # "JHU (GitHub CSSEGISandData/COVID-19)",
+            "JHU rolling window mean (width: 5 days)",
         ],
         numpoints=4,
         handlelength=8,
         loc="upper left",
     )
-
-    # ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
-
     plt.xlabel("")
     plt.ylabel("COVID-19 cumulative case count, change per day (all Germany)")
-    # plt.yscale("log")
-    # ax.set_ylim(bottom=600)
-    # ax.set_yticks([500, 1000, 1500, 2000, 2500, 3000, 3500, 5000, 7000, 9000])
-    import matplotlib.ticker as ticker
-
-    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, _: "{:g}".format(y)))
-    # plt.title("COVID-19 case count, Germany, comparison of data sources")
-    # set_title('Override command rate (from both DC/OS repositories)')
-    # set_subtitle('Arithmetic mean over rolling time window')
-    # plt.tight_layout(rect=(0, 0, 1, 0.95))
-
     plt.tight_layout()
-    fig_filepath_wo_ext = (
-        f"gae/static/data-sources-comparison-case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
-    )
+    fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
     plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
-
-    # title=f"Generated at {now.strftime('%Y-%m-%d %H:%M UTC')}",
-
     # plt.show()
-
-    # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
+    plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
 
 
 def _set_common_bokeh_fig_props(fig):
@@ -408,10 +375,10 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
     template = templ_env.get_template("gae/static/index.html.template")
 
     html = bokeh.embed.file_html(
-        column(fig, figdiff, sizing_mode="stretch_both"),
+        column(fig, fig, sizing_mode="stretch_both"),
         template=template,
         resources=bokeh.resources.CDN,
-        template_variables={"today_string": NOW.strftime("%Y-%m-%d")},
+        template_variables={"today_string": NOW.strftime("%Y-%m-%d"),},
     )
 
     with open("gae/static/index.html", "wb") as f:
