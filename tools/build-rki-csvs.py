@@ -305,7 +305,7 @@ def fetch_lks():
 
     params = urllib.parse.urlencode(
         {
-            "where": "(Meldedatum>timestamp '2020-03-17') AND (Meldedatum<timestamp '2020-03-21')",
+            "where": "(Meldedatum>timestamp '2020-04-09') AND (Meldedatum<timestamp '2020-04-11')",
             "returnGeometry": "false",
             "outFields": "IdLandkreis, Landkreis, Bundesland",
             "orderByFields": "IdLandkreis asc",
@@ -326,6 +326,7 @@ def fetch_lks():
     for o in objs:
         landkreise[int(o["IdLandkreis"])] = o
 
+    log.info("Got info for %s LKs", len(landkreise))
     return landkreise
 
 
