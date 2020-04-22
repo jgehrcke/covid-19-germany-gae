@@ -1,5 +1,0 @@
-- Potentially use uwsgi cache to get response generation times down towards
-  microseconds (now we have ~5-10 ms spent in the WSGI app)
-
-- Make /timeseries endpoint use the CSV file in the repository, for
-  consistency
