@@ -156,7 +156,7 @@ def aggregate_by_bland(df_by_lk):
             is the ISO 3166 notation for the individual BL, e.g. DE-BY for
             Bavaria.
     """
-    log.info("aggregate rl data by bundesland")
+    log.info("aggregate data by bundesland")
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
@@ -263,10 +263,12 @@ def fetch_and_clean_data():
     if lr_has_zero:
         log.info("last row has zeros")
 
-    if lr_has_nan or lr_has_zero:
-        log.info("drop last row")
-        # df.head(-1) ## creates a view, I suppose
-        df.drop(df.tail(1).index, inplace=True)
+    # Note(JP): out-commenting this as this also applies to deaths, and there
+    # are LKs with 0 deaths -- leading to this condition having always hit in.
+    # if lr_has_nan or lr_has_zero:
+    #     log.info("drop last row")
+    #     # df.head(-1) ## creates a view, I suppose
+    #     df.drop(df.tail(1).index, inplace=True)
 
     # After a weekend it's possible that even more data hasn't come in yet.
     # Example:
@@ -409,7 +411,7 @@ def fetch_history_for_many_ags(ags_list):
 
         # Now this one is tricky. The timestamps we get from the RKI's ArcGIS
         # system suggest a local time of 01:00 in the morning. However, it
-        # seems like this number is actually rater meaningless. The case count
+        # seems like this number is actually rather meaningless. The case count
         # for, say, March 27 01:00 in the morning are not (as suggested by the
         # time) for March 26, but actually appear to be end-of-day March 27
         # case counts. We don't know exactly, though. To make comparion with
