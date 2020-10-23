@@ -168,6 +168,8 @@ def aggregate_by_bland(df_by_lk):
         else:
             df_by_bl[bland_iso] += df_by_lk[cname]
 
+    # Sort columns by name (goal: stable column order in -by-state data sets)
+    df_by_bl = df_by_bl.reindex(sorted(df_by_bl.columns), axis=1)
     return df_by_bl
 
 
