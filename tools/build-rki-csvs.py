@@ -70,8 +70,9 @@ with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
 
 def main():
 
-    # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt)
-    df_by_lk = fetch_and_clean_data()
+    # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt), and with
+    # Berlin data represented twice (aggregate w/ AGS 11000), and individual LKs.
+    df_by_lk, df_berlin_cases_sum, df_berlin_deaths_sum = fetch_and_clean_data()
 
     # split deaths into its own dataframe.
     df_by_lk_deaths = pd.concat(
@@ -89,11 +90,11 @@ def main():
     df_by_bl_deaths = aggregate_by_bland(df_by_lk_deaths)
 
     log.info("build sum for each sample")
-    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1)
-    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1)
+    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1) - df_berlin_cases_sum
+    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1) - df_berlin_deaths_sum
 
-    df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1)
-    df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1)
+    df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1) - df_berlin_cases_sum
+    df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1) - df_berlin_deaths_sum
 
     # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
     # new_row_df.index.name = "time_iso8601"
@@ -156,7 +157,7 @@ def aggregate_by_bland(df_by_lk):
             is the ISO 3166 notation for the individual BL, e.g. DE-BY for
             Bavaria.
     """
-    log.info("aggregate rl data by bundesland")
+    log.info("aggregate data by bundesland")
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
@@ -167,6 +168,8 @@ def aggregate_by_bland(df_by_lk):
         else:
             df_by_bl[bland_iso] += df_by_lk[cname]
 
+    # Sort columns by name (goal: stable column order in -by-state data sets)
+    df_by_bl = df_by_bl.reindex(sorted(df_by_bl.columns), axis=1)
     return df_by_bl
 
 
@@ -182,7 +185,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 40):
+    for subset in chunks(ags_list_from_rki, 45):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -246,8 +249,10 @@ def fetch_and_clean_data():
     print(df_berlin_cases_sum)
     print(df_berlin_deaths_sum)
 
-    # "Final" dataframe, with one column for all of Berlin.
-    df = df_all_agss[[c for c in df_all_agss if not str(c).startswith("110")]].copy()
+    # "Final" dataframe, with one column for all of Berlin, but also the
+    # individual Berlin AGS columns (i.e., having the total Berlin data twice
+    # in the table).
+    df = df_all_agss.copy()
     df[11000] = df_berlin_cases_sum
     df["11000_deaths"] = df_berlin_deaths_sum
     print(df)
@@ -263,10 +268,12 @@ def fetch_and_clean_data():
     if lr_has_zero:
         log.info("last row has zeros")
 
-    if lr_has_nan or lr_has_zero:
-        log.info("drop last row")
-        # df.head(-1) ## creates a view, I suppose
-        df.drop(df.tail(1).index, inplace=True)
+    # Note(JP): out-commenting this as this also applies to deaths, and there
+    # are LKs with 0 deaths -- leading to this condition having always hit in.
+    # if lr_has_nan or lr_has_zero:
+    #     log.info("drop last row")
+    #     # df.head(-1) ## creates a view, I suppose
+    #     df.drop(df.tail(1).index, inplace=True)
 
     # After a weekend it's possible that even more data hasn't come in yet.
     # Example:
@@ -284,7 +291,11 @@ def fetch_and_clean_data():
 
     log.info("turn df to int64")
     df = df.astype("int64")
-    return df
+    return (
+        df,
+        df_berlin_cases_sum.astype("int64"),
+        df_berlin_deaths_sum.astype("int64"),
+    )
 
 
 def chunks(iterable, n, fillvalue=None):
@@ -409,7 +420,7 @@ def fetch_history_for_many_ags(ags_list):
 
         # Now this one is tricky. The timestamps we get from the RKI's ArcGIS
         # system suggest a local time of 01:00 in the morning. However, it
-        # seems like this number is actually rater meaningless. The case count
+        # seems like this number is actually rather meaningless. The case count
         # for, say, March 27 01:00 in the morning are not (as suggested by the
         # time) for March 26, but actually appear to be end-of-day March 27
         # case counts. We don't know exactly, though. To make comparion with
