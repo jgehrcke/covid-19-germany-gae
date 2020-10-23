@@ -70,8 +70,9 @@ with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
 
 def main():
 
-    # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt)
-    df_by_lk = fetch_and_clean_data()
+    # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt), and with
+    # Berlin data represented twice (aggregate w/ AGS 11000), and individual LKs.
+    df_by_lk, df_berlin_cases_sum, df_berlin_deaths_sum = fetch_and_clean_data()
 
     # split deaths into its own dataframe.
     df_by_lk_deaths = pd.concat(
@@ -89,11 +90,11 @@ def main():
     df_by_bl_deaths = aggregate_by_bland(df_by_lk_deaths)
 
     log.info("build sum for each sample")
-    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1)
-    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1)
+    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1) - df_berlin_cases_sum
+    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1) - df_berlin_deaths_sum
 
-    df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1)
-    df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1)
+    df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1) - df_berlin_cases_sum
+    df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1) - df_berlin_deaths_sum
 
     # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
     # new_row_df.index.name = "time_iso8601"
@@ -182,7 +183,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 40):
+    for subset in chunks(ags_list_from_rki, 45):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -246,8 +247,10 @@ def fetch_and_clean_data():
     print(df_berlin_cases_sum)
     print(df_berlin_deaths_sum)
 
-    # "Final" dataframe, with one column for all of Berlin.
-    df = df_all_agss[[c for c in df_all_agss if not str(c).startswith("110")]].copy()
+    # "Final" dataframe, with one column for all of Berlin, but also the
+    # individual Berlin AGS columns (i.e., having the total Berlin data twice
+    # in the table).
+    df = df_all_agss.copy()
     df[11000] = df_berlin_cases_sum
     df["11000_deaths"] = df_berlin_deaths_sum
     print(df)
@@ -286,7 +289,11 @@ def fetch_and_clean_data():
 
     log.info("turn df to int64")
     df = df.astype("int64")
-    return df
+    return (
+        df,
+        df_berlin_cases_sum.astype("int64"),
+        df_berlin_deaths_sum.astype("int64"),
+    )
 
 
 def chunks(iterable, n, fillvalue=None):
