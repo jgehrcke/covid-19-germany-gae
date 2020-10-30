@@ -59,11 +59,11 @@ I tried to discover these step-by-step, they are possibly underrated:
   - [CSV](https://www.apps.nlga.niedersachsen.de/corona/download.php?csv) / [GeoJSON](https://www.apps.nlga.niedersachsen.de/corona/download.php?json)
   - so close, but no historical data :-(
 - Rheinland-Pfalz: [case numbers, LK table](https://msagd.rlp.de/de/unsere-themen/gesundheit-und-pflege/gesundheitliche-versorgung/oeffentlicher-gesundheitsdienst-hygiene-und-infektionsschutz/infektionsschutz/informationen-zum-coronavirus-sars-cov-2/)
-- Saarland: [press releases](https://www.saarland.de/254259.htm) only :-( come on, Saarland!
+- Saarland: [case numbers](https://corona.saarland.de/DE/service/aktuelle-lage/aktuelle-lage_node.html)
 - Sachsen: [case numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
 - Sachsen-Anhalt: [case numbers, LK table, intensive care numbers](https://ms.sachsen-anhalt.de/themen/gesundheit/aktuell/coronavirus/)
 - Schleswig-Holstein: [case numbers, LK table](https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html)
-- Thüringen: [case numbers, LK table, intensive car numbers](https://www.landesregierung-thueringen.de/corona-bulletin)
+- Thüringen: [case numbers, LK table, intensive car numbers](https://www.tmasgff.de/covid-19/fallzahlen)
 
 
 ## Further resources:
