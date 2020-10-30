@@ -65,29 +65,6 @@ I tried to discover these step-by-step, they are possibly underrated:
 - Schleswig-Holstein: [case numbers, LK table](https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html)
 - Thüringen: [case numbers, LK table, intensive car numbers](https://www.landesregierung-thueringen.de/corona-bulletin)
 
-## Plots
-
-Confirmed COVID-19 cases over time with exponential fit, for
-
-- [All Germany](https://covid19-germany.appspot.com/static/plots/plot-DEU.html)
-- [Baden-Württemberg](https://covid19-germany.appspot.com/static/plots/plot-DE-BW.html)
-- [Bayern](https://covid19-germany.appspot.com/static/plots/plot-DE-BY.html)
-- [Brandenburg](https://covid19-germany.appspot.com/static/plots/plot-DE-BB.html)
-- [Berlin](https://covid19-germany.appspot.com/static/plots/plot-DE-BE.html)
-- [Bremen](https://covid19-germany.appspot.com/static/plots/plot-DE-HB.html)
-- [Hamburg](https://covid19-germany.appspot.com/static/plots/plot-DE-HH.html)
-- [Hessen](https://covid19-germany.appspot.com/static/plots/plot-DE-HE.html)
-- [Mecklenburg-Vorpommern](https://covid19-germany.appspot.com/static/plots/plot-DE-MV.html)
-- [Niedersachsen](https://covid19-germany.appspot.com/static/plots/plot-DE-NI.html)
-- [Nordrhein-Westfalen](https://covid19-germany.appspot.com/static/plots/plot-DE-NW.html)
-- [Rheinland-Pfalz](https://covid19-germany.appspot.com/static/plots/plot-DE-RP.html)
-- [Saarland](https://covid19-germany.appspot.com/static/plots/plot-DE-SL.html)
-- [Sachsen-Anhalt](https://covid19-germany.appspot.com/static/plots/plot-DE-ST.html)
-- [Sachsen](https://covid19-germany.appspot.com/static/plots/plot-DE-SN.html)
-- [Schleswig-Holstein](https://covid19-germany.appspot.com/static/plots/plot-DE-SH.html)
-- [Thüringen](https://covid19-germany.appspot.com/static/plots/plot-DE-TH.html)
-
-Automatically generated based on this data set, but possibly not every day.
 
 ## Further resources:
 
