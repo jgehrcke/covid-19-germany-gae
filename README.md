@@ -34,9 +34,49 @@ Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germa
 or contact me via mail at jgehrcke@googlemail.com.
 
 
+## CSV file details
 
+- The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
+- The points in time are encoded using localized ISO 8601 time string notation.
+- I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
+- As a differentiator from other datasets the sample timestamps contain the time of the day so that consumers can at least have a vague impression if the sample represents the state in the morning or evening (a common confusion about the RKI-derived datasets).
+  If it's the morning then it's likely to actually be data of the day before. If it's the evening then it's more likely to represent the state of the day.
 
+## Code example: parsing and plotting
 
+This example assumes experience with established tools from the Python ecosystem.
+Create a file called `plot.py`:
+
+```python
+import sys
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use("ggplot")
+
+df = pd.read_csv(
+    sys.argv[1],
+    index_col=["time_iso8601"],
+    parse_dates=["time_iso8601"],
+    date_parser=lambda col: pd.to_datetime(col, utc=True),
+)
+df.index.name = "time"
+
+df["DE-BW"].plot(
+    title="DE-BW confirmed cases (RKI data)", marker="x", grid=True, figsize=[12, 9]
+)
+plt.tight_layout()
+plt.savefig("bw_cases_over_time.png", dpi=70)
+```
+
+Run it, provide `cases-rki-by-state.csv` as an argument:
+
+```bash
+python plot.py cases-rki-by-state.csv
+```
+
+This creates a file `bw_cases_over_time.png` which may look like the following:
+
+<img src="https://i.imgur.com/ksbYcdQ.png" width="600" />
 
 
 ## Quality data sources published by Bundesländer
@@ -72,34 +112,7 @@ I tried to discover these step-by-step, they are possibly underrated:
 - Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)
 - Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
 
-## CSV file details
 
-- The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
-- The points in time are encoded using localized ISO 8601 time string notation.
-- I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
-- As a differentiator from other datasets the sample timestamps contain the time of the day so that consumers can at least have a vague impression if the sample represents the state in the morning or evening (a common confusion about the RKI-derived datasets).
-  If it's the morning then it's likely to actually be data of the day before. If it's the evening then it's more likely to represent the state of the day.
-
-## Code example: parsing and plotting
-
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-
-
-df = pd.read_csv(
-    sys.argv[1],
-    index_col=["time_iso8601"],
-    parse_dates=["time_iso8601"],
-    date_parser=lambda col: pd.to_datetime(col, utc=True),
-)
-df.index.name = "time"
-
-df["DE-BW_cases"].plot(
-    title="DE-BW confirmed cases", marker="x", grid=True, figsize=[12, 9]
-)
-plt.savefig("bw_cases_over_time.png", dpi=200)
-```
 
 ## HTTP API details
 
