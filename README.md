@@ -4,14 +4,14 @@ COVID-19 Fallzahlen für Deutschland, für Bundesländer und Landkreise. Mit Zei
 
 This dataset is provided through comma-separated value (**CSV**) files. In addition, this project offers an **HTTP (JSON) API**.
 
-## Quickstart
+## Unboxing: what's in it? :-)
 
-- JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh)
+- JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh, for the sensationalists)
 - **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**)
   - [cases-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-ags.csv) and [deaths-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-ags.csv): **per-Landkreis** time series
   - [cases-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-state.csv) and [deaths-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-state.csv): **per-Bundesland** time series
-  - This is the only data source that properly accounts for Meldeverzug. The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system.
-- **Risklayer data (fresh view into the last 1-2 days)**: crowdsource effort (see "Attribution" below)
+  - This is the only data source that properly accounts for Meldeverzug (reporting delay). The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system.
+- **Crowdsourcing data (fresh view into the last 1-2 days)**: Risklayer crowdsource effort (see "Attribution" below)
   - [cases-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-ags.csv): **per-Landkreis** time series
   - [cases-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-state.csv): **per-Bundesland** time series
   - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) are a little higher than what the RKI data set shows.
