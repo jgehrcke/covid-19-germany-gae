@@ -1,29 +1,31 @@
 # COVID-19 case numbers in Germany by state, over time 😷
 
-(COVID-19 Fallzahlen für Deutschland)
-
-**Landing page**: https://covid19-germany.appspot.com
+COVID-19 Fallzahlen für Deutschland, für Bundesländer und Landkreise. Mit Zeitreihen.
 
 This dataset is provided through comma-separated value (**CSV**) files. In addition, this project offers an **HTTP (JSON) API**.
 
-How is this dataset different from others?
+## Quickstart
+
+- JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh)
+- **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**)
+  - [cases-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-ags.csv) and [deaths-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-ags.csv): **per-Landkreis** time series
+  - [cases-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-state.csv) and [deaths-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-state.csv): **per-Bundesland** time series
+  - This is the only data source that properly accounts for Meldeverzug. The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system.
+- **Risklayer data (fresh view into the last 1-2 days)**: crowdsource effort (see "Attribution" below)
+  - [cases-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-ags.csv): **per-Landkreis** time series
+  - [cases-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-state.csv): **per-Bundesland** time series
+  - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) are a little higher than what the RKI data set shows.
+- [ags.json](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): a map for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details, including latitude and longitude.
+- [data.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): history, mixed data source based on RKI/ZEIT ONLINE. This powers the per-Bundesland timeseries exposed by the HTTP JSON API.
+- JSON endpoints for per-Bundesland time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`, endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
+
+There also is a website showing a plot (not updated daily): https://covid19-germany.appspot.com
+
+## How is this dataset different from others?
 
 - It includes **historical data for individual Bundesländer and Landkreise** (states and counties).
 - Its time series data is being re-written as data gets better over time. This is based on official [RKI](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html)-provided time series data which receives daily updates even for days weeks in the past (accounting for delay in reporting).
 - The HTTP endpoint [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
-
----
-
-## Quick overview
-
-- Data files:
-  - `cases-rki-*.csv` and `deaths-rki-*.csv`: history, based on Robert Koch-Institut data, most credible view into the past: accounts for Meldeverzug. The historical evolution of data points in here is updated daily based on the (less accessible) RKI ArcGIS system.
-  - `ags.json`: a map for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details.
-  - `cases-rl-*.csv`: history, based on Risklayer crowdsource effort.
-  - `data.csv`: history, mixed data source based on RKI/ZEIT ONLINE, drives API.
-- JSON endpoint for the current state: [/now](https://covid19-germany.appspot.com/now)
-- JSON endpoint for time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`
-- Endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
 
 ## Contact, questions, contributions
 
