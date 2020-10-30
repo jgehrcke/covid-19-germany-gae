@@ -1,1659 +1,2487 @@
 {
   "1001": {
     "name": "SK Flensburg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.7805,
+    "lon": 9.4352
   },
   "1002": {
     "name": "SK Kiel",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.3227,
+    "lon": 10.1359
   },
   "1003": {
     "name": "SK Lübeck",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.8696,
+    "lon": 10.6876
   },
   "1004": {
     "name": "SK Neumünster",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.074,
+    "lon": 9.9845
   },
   "1051": {
     "name": "LK Dithmarschen",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.1474,
+    "lon": 9.1114
   },
   "1053": {
     "name": "LK Herzogtum Lauenburg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.6013,
+    "lon": 10.5866
   },
   "1054": {
     "name": "LK Nordfriesland",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.6354,
+    "lon": 8.7241
   },
   "1055": {
     "name": "LK Ostholstein",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.1767,
+    "lon": 10.8476
   },
   "1056": {
     "name": "LK Pinneberg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.7279,
+    "lon": 9.698
   },
   "1057": {
     "name": "LK Plön",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.1591,
+    "lon": 10.4113
   },
   "1058": {
     "name": "LK Rendsburg-Eckernförde",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.2791,
+    "lon": 9.7887
   },
   "1059": {
     "name": "LK Schleswig-Flensburg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 54.6311,
+    "lon": 9.556
   },
   "1060": {
     "name": "LK Segeberg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.9232,
+    "lon": 10.1612
   },
   "1061": {
     "name": "LK Steinburg",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.9409,
+    "lon": 9.5158
   },
   "1062": {
     "name": "LK Stormarn",
-    "state": "Schleswig-Holstein"
+    "state": "Schleswig-Holstein",
+    "lat": 53.7215,
+    "lon": 10.3586
   },
   "2000": {
     "name": "SK Hamburg",
-    "state": "Hamburg"
+    "state": "Hamburg",
+    "lat": 53.5544,
+    "lon": 9.9946
   },
   "3101": {
     "name": "SK Braunschweig",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.269,
+    "lon": 10.526
   },
   "3102": {
     "name": "SK Salzgitter",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.1497,
+    "lon": 10.3367
   },
   "3103": {
     "name": "SK Wolfsburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.4379,
+    "lon": 10.7664
   },
   "3151": {
     "name": "LK Gifhorn",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.5264,
+    "lon": 10.6081
   },
   "3152": {
     "name": "LK Göttingen (alt)",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 51.5369,
+    "lon": 9.8568
   },
   "3153": {
     "name": "LK Goslar",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 51.9084,
+    "lon": 10.4464
   },
   "3154": {
     "name": "LK Helmstedt",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.2391,
+    "lon": 10.9186
   },
   "3155": {
     "name": "LK Northeim",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 51.7347,
+    "lon": 9.8778
   },
   "3157": {
     "name": "LK Peine",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.3203,
+    "lon": 10.2434
   },
   "3158": {
     "name": "LK Wolfenbüttel",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.1642,
+    "lon": 10.5403
   },
   "3159": {
     "name": "LK Göttingen",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 51.5316,
+    "lon": 10.0144
   },
   "3241": {
     "name": "Region Hannover",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.3845,
+    "lon": 9.727
   },
   "3251": {
     "name": "LK Diepholz",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.6887,
+    "lon": 8.6947
   },
   "3252": {
     "name": "LK Hameln-Pyrmont",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.0896,
+    "lon": 9.3875
   },
   "3254": {
     "name": "LK Hildesheim",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.0621,
+    "lon": 9.8937
   },
   "3255": {
     "name": "LK Holzminden",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 51.8901,
+    "lon": 9.5422
   },
   "3256": {
     "name": "LK Nienburg (Weser)",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.6118,
+    "lon": 9.1553
   },
   "3257": {
     "name": "LK Schaumburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.294,
+    "lon": 9.2145
   },
   "3351": {
     "name": "LK Celle",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.6169,
+    "lon": 10.0634
   },
   "3352": {
     "name": "LK Cuxhaven",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.6118,
+    "lon": 8.8279
   },
   "3353": {
     "name": "LK Harburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.3085,
+    "lon": 9.9718
   },
   "3354": {
     "name": "LK Lüchow-Dannenberg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.0245,
+    "lon": 11.0349
   },
   "3355": {
     "name": "LK Lüneburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.2448,
+    "lon": 10.4674
   },
   "3356": {
     "name": "LK Osterholz",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.2621,
+    "lon": 8.8303
   },
   "3357": {
     "name": "LK Rotenburg (Wümme)",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.2526,
+    "lon": 9.3126
   },
   "3358": {
     "name": "LK Heidekreis",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.8217,
+    "lon": 9.6601
   },
   "3359": {
     "name": "LK Stade",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.5993,
+    "lon": 9.4728
   },
   "3360": {
     "name": "LK Uelzen",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.9983,
+    "lon": 10.5764
   },
   "3361": {
     "name": "LK Verden",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.967,
+    "lon": 9.1117
   },
   "3401": {
     "name": "SK Delmenhorst",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.0525,
+    "lon": 8.6331
   },
   "3402": {
     "name": "SK Emden",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.3603,
+    "lon": 7.2049
   },
   "3403": {
     "name": "SK Oldenburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.1501,
+    "lon": 8.2098
   },
   "3404": {
     "name": "SK Osnabrück",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.2818,
+    "lon": 8.0437
   },
   "3405": {
     "name": "SK Wilhelmshaven",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.5312,
+    "lon": 8.1059
   },
   "3451": {
     "name": "LK Ammerland",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.2184,
+    "lon": 8.0007
   },
   "3452": {
     "name": "LK Aurich",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.4764,
+    "lon": 7.4842
   },
   "3453": {
     "name": "LK Cloppenburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.8936,
+    "lon": 7.909
   },
   "3454": {
     "name": "LK Emsland",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.759,
+    "lon": 7.4565
   },
   "3455": {
     "name": "LK Friesland",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.458,
+    "lon": 8.0243
   },
   "3456": {
     "name": "LK Grafschaft Bentheim",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.4647,
+    "lon": 7.0103
   },
   "3457": {
     "name": "LK Leer",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.2502,
+    "lon": 7.4563
   },
   "3458": {
     "name": "LK Oldenburg",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.9479,
+    "lon": 8.4922
   },
   "3459": {
     "name": "LK Osnabrück",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.3917,
+    "lon": 7.9956
   },
   "3460": {
     "name": "LK Vechta",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 52.6645,
+    "lon": 8.228
   },
   "3461": {
     "name": "LK Wesermarsch",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.3367,
+    "lon": 8.4317
   },
   "3462": {
     "name": "LK Wittmund",
-    "state": "Niedersachsen"
+    "state": "Niedersachsen",
+    "lat": 53.5776,
+    "lon": 7.7741
   },
   "4011": {
     "name": "SK Bremen",
-    "state": "Bremen"
+    "state": "Bremen",
+    "lat": 53.0852,
+    "lon": 8.8199
   },
   "4012": {
     "name": "SK Bremerhaven",
-    "state": "Bremen"
+    "state": "Bremen",
+    "lat": 53.5502,
+    "lon": 8.5824
   },
   "5111": {
     "name": "SK Düsseldorf",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.2205,
+    "lon": 6.8122
   },
   "5112": {
     "name": "SK Duisburg",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.4351,
+    "lon": 6.763
   },
   "5113": {
     "name": "SK Essen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.4624,
+    "lon": 7.0087
   },
   "5114": {
     "name": "SK Krefeld",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.3389,
+    "lon": 6.5853
   },
   "5116": {
     "name": "SK Mönchengladbach",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.1801,
+    "lon": 6.4423
   },
   "5117": {
     "name": "SK Mülheim a.d.Ruhr",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.4312,
+    "lon": 6.8805
   },
   "5119": {
     "name": "SK Oberhausen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.4966,
+    "lon": 6.8514
   },
   "5120": {
     "name": "SK Remscheid",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.1833,
+    "lon": 7.2
   },
   "5122": {
     "name": "SK Solingen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.1704,
+    "lon": 7.0545
   },
   "5124": {
     "name": "SK Wuppertal",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.2613,
+    "lon": 7.163
   },
   "5154": {
     "name": "LK Kleve",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.6271,
+    "lon": 6.2734
   },
   "5158": {
     "name": "LK Mettmann",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.251,
+    "lon": 6.974
   },
   "5162": {
     "name": "LK Rhein-Kreis Neuss",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.1521,
+    "lon": 6.6354
   },
   "5166": {
     "name": "LK Viersen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.2555,
+    "lon": 6.3965
   },
   "5170": {
     "name": "LK Wesel",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5936,
+    "lon": 6.6103
   },
   "5314": {
     "name": "SK Bonn",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.7333,
+    "lon": 7.1
   },
   "5315": {
     "name": "SK Köln",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.9333,
+    "lon": 6.95
   },
   "5316": {
     "name": "SK Leverkusen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.05,
+    "lon": 7.0167
   },
   "5334": {
     "name": "StadtRegion Aachen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.7667,
+    "lon": 6.1
   },
   "5358": {
     "name": "LK Düren",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.8233,
+    "lon": 6.44
   },
   "5362": {
     "name": "LK Rhein-Erft-Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.9033,
+    "lon": 6.7633
   },
   "5366": {
     "name": "LK Euskirchen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.5606,
+    "lon": 6.6333
   },
   "5370": {
     "name": "LK Heinsberg",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.0417,
+    "lon": 6.1167
   },
   "5374": {
     "name": "LK Oberbergischer Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.0128,
+    "lon": 7.5179
   },
   "5378": {
     "name": "LK Rheinisch-Bergischer Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.0354,
+    "lon": 7.1708
   },
   "5382": {
     "name": "LK Rhein-Sieg-Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.7595,
+    "lon": 7.1965
   },
   "5512": {
     "name": "SK Bottrop",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.529,
+    "lon": 6.9434
   },
   "5513": {
     "name": "SK Gelsenkirchen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5175,
+    "lon": 7.0857
   },
   "5515": {
     "name": "SK Münster",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.9517,
+    "lon": 7.6252
   },
   "5554": {
     "name": "LK Borken",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.9461,
+    "lon": 6.9147
   },
   "5558": {
     "name": "LK Coesfeld",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.8636,
+    "lon": 7.3848
   },
   "5562": {
     "name": "LK Recklinghausen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5932,
+    "lon": 7.2079
   },
   "5566": {
     "name": "LK Steinfurt",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 52.1478,
+    "lon": 7.3436
   },
   "5570": {
     "name": "LK Warendorf",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.8756,
+    "lon": 7.9679
   },
   "5711": {
     "name": "SK Bielefeld",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 52.0215,
+    "lon": 8.5457
   },
   "5754": {
     "name": "LK Gütersloh",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.9423,
+    "lon": 8.359
   },
   "5758": {
     "name": "LK Herford",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 52.1178,
+    "lon": 8.6796
   },
   "5762": {
     "name": "LK Höxter",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.7776,
+    "lon": 9.3771
   },
   "5766": {
     "name": "LK Lippe",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.9766,
+    "lon": 8.9865
   },
   "5770": {
     "name": "LK Minden-Lübbecke",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 52.3212,
+    "lon": 8.7121
   },
   "5774": {
     "name": "LK Paderborn",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.7191,
+    "lon": 8.7575
   },
   "5911": {
     "name": "SK Bochum",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.4679,
+    "lon": 7.1965
   },
   "5913": {
     "name": "SK Dortmund",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5043,
+    "lon": 7.4837
   },
   "5914": {
     "name": "SK Hagen",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.3672,
+    "lon": 7.4634
   },
   "5915": {
     "name": "SK Hamm",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.6735,
+    "lon": 7.816
   },
   "5916": {
     "name": "SK Herne",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5372,
+    "lon": 7.2011
   },
   "5954": {
     "name": "LK Ennepe-Ruhr-Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.3481,
+    "lon": 7.3352
   },
   "5958": {
     "name": "LK Hochsauerlandkreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.2949,
+    "lon": 8.4227
   },
   "5962": {
     "name": "LK Märkischer Kreis",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.2687,
+    "lon": 7.6929
   },
   "5966": {
     "name": "LK Olpe",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.0738,
+    "lon": 7.931
   },
   "5970": {
     "name": "LK Siegen-Wittgenstein",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 50.9938,
+    "lon": 8.3187
   },
   "5974": {
     "name": "LK Soest",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.567,
+    "lon": 8.1106
   },
   "5978": {
     "name": "LK Unna",
-    "state": "Nordrhein-Westfalen"
+    "state": "Nordrhein-Westfalen",
+    "lat": 51.5426,
+    "lon": 7.6853
   },
   "6411": {
     "name": "SK Darmstadt",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 49.8706,
+    "lon": 8.6494
   },
   "6412": {
     "name": "SK Frankfurt am Main",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.1167,
+    "lon": 8.6833
   },
   "6413": {
     "name": "SK Offenbach",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.1,
+    "lon": 8.7667
   },
   "6414": {
     "name": "SK Wiesbaden",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.0833,
+    "lon": 8.25
   },
   "6431": {
     "name": "LK Bergstraße",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 49.6161,
+    "lon": 8.6766
   },
   "6432": {
     "name": "LK Darmstadt-Dieburg",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 49.8534,
+    "lon": 8.7673
   },
   "6433": {
     "name": "LK Groß-Gerau",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 49.9257,
+    "lon": 8.4661
   },
   "6434": {
     "name": "LK Hochtaunuskreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.2431,
+    "lon": 8.5093
   },
   "6435": {
     "name": "LK Main-Kinzig-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.212,
+    "lon": 9.1522
   },
   "6436": {
     "name": "LK Main-Taunus-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.1,
+    "lon": 8.4708
   },
   "6437": {
     "name": "LK Odenwaldkreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 49.6841,
+    "lon": 8.9732
   },
   "6438": {
     "name": "LK Offenbach",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.0352,
+    "lon": 8.8174
   },
   "6439": {
     "name": "LK Rheingau-Taunus-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.1175,
+    "lon": 8.0914
   },
   "6440": {
     "name": "LK Wetteraukreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.3447,
+    "lon": 8.892
   },
   "6531": {
     "name": "LK Gießen",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.5824,
+    "lon": 8.7611
   },
   "6532": {
     "name": "LK Lahn-Dill-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.6581,
+    "lon": 8.3798
   },
   "6533": {
     "name": "LK Limburg-Weilburg",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.4373,
+    "lon": 8.1695
   },
   "6534": {
     "name": "LK Marburg-Biedenkopf",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.8297,
+    "lon": 8.7261
   },
   "6535": {
     "name": "LK Vogelsbergkreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.6412,
+    "lon": 9.2588
   },
   "6611": {
     "name": "SK Kassel",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 51.3169,
+    "lon": 9.4925
   },
   "6631": {
     "name": "LK Fulda",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.5587,
+    "lon": 9.7587
   },
   "6632": {
     "name": "LK Hersfeld-Rotenburg",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 50.8933,
+    "lon": 9.7767
   },
   "6633": {
     "name": "LK Kassel",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 51.3169,
+    "lon": 9.4925
   },
   "6634": {
     "name": "LK Schwalm-Eder-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 51.0311,
+    "lon": 9.3688
   },
   "6635": {
     "name": "LK Waldeck-Frankenberg",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 51.1438,
+    "lon": 8.8416
   },
   "6636": {
     "name": "LK Werra-Meißner-Kreis",
-    "state": "Hessen"
+    "state": "Hessen",
+    "lat": 51.1917,
+    "lon": 9.9719
   },
   "7111": {
     "name": "SK Koblenz",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.35,
+    "lon": 7.6
   },
   "7131": {
     "name": "LK Ahrweiler",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.4365,
+    "lon": 7.005
   },
   "7132": {
     "name": "LK Altenkirchen",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.7127,
+    "lon": 7.6828
   },
   "7133": {
     "name": "LK Bad Kreuznach",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.8211,
+    "lon": 7.6909
   },
   "7134": {
     "name": "LK Birkenfeld",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.7212,
+    "lon": 7.272
   },
   "7135": {
     "name": "LK Cochem-Zell",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.141,
+    "lon": 7.1895
   },
   "7137": {
     "name": "LK Mayen-Koblenz",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.3264,
+    "lon": 7.3222
   },
   "7138": {
     "name": "LK Neuwied",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.5612,
+    "lon": 7.4817
   },
   "7140": {
     "name": "LK Rhein-Hunsrück-Kreis",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.0215,
+    "lon": 7.4891
   },
   "7141": {
     "name": "LK Rhein-Lahn-Kreis",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.2651,
+    "lon": 7.8558
   },
   "7143": {
     "name": "LK Westerwaldkreis",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.5569,
+    "lon": 7.8657
   },
   "7211": {
     "name": "SK Trier",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.75,
+    "lon": 6.6333
   },
   "7231": {
     "name": "LK Bernkastel-Wittlich",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.9295,
+    "lon": 6.9384
   },
   "7232": {
     "name": "LK Bitburg-Prüm",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.0375,
+    "lon": 6.3977
   },
   "7233": {
     "name": "LK Vulkaneifel",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50.2439,
+    "lon": 6.8031
   },
   "7235": {
     "name": "LK Trier-Saarburg",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.7007,
+    "lon": 6.7045
   },
   "7311": {
     "name": "SK Frankenthal",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.5372,
+    "lon": 8.355
   },
   "7312": {
     "name": "SK Kaiserslautern",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.45,
+    "lon": 7.75
   },
   "7313": {
     "name": "SK Landau i.d.Pfalz",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.2075,
+    "lon": 8.1133
   },
   "7314": {
     "name": "SK Ludwigshafen",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.4811,
+    "lon": 8.4353
   },
   "7315": {
     "name": "SK Mainz",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 50,
+    "lon": 8.2711
   },
   "7316": {
     "name": "SK Neustadt a.d.Weinstraße",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.3567,
+    "lon": 8.1378
   },
   "7317": {
     "name": "SK Pirmasens",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.2,
+    "lon": 7.6
   },
   "7318": {
     "name": "SK Speyer",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.3297,
+    "lon": 8.4278
   },
   "7319": {
     "name": "SK Worms",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.6356,
+    "lon": 8.3597
   },
   "7320": {
     "name": "SK Zweibrücken",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.25,
+    "lon": 7.3667
   },
   "7331": {
     "name": "LK Alzey-Worms",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.7543,
+    "lon": 8.1422
   },
   "7332": {
     "name": "LK Bad Dürkheim",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.491,
+    "lon": 8.156
   },
   "7333": {
     "name": "LK Donnersbergkreis",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.6393,
+    "lon": 7.9104
   },
   "7334": {
     "name": "LK Germersheim",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.1387,
+    "lon": 8.2459
   },
   "7335": {
     "name": "LK Kaiserslautern",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.4533,
+    "lon": 7.6607
   },
   "7336": {
     "name": "LK Kusel",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.5567,
+    "lon": 7.4778
   },
   "7337": {
     "name": "LK Südliche Weinstraße",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.1851,
+    "lon": 8.0631
   },
   "7338": {
     "name": "LK Rhein-Pfalz-Kreis",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.4456,
+    "lon": 8.3441
   },
   "7339": {
     "name": "LK Mainz-Bingen",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.9033,
+    "lon": 8.1086
   },
   "7340": {
     "name": "LK Südwestpfalz",
-    "state": "Rheinland-Pfalz"
+    "state": "Rheinland-Pfalz",
+    "lat": 49.2226,
+    "lon": 7.6197
   },
   "8111": {
     "name": "SK Stuttgart",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.7717,
+    "lon": 9.184
   },
   "8115": {
     "name": "LK Böblingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.6851,
+    "lon": 9.0095
   },
   "8116": {
     "name": "LK Esslingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.647,
+    "lon": 9.3712
   },
   "8117": {
     "name": "LK Göppingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.6576,
+    "lon": 9.6829
   },
   "8118": {
     "name": "LK Ludwigsburg",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.9426,
+    "lon": 9.1496
   },
   "8119": {
     "name": "LK Rems-Murr-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.8934,
+    "lon": 9.4672
   },
   "8121": {
     "name": "SK Heilbronn",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.1403,
+    "lon": 9.22
   },
   "8125": {
     "name": "LK Heilbronn",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.1675,
+    "lon": 9.2031
   },
   "8126": {
     "name": "LK Hohenlohekreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.2725,
+    "lon": 9.6057
   },
   "8127": {
     "name": "LK Schwäbisch Hall",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.1253,
+    "lon": 9.8917
   },
   "8128": {
     "name": "LK Main-Tauber-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.5713,
+    "lon": 9.7001
   },
   "8135": {
     "name": "LK Heidenheim",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.6424,
+    "lon": 10.1985
   },
   "8136": {
     "name": "LK Ostalbkreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.8778,
+    "lon": 10.0337
   },
   "8211": {
     "name": "SK Baden-Baden",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.75,
+    "lon": 8.25
   },
   "8212": {
     "name": "SK Karlsruhe",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.0047,
+    "lon": 8.3858
   },
   "8215": {
     "name": "LK Karlsruhe",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.094,
+    "lon": 8.5635
   },
   "8216": {
     "name": "LK Rastatt",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.8065,
+    "lon": 8.2203
   },
   "8221": {
     "name": "SK Heidelberg",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.4167,
+    "lon": 8.7
   },
   "8222": {
     "name": "SK Mannheim",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.4883,
+    "lon": 8.4647
   },
   "8225": {
     "name": "LK Neckar-Odenwald-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.4221,
+    "lon": 9.2186
   },
   "8226": {
     "name": "LK Rhein-Neckar-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 49.3736,
+    "lon": 8.7295
   },
   "8231": {
     "name": "SK Pforzheim",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.8833,
+    "lon": 8.7
   },
   "8235": {
     "name": "LK Calw",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.688,
+    "lon": 8.6627
   },
   "8236": {
     "name": "LK Enzkreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.91,
+    "lon": 8.7397
   },
   "8237": {
     "name": "LK Freudenstadt",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.4627,
+    "lon": 8.5245
   },
   "8311": {
     "name": "SK Freiburg i.Breisgau",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48,
+    "lon": 7.85
   },
   "8315": {
     "name": "LK Breisgau-Hochschwarzwald",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.9412,
+    "lon": 7.8472
   },
   "8316": {
     "name": "LK Emmendingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.1451,
+    "lon": 7.8375
   },
   "8317": {
     "name": "LK Ortenaukreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.4111,
+    "lon": 8.0062
   },
   "8325": {
     "name": "LK Rottweil",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.2383,
+    "lon": 8.5163
   },
   "8326": {
     "name": "LK Schwarzwald-Baar-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.0483,
+    "lon": 8.3967
   },
   "8327": {
     "name": "LK Tuttlingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.0557,
+    "lon": 8.799
   },
   "8335": {
     "name": "LK Konstanz",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.7767,
+    "lon": 8.909
   },
   "8336": {
     "name": "LK Lörrach",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.7036,
+    "lon": 7.7731
   },
   "8337": {
     "name": "LK Waldshut",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.6729,
+    "lon": 8.2204
   },
   "8415": {
     "name": "LK Reutlingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.4493,
+    "lon": 9.3462
   },
   "8416": {
     "name": "LK Tübingen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.4733,
+    "lon": 9.0133
   },
   "8417": {
     "name": "LK Zollernalbkreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.248,
+    "lon": 8.8893
   },
   "8421": {
     "name": "SK Ulm",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.423,
+    "lon": 9.9945
   },
   "8425": {
     "name": "LK Alb-Donau-Kreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.4011,
+    "lon": 9.8363
   },
   "8426": {
     "name": "LK Biberach",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.0981,
+    "lon": 9.7843
   },
   "8435": {
     "name": "LK Bodenseekreis",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.7145,
+    "lon": 9.379
   },
   "8436": {
     "name": "LK Ravensburg",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 47.8384,
+    "lon": 9.6745
   },
   "8437": {
     "name": "LK Sigmaringen",
-    "state": "Baden-Württemberg"
+    "state": "Baden-Württemberg",
+    "lat": 48.0493,
+    "lon": 9.2253
   },
   "9161": {
     "name": "SK Ingolstadt",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.7667,
+    "lon": 11.4333
   },
   "9162": {
     "name": "SK München",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.1374,
+    "lon": 11.5755
   },
   "9163": {
     "name": "SK Rosenheim",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.85,
+    "lon": 12.1333
   },
   "9171": {
     "name": "LK Altötting",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.2035,
+    "lon": 12.7069
   },
   "9172": {
     "name": "LK Berchtesgadener Land",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.7494,
+    "lon": 12.9217
   },
   "9173": {
     "name": "LK Bad Tölz-Wolfratshausen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.7826,
+    "lon": 11.4873
   },
   "9174": {
     "name": "LK Dachau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.3265,
+    "lon": 11.3755
   },
   "9175": {
     "name": "LK Ebersberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.0737,
+    "lon": 11.9066
   },
   "9176": {
     "name": "LK Eichstätt",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.9167,
+    "lon": 11.3667
   },
   "9177": {
     "name": "LK Erding",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.2981,
+    "lon": 11.9857
   },
   "9178": {
     "name": "LK Freising",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.4542,
+    "lon": 11.7472
   },
   "9179": {
     "name": "LK Fürstenfeldbruck",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.1812,
+    "lon": 11.2036
   },
   "9180": {
     "name": "LK Garmisch-Partenkirchen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.6068,
+    "lon": 11.15
   },
   "9181": {
     "name": "LK Landsberg a.Lech",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.0366,
+    "lon": 10.9462
   },
   "9182": {
     "name": "LK Miesbach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.7755,
+    "lon": 11.7961
   },
   "9183": {
     "name": "LK Mühldorf a.Inn",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.2409,
+    "lon": 12.3823
   },
   "9184": {
     "name": "LK München",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.0925,
+    "lon": 11.6252
   },
   "9185": {
     "name": "LK Neuburg-Schrobenhausen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.6537,
+    "lon": 11.225
   },
   "9186": {
     "name": "LK Pfaffenhofen a.d.Ilm",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.6046,
+    "lon": 11.5185
   },
   "9187": {
     "name": "LK Rosenheim",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.8946,
+    "lon": 12.1953
   },
   "9188": {
     "name": "LK Starnberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.0238,
+    "lon": 11.2726
   },
   "9189": {
     "name": "LK Traunstein",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.9067,
+    "lon": 12.5852
   },
   "9190": {
     "name": "LK Weilheim-Schongau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.7907,
+    "lon": 11.0631
   },
   "9261": {
     "name": "SK Landshut",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.5361,
+    "lon": 12.1518
   },
   "9262": {
     "name": "SK Passau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.5833,
+    "lon": 13.4833
   },
   "9263": {
     "name": "SK Straubing",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.8833,
+    "lon": 12.5667
   },
   "9271": {
     "name": "LK Deggendorf",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.7814,
+    "lon": 13.0006
   },
   "9272": {
     "name": "LK Freyung-Grafenau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.8167,
+    "lon": 13.4813
   },
   "9273": {
     "name": "LK Kelheim",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.809,
+    "lon": 11.8813
   },
   "9274": {
     "name": "LK Landshut",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.5457,
+    "lon": 12.2081
   },
   "9275": {
     "name": "LK Passau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.5665,
+    "lon": 13.3627
   },
   "9276": {
     "name": "LK Regen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.0165,
+    "lon": 13.066
   },
   "9277": {
     "name": "LK Rottal-Inn",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.4032,
+    "lon": 12.8774
   },
   "9278": {
     "name": "LK Straubing-Bogen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.927,
+    "lon": 12.6266
   },
   "9279": {
     "name": "LK Dingolfing-Landau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.6367,
+    "lon": 12.5878
   },
   "9361": {
     "name": "SK Amberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4414,
+    "lon": 11.8622
   },
   "9362": {
     "name": "SK Regensburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.015,
+    "lon": 12.0956
   },
   "9363": {
     "name": "SK Weiden i.d.OPf.",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.6775,
+    "lon": 12.1567
   },
   "9371": {
     "name": "LK Amberg-Sulzbach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4833,
+    "lon": 11.8167
   },
   "9372": {
     "name": "LK Cham",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.2286,
+    "lon": 12.6939
   },
   "9373": {
     "name": "LK Neumarkt i.d.OPf.",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.2159,
+    "lon": 11.533
   },
   "9374": {
     "name": "LK Neustadt a.d.Waldnaab",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.6952,
+    "lon": 12.1339
   },
   "9375": {
     "name": "LK Regensburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.0125,
+    "lon": 12.141
   },
   "9376": {
     "name": "LK Schwandorf",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4055,
+    "lon": 12.2725
   },
   "9377": {
     "name": "LK Tirschenreuth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9088,
+    "lon": 12.1409
   },
   "9461": {
     "name": "SK Bamberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.8943,
+    "lon": 10.8856
   },
   "9462": {
     "name": "SK Bayreuth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9481,
+    "lon": 11.5783
   },
   "9463": {
     "name": "SK Coburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.2667,
+    "lon": 10.9667
   },
   "9464": {
     "name": "SK Hof",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.3167,
+    "lon": 11.9167
   },
   "9471": {
     "name": "LK Bamberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.8943,
+    "lon": 10.8856
   },
   "9472": {
     "name": "LK Bayreuth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9028,
+    "lon": 11.5772
   },
   "9473": {
     "name": "LK Coburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.251,
+    "lon": 10.9863
   },
   "9474": {
     "name": "LK Forchheim",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.6985,
+    "lon": 11.1565
   },
   "9475": {
     "name": "LK Hof",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.287,
+    "lon": 11.8167
   },
   "9476": {
     "name": "LK Kronach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.3232,
+    "lon": 11.3556
   },
   "9477": {
     "name": "LK Kulmbach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.1076,
+    "lon": 11.5197
   },
   "9478": {
     "name": "LK Lichtenfels",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.1364,
+    "lon": 11.1455
   },
   "9479": {
     "name": "LK Wunsiedel i.Fichtelgebirge",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.0836,
+    "lon": 12.0587
   },
   "9561": {
     "name": "SK Ansbach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.3,
+    "lon": 10.5833
   },
   "9562": {
     "name": "SK Erlangen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.5897,
+    "lon": 11.0039
   },
   "9563": {
     "name": "SK Fürth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4667,
+    "lon": 10.9667
   },
   "9564": {
     "name": "SK Nürnberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4478,
+    "lon": 11.0683
   },
   "9565": {
     "name": "SK Schwabach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.3292,
+    "lon": 11.0256
   },
   "9571": {
     "name": "LK Ansbach",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.2402,
+    "lon": 10.4635
   },
   "9572": {
     "name": "LK Erlangen-Höchstadt",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.6404,
+    "lon": 10.9301
   },
   "9573": {
     "name": "LK Fürth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4667,
+    "lon": 10.8726
   },
   "9574": {
     "name": "LK Nürnberger Land",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.4924,
+    "lon": 11.3745
   },
   "9575": {
     "name": "LK Neustadt a.d.Aisch-Bad Windsheim",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.5702,
+    "lon": 10.4715
   },
   "9576": {
     "name": "LK Roth",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.2235,
+    "lon": 11.0885
   },
   "9577": {
     "name": "LK Weißenburg-Gunzenhausen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.0432,
+    "lon": 10.8988
   },
   "9661": {
     "name": "SK Aschaffenburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9739,
+    "lon": 9.1492
   },
   "9662": {
     "name": "SK Schweinfurt",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.05,
+    "lon": 10.2333
   },
   "9663": {
     "name": "SK Würzburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.7878,
+    "lon": 9.9361
   },
   "9671": {
     "name": "LK Aschaffenburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.0157,
+    "lon": 9.2189
   },
   "9672": {
     "name": "LK Bad Kissingen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.2194,
+    "lon": 9.9875
   },
   "9673": {
     "name": "LK Rhön-Grabfeld",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.365,
+    "lon": 10.2766
   },
   "9674": {
     "name": "LK Haßberge",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 50.0592,
+    "lon": 10.6107
   },
   "9675": {
     "name": "LK Kitzingen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.7417,
+    "lon": 10.2308
   },
   "9676": {
     "name": "LK Miltenberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.7784,
+    "lon": 9.2383
   },
   "9677": {
     "name": "LK Main-Spessart",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9691,
+    "lon": 9.6404
   },
   "9678": {
     "name": "LK Schweinfurt",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.9897,
+    "lon": 10.2517
   },
   "9679": {
     "name": "LK Würzburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 49.747,
+    "lon": 9.9262
   },
   "9761": {
     "name": "SK Augsburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.3667,
+    "lon": 10.8833
   },
   "9762": {
     "name": "SK Kaufbeuren",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.8833,
+    "lon": 10.6167
   },
   "9763": {
     "name": "SK Kempten",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.7167,
+    "lon": 10.3167
   },
   "9764": {
     "name": "SK Memmingen",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.9833,
+    "lon": 10.1667
   },
   "9771": {
     "name": "LK Aichach-Friedberg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.4111,
+    "lon": 11.0451
   },
   "9772": {
     "name": "LK Augsburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.3656,
+    "lon": 10.7547
   },
   "9773": {
     "name": "LK Dillingen a.d.Donau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.592,
+    "lon": 10.4981
   },
   "9774": {
     "name": "LK Günzburg",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.3519,
+    "lon": 10.381
   },
   "9775": {
     "name": "LK Neu-Ulm",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.2755,
+    "lon": 10.1304
   },
   "9776": {
     "name": "LK Lindau",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.6009,
+    "lon": 9.8491
   },
   "9777": {
     "name": "LK Ostallgäu",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.8026,
+    "lon": 10.6259
   },
   "9778": {
     "name": "LK Unterallgäu",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.034,
+    "lon": 10.35
   },
   "9779": {
     "name": "LK Donau-Ries",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 48.8149,
+    "lon": 10.6974
   },
   "9780": {
     "name": "LK Oberallgäu",
-    "state": "Bayern"
+    "state": "Bayern",
+    "lat": 47.6131,
+    "lon": 10.2708
   },
   "10041": {
     "name": "LK Stadtverband Saarbrücken",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.27,
+    "lon": 6.97
   },
   "10042": {
     "name": "LK Merzig-Wadern",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.4881,
+    "lon": 6.681
   },
   "10043": {
     "name": "LK Neunkirchen",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.3619,
+    "lon": 7.0976
   },
   "10044": {
     "name": "LK Saarlouis",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.3333,
+    "lon": 6.7795
   },
   "10045": {
     "name": "LK Saar-Pfalz-Kreis",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.2547,
+    "lon": 7.2238
   },
   "10046": {
     "name": "LK Sankt Wendel",
-    "state": "Saarland"
+    "state": "Saarland",
+    "lat": 49.5229,
+    "lon": 7.1042
   },
   "11000": {
     "name": "Berlin",
     "state": "Berlin",
-    "note": "represents all of Berlin, includes 110XX"
+    "note": "represents all of Berlin, includes 110XX",
+    "lat": 52.5246,
+    "lon": 13.4051
   },
   "11001": {
     "name": "SK Berlin Mitte",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.5222,
+    "lon": 13.3801
   },
   "11002": {
     "name": "SK Berlin Friedrichshain-Kreuzberg",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.4966,
+    "lon": 13.3933
   },
   "11003": {
     "name": "SK Berlin Pankow",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.5977,
+    "lon": 13.3653
   },
   "11004": {
     "name": "SK Berlin Charlottenburg-Wilmersdorf",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.508,
+    "lon": 13.2289
   },
   "11005": {
     "name": "SK Berlin Spandau",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.5192,
+    "lon": 13.1257
   },
   "11006": {
     "name": "SK Berlin Steglitz-Zehlendorf",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.4295,
+    "lon": 13.16
   },
   "11007": {
     "name": "SK Berlin Tempelhof-Schöneberg",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.4406,
+    "lon": 13.3037
   },
   "11008": {
     "name": "SK Berlin Neukölln",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.4459,
+    "lon": 13.3918
   },
   "11009": {
     "name": "SK Berlin Treptow-Köpenick",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.4179,
+    "lon": 13.5303
   },
   "11010": {
     "name": "SK Berlin Marzahn-Hellersdorf",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.5225,
+    "lon": 13.5176
   },
   "11011": {
     "name": "SK Berlin Lichtenberg",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.5322,
+    "lon": 13.4419
   },
   "11012": {
     "name": "SK Berlin Reinickendorf",
-    "state": "Berlin"
+    "state": "Berlin",
+    "lat": 52.6048,
+    "lon": 13.2252
   },
   "12051": {
     "name": "SK Brandenburg a.d.Havel",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.4257,
+    "lon": 12.6051
   },
   "12052": {
     "name": "SK Cottbus",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 51.7551,
+    "lon": 14.3331
   },
   "12053": {
     "name": "SK Frankfurt (Oder)",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.344,
+    "lon": 14.5402
   },
   "12054": {
     "name": "SK Potsdam",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.4459,
+    "lon": 13.0146
   },
   "12060": {
     "name": "LK Barnim",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.7725,
+    "lon": 13.6915
   },
   "12061": {
     "name": "LK Dahme-Spreewald",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.0742,
+    "lon": 13.8117
   },
   "12062": {
     "name": "LK Elbe-Elster",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 51.6233,
+    "lon": 13.5472
   },
   "12063": {
     "name": "LK Havelland",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.6074,
+    "lon": 12.6673
   },
   "12064": {
     "name": "LK Märkisch-Oderland",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.6143,
+    "lon": 14.1829
   },
   "12065": {
     "name": "LK Oberhavel",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.8988,
+    "lon": 13.2651
   },
   "12066": {
     "name": "LK Oberspreewald-Lausitz",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 51.5701,
+    "lon": 13.9705
   },
   "12067": {
     "name": "LK Oder-Spree",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.2289,
+    "lon": 14.2328
   },
   "12068": {
     "name": "LK Ostprignitz-Ruppin",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 53.0079,
+    "lon": 12.6439
   },
   "12069": {
     "name": "LK Potsdam-Mittelmark",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.2933,
+    "lon": 12.7823
   },
   "12070": {
     "name": "LK Prignitz",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 53.0847,
+    "lon": 12.0206
   },
   "12071": {
     "name": "LK Spree-Neiße",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 51.7542,
+    "lon": 14.5587
   },
   "12072": {
     "name": "LK Teltow-Fläming",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 52.1429,
+    "lon": 13.3526
   },
   "12073": {
     "name": "LK Uckermark",
-    "state": "Brandenburg"
+    "state": "Brandenburg",
+    "lat": 53.1566,
+    "lon": 13.9348
   },
   "13003": {
     "name": "SK Rostock",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 54.084,
+    "lon": 12.0994
   },
   "13004": {
     "name": "SK Schwerin",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 53.6326,
+    "lon": 11.4141
   },
   "13071": {
     "name": "LK Mecklenburgische Seenplatte",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 53.5666,
+    "lon": 13.2695
   },
   "13072": {
     "name": "LK Rostock",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 53.8047,
+    "lon": 12.1869
   },
   "13073": {
     "name": "LK Vorpommern-Rügen",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 54.3536,
+    "lon": 13.3646
   },
   "13074": {
     "name": "LK Nordwestmecklenburg",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 53.8884,
+    "lon": 11.4622
   },
   "13075": {
     "name": "LK Vorpommern-Greifswald",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 54.0888,
+    "lon": 13.3947
   },
   "13076": {
     "name": "LK Ludwigslust-Parchim",
-    "state": "Mecklenburg-Vorpommern"
+    "state": "Mecklenburg-Vorpommern",
+    "lat": 53.5364,
+    "lon": 11.8458
   },
   "14511": {
     "name": "SK Chemnitz",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.8333,
+    "lon": 12.9167
   },
   "14521": {
     "name": "LK Erzgebirgskreis",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.5735,
+    "lon": 12.9833
   },
   "14522": {
     "name": "LK Mittelsachsen",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.8569,
+    "lon": 13.3159
   },
   "14523": {
     "name": "LK Vogtlandkreis",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.4722,
+    "lon": 12.2695
   },
   "14524": {
     "name": "LK Zwickau",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.7333,
+    "lon": 12.5
   },
   "14612": {
     "name": "SK Dresden",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.0493,
+    "lon": 13.6987
   },
   "14625": {
     "name": "LK Bautzen",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.1556,
+    "lon": 14.3739
   },
   "14626": {
     "name": "LK Görlitz",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.1526,
+    "lon": 14.9699
   },
   "14627": {
     "name": "LK Meißen",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.1374,
+    "lon": 13.4771
   },
   "14628": {
     "name": "LK Sächsische Schweiz-Osterzgebirge",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 50.9459,
+    "lon": 14.05
   },
   "14713": {
     "name": "SK Leipzig",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.3493,
+    "lon": 12.3939
   },
   "14729": {
     "name": "LK Leipzig",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.17,
+    "lon": 12.65
   },
   "14730": {
     "name": "LK Nordsachsen",
-    "state": "Sachsen"
+    "state": "Sachsen",
+    "lat": 51.4671,
+    "lon": 12.7665
   },
   "15001": {
     "name": "SK Dessau-Roßlau",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.8425,
+    "lon": 12.2305
   },
   "15002": {
     "name": "SK Halle",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.4803,
+    "lon": 11.9689
   },
   "15003": {
     "name": "SK Magdeburg",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 52.132,
+    "lon": 11.6266
   },
   "15081": {
     "name": "LK Altmarkkreis Salzwedel",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 52.6911,
+    "lon": 11.2304
   },
   "15082": {
     "name": "LK Anhalt-Bitterfeld",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.6229,
+    "lon": 12.2677
   },
   "15083": {
     "name": "LK Börde",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 52.3217,
+    "lon": 11.5398
   },
   "15084": {
     "name": "LK Burgenlandkreis",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.1259,
+    "lon": 11.8577
   },
   "15085": {
     "name": "LK Harz",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.8122,
+    "lon": 10.7044
   },
   "15086": {
     "name": "LK Jerichower Land",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 52.2598,
+    "lon": 11.9891
   },
   "15087": {
     "name": "LK Mansfeld-Südharz",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.5779,
+    "lon": 11.5142
   },
   "15088": {
     "name": "LK Saalekreis",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.5292,
+    "lon": 11.9383
   },
   "15089": {
     "name": "LK Salzlandkreis",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.9467,
+    "lon": 11.7732
   },
   "15090": {
     "name": "LK Stendal",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 52.6781,
+    "lon": 11.8103
   },
   "15091": {
     "name": "LK Wittenberg",
-    "state": "Sachsen-Anhalt"
+    "state": "Sachsen-Anhalt",
+    "lat": 51.8744,
+    "lon": 12.6277
   },
   "16051": {
     "name": "SK Erfurt",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9833,
+    "lon": 11.0333
   },
   "16052": {
     "name": "SK Gera",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.8667,
+    "lon": 12.0833
   },
   "16053": {
     "name": "SK Jena",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9333,
+    "lon": 11.5833
   },
   "16054": {
     "name": "SK Suhl",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.6,
+    "lon": 10.7
   },
   "16055": {
     "name": "SK Weimar",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9833,
+    "lon": 11.3167
   },
   "16056": {
     "name": "SK Eisenach",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9833,
+    "lon": 10.3167
   },
   "16061": {
     "name": "LK Eichsfeld",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.3752,
+    "lon": 10.2203
   },
   "16062": {
     "name": "LK Nordhausen",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.4994,
+    "lon": 10.791
   },
   "16063": {
     "name": "LK Wartburgkreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.8567,
+    "lon": 10.184
   },
   "16064": {
     "name": "LK Unstrut-Hainich-Kreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.1825,
+    "lon": 10.5855
   },
   "16065": {
     "name": "LK Kyffhäuserkreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.3083,
+    "lon": 11.0654
   },
   "16066": {
     "name": "LK Schmalkalden-Meiningen",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.6061,
+    "lon": 10.3961
   },
   "16067": {
     "name": "LK Gotha",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9382,
+    "lon": 10.703
   },
   "16068": {
     "name": "LK Sömmerda",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.1441,
+    "lon": 11.1453
   },
   "16069": {
     "name": "LK Hildburghausen",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.442,
+    "lon": 10.6845
   },
   "16070": {
     "name": "LK Ilm-Kreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.7294,
+    "lon": 10.9591
   },
   "16071": {
     "name": "LK Weimarer Land",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 51.0025,
+    "lon": 11.3758
   },
   "16072": {
     "name": "LK Sonneberg",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.4274,
+    "lon": 11.1211
   },
   "16073": {
     "name": "LK Saalfeld-Rudolstadt",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.6187,
+    "lon": 11.2881
   },
   "16074": {
     "name": "LK Saale-Holzland-Kreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9043,
+    "lon": 11.7319
   },
   "16075": {
     "name": "LK Saale-Orla-Kreis",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.6237,
+    "lon": 11.7202
   },
   "16076": {
     "name": "LK Greiz",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.7786,
+    "lon": 12.0762
   },
   "16077": {
     "name": "LK Altenburger Land",
-    "state": "Thüringen"
+    "state": "Thüringen",
+    "lat": 50.9579,
+    "lon": 12.3802
   }
 }
