@@ -77,11 +77,10 @@ I tried to discover these step-by-step, they are possibly underrated:
 - The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
 - The points in time are encoded using localized ISO 8601 time string notation.
 - I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
-- Right now my idea is to update this file daily during the (German) evening hours, after ZEIT ONLINE and Berliner Morgenpost have published their last update of the day.
 - As a differentiator from other datasets the sample timestamps contain the time of the day so that consumers can at least have a vague impression if the sample represents the state in the morning or evening (a common confusion about the RKI-derived datasets).
   If it's the morning then it's likely to actually be data of the day before. If it's the evening then it's more likely to represent the state of the day.
 
-### Example: parsing and plotting
+## Code example: parsing and plotting
 
 ```python
 import pandas as pd
