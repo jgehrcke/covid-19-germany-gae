@@ -31,57 +31,11 @@ You probably have many questions, just as I did (and still do). Your feedback an
 Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
 or contact me via mail at jgehrcke@googlemail.com.
 
-## What you should know before reading these numbers
 
-Please question the conclusiveness of these numbers.
-Some directions along which you may want to think:
 
-- Although Germany seems to perform a large number of tests, we (the public) do not have good insight into how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before drawing conclusions from the time evolution of case count numbers.
-- Each confirmed case is implicitly associated with a reporting date. We do not know for sure how that reporting date relates to the date of taking the sample (there might be _days_ between those two points in time).
-- We believe that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. This is quite probably true, but we cannot verify this end-to-end, we have to trust Landkreise, doctors, and labs.
-- Yet, we seem to believe that the change of the number of confirmed COVID-19 cases over time is somewhat expressive: but what does it shed light on, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The actual, absolute number of people infected? The virus' potential to exhibit COVID-19 in an infected human body?
 
-If you keep these (and more) ambiguities and questions in mind then I think you are ready to look at these numbers :-) 😷.
 
-## Changelog: data source
 
-In Germany, every step along the chain of reporting (Meldekette) introduces a noticeable delay.
-This is not necessary, but sadly the current state of affairs.
-The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future.
-Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to the physical tests.
-In some cases, the Meldekette might even be entirely disrupted, as discussed in this [SPIEGEL article](https://www.spiegel.de/wissenschaft/coronavirus-wie-belastbar-sind-die-rki-daten-a-13bd06d7-22a1-4b3d-af23-ff43e5e8abd6) (German).
-Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
-
-**Wishlist:** every case should be tracked with its own time line, and transparently change state over time.
-The individual cases (and their time lines) should be aggregated on a country-wide level, anonymously, and get published in almost real time, through an official, structured data source, free to consume for everyone.
-
-As discussed, the actual data flow situation is far from this ideal.
-Nevertheless, the primary concern of this dataset here is to maximize data _credibility_ while also trying to maximize data _freshness_; a challenging trade-off in this initial phase of pandemic growth in Germany.
-That is, the goal is to provide you with the least shitty numbers from a set of generally pretty shitty numbers.
-To that end, I took liberty to iterate on the data source behind _this_ dataset — as indicated below.
-
-### `/now` (current state):
-
-- **Since (incl) March 26**: Meldekette step 2: reports by the individual counties (Landkreise), curated by [Tagesspiegel](https://twitter.com/Tagesspiegel) and [Risklayer](https://twitter.com/risklayer) for the current case count, curated by ZEIT ONLINE for `deaths`.
-- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
-- **Since (incl) March 19**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE, and Berliner Morgenpost.
-
-### `/timeseries/...` (historical data):
-
-Update (evening March 29): in the near future I consider re-writing the history exposed by these endpoints (`data.csv`) using RKI data, accounting for long reporting delays.
-
-- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
-- **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
-- **Before March 18**: Meldekette step 4: RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) (PDF documents).
-
-**Note:**
-
-- The `source` identifier in the CSV file changes correspondingly over time.
-- A mix of sources in a time series is of course far from ideal.
-  However — given the boundary conditions — I think switching to better sources as they come up is fair and useful.
-  We might also change (read: _rewrite_) time series data in hindsight.
-  Towards enhancing overall credibility.
-  That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
 ## Quality data sources published by Bundesländer
 
@@ -225,6 +179,60 @@ Notably, the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus
 seems to also do a great job at _quickly_ aggregating the state-level data.
 This API endpoint chooses either that source or ZEIT ONLINE depending on
 the higher case count.
+
+## What you should know before reading these numbers
+
+Please question the conclusiveness of these numbers.
+Some directions along which you may want to think:
+
+- Germany seems to perform a large number of tests. But think about how much insight you actually have into how the testing rate (and its spatial distribution) evolves over time. In my opinion, one absolutely should know a whole _lot_ about the testing effort itself before drawing conclusions from the time evolution of case count numbers.
+- Each confirmed case is implicitly associated with a reporting date. We do not know for sure how that reporting date relates to the date of taking the sample.
+- We believe that each "confirmed case" actually corresponds to a polymerase chain reaction (PCR) test for the SARS-CoV2 virus with a positive outcome. Well, I think that's true, we can have that much trust into the system.
+- We seem to believe that the change of the number of confirmed COVID-19 cases over time is somewhat expressive: but what does it shed light on, exactly? The amount of testing performed, and its spatial coverage? The efficiency with which the virus spreads through the population ("basic reproduction number")? The actual, absolute number of people infected? The virus' potential to exhibit COVID-19 in an infected human body?
+
+If you keep these (and more) ambiguities and questions in mind then I think you are ready to look at these numbers and their time evolution :-) 😷.
+
+## Changelog: data source
+
+In Germany, every step along the chain of reporting (Meldekette) introduces a noticeable delay.
+This is not necessary, but sadly the current state of affairs.
+The Robert Koch-Institut (RKI) [seems to be working on](https://github.com/jgehrcke/covid-19-germany-gae/issues/47) a more modern reporting system that might mitigate some of these delays along the Meldekette in the future.
+Until then, it is fair to assume that case numbers published by RKI have 1-2 days delay over the case numbers published by Landkreise, which themselves have an unknown lag relative to the physical tests.
+In some cases, the Meldekette might even be entirely disrupted, as discussed in this [SPIEGEL article](https://www.spiegel.de/wissenschaft/coronavirus-wie-belastbar-sind-die-rki-daten-a-13bd06d7-22a1-4b3d-af23-ff43e5e8abd6) (German).
+Also see [this discussion](https://github.com/CSSEGISandData/COVID-19/issues/1008).
+
+**Wishlist:** every case should be tracked with its own time line, and transparently change state over time.
+The individual cases (and their time lines) should be aggregated on a country-wide level, anonymously, and get published in almost real time, through an official, structured data source, free to consume for everyone.
+
+As discussed, the actual data flow situation is far from this ideal.
+Nevertheless, the primary concern of this dataset here is to maximize data _credibility_ while also trying to maximize data _freshness_; a challenging trade-off in this initial phase of pandemic growth in Germany.
+That is, the goal is to provide you with the least shitty numbers from a set of generally pretty shitty numbers.
+To that end, I took liberty to iterate on the data source behind _this_ dataset — as indicated below.
+
+### `/now` (current state):
+
+- **Since (incl) March 26**: Meldekette step 2: reports by the individual counties (Landkreise), curated by [Tagesspiegel](https://twitter.com/Tagesspiegel) and [Risklayer](https://twitter.com/risklayer) for the current case count, curated by ZEIT ONLINE for `deaths`.
+- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
+- **Since (incl) March 19**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE, and Berliner Morgenpost.
+
+
+### `/timeseries/...` (historical data):
+
+Update (evening March 29): in the near future I consider re-writing the history exposed by these endpoints (`data.csv`) using RKI data, accounting for long reporting delays.
+
+- **Since (incl) March 24**: Meldekette step 2: reports by the individual counties (Landkreise), curated by ZEIT ONLINE.
+- **Since (incl) March 18**: Meldekette step 3: reports by the individual states (Bundesländer), curated by ZEIT ONLINE.
+- **Before March 18**: Meldekette step 4: RKI ["situation reports"](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Situationsberichte/Archiv.html) (PDF documents).
+
+**Note:**
+
+- The `source` identifier in the CSV file changes correspondingly over time.
+- A mix of sources in a time series is of course far from ideal.
+  However — given the boundary conditions — I think switching to better sources as they come up is fair and useful.
+  We might also change (read: _rewrite_) time series data in hindsight.
+  Towards enhancing overall credibility.
+  That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
+
 
 ## Attribution
 
