@@ -90,7 +90,8 @@ def main():
         sys.exit("new data is old data? that seems quite wrong, aborting")
 
     if hours_newer < 12:
-        sys.exit("new data not new enough")
+        log.info('Replace last sample with more recent data')
+        df_previous_csv = df_previous_csv[:-1]
 
     if hours_newer > 24:
         log.warning("more than a day between the new data point and the last one")
