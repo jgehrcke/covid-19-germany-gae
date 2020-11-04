@@ -95,7 +95,7 @@ def main():
         # sys.exit()
 
         # Should be >= 7 to be meaningful.
-        window_width_days = 5
+        window_width_days = 7
         window = df_case_change.rolling(window="%sD" % window_width_days)
 
         # Manually build rolling window mean.
@@ -204,8 +204,8 @@ def main():
     ax.legend(
         [
             'raw RKI data, by date of report ("Meldedatum")',
-            "RKI rolling window mean (width: 5 days)",
-            "JHU rolling window mean (width: 5 days)",
+            "RKI rolling window mean (width: 7 days)",
+            "JHU rolling window mean (width: 7 days)",
         ],
         numpoints=4,
         handlelength=8,
