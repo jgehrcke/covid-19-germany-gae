@@ -45,7 +45,6 @@
 
       <section class="section">
         <div class="container">
-          <p class="title is-4">Cumulative case count, change per day (all Germany)</p>
           <div>
             <a href="static/case-rate-rw-{{ today_string }}.png" class="image-link">
               <img src="static/case-rate-rw-{{ today_string }}.png" />
