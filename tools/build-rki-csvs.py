@@ -85,14 +85,15 @@ def main():
         [df_by_lk[c] for c in df_by_lk if "_" not in str(c)], axis=1
     )
 
+    # Note: aggregate_by_bland() ignores AGS 11000.
     df_by_bl_cases = aggregate_by_bland(df_by_lk_cases)
-
     df_by_bl_deaths = aggregate_by_bland(df_by_lk_deaths)
 
     log.info("build sum for each sample")
-    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1) - df_berlin_cases_sum
-    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1) - df_berlin_deaths_sum
+    df_by_bl_cases["sum_cases"] = df_by_bl_cases.sum(axis=1)
+    df_by_bl_deaths["sum_deaths"] = df_by_bl_deaths.sum(axis=1)
 
+    # Has to be corrected for double-counting Berlin.
     df_by_lk_cases["sum_cases"] = df_by_lk_cases.sum(axis=1) - df_berlin_cases_sum
     df_by_lk_deaths["sum_deaths"] = df_by_lk_deaths.sum(axis=1) - df_berlin_deaths_sum
 
@@ -162,6 +163,11 @@ def aggregate_by_bland(df_by_lk):
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
         ags = str(cname).split("_")[0]
+        if ags == "11000":
+            # Berlin is counted twice, once as-a-whole via a virtual AGS 11000
+            # and then also via its actual counties (via the actual AGSs).
+            log.info("Ingnore AGS 11000 in Bundesland aggregation")
+            continue
         bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[ags]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
