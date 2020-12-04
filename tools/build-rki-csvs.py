@@ -341,6 +341,17 @@ def fetch_lks():
     # create simple dictionary with AGS (int) as key and per-LK detail as val.
     landkreise = {}
     for o in objs:
+        # Saw bad AGS in ArcGIS today for LK Aachen: 5354 instead of 5334
+        # 201204-12:22:25.662 INFO: fetch LK-resolved RKI data from arcgis system
+        # 201204-12:22:25.662 INFO: Query for set of LKs
+        # {'IdLandkreis': '05354', 'Landkreis': 'LK Aachen', 'Bundesland': 'Nordrhein-Westfalen', 'ObjectId': 28250}
+        if o["Landkreis"] == "LK Aachen":
+            if o["IdLandkreis"] != "05334":
+                log.info(
+                    "unexpected AGS for LK Aachen in ArcGIS: %s -- heal",
+                    o["IdLandkreis"],
+                )
+                o["IdLandkreis"] = "05334"
         landkreise[int(o["IdLandkreis"])] = o
 
     log.info("Got info for %s LKs", len(landkreise))
