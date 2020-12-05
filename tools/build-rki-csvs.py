@@ -345,10 +345,13 @@ def fetch_lks():
         # 201204-12:22:25.662 INFO: fetch LK-resolved RKI data from arcgis system
         # 201204-12:22:25.662 INFO: Query for set of LKs
         # {'IdLandkreis': '05354', 'Landkreis': 'LK Aachen', 'Bundesland': 'Nordrhein-Westfalen', 'ObjectId': 28250}
-        if o["Landkreis"] == "LK Aachen":
+        # {'IdLandkreis': '05354', 'Landkreis': 'StadtRegion Aachen', 'Bundesland': 'Nordrhein-Westfalen', 'ObjectId': 29327}
+        # AGS 05354 was "Kreis Aachen". Until 2009. Since then 5334 Städteregion Aachen.
+        if "Aachen" in o["Landkreis"] and int(o["IdLandkreis"]) == 5354:
             if o["IdLandkreis"] != "05334":
                 log.info(
-                    "unexpected AGS for LK Aachen in ArcGIS: %s -- heal",
+                    "unexpected AGS for %s Aachen in ArcGIS: %s -- correct: 5334",
+                    o,
                     o["IdLandkreis"],
                 )
                 o["IdLandkreis"] = "05334"
