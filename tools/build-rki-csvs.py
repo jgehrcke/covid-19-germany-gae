@@ -191,7 +191,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 45):
+    for subset in chunks(ags_list_from_rki, 25):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -396,7 +396,13 @@ def fetch_history_for_many_ags(ags_list):
     url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
 
     log.info("Query for history for these AGSs: %s", ags_list)
-    resp = requests.get(url)
+    resp = requests.get(
+        url,
+        headers={
+            "user-agent": "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+        },
+        timeout=(3.05, 45),
+    )
     resp.raise_for_status()
     log.info("Got OK response, parse through data")
     data = resp.json()
