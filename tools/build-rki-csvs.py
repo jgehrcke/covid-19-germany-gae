@@ -191,7 +191,7 @@ def fetch_and_clean_data():
     ags_list_from_rki = [int(a) for a in landkreise.keys()]
 
     dataframes = []
-    for subset in chunks(ags_list_from_rki, 25):
+    for subset in chunks(ags_list_from_rki, 35):
         # The chunker fills the last chunk with Nones.
         agss = [ags for ags in subset if ags is not None]
 
@@ -336,6 +336,7 @@ def fetch_lks():
     log.info("Query for set of LKs")
     resp = requests.get(url)
     resp.raise_for_status()
+
     objs = [o["attributes"] for o in resp.json()["features"]]
 
     # create simple dictionary with AGS (int) as key and per-LK detail as val.
@@ -381,6 +382,7 @@ def fetch_history_for_many_ags(ags_list):
 
     where_clause = f"({md}>{ts} '{t_start}') AND ({md}<{ts} '{t_end}') AND ({idlk} IN ({ags_padded_list_cs}))"
 
+    record_count_limit = 52 * 10 ** 4
     params = urllib.parse.urlencode(
         {
             "where": where_clause,
@@ -389,7 +391,7 @@ def fetch_history_for_many_ags(ags_list):
             "outFields": "*",
             "orderByFields": "Meldedatum asc",
             "resultOffset": 0,
-            "resultRecordCount": 10 ** 5,
+            "resultRecordCount": record_count_limit,
             "f": "json",
         }
     )
@@ -399,13 +401,19 @@ def fetch_history_for_many_ags(ags_list):
     resp = requests.get(
         url,
         headers={
-            "user-agent": "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+            "user-agent": "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
         },
-        timeout=(3.05, 45),
+        timeout=(3.05, 75),
     )
     resp.raise_for_status()
     log.info("Got OK response, parse through data")
     data = resp.json()
+
+    # print(json.dumps(data, indent=2))
+
+    log.info("response contains %s feature objects", len(data["features"]))
+    if len(data["features"]) > 0.6 * record_count_limit:
+        log.warning("that is close to %s", record_count_limit)
 
     # This is what a feature object looks like:
     #     {
