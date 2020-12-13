@@ -1,21 +1,23 @@
 # COVID-19 case numbers in Germany by state, over time 😷
 
-COVID-19 Fallzahlen für Deutschland, für Bundesländer und Landkreise. Mit Zeitreihen.
+COVID-19 Fallzahlen für Deutschland. Für Bundesländer und Landkreise. Mit Zeitreihen.
+
+Die Zeitreihen werden als robust maschinenlesbare CSV-Dateien zur Verfügung gestellt.
 
 This dataset is provided through comma-separated value (**CSV**) files. In addition, this project offers an **HTTP (JSON) API**.
 
 ## Unboxing: what's in it? :-)
 
-- JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh, for the sensationalists)
-- **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**)
+- **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**):
   - [cases-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-ags.csv) and [deaths-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-ags.csv): **per-Landkreis** time series
   - [cases-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-state.csv) and [deaths-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-state.csv): **per-Bundesland** time series
-  - This is the only data source that properly accounts for Meldeverzug (reporting delay). The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system.
-- **Crowdsourcing data (fresh view into the last 1-2 days)**: Risklayer crowdsource effort (see "Attribution" below)
+  - This is the only data source that rigorously accounts for Meldeverzug (reporting delay). The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system. These time series see amendments weeks and months into the past as data gets better over time. This data source has its strength in _the past_, but it often does not yet reflect the latest from today and yesterday.
+- **Crowdsourcing data (fresh view into the last 1-2 days)**: Risklayer GmbH crowdsource effort (see "Attribution" below):
   - [cases-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-ags.csv): **per-Landkreis** time series
   - [cases-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-state.csv): **per-Bundesland** time series
-  - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) are a little higher than what the RKI data set shows.
+  - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) are a little more credible than what the RKI data set shows. This holds true especially for `deaths`; the RKI seems to be extra careful before they incorporate them into their data set.
 - [ags.json](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): a map for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details, including latitude and longitude.
+- JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh, for the sensationalists)
 - [data.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): history, mixed data source based on RKI/ZEIT ONLINE. This powers the per-Bundesland timeseries exposed by the HTTP JSON API.
 - JSON endpoints for per-Bundesland time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`, endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
 
@@ -36,11 +38,17 @@ or contact me via mail at jgehrcke@googlemail.com.
 
 ## CSV file details
 
+Focus: predictable/robust machine readability. Backwards-compatibility (columns get added; but have never been removed so far).
+
 - The column names use the [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) code for individual states.
 - The points in time are encoded using localized ISO 8601 time string notation.
-- I did not incorporate the numbers on `recovered` so far because individual Gesundheitsämter do not have the capacity to carefully track this metric yet (it is rather meaningless).
-- As a differentiator from other datasets the sample timestamps contain the time of the day so that consumers can at least have a vague impression if the sample represents the state in the morning or evening (a common confusion about the RKI-derived datasets).
-  If it's the morning then it's likely to actually be data of the day before. If it's the evening then it's more likely to represent the state of the day.
+
+Note that the numbers for "today" as presented in media often actually refer to the last known state of data on the evening before. To address this ambiguity, the sample timestamps in the CSV files presented in this repository contain the time of the day (and not just the _day_).
+With that, consumers can have a vague impression about whether the sample represents the state in the morning or evening -- a common confusion / ambiguity with other data sets.
+
+The `recovered` metric is not presented because it is rather blurry.
+Feel free to consume it from other sources!
+
 
 ## Code example: parsing and plotting
 
@@ -224,23 +232,17 @@ Update (evening March 29): in the near future I consider re-writing the history 
   Towards enhancing overall credibility.
   That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
-
-## Attribution
+## Attributions
 
 Shout-out to ZEIT ONLINE for continuously collecting and publishing the state-level data with little delay.
 
-Edit: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
+Edit March 21, 2020: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
 seems to do an equally well job of _quickly_ aggregating the state-level data.
 We are using that in here, too. Thanks!
 
-Edit March 26: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
+Edit March 26, 2020: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
 As far as I can tell this is so far the most transparent data flow, and also the fastest, getting us the freshest case count numbers. Great work!
 
-Fast aggregation & communication is important during the phase of exponential growth.
+Edit December 13, 2020: for the `*-rl-crowdsource*.csv` files proper legal attribution goes to
 
-## Random notes
-
-- The MDC Berlin has published [this visualization](https://covid19germany.mdc-berlin.de/)
-  and [this article](https://www.mdc-berlin.de/news/press/state-state-breakdown-covid-19-germany), but
-  they seemingly decided to not publish the time series data. I got my hopes
-  up here at first!
+> Risklayer GmbH (www.risklayer.com) and Center for Disaster Management and Risk Reduction Technology (CEDIM) at Karlsruhe Institute of Technology (KIT) and the Risklayer-CEDIM-Tagesspiegel SARS-CoV-2 Crowdsourcing Contributors

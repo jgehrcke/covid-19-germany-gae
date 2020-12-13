@@ -67,14 +67,21 @@ with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
 
 
 def main():
+    generate("cases")
+    generate("deaths")
+
+
+def generate(metric):
+    assert metric in ["cases", "deaths"]
+    evarname = f"RISKLAYER_HISTORY_{metric.upper()}_CSV_URL"
 
     # Dataframe with one column per AGS (Landkreis, kreisfreie Stadt)
-    df_by_lk = fetch_and_clean_data()
+    df_by_lk = fetch_and_clean_data(evarname)
     df_by_bl = aggregate_by_bland(df_by_lk)
 
     log.info("build sum for each sample")
-    df_by_bl["sum_cases"] = df_by_bl.sum(axis=1)
-    df_by_lk["sum_cases"] = df_by_lk.sum(axis=1)
+    df_by_bl[f"sum_{metric}"] = df_by_bl.sum(axis=1)
+    df_by_lk[f"sum_{metric}"] = df_by_lk.sum(axis=1)
 
     # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
     # new_row_df.index.name = "time_iso8601"
@@ -90,12 +97,12 @@ def main():
     df_by_lk.index.name = "time_iso8601"
     print(df_by_lk)
 
-    csv_filepath_bk = "cases-rl-crowdsource-by-state.csv"
+    csv_filepath_bk = f"{metric}-rl-crowdsource-by-state.csv"
     log.info("write data to CSV file %s", csv_filepath_bk)
     with open(csv_filepath_bk, "wb") as f:
         f.write(df_by_bl.to_csv().encode("utf-8"))
 
-    csv_filepath_lk = "cases-rl-crowdsource-by-ags.csv"
+    csv_filepath_lk = f"{metric}-rl-crowdsource-by-ags.csv"
     log.info("write data to CSV file %s", csv_filepath_lk)
     with open(csv_filepath_lk, "wb") as f:
         f.write(df_by_lk.to_csv().encode("utf-8"))
@@ -126,13 +133,16 @@ def aggregate_by_bland(df_by_lk):
         else:
             df_by_bl[bland_iso] += df_by_lk[cname]
 
+    # Sort columns by name (goal: stable column order across data sets and
+    # csv file re-generation)
+    df_by_bl = df_by_bl.reindex(sorted(df_by_bl.columns), axis=1)
     return df_by_bl
 
 
-def fetch_and_clean_data():
+def fetch_and_clean_data(evarname):
     log.info("fetch RL/TS/CS data from gsheets")
     # risklayer history as CSV from google sheets
-    csv = requests.get(os.environ["RISKLAYER_HISTORY_CSV_URL"]).text
+    csv = requests.get(os.environ[evarname]).text
     df = pd.read_csv(io.StringIO(csv))
 
     print(df)
@@ -188,7 +198,8 @@ def fetch_and_clean_data():
             sample_time_naive
         )
         sample_time_aware_iso8601 = datetime.strftime(
-            sample_time_aware, "%Y-%m-%dT%H:00:00%z",
+            sample_time_aware,
+            "%Y-%m-%dT%H:00:00%z",
         )
 
         rename_map[cname] = sample_time_aware_iso8601
