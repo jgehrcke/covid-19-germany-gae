@@ -56,7 +56,7 @@ def main():
     log.info("read: %s", args.path_extension)
     df_ext = pd.read_csv(args.path_extension, index_col=["time_iso8601"])
 
-    check_sanity(df_base, df_ext)
+    df_base, df_ext = parse_files_and_check_sanity(args)
 
     # Build four data frames (general case):
     #   only_in_base: not covered by ext
@@ -165,7 +165,14 @@ def main():
     sys.stdout.buffer.write(result_csv_bytes)
 
 
-def check_sanity(df_base, df_ext):
+def parse_files_and_check_sanity(args):
+
+    log.info("read: %s", args.path_base)
+    df_base = pd.read_csv(args.path_base, index_col=["time_iso8601"])
+
+    log.info("read: %s", args.path_extension)
+    df_ext = pd.read_csv(args.path_extension, index_col=["time_iso8601"])
+
     columns_diff = set(df_base.columns) - set(df_ext.columns)
     if columns_diff:
         log.error("these columns do not appear in both: %s", columns_diff)
@@ -178,8 +185,13 @@ def check_sanity(df_base, df_ext):
     log.info("good: both time series have monotonically increasing indices")
 
     if df_base.index.max() == df_ext.index.max():
-        log.info("the newest data point is equal in both data sets")
+        log.info(
+            "exit early: the newest data point is equal in both data sets, emit base"
+        )
+        with open(args.path_base, "rb") as fin:
+            sys.stdout.buffer.write(fin.read())
         sys.exit(0)
+
     log.info("good: newest timestamp differs across base and extension")
 
     if df_base.index.max() > df_ext.index.max():
