@@ -10,46 +10,53 @@ set -e
 
 BRANCH_NAME="data-update-$(date +"%m-%d")-${RNDSTR}"
 
-# git checkout master
-# git pull
-# git branch "${BRANCH_NAME}" || true
-# git checkout "${BRANCH_NAME}"
+git checkout master
+git pull
+git branch "${BRANCH_NAME}" || true
+git checkout "${BRANCH_NAME}"
 
 source tools/env.sh
 
-#make update-csv
-#git status --untracked=no --porcelain
-#git commit data.csv -m "data.csv: update $(date +"%m-%d")" || true
+make update-csv
+git status --untracked=no --porcelain
+git commit data.csv -m "data.csv: update $(date +"%m-%d")" || true
 
-#make update-jhu-data
+make update-jhu-data
 
-# Set previous data set aside. Use as "base" for merge later.
+# RKI data: set previous data set aside. Use as "base" for tolerant merge, below.
 set -x
 for CPATH in *-rki-*.csv; do
     /bin/mv -f "${CPATH}" "${CPATH}.previous"
 done
 
-# Get current data set. Use as "extension" for merge later.
+# Get current data set. Use as "extension" for tolerant merge, below.
 python tools/build-rki-csvs.py
 
-# Set the newly generated files (by build-rki-csvs.py) aside as "extension".
-# Then do a tolerant merge of base and extension, using data points (rows)
-# of the previous data set when the new (current) data set deviates from the
-# previous one only by a tiny amount.
+# Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
+# do a tolerant merge of base and extension, using data points (rows) of the
+# previous data set when the new (current) data set deviates from the previous
+# one by _more_ than a threshold. This is to mitigate the effects of an ArcGIS
+# query instability, to produce better (more useful) diffs -- see
+# https://github.com/jgehrcke/covid-19-germany-gae/pull/274.
 for FPATH in *-rki-*.csv; do
+
+    # Set aside as "new"/"current"/"extension" (compared to
+    # "old"/"previous"/"base").
     /bin/mv -f "${FPATH}" "${FPATH}.current"
 
     # See if this is about cases or deaths, and choose the merge threshold
     # correspondingly.
     if [[ $FPATH =~ "cases" ]]; then
-        THRESHOLD="10"
+        THRESHOLD="15"
     elif [[ $FPATH =~ "deaths" ]]; then
-        THRESHOLD="4"
+        THRESHOLD="5"
     else
         echo "FPATH $FPATH did not match either pattern: check manually"
         exit 1
     fi
 
+    # Select rows by the sum_ column only, to make this selection consistent
+    # across data sets resolved by state/AGS.
     python tools/csv-epsilon-merge.py \
     --threshold=${THRESHOLD} --column-allowlist-pattern 'sum_*' \
     "${FPATH}.previous" "${FPATH}.current" > \
@@ -58,11 +65,11 @@ done
 set +x
 
 git status --untracked=no --porcelain
-#git commit -a -m "RKI data: update: $(date +"%m-%d")" || true
+git commit -a -m "RKI data: update: $(date +"%m-%d")" || true
 
 python tools/build-rl-csvs.py
 git status --untracked=no --porcelain
-#git commit -a -m "cases-rl-*: update: $(date +"%m-%d")" || true
+git commit -a -m "cases-rl-*: update: $(date +"%m-%d")" || true
 
 #python tools/plot-compare-sources.py
 #git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
