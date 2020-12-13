@@ -241,7 +241,7 @@ def main():
     #     loc="upper left",
     # )
     plt.xlabel("")
-    ax.set_ylabel("cumulative case count, change per day (all Germany)", fontsize=8)
+    ax.set_ylabel("cumulative case count, change per day (all Germany)", fontsize=10)
 
     # Create a second y/metric axes that shares the same time axis
     ax2 = ax.twinx()
@@ -273,14 +273,19 @@ def main():
         handlelength=5,
         # fontsize=8,
         loc="upper left",
-        prop={"family": "monospace", "size": 8},
+        labelcolor="#444444",
+        prop={
+            "family": "monospace",
+            "size": 8,
+        },
     )
     lframe = legend.get_frame()
     lframe.set_facecolor("white")
+    lframe.set_alpha(1)
     # lframe.set_edgecolor("red")
     lframe.set_linewidth(0)
 
-    ax2.set_ylabel("cumulative death count, change per day (all Germany)", fontsize=8)
+    ax2.set_ylabel("cumulative death count, change per day (all Germany)", fontsize=10)
     # l = ax.get_ylim()
     # l2 = ax2.get_ylim()
     # f = lambda x: l2[0] + (x - l[0]) / (l[1] - l[0]) * (l2[1] - l2[0])
@@ -302,9 +307,9 @@ def main():
 
     annotation = dedent(
         f"""
-    latest RKI data data point:  total deaths: {rki_deaths_sum_last_value} ({rki_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+    latest RKI data data point:  total deaths:   {rki_deaths_sum_last_value} ({rki_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
                                  total cases:  {rki_cases_sum_last_value} ({rki_cases_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
-    latest Risklayer data point: total deaths: {rl_deaths_sum_last_value} ({rl_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+    latest Risklayer data point: total deaths:   {rl_deaths_sum_last_value} ({rl_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
                                  total cases:  {rl_cases_sum_last_value} ({rl_cases_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
     """
     ).strip()
@@ -317,6 +322,7 @@ def main():
         transform=ax2.transAxes,
         color="#444444",
         fontfamily="monospace",
+        bbox=dict(facecolor="white", alpha=1),
     )
 
     plt.tight_layout()
@@ -549,6 +555,10 @@ def jhu_csse_csv_to_dataframe(data_file_path, location_name):
 
 def matplotlib_config():
     plt.style.use("ggplot")
+    # import seaborn as sns
+
+    # make the gray background of gg plot a little lighter
+    plt.rcParams["axes.facecolor"] = "#eeeeee"
     matplotlib.rcParams["figure.figsize"] = [10.5, 7.0]
     matplotlib.rcParams["figure.dpi"] = 100
     matplotlib.rcParams["savefig.dpi"] = 150
