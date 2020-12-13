@@ -35,7 +35,7 @@ python tools/build-rki-csvs.py
 # Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
 # do a tolerant merge of base and extension, using data points (rows) of the
 # previous data set when the new (current) data set deviates from the previous
-# one by _more_ than a threshold. This is to mitigate the effects of an ArcGIS
+# one by less than a threshold. This is to mitigate the effects of an ArcGIS
 # query instability, to produce better (more useful) diffs -- see
 # https://github.com/jgehrcke/covid-19-germany-gae/pull/274.
 for FPATH in *-rki-*.csv; do
