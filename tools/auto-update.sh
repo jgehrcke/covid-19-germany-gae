@@ -71,9 +71,9 @@ python tools/build-rl-csvs.py
 git status --untracked=no --porcelain
 git commit -a -m "cases-rl-*: update: $(date +"%m-%d")" || true
 
-#python tools/plot-compare-sources.py
+python tools/plot-compare-sources.py
 #git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
-#git commit -a -m 'landing page update'
+git commit -a -m "daily-change-plot-latest: update $(date +"%m-%d")"
 
 git push
 

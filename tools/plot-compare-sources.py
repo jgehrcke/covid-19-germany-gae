@@ -27,6 +27,7 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 import os
 import logging
 import sys
+from textwrap import dedent
 from datetime import datetime, timedelta
 
 import numpy as np
@@ -55,6 +56,8 @@ logging.basicConfig(
 
 NOW = datetime.utcnow()
 
+RWDW_DAYS = 14
+
 
 def main():
 
@@ -73,7 +76,9 @@ def main():
 
     START_DATE = "2020-03-09"
 
-    def _build_case_rate(df):
+    def _build_rate(df, metric):
+        # df = df.copy()
+        assert metric in ["cases", "deaths"]
         # Get time differences (unit: seconds) in the df's datetimeindex. `dt`
         # is a magic accessor that yields an array of time deltas.
         dt_seconds = pd.Series(df.index).diff().dt.total_seconds()
@@ -82,21 +87,21 @@ def main():
         dt_days = pd.Series(dt_seconds) / 86400.0
         dt_days.index = df.index
         # print(dt_days)
-        cases_change_per_day = df["sum_cases"].diff().div(dt_days)
-        df["cases_change_per_day"] = cases_change_per_day
+        change_per_day = df[f"sum_{metric}"].diff().div(dt_days)
+        df[f"{metric}_change_per_day"] = change_per_day
         print(df)
 
         # increase resolution and forward-fill values. Could also use
         # `interpolate()` but that's too artificial, I think it's fair to see
         # the actual discrete jumps in data as of "batch processing".
-        df_case_change = df["cases_change_per_day"].resample("1H").pad()
+        df_change = df[f"{metric}_change_per_day"].resample("1H").pad()
 
-        print(type(df_case_change))
+        print(type(df_change))
         # sys.exit()
 
         # Should be >= 7 to be meaningful.
-        window_width_days = 7
-        window = df_case_change.rolling(window="%sD" % window_width_days)
+        window_width_days = RWDW_DAYS
+        window = df_change.rolling(window="%sD" % window_width_days)
 
         # Manually build rolling window mean.
         wdw_norm = window.sum() / (window_width_days * 24.0)
@@ -127,7 +132,7 @@ def main():
         date_parser=lambda col: pd.to_datetime(col, utc=True),
     )[START_DATE:]
     df_mixed_data.index.name = "time"
-    df_mixed_case_rate_rw = _build_case_rate(df_mixed_data)[START_DATE:]
+    df_mixed_case_rate_rw = _build_rate(df_mixed_data, "cases")[START_DATE:]
 
     df_rl = pd.read_csv(
         "cases-rl-crowdsource-by-state.csv",
@@ -135,90 +140,207 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rl.index.name = "time"
-    df_rl_case_rate_rw = _build_case_rate(df_rl)[START_DATE:]
+    df_rl_case_rate_rw = _build_rate(df_rl, "cases")[START_DATE:]
 
     df_rki = pd.read_csv(
         "cases-rki-by-state.csv",
         index_col=["time_iso8601"],
         parse_dates=["time_iso8601"],
     )[START_DATE:]
+
     df_rki.index.name = "time"
-    df_rki_case_rate_rw = _build_case_rate(df_rki)[START_DATE:]
+    df_rki_case_rate_rw = _build_rate(df_rki, "cases")[START_DATE:]
+
+    df_rki_deaths = pd.read_csv(
+        "deaths-rki-by-state.csv",
+        index_col=["time_iso8601"],
+        parse_dates=["time_iso8601"],
+    )[START_DATE:]
+    df_rki_deaths.index.name = "time"
+    df_rki_deaths_rate_rw = _build_rate(df_rki_deaths, "deaths")[START_DATE:]
+
+    df_rl_deaths = pd.read_csv(
+        "deaths-rl-crowdsource-by-state.csv",
+        index_col=["time_iso8601"],
+        parse_dates=["time_iso8601"],
+    )[START_DATE:]
+    df_rl_deaths.index.name = "time"
+    df_rl_deaths_rate_rw = _build_rate(df_rl_deaths, "deaths")[START_DATE:]
 
     df_jhu = jhu_csse_csv_to_dataframe(os.environ["JHU_TS_CSV_PATH"], "germany")[
         START_DATE:
     ]
     df_jhu.index.name = "time"
-    df_jhu_case_rate_rw = _build_case_rate(df_jhu)[START_DATE:]
+    df_jhu_case_rate_rw = _build_rate(df_jhu, "cases")[START_DATE:]
 
     # Normalize for 'sum_cases' plots
-    for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
-        _df["sum_cases"] = _df["sum_cases"] / 10000
+    # for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
+    #     _df["sum_cases"] = _df["sum_cases"] / 10000
 
-    plt.figure()
+    # plt.figure()
 
-    ax = df_rki["sum_cases"].plot(linestyle="solid", marker="x", color="red",)
-    df_rl["sum_cases"].plot(linestyle="solid", marker="x", color="black", ax=ax)
-    df_mixed_data["sum_cases"].plot(
-        linestyle="dashdot", marker="x", color="black", ax=ax
-    )
-    df_jhu["sum_cases"].plot(linestyle="dashdot", marker="x", color="gray", ax=ax)
+    # ax = df_rki["sum_cases"].plot(linestyle="solid", marker="x", color="red",)
+    # df_rl["sum_cases"].plot(linestyle="solid", marker="x", color="black", ax=ax)
+    # df_mixed_data["sum_cases"].plot(
+    #     linestyle="dashdot", marker="x", color="black", ax=ax
+    # )
+    # df_jhu["sum_cases"].plot(linestyle="dashdot", marker="x", color="gray", ax=ax)
 
-    ax.legend(
-        [
-            "RKI data, by Meldedatum",
-            "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
-            "ZEIT ONLINE, daily snapshots",
-            "JHU (GitHub CSSEGISandData/COVID-19)",
-        ],
-        numpoints=4,
-        handlelength=8,
-    )
+    # ax.legend(
+    #     [
+    #         "RKI data, by Meldedatum",
+    #         "Risklayer/Tagesspiegel crowdsource data, daily snapshots",
+    #         "ZEIT ONLINE, daily snapshots",
+    #         "JHU (GitHub CSSEGISandData/COVID-19)",
+    #     ],
+    #     numpoints=4,
+    #     handlelength=8,
+    # )
 
-    ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
+    # ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
 
-    plt.xlabel("Time")
-    plt.ylabel("cumulative case count, all Germany / 10^4")
-    # plt.title("COVID-19 case count, Germany, comparison of data sources")
-    # set_title('Override command rate (from both DC/OS repositories)')
-    # set_subtitle('Arithmetic mean over rolling time window')
-    # plt.tight_layout(rect=(0, 0, 1, 0.95))
+    # plt.xlabel("Time")
+    # plt.ylabel("cumulative case count, all Germany / 10^4")
+    # # plt.title("COVID-19 case count, Germany, comparison of data sources")
+    # # set_title('Override command rate (from both DC/OS repositories)')
+    # # set_subtitle('Arithmetic mean over rolling time window')
+    # # plt.tight_layout(rect=(0, 0, 1, 0.95))
 
-    plt.tight_layout()
-    fig_filepath_wo_ext = (
-        f"gae/static/data-sources-comparison-{NOW.strftime('%Y-%m-%d')}"
-    )
-    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
-    plt.savefig(fig_filepath_wo_ext + ".pdf")
+    # plt.tight_layout()
+    # fig_filepath_wo_ext = (
+    #     f"gae/static/data-sources-comparison-{NOW.strftime('%Y-%m-%d')}"
+    # )
+    # plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    # plt.savefig(fig_filepath_wo_ext + ".pdf")
 
     # -----------
 
     plt.figure(figsize=(16.0, 9.0))
 
     ax = df_rki["cases_change_per_day"].plot(
-        linestyle="None", marker="x", color="black",
+        linestyle="None", marker="o", color="gray", markersize=0.8
     )
-    df_rki_case_rate_rw.plot(linestyle="solid", marker=None, color="black", ax=ax)
-    df_jhu_case_rate_rw.plot(linestyle="dashdot", marker=None, color="gray", ax=ax)
-
-    ax.legend(
-        [
-            'raw RKI data, by date of report ("Meldedatum")',
-            "RKI rolling window mean (width: 7 days)",
-            "JHU rolling window mean (width: 7 days)",
-        ],
-        numpoints=4,
-        handlelength=8,
-        loc="upper left",
+    plt1 = df_rki_case_rate_rw.plot(
+        linestyle="solid", marker=None, color="black", ax=ax
     )
+    plt2 = df_rl_case_rate_rw.plot(
+        linestyle="dashdot", marker=None, color="gray", ax=ax
+    )
+    # df_jhu_case_rate_rw.plot(linestyle="dashdot", marker=None, color="gray", ax=ax)
+    # df_rl_case_rate_rw
+    # df_rl_case_rate_rw
+    # ax.legend(
+    #     [
+    #         'case rate: raw RKI data, by date of report ("Meldedatum")',
+    #         "case rate: RKI rolling window mean (width: 7 days)",
+    #         "case rate: RL rolling window mean (width: 7 days)",
+    #     ],
+    #     numpoints=3,
+    #     handlelength=5,
+    #     fontsize=7,
+    #     loc="upper left",
+    # )
     plt.xlabel("")
-    plt.ylabel("COVID-19 cumulative case count, change per day (all Germany)")
+    ax.set_ylabel("cumulative case count, change per day (all Germany)", fontsize=10)
+
+    # Create a second y/metric axes that shares the same time axis
+    ax2 = ax.twinx()
+
+    df_rki_deaths["deaths_change_per_day"].plot(
+        linestyle="None", marker="o", color="red", markersize=0.8, ax=ax2
+    )
+    df_rki_deaths_rate_rw.plot(linestyle="solid", marker=None, color="red", ax=ax2)
+    df_rl_deaths_rate_rw.plot(linestyle="dashdot", marker=None, color="red", ax=ax2)
+
+    # Add combined legend for both axes objects.
+    # Kudos to https://stackoverflow.com/a/10129461/145400.
+    ax.grid(None)
+
+    lines_ax1, _ = ax.get_legend_handles_labels()
+    lines_ax2, _ = ax2.get_legend_handles_labels()
+
+    legend = ax2.legend(
+        lines_ax1 + lines_ax2,
+        [
+            'case rate:  RKI raw data, by date of report ("Meldedatum")',
+            f"case rate:  RKI data, rolling window mean, {RWDW_DAYS} days width",
+            f"case rate:  Risklayer data, rolling window mean, {RWDW_DAYS} days width",
+            'death rate: RKI raw data, by date of report ("Meldedatum")',
+            f"death rate: RKI data, rolling window mean, {RWDW_DAYS} days width",
+            f"death rate: Risklayer data, rolling window mean, {RWDW_DAYS} days width",
+        ],
+        numpoints=3,
+        handlelength=5,
+        # fontsize=8,
+        loc="upper left",
+        labelcolor="#444444",
+        prop={
+            "family": "monospace",
+            "size": 8,
+        },
+    )
+    lframe = legend.get_frame()
+    lframe.set_facecolor("white")
+    lframe.set_alpha(1)
+    # lframe.set_edgecolor("red")
+    lframe.set_linewidth(0)
+
+    ax2.set_ylabel("cumulative death count, change per day (all Germany)", fontsize=10)
+    # l = ax.get_ylim()
+    # l2 = ax2.get_ylim()
+    # f = lambda x: l2[0] + (x - l[0]) / (l[1] - l[0]) * (l2[1] - l2[0])
+    # ticks = f(ax.get_yticks())
+    # ax2.yaxis.set_major_locator(matplotlib.ticker.FixedLocator(ticks))
+    # ax2.yaxis.set_major_locator(plt.MaxNLocator(6))
+    # Do not show grid for the other axis.
+    ax2.grid(None)
+
+    rl_deaths_sum_last_value = int(df_rl_deaths["sum_deaths"].iloc[-1])
+    rl_deaths_sum_last_timestamp = pd.to_datetime(str(df_rl_deaths.index.values[-1]))
+    rki_deaths_sum_last_value = int(df_rki_deaths["sum_deaths"].iloc[-1])
+    rki_deaths_sum_last_timestamp = pd.to_datetime(str(df_rki_deaths.index.values[-1]))
+
+    rl_cases_sum_last_value = int(df_rl["sum_cases"].iloc[-1])
+    rl_cases_sum_last_timestamp = pd.to_datetime(str(df_rl.index.values[-1]))
+    rki_cases_sum_last_value = int(df_rki["sum_cases"].iloc[-1])
+    rki_cases_sum_last_timestamp = pd.to_datetime(str(df_rki.index.values[-1]))
+
+    annotation = dedent(
+        f"""
+    latest RKI data data point:  total deaths:   {rki_deaths_sum_last_value} ({rki_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+                                 total cases:  {rki_cases_sum_last_value} ({rki_cases_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+    latest Risklayer data point: total deaths:   {rl_deaths_sum_last_value} ({rl_deaths_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+                                 total cases:  {rl_cases_sum_last_value} ({rl_cases_sum_last_timestamp.strftime('%Y-%m-%d %H:%M')})
+    """
+    ).strip()
+
+    ax2.text(
+        0.4,
+        0.925,
+        annotation,
+        fontsize=8,
+        transform=ax2.transAxes,
+        color="#444444",
+        fontfamily="monospace",
+        bbox=dict(facecolor="white", alpha=1),
+    )
+
+    ax2.text(
+        0.005,
+        0.01,
+        "https://github.com/jgehrcke/covid-19-germany-gae — Dr. Jan-Philip Gehrcke 😷",
+        fontsize=7,
+        transform=ax.transAxes,
+        color="#666666",
+    )
+
     plt.tight_layout()
-    fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
-    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
+    fig_filepath_wo_ext = "plots/daily-change-plot-latest"
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=120)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
     # plt.show()
-    plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
+    # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
 
 
 def _set_common_bokeh_fig_props(fig):
@@ -378,7 +500,9 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         column(fig, fig, sizing_mode="stretch_both"),
         template=template,
         resources=bokeh.resources.CDN,
-        template_variables={"today_string": NOW.strftime("%Y-%m-%d"),},
+        template_variables={
+            "today_string": NOW.strftime("%Y-%m-%d"),
+        },
     )
 
     with open("gae/static/index.html", "wb") as f:
@@ -441,6 +565,10 @@ def jhu_csse_csv_to_dataframe(data_file_path, location_name):
 
 def matplotlib_config():
     plt.style.use("ggplot")
+    # import seaborn as sns
+
+    # make the gray background of gg plot a little lighter
+    plt.rcParams["axes.facecolor"] = "#eeeeee"
     matplotlib.rcParams["figure.figsize"] = [10.5, 7.0]
     matplotlib.rcParams["figure.dpi"] = 100
     matplotlib.rcParams["savefig.dpi"] = 150
