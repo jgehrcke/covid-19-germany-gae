@@ -224,23 +224,17 @@ Update (evening March 29): in the near future I consider re-writing the history 
   Towards enhancing overall credibility.
   That has not happened yet, but that can change as we learn more about the Germany-internal data flow, and about the credibility of individual data sources.
 
-
-## Attribution
+## Attributions
 
 Shout-out to ZEIT ONLINE for continuously collecting and publishing the state-level data with little delay.
 
-Edit: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
+Edit March 21, 2020: Notably, by now the [Berliner Morgenpost](https://interaktiv.morgenpost.de/corona-virus-karte-infektionen-deutschland-weltweit/)
 seems to do an equally well job of _quickly_ aggregating the state-level data.
 We are using that in here, too. Thanks!
 
-Edit March 26: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
+Edit March 26, 2020: [Risklayer](https://twitter.com/risklayer) is coordinating a crowd-sourcing effort to process verified Landkreis data as quickly as possible. [Tagesspiegel](https://twitter.com/Tagesspiegel) is verifying this effort and using it in [their overview page](https://interaktiv.tagesspiegel.de/lab/karte-sars-cov-2-in-deutschland-landkreise/).
 As far as I can tell this is so far the most transparent data flow, and also the fastest, getting us the freshest case count numbers. Great work!
 
-Fast aggregation & communication is important during the phase of exponential growth.
+Edit December 13, 2020: for the `*-rl-crowdsource*.csv` files proper legal attribution goes to
 
-## Random notes
-
-- The MDC Berlin has published [this visualization](https://covid19germany.mdc-berlin.de/)
-  and [this article](https://www.mdc-berlin.de/news/press/state-state-breakdown-covid-19-germany), but
-  they seemingly decided to not publish the time series data. I got my hopes
-  up here at first!
+> Risklayer GmbH (www.risklayer.com) and Center for Disaster Management and Risk Reduction Technology (CEDIM) at Karlsruhe Institute of Technology (KIT) and the Risklayer-CEDIM-Tagesspiegel SARS-CoV-2 Crowdsourcing Contributors
