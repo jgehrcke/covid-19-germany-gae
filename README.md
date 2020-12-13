@@ -14,7 +14,7 @@ This dataset is provided through comma-separated value (**CSV**) files. In addit
 [daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png)
 [daily-change-plot-latest.pdf](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)
 
-<img src="https://[link(format same as above)](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png)" height="300"/>
+<img src="https://https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png" height="300"/>
 
 ### Data
 
