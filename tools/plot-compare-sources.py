@@ -263,11 +263,11 @@ def main():
         lines_ax1 + lines_ax2,
         [
             'case rate:  RKI raw data, by date of report ("Meldedatum")',
-            f"case rate:  RKI rolling window mean (width: {RWDW_DAYS} days)",
-            f"case rate:  Risklayer data rolling window mean (width: {RWDW_DAYS} days)",
+            f"case rate:  RKI data, rolling window mean, {RWDW_DAYS} days width",
+            f"case rate:  Risklayer data, rolling window mean, {RWDW_DAYS} days width",
             'death rate: RKI raw data, by date of report ("Meldedatum")',
-            f"death rate: RKI rolling window mean (width: {RWDW_DAYS} days)",
-            f"death rate: Risklayer data rolling window mean (width: {RWDW_DAYS} days)",
+            f"death rate: RKI data, rolling window mean, {RWDW_DAYS} days width",
+            f"death rate: Risklayer data, rolling window mean, {RWDW_DAYS} days width",
         ],
         numpoints=3,
         handlelength=5,
@@ -325,9 +325,19 @@ def main():
         bbox=dict(facecolor="white", alpha=1),
     )
 
+    ax2.text(
+        0.005,
+        0.01,
+        "https://github.com/jgehrcke/covid-19-germany-gae — Dr. Jan-Philip Gehrcke 😷",
+        fontsize=7,
+        transform=ax.transAxes,
+        color="#666666",
+    )
+
     plt.tight_layout()
-    fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
-    plt.savefig(fig_filepath_wo_ext + ".png", dpi=150)
+    # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
+    fig_filepath_wo_ext = "plots/daily-change-plot-latest"
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=120)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
     # plt.show()
     # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
