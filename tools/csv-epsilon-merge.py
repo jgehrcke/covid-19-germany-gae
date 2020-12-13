@@ -28,7 +28,8 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 import argparse
 import logging
 import sys
-
+import json
+import fnmatch
 
 import pandas as pd
 import pandas.testing
@@ -46,8 +47,13 @@ def main():
 
     args = parse_args()
 
-    log.info("read CSV files")
+    COLUMN_NAME_IGNORE_LIST = args.ignore_column
+    COLUMN_NAME_ALLOW_PATTERN = args.column_allowlist_pattern
+
+    log.info("read: %s", args.path_base)
     df_base = pd.read_csv(args.path_base, index_col=["time_iso8601"])
+
+    log.info("read: %s", args.path_extension)
     df_ext = pd.read_csv(args.path_extension, index_col=["time_iso8601"])
 
     check_sanity(df_base, df_ext)
@@ -81,7 +87,7 @@ def main():
 
     # Iterate over `base` columns, iteration over `df_diff` columns would yield
     # the multi-index result, e.g.  ('DE-BB', 'self')
-    etfdltts = []
+    column_etadgets = {}
     for column in df_base:
         # `df.compare()`: only the rows and columns with different values are
         # kept!
@@ -96,27 +102,56 @@ def main():
         cdiff = new - old
         # print(cdiff)
 
-        # Find earliest timestamp for abs(diff) to be larger than the
-        # threshold ("ETFDLTT" -- naming is hard).
-        etfdltt = (cdiff.apply(abs) - args.threshold).apply(abs).idxmin()
+        # Common convention: ">=" -> "greater than or equal to" -> "GE".
+        # Find Earliest Timestamp for Abs(Diff) to be Greater than or Equal to
+        # the Threshold and call that ETADGET -- naming is hard.
+        etadget = (cdiff.apply(abs) - args.threshold).apply(abs).idxmin()
         log.info(
-            "%s earliest timestamp for abs(diff) larger than threshold %s: %s",
+            "%s earliest timestamp for abs(diff) >= threshold %s: %s",
             column,
             args.threshold,
-            etfdltt,
+            etadget,
         )
-        if column in args.ignore_column:
-            log.info("ignore column %s: do not consider its ETFDLTT", column)
-        else:
-            etfdltts.append(etfdltt)
 
-    min_etfdltts = min(etfdltts)
-    log.info("the minimal ETFDLTT: %s", min_etfdltts)
+        if COLUMN_NAME_IGNORE_LIST and column in COLUMN_NAME_IGNORE_LIST:
+            log.info("ignore column %s: do not consider its etadget", column)
+            continue
+
+        if COLUMN_NAME_ALLOW_PATTERN:
+            if not fnmatch.fnmatchcase(column, COLUMN_NAME_ALLOW_PATTERN):
+                log.info(
+                    "ignore column %s: does not match %s",
+                    column,
+                    COLUMN_NAME_ALLOW_PATTERN,
+                )
+                continue
+            log.info(
+                "column `%s`: matches pattern `%s`",
+                column,
+                COLUMN_NAME_ALLOW_PATTERN,
+            )
+
+        log.info("consider column %s for minimal ETADGET determination", column)
+        column_etadgets[column] = etadget
+        # etadgets.append(etadget)
+
+    log.info("all columns analyzed")
+    min_etadget_column = min(column_etadgets, key=column_etadgets.get)
+    min_etadget = column_etadgets[min_etadget_column]
+    log.info(
+        "candidate columns and their corresponding ETADGET:\n%s",
+        json.dumps(column_etadgets, indent=2),
+    )
+    log.info(
+        "the minimal ETADGET across considered columns: %s (column: %s)",
+        min_etadget,
+        min_etadget_column,
+    )
 
     log.info("assemble output dataframe")
 
-    df_overlap_use_from_base = df_overlap_base[df_overlap_base.index < min_etfdltts]
-    df_overlap_use_from_ext = df_overlap_ext[df_overlap_ext.index >= min_etfdltts]
+    df_overlap_use_from_base = df_overlap_base[df_overlap_base.index < min_etadget]
+    df_overlap_use_from_ext = df_overlap_ext[df_overlap_ext.index >= min_etadget]
 
     # Now stich together the four pieces
     df_result = df_only_in_base.append(df_overlap_use_from_base)
@@ -181,6 +216,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description="Merges two CSV data sets: base and extension",
+        epilog="ETADGET, yo (TODO).",
     )
 
     parser.add_argument(
@@ -200,14 +236,29 @@ def parse_args():
     parser.add_argument(
         "--threshold",
         type=float,
-        help="use extension samples only when their diff (compared to the base) is larger than this",
+        help="Use extension rows from the earliest row onwards that "
+        + "contains a value that differs from the corresponding base value "
+        + "by more than this threshold (ignore extension rows before that: use "
+        + "the ones from the base data set.",
     )
 
     parser.add_argument(
         "--ignore-column",
         type=str,
         action="append",
-        help="when looking for the earliest point in time to use from the extension data set, ignore this column",
+        help="When looking for the earliest point in time to use from the "
+        + "extension data set, ignore this column. Takes precedence over "
+        + "the allowlist pattern.",
+    )
+
+    parser.add_argument(
+        "--column-allowlist-pattern",
+        type=str,
+        help="When looking for the earliest point in time to use from the "
+        + "extension data set, ignore all columns but those that have a "
+        + "name that match this pattern. "
+        + "See https://docs.python.org/3/library/fnmatch.html for pattern "
+        + "documentation. The method fnmatchcase() is used.",
     )
 
     args = parser.parse_args()
