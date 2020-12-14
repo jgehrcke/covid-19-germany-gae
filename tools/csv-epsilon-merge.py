@@ -50,12 +50,6 @@ def main():
     COLUMN_NAME_IGNORE_LIST = args.ignore_column
     COLUMN_NAME_ALLOW_PATTERN = args.column_allowlist_pattern
 
-    log.info("read: %s", args.path_base)
-    df_base = pd.read_csv(args.path_base, index_col=["time_iso8601"])
-
-    log.info("read: %s", args.path_extension)
-    df_ext = pd.read_csv(args.path_extension, index_col=["time_iso8601"])
-
     df_base, df_ext = parse_files_and_check_sanity(args)
 
     # Build four data frames (general case):
@@ -221,6 +215,8 @@ def parse_files_and_check_sanity(args):
                 "first data point in extension is older than first data point in base"
             )
             sys.exit(1)
+
+    return df_base, df_ext
 
 
 def parse_args():
