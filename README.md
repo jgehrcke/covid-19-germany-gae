@@ -22,6 +22,14 @@
 
 In addition to the **CSV** files, this project offers an **HTTP (JSON) API**.
 
+## Contact, questions, contributions
+
+You probably have a number of questions.
+Just as I had (and still have).
+Your feedback, your contributions, and your questions are highly appreciated!
+Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred) or contact me via [mail](mailto:jgehrcke@googlemail.com).
+For updates, you can also follow me on Twitter: [@gehrcke](https://twitter.com/gehrcke).
+
 ## Summary plot
 
 [daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)):
@@ -48,13 +56,6 @@ In addition to the **CSV** files, this project offers an **HTTP (JSON) API**.
 - It includes **historical data for individual Bundesländer and Landkreise** (states and counties).
 - Its time series data is being re-written as data gets better over time. This is based on official [RKI](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html)-provided time series data which receives daily updates even for days weeks in the past (accounting for delay in reporting).
 - The HTTP endpoint [/now](https://covid19-germany.appspot.com/now) consults multiple sources (and has changed its sources over time) to be as fresh and credible as possible while maintaining a stable interface.
-
-## Contact, questions, contributions
-
-You probably have many questions, just as I did (and still do). Your feedback and questions are highly appreciated!
-Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred)
-or contact me via mail at jgehrcke@googlemail.com.
-
 
 ## CSV file details
 
