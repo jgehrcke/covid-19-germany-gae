@@ -224,7 +224,7 @@ def main():
 
     # -----------
 
-    plt.figure(figsize=(14.5, 6.5))
+    plt.figure(figsize=(14.0, 6.0))
 
     ax = df_rki["cases_change_per_day"].plot(
         linestyle="None", marker="o", color="gray", markersize=0.6
@@ -323,8 +323,8 @@ def main():
     ).strip()
 
     ax2.text(
-        0.40,
-        0.900,
+        0.42,
+        0.890,
         annotation,
         fontsize=8,
         transform=ax2.transAxes,
