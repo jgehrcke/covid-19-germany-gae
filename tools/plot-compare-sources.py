@@ -157,7 +157,16 @@ def main():
         parse_dates=["time_iso8601"],
     )[START_DATE:]
     df_rki_deaths.index.name = "time"
-    df_rki_deaths_rate_rw = _build_rate(df_rki_deaths, "deaths")[START_DATE:]
+
+    # Note(2020-12-15): the RKI curates newly incoming data, often by
+    # back-dating it immediately (newly known incidents of death are not
+    # usually accounted for the day where they get known, but back-dated by
+    # days or weeks, compared to RL-based data). That makes it _look like_ the
+    # rate of deaths in the past few days is significantly _decreasing_. This
+    # may be misleading, let's not the very recent past the plot.
+    three_days_ago = (datetime.today() - timedelta(days=5)).strftime("%Y-%m-%d")
+    df_rki_deaths = df_rki_deaths[START_DATE:three_days_ago]
+    df_rki_deaths_rate_rw = _build_rate(df_rki_deaths, "deaths")
 
     df_rl_deaths = pd.read_csv(
         "deaths-rl-crowdsource-by-state.csv",
@@ -215,10 +224,10 @@ def main():
 
     # -----------
 
-    plt.figure(figsize=(15.0, 7.0))
+    plt.figure(figsize=(14.5, 6.5))
 
     ax = df_rki["cases_change_per_day"].plot(
-        linestyle="None", marker="o", color="gray", markersize=0.8
+        linestyle="None", marker="o", color="gray", markersize=0.6
     )
     plt1 = df_rki_case_rate_rw.plot(
         linestyle="solid", marker=None, color="black", ax=ax
@@ -247,15 +256,14 @@ def main():
     ax2 = ax.twinx()
 
     df_rki_deaths["deaths_change_per_day"].plot(
-        linestyle="None", marker="o", color="red", markersize=0.8, ax=ax2
+        linestyle="None", marker="o", color="red", markersize=1.0, ax=ax2
     )
     df_rki_deaths_rate_rw.plot(linestyle="solid", marker=None, color="red", ax=ax2)
     df_rl_deaths_rate_rw.plot(linestyle="dashdot", marker=None, color="red", ax=ax2)
+    ax.grid(None)
 
     # Add combined legend for both axes objects.
     # Kudos to https://stackoverflow.com/a/10129461/145400.
-    ax.grid(None)
-
     lines_ax1, _ = ax.get_legend_handles_labels()
     lines_ax2, _ = ax2.get_legend_handles_labels()
 
@@ -315,8 +323,8 @@ def main():
     ).strip()
 
     ax2.text(
-        0.38,
-        0.903,
+        0.40,
+        0.900,
         annotation,
         fontsize=8,
         transform=ax2.transAxes,
@@ -337,7 +345,7 @@ def main():
     plt.tight_layout()
     # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
     fig_filepath_wo_ext = "plots/daily-change-plot-latest"
-    plt.savefig(fig_filepath_wo_ext + ".png", dpi=110)
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=140)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
     # plt.show()
     # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
