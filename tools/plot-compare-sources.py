@@ -215,7 +215,7 @@ def main():
 
     # -----------
 
-    plt.figure(figsize=(16.0, 9.0))
+    plt.figure(figsize=(15.0, 7.0))
 
     ax = df_rki["cases_change_per_day"].plot(
         linestyle="None", marker="o", color="gray", markersize=0.8
@@ -315,8 +315,8 @@ def main():
     ).strip()
 
     ax2.text(
-        0.4,
-        0.925,
+        0.38,
+        0.903,
         annotation,
         fontsize=8,
         transform=ax2.transAxes,
@@ -337,7 +337,7 @@ def main():
     plt.tight_layout()
     # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
     fig_filepath_wo_ext = "plots/daily-change-plot-latest"
-    plt.savefig(fig_filepath_wo_ext + ".png", dpi=120)
+    plt.savefig(fig_filepath_wo_ext + ".png", dpi=110)
     plt.savefig(fig_filepath_wo_ext + ".pdf")
     # plt.show()
     # plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl)
