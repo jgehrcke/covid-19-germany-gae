@@ -29,6 +29,7 @@ import json
 import io
 import logging
 import sys
+import time
 import pytz
 import urllib.parse
 from datetime import datetime, timedelta
@@ -372,7 +373,11 @@ def fetch_history_for_many_ags(ags_list):
     md = "Meldedatum"
     ts = "timestamp"
     idlk = "IdLandkreis"
-    t_start = "2020-03-01 22:00:00"
+    # Rely on a base data set to exist -- do not go back into March 2020
+    # anymore. Start in Oct, for now. Do from-scratch queries every now
+    # and then manually though. Background:
+    # https://github.com/jgehrcke/covid-19-germany-gae/pull/274
+    t_start = "2020-10-01 22:00:00"
     d_end = datetime.today() - timedelta(days=0)
     t_end = f"{d_end.strftime('%Y-%m-%d')} 23:59:59"
     ags_padded_list = [str(ags).zfill(5) for ags in ags_list]
@@ -383,21 +388,21 @@ def fetch_history_for_many_ags(ags_list):
     where_clause = f"({md}>{ts} '{t_start}') AND ({md}<{ts} '{t_end}') AND ({idlk} IN ({ags_padded_list_cs}))"
 
     record_count_limit = 52 * 10 ** 4
-    params = urllib.parse.urlencode(
-        {
-            "where": where_clause,
-            "returnGeometry": "false",
-            # "outFields": "SummeFall,Meldedatum,GEN",
-            "outFields": "*",
-            "orderByFields": "Meldedatum asc",
-            "resultOffset": 0,
-            "resultRecordCount": record_count_limit,
-            "f": "json",
-        }
-    )
+    paramdict = {
+        "where": where_clause,
+        "returnGeometry": "false",
+        # "outFields": "SummeFall,Meldedatum,GEN",
+        "outFields": "*",
+        "orderByFields": "Meldedatum asc",
+        "resultOffset": 0,
+        "resultRecordCount": record_count_limit,
+        "f": "json",
+    }
+    params = urllib.parse.urlencode(paramdict)
     url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
 
     log.info("Query for history for these AGSs: %s", ags_list)
+    log.info("query params:%s", json.dumps(paramdict, indent=2))
     attempt = 0
     while True:
         attempt += 1
@@ -412,6 +417,9 @@ def fetch_history_for_many_ags(ags_list):
             resp.raise_for_status()
         except requests.exceptions.RequestException as err:
             log.info("request error (attempt %s): %s", attempt, err)
+            log.info("retry soon")
+            time.sleep(15)
+            continue
 
         log.info("Got OK response, parse through data")
 
@@ -420,7 +428,12 @@ def fetch_history_for_many_ags(ags_list):
             log.info("response looks good")
             break
 
-        log.info("unexpected data: %s", json.dumps(data, indent=2))
+        log.info(
+            "unexpected data (attempt %s) -- retry soon:\n%s",
+            attempt,
+            json.dumps(data, indent=2),
+        )
+        time.sleep(15)
 
     # print(json.dumps(data, indent=2))
 
