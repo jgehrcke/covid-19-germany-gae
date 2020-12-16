@@ -163,9 +163,10 @@ def main():
     # usually accounted for the day where they get known, but back-dated by
     # days or weeks, compared to RL-based data). That makes it _look like_ the
     # rate of deaths in the past few days is significantly _decreasing_. This
-    # may be misleading, let's not the very recent past the plot.
-    three_days_ago = (datetime.today() - timedelta(days=5)).strftime("%Y-%m-%d")
-    df_rki_deaths = df_rki_deaths[START_DATE:three_days_ago]
+    # may be misleading, let's not the very recent past the plot. Update: nah,
+    # this may raise even more confusion ("why are data points missing?")
+    # three_days_ago = (datetime.today() - timedelta(days=5)).strftime("%Y-%m-%d")
+    # df_rki_deaths = df_rki_deaths[START_DATE:three_days_ago]
     df_rki_deaths_rate_rw = _build_rate(df_rki_deaths, "deaths")
 
     df_rl_deaths = pd.read_csv(
