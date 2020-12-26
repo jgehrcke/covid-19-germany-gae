@@ -320,21 +320,21 @@ def fetch_lks():
 
     # Trailing `?`.
     AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
+    log.info("trailing part of base URL: %s", AG_RKI_SUMS_QUERY_BASE_URL[-10:])
 
-    params = urllib.parse.urlencode(
-        {
-            "where": "(Meldedatum>timestamp '2020-04-09') AND (Meldedatum<timestamp '2020-04-11')",
-            "returnGeometry": "false",
-            "outFields": "IdLandkreis, Landkreis, Bundesland",
-            "orderByFields": "IdLandkreis asc",
-            "resultOffset": 0,
-            "resultRecordCount": 10 ** 6,
-            "f": "json",
-        }
-    )
+    paramdict = {
+        "where": "(Meldedatum>timestamp '2020-10-09') AND (Meldedatum<timestamp '2020-10-14')",
+        "returnGeometry": "false",
+        "outFields": "IdLandkreis, Landkreis, Bundesland",
+        "orderByFields": "IdLandkreis asc",
+        "resultOffset": 0,
+        "resultRecordCount": 10 ** 6,
+        "f": "json",
+    }
+    params = urllib.parse.urlencode(paramdict)
     url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
 
-    log.info("Query for set of LKs")
+    log.info("Query for set of LKs, with parameters: %s", paramdict)
     resp = requests.get(url)
     resp.raise_for_status()
     data = resp.json()

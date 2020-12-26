@@ -120,9 +120,7 @@ def main():
                 )
                 continue
             log.info(
-                "column `%s`: matches pattern `%s`",
-                column,
-                COLUMN_NAME_ALLOW_PATTERN,
+                "column `%s`: matches pattern `%s`", column, COLUMN_NAME_ALLOW_PATTERN,
             )
 
         log.info("consider column %s for minimal ETADGET determination", column)
@@ -195,7 +193,8 @@ def parse_files_and_check_sanity(args):
 
     if not df_ext.index.min() in df_base.index:
         log.error(
-            "timestamp of first data point in extension is not in base (data set do not overlap or use different timestamps)"
+            f"timestamp of first data point in extension ({df_ext.index.min()}) "
+            + "is not in base (data set do not overlap or use different timestamps)"
         )
         sys.exit(1)
 
