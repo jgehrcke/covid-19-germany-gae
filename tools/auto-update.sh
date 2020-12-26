@@ -11,7 +11,7 @@ set +e
 RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:6])')
 set -e
 
-BRANCH_NAME="data-update-gha-$(date +"%m-%d")-${RNDSTR}"
+BRANCH_NAME="data-update-gha/$(date +"%m-%d")-${RNDSTR}"
 
 git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"

@@ -2,18 +2,18 @@ name: PR for auto update
 on:
   push:
     branches:
-      - "data-update-gha-**"
+      - "data-update-gha/**"
 
 jobs:
   auto-pull-request:
-    name: PullRequestAction
+    name: PR for data update
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.6
+        uses: vsoch/pull-request-action@1.0.13
         env:
           GITHUB_TOKEN: ${{ secrets.GH_API_TOKEN }}
-          BRANCH_PREFIX: "data-update-gha"
+          BRANCH_PREFIX: "data-update-gha/"
           PULL_REQUEST_BRANCH: "master"
           PULL_REQUEST_TITLE: "Automatic update: ${{ github.head_ref }}"
           PULL_REQUEST_BODY: "Auto-generated patch"
