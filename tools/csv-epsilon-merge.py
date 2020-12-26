@@ -76,6 +76,8 @@ def main():
     # Using `base` as the base of this comparison means that `base` (old) data
     # will appear as `self` in the output, and `ext` (new) data will appear as
     # `other`.
+    log.info("df_overlap_base: %s", df_overlap_base)
+    log.info("df_overlap_ext: %s", df_overlap_ext)
     df_diff = df_overlap_base.compare(df_overlap_ext)
     log.info("df_diff:\n%s", df_diff)
 
