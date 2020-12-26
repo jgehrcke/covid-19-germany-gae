@@ -169,6 +169,11 @@ def main():
     df_result = df_result.append(df_overlap_use_from_ext)
     df_result = df_result.append(df_only_in_ext)
 
+    # Remove datetimeindex and restore original (string-based) index column.
+    df_result.index = df_result["time_iso8601"]
+    df_result.index.name = "time_iso8601"
+    df_result.drop(columns=["time_iso8601"])
+
     # print(df_result)
 
     result_csv_bytes = df_result.to_csv().encode("utf-8")
@@ -179,21 +184,21 @@ def main():
 def parse_files_and_check_sanity(args):
 
     log.info("read: %s", args.path_base)
-    df_base = pd.read_csv(
-        args.path_base, index_col=["time_iso8601"], parse_dates=True, keep_date_col=True
-    )
-    log.info("base shape: %s", df_base.shape)
-
-    log.info("df_base:\n%s", df_base)
+    df_base = pd.read_csv(args.path_base)
 
     log.info("read: %s", args.path_extension)
-    df_ext = pd.read_csv(
-        args.path_extension,
-        index_col=["time_iso8601"],
-        parse_dates=True,
-        keep_date_col=True,
-    )
+    df_ext = pd.read_csv(args.path_extension)
+
+    # Translate strings into timestamps. Do not do this upon read_csv(): Retain
+    # original `time_iso8601` column with string data, so that it can be
+    # restored as index when emitting the output CSV data.
+    df_base.index = pd.to_datetime(df_base["time_iso8601"], utc=True)
+    df_ext.index = pd.to_datetime(df_ext["time_iso8601"], utc=True)
+
+    log.info("base shape: %s", df_base.shape)
+    log.info("df_base:\n%s", df_base)
     log.info("ext shape: %s", df_ext.shape)
+    log.info("df_ext:\n%s", df_ext)
 
     columns_diff = set(df_base.columns) - set(df_ext.columns)
     if columns_diff:
