@@ -4,8 +4,11 @@ set -o errtrace
 #set -o nounset
 set -o pipefail
 
+echo "running auto-update.sh in dir: $(pwd)"
+echo
+
 set +e
-RNDSTR=$(cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 5 | head -n 1)
+RNDSTR=$(cat /dev/random | tr -dc "a-zA-Z0-9" | fold -w 5 | head -n 1)
 set -e
 
 BRANCH_NAME="data-update-$(date +"%m-%d")-${RNDSTR}"
