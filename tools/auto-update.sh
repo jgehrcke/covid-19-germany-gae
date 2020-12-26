@@ -10,18 +10,15 @@ set -e
 
 BRANCH_NAME="data-update-$(date +"%m-%d")-${RNDSTR}"
 
-git checkout master
-git pull
+
 git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"
-
-source tools/env.sh
 
 make update-csv
 git status --untracked=no --porcelain
 git commit data.csv -m "data.csv: update $(date +"%m-%d")" || true
 
-make update-jhu-data
+#make update-jhu-data
 
 # RKI data: set previous data set aside. Use as "base" for tolerant merge, below.
 set -x
@@ -75,5 +72,5 @@ python tools/plot-compare-sources.py
 #git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
 git commit -a -m "daily-change-plot-latest: update $(date +"%m-%d")"
 
-git push
+#git push
 
