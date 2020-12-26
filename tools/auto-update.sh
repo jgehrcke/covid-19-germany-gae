@@ -95,3 +95,18 @@ if [[ $GITHUB_ACTIONS == "true" ]]; then
 else
     git push
 fi
+
+
+if [[ $GITHUB_ACTIONS == "true" ]]; then
+    # `hub` CLI is available through actions/checkout@v2 -- nice!
+    # https://github.com/github/hub#github-actions
+    # https://hub.github.com/hub-pull-request.1.html
+    hub pull-request \
+        --base master \
+        --head "${BRANCH_NAME}" \
+        --message "Automatic update (${BRANCH_NAME})" \
+        --reviewer jgehrcke
+
+    # https://stackoverflow.com/a/61474512/145400
+    # hub api -XPUT "repos/{owner}/{repo}/pulls/$ID/merge" "$@"
+fi
