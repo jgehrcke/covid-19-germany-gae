@@ -85,7 +85,17 @@ def main():
     log.info("df_overlap_base: %s", df_overlap_base)
     log.info("df_overlap_ext: %s", df_overlap_ext)
 
-    df_diff = df_overlap_base.compare(df_overlap_ext)
+    try:
+        df_diff = df_overlap_base.compare(df_overlap_ext)
+    except ValueError as exc:
+        if "Can only compare identically-labeled DataFrame objects" in str(exc):
+            # Let's see where the diff is. Column names are known to be equal.
+            index_diff = set(df_overlap_base.index.values) - set(
+                df_overlap_ext.index.values
+            )
+            log.info("set(base index) - set(ext index): %s", index_diff)
+        raise
+
     log.info("df_diff:\n%s", df_diff)
 
     # Iterate over `base` columns, iteration over `df_diff` columns would yield
