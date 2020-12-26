@@ -11,7 +11,7 @@ set +e
 RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:6])')
 set -e
 
-BRANCH_NAME="data-update-$(date +"%m-%d")-${RNDSTR}"
+BRANCH_NAME="data-update-gha-$(date +"%m-%d")-${RNDSTR}"
 
 git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"
@@ -89,5 +89,8 @@ python tools/plot-compare-sources.py
 #git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
 git commit -a -m "daily-change-plot-latest: update $(date +"%m-%d")"
 
-git push
-
+if [[ $GITHUB_ACTIONS == "true" ]]; then
+    git push --set-upstream origin "${BRANCH_NAME}"
+else
+    git push
+fi

@@ -177,11 +177,11 @@ def main():
     df_rl_deaths.index.name = "time"
     df_rl_deaths_rate_rw = _build_rate(df_rl_deaths, "deaths")[START_DATE:]
 
-    df_jhu = jhu_csse_csv_to_dataframe(os.environ["JHU_TS_CSV_PATH"], "germany")[
-        START_DATE:
-    ]
-    df_jhu.index.name = "time"
-    df_jhu_case_rate_rw = _build_rate(df_jhu, "cases")[START_DATE:]
+    # df_jhu = jhu_csse_csv_to_dataframe(os.environ["JHU_TS_CSV_PATH"], "germany")[
+    #     START_DATE:
+    # ]
+    # df_jhu.index.name = "time"
+    # df_jhu_case_rate_rw = _build_rate(df_jhu, "cases")[START_DATE:]
 
     # Normalize for 'sum_cases' plots
     # for _df in [df_rki, df_jhu, df_mixed_data, df_rl]:
