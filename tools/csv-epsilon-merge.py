@@ -194,7 +194,7 @@ def parse_files_and_check_sanity(args):
     if not df_ext.index.min() in df_base.index:
         log.error(
             f"timestamp of first data point in extension ({df_ext.index.min()}) "
-            + "is not in base (data set do not overlap or use different timestamps)"
+            + "is not in base (data sets do not overlap or use different timestamps)"
         )
         sys.exit(1)
 
