@@ -59,11 +59,14 @@ for FPATH in *-rki-*.csv; do
         exit 1
     fi
 
+    cat "${FPATH}.previous" | wc -l
+    stat "${FPATH}.previous"
+    cat "${FPATH}.previous" | head -n3
     cat "${FPATH}.previous" | tail -n2
 
     cat "${FPATH}.current" | wc -l
     stat "${FPATH}.current"
-    cat "${FPATH}.current" | head -n2
+    cat "${FPATH}.current" | head -n3
     cat "${FPATH}.current" | tail -n2
 
     # Select rows by the sum_ column only, to make this selection consistent
