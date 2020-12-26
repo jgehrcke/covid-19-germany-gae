@@ -37,12 +37,12 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as ticker
 
-import bokeh.plotting
-import bokeh.models
-from bokeh.layouts import column, layout
-import bokeh.io
-import bokeh.embed
-import bokeh.resources
+# import bokeh.plotting
+# import bokeh.models
+# from bokeh.layouts import column, layout
+# import bokeh.io
+# import bokeh.embed
+# import bokeh.resources
 
 import jinja2
 
@@ -283,10 +283,7 @@ def main():
         # fontsize=8,
         loc="upper left",
         labelcolor="#444444",
-        prop={
-            "family": "monospace",
-            "size": 8,
-        },
+        prop={"family": "monospace", "size": 8,},
     )
     lframe = legend.get_frame()
     lframe.set_facecolor("white")
@@ -509,9 +506,7 @@ def plot_with_bokeh(df_rki, df_jhu, df_mixed_data, df_rl):
         column(fig, fig, sizing_mode="stretch_both"),
         template=template,
         resources=bokeh.resources.CDN,
-        template_variables={
-            "today_string": NOW.strftime("%Y-%m-%d"),
-        },
+        template_variables={"today_string": NOW.strftime("%Y-%m-%d"),},
     )
 
     with open("gae/static/index.html", "wb") as f:
