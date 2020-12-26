@@ -1,19 +1,23 @@
-name: PR for auto update
+name: PR for data update
 on:
   push:
     branches:
-      - "data-update-gha-**"
+      - "data-update-gha/**"
 
 jobs:
   auto-pull-request:
-    name: PullRequestAction
+    name: PR for data update
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.6
+        uses: vsoch/pull-request-action@1.0.13
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_API_TOKEN }}
-          BRANCH_PREFIX: "data-update-gha"
+          # About GITHUB_TOKEN, see
+          # https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow
+          # Also:
+          # "Github Actions bot is just a bot account when you do operations with GITHUB_TOKEN"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: "data-update-gha/"
           PULL_REQUEST_BRANCH: "master"
           PULL_REQUEST_TITLE: "Automatic update: ${{ github.head_ref }}"
           PULL_REQUEST_BODY: "Auto-generated patch"

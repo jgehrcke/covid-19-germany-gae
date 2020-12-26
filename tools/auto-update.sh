@@ -11,14 +11,15 @@ set +e
 RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:6])')
 set -e
 
-BRANCH_NAME="data-update-gha-$(date +"%m-%d")-${RNDSTR}"
+BRANCH_NAME="data-update-gha/$(date +"%m-%d")-${RNDSTR}"
 
 git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
-    git config --global user.email "jgehrcke@googlemail.com"
-    git config --global user.name "automation"
+    # https://github.community/t/github-actions-bot-email-address/17204
+    git config --local user.email "action@github.com"
+    git config --local user.name "GitHub Action"
 fi
 
 make update-csv
