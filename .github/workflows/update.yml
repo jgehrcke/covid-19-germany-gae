@@ -2,13 +2,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  printInputs:
+  scheduled-data-update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
-    run: |
-      pip install -r tools/env/python-deps.txt
-      /bin/bash tools/auto-update.sh
+      - name: pip-install-deps
+        run: pip install -r tools/env/python-deps.txt
+      - name: auto-update.sh
+        env:
+          ZEIT_JSON_URL: ${{ secrets.ZEIT_JSON_URL }}
+          RISKLAYER_HISTORY_CASES_CSV_URL: ${{ secrets.RISKLAYER_HISTORY_CASES_CSV_URL }}
+          RISKLAYER_HISTORY_DEATHS_CSV_URL: ${{ secrets.RISKLAYER_HISTORY_DEATHS_CSV_URL }}
+          AG_RKI_SUMS_QUERY_BASE_URL: ${{ secrets.AG_RKI_SUMS_QUERY_BASE_URL }}
+        run: bash tools/auto-update.sh

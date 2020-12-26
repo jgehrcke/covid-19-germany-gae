@@ -320,25 +320,31 @@ def fetch_lks():
 
     # Trailing `?`.
     AG_RKI_SUMS_QUERY_BASE_URL = os.environ["AG_RKI_SUMS_QUERY_BASE_URL"]
+    log.info("trailing part of base URL: %s", AG_RKI_SUMS_QUERY_BASE_URL[-10:])
 
-    params = urllib.parse.urlencode(
-        {
-            "where": "(Meldedatum>timestamp '2020-04-09') AND (Meldedatum<timestamp '2020-04-11')",
-            "returnGeometry": "false",
-            "outFields": "IdLandkreis, Landkreis, Bundesland",
-            "orderByFields": "IdLandkreis asc",
-            "resultOffset": 0,
-            "resultRecordCount": 10 ** 6,
-            "f": "json",
-        }
-    )
+    paramdict = {
+        "where": "(Meldedatum>timestamp '2020-10-09') AND (Meldedatum<timestamp '2020-10-14')",
+        "returnGeometry": "false",
+        "outFields": "IdLandkreis, Landkreis, Bundesland",
+        "orderByFields": "IdLandkreis asc",
+        "resultOffset": 0,
+        "resultRecordCount": 10 ** 6,
+        "f": "json",
+    }
+    params = urllib.parse.urlencode(paramdict)
     url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
 
-    log.info("Query for set of LKs")
+    log.info("Query for set of LKs, with parameters: %s", paramdict)
     resp = requests.get(url)
     resp.raise_for_status()
+    data = resp.json()
 
-    objs = [o["attributes"] for o in resp.json()["features"]]
+    if "features" not in data:
+        log.info(
+            "unexpected data:\n%s", json.dumps(data, indent=2),
+        )
+
+    objs = [o["attributes"] for o in data["features"]]
 
     # create simple dictionary with AGS (int) as key and per-LK detail as val.
     landkreise = {}
@@ -467,16 +473,17 @@ def fetch_history_for_many_ags(ags_list):
         data_by_ags[ags] = {"timestrings": [], "cases": [], "deaths": []}
 
     for obj in (o["attributes"] for o in data["features"]):
-        # Mutate Meldedatum (milliseconds since epoch) into isoformat
-        md_naive = datetime.fromtimestamp(int(obj["Meldedatum"] / 1000.0))
-
-        # Read naive timestamp as in GER tz, and then convert value to UTC (so
-        # that all tz indicators in the datetimeindex show the same offset, so
-        # that we don't get mixed-tz CSV files which can be difficult to
-        # parse).
-        md_aware = (
-            pytz.timezone("Europe/Amsterdam").localize(md_naive).astimezone(pytz.utc)
+        # Create tz-aware datetime object for Meldedatum. The timestamp by
+        # definition is encoding a point in time using UTC. Do not use the system/local
+        # time to turn it into a datetime object, but be specific about t
+        md_aware_loc = datetime.fromtimestamp(
+            int(obj["Meldedatum"] / 1000.0), tz=pytz.timezone("Europe/Amsterdam")
         )
+
+        # Convert to UTC, retaining tz awareness (so that all tz indicators in
+        # the datetimeindex show the same offset, so that we don't get mixed-tz
+        # CSV files which can be difficult to parse).
+        md_aware_utc = md_aware_loc.astimezone(pytz.utc)
 
         # Now this one is tricky. The timestamps we get from the RKI's ArcGIS
         # system suggest a local time of 01:00 in the morning. However, it
@@ -485,10 +492,10 @@ def fetch_history_for_many_ags(ags_list):
         # time) for March 26, but actually appear to be end-of-day March 27
         # case counts. We don't know exactly, though. To make comparion with
         # other data sources more fair: shift this to ~6/7 pm on the same day.
-        md_aware = md_aware + timedelta(hours=17)
+        md_aware_utc = md_aware_utc + timedelta(hours=17)
         # obj["Meldedatum"] = md_aware.isoformat()
         ags = int(obj["IdLandkreis"])
-        data_by_ags[ags]["timestrings"].append(md_aware.isoformat())
+        data_by_ags[ags]["timestrings"].append(md_aware_utc.isoformat())
         data_by_ags[ags]["cases"].append(obj["SummeFall"])
         data_by_ags[ags]["deaths"].append(obj["SummeTodesfall"])
 

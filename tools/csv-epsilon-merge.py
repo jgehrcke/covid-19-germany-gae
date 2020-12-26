@@ -52,6 +52,12 @@ def main():
 
     df_base, df_ext = parse_files_and_check_sanity(args)
 
+    log.info("df_base.index: %s", df_base.index)
+    log.info("df_ext.index: %s", df_ext.index)
+
+    log.info(
+        "build four data frames representing the time window overlap and disparity"
+    )
     # Build four data frames (general case):
     #   only_in_base: not covered by ext
     #   overlap_base: the overlap timeframe, in the base data set
@@ -76,7 +82,20 @@ def main():
     # Using `base` as the base of this comparison means that `base` (old) data
     # will appear as `self` in the output, and `ext` (new) data will appear as
     # `other`.
-    df_diff = df_overlap_base.compare(df_overlap_ext)
+    log.info("df_overlap_base: %s", df_overlap_base)
+    log.info("df_overlap_ext: %s", df_overlap_ext)
+
+    try:
+        df_diff = df_overlap_base.compare(df_overlap_ext)
+    except ValueError as exc:
+        if "Can only compare identically-labeled DataFrame objects" in str(exc):
+            # Let's see where the diff is. Column names are known to be equal.
+            index_diff = set(df_overlap_base.index.values) - set(
+                df_overlap_ext.index.values
+            )
+            log.info("set(base index) - set(ext index): %s", index_diff)
+        raise
+
     log.info("df_diff:\n%s", df_diff)
 
     # Iterate over `base` columns, iteration over `df_diff` columns would yield
@@ -120,9 +139,7 @@ def main():
                 )
                 continue
             log.info(
-                "column `%s`: matches pattern `%s`",
-                column,
-                COLUMN_NAME_ALLOW_PATTERN,
+                "column `%s`: matches pattern `%s`", column, COLUMN_NAME_ALLOW_PATTERN,
             )
 
         log.info("consider column %s for minimal ETADGET determination", column)
@@ -134,7 +151,7 @@ def main():
     min_etadget = column_etadgets[min_etadget_column]
     log.info(
         "candidate columns and their corresponding ETADGET:\n%s",
-        json.dumps(column_etadgets, indent=2),
+        "\n".join(f"{c}: {e}" for c, e in column_etadgets.items()),
     )
     log.info(
         "the minimal ETADGET across considered columns: %s (column: %s)",
@@ -152,6 +169,11 @@ def main():
     df_result = df_result.append(df_overlap_use_from_ext)
     df_result = df_result.append(df_only_in_ext)
 
+    # Remove datetimeindex and restore original (string-based) index column.
+    df_result.index = df_result["time_iso8601"]
+    df_result.index.name = "time_iso8601"
+    df_result.drop(columns=["time_iso8601"])
+
     # print(df_result)
 
     result_csv_bytes = df_result.to_csv().encode("utf-8")
@@ -162,17 +184,28 @@ def main():
 def parse_files_and_check_sanity(args):
 
     log.info("read: %s", args.path_base)
-    df_base = pd.read_csv(args.path_base, index_col=["time_iso8601"])
+    df_base = pd.read_csv(args.path_base)
 
     log.info("read: %s", args.path_extension)
-    df_ext = pd.read_csv(args.path_extension, index_col=["time_iso8601"])
+    df_ext = pd.read_csv(args.path_extension)
+
+    # Translate strings into timestamps. Do not do this upon read_csv(): Retain
+    # original `time_iso8601` column with string data, so that it can be
+    # restored as index when emitting the output CSV data.
+    df_base.index = pd.to_datetime(df_base["time_iso8601"], utc=True)
+    df_ext.index = pd.to_datetime(df_ext["time_iso8601"], utc=True)
+
+    log.info("base shape: %s", df_base.shape)
+    log.info("df_base:\n%s", df_base)
+    log.info("ext shape: %s", df_ext.shape)
+    log.info("df_ext:\n%s", df_ext)
 
     columns_diff = set(df_base.columns) - set(df_ext.columns)
     if columns_diff:
         log.error("these columns do not appear in both: %s", columns_diff)
         sys.exit(1)
 
-    log.info("good: set of columns: equal")
+    log.info("good: set of columns: equal: \n%s", set(df_base.columns))
 
     assert df_base.index.is_monotonic_increasing
     assert df_ext.index.is_monotonic_increasing
@@ -195,7 +228,8 @@ def parse_files_and_check_sanity(args):
 
     if not df_ext.index.min() in df_base.index:
         log.error(
-            "timestamp of first data point in extension is not in base (data set do not overlap or use different timestamps)"
+            f"timestamp of first data point in extension ({df_ext.index.min()}) "
+            + "is not in base (data sets do not overlap or use different timestamps)"
         )
         sys.exit(1)
 
