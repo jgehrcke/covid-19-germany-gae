@@ -18,4 +18,6 @@ jobs:
           RISKLAYER_HISTORY_CASES_CSV_URL: ${{ secrets.RISKLAYER_HISTORY_CASES_CSV_URL }}
           RISKLAYER_HISTORY_DEATHS_CSV_URL: ${{ secrets.RISKLAYER_HISTORY_DEATHS_CSV_URL }}
           AG_RKI_SUMS_QUERY_BASE_URL: ${{ secrets.AG_RKI_SUMS_QUERY_BASE_URL }}
+          # For `hub`
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash tools/auto-update.sh
