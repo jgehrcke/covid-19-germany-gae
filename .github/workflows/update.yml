@@ -15,4 +15,5 @@ jobs:
         env:
           ZEIT_JSON_URL: ${{ secrets.ZEIT_JSON_URL }}
           RISKLAYER_HISTORY_CASES_CSV_URL: ${{ secrets.RISKLAYER_HISTORY_CASES_CSV_URL }}
+          AG_RKI_SUMS_QUERY_BASE_URL: ${{ secrets.AG_RKI_SUMS_QUERY_BASE_URL }}
         run: bash tools/auto-update.sh
