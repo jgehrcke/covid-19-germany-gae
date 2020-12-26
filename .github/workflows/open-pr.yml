@@ -1,6 +1,8 @@
 name: PR for auto update
 on:
   push:
+    branches:
+      - "data-update-gha-**"
 
 jobs:
   auto-pull-request:
