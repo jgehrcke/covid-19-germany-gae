@@ -151,7 +151,7 @@ def main():
     min_etadget = column_etadgets[min_etadget_column]
     log.info(
         "candidate columns and their corresponding ETADGET:\n%s",
-        json.dumps(column_etadgets, indent=2),
+        "\n".join(f"{c}: {e}" for c, e in column_etadgets.items()),
     )
     log.info(
         "the minimal ETADGET across considered columns: %s (column: %s)",
