@@ -179,12 +179,19 @@ def main():
 def parse_files_and_check_sanity(args):
 
     log.info("read: %s", args.path_base)
-    df_base = pd.read_csv(args.path_base, index_col=["time_iso8601"], parse_dates=True)
+    df_base = pd.read_csv(
+        args.path_base, index_col=["time_iso8601"], parse_dates=True, keep_date_col=True
+    )
     log.info("base shape: %s", df_base.shape)
+
+    log.info("df_base:\n%s", df_base)
 
     log.info("read: %s", args.path_extension)
     df_ext = pd.read_csv(
-        args.path_extension, index_col=["time_iso8601"], parse_dates=True
+        args.path_extension,
+        index_col=["time_iso8601"],
+        parse_dates=True,
+        keep_date_col=True,
     )
     log.info("ext shape: %s", df_ext.shape)
 
