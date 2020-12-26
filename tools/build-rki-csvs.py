@@ -337,8 +337,14 @@ def fetch_lks():
     log.info("Query for set of LKs")
     resp = requests.get(url)
     resp.raise_for_status()
+    data = resp.json()
 
-    objs = [o["attributes"] for o in resp.json()["features"]]
+    if "features" not in data:
+        log.info(
+            "unexpected data:\n%s", json.dumps(data, indent=2),
+        )
+
+    objs = [o["attributes"] for o in data["features"]]
 
     # create simple dictionary with AGS (int) as key and per-LK detail as val.
     landkreise = {}
