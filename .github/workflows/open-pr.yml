@@ -12,7 +12,11 @@ jobs:
       - name: pull-request-action
         uses: vsoch/pull-request-action@1.0.13
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_API_TOKEN }}
+          # About GITHUB_TOKEN, see
+          # https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow
+          # Also:
+          # "Github Actions bot is just a bot account when you do operations with GITHUB_TOKEN"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: "data-update-gha/"
           PULL_REQUEST_BRANCH: "master"
           PULL_REQUEST_TITLE: "Automatic update: ${{ github.head_ref }}"

@@ -17,8 +17,9 @@ git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
-    git config --global user.email "jgehrcke@googlemail.com"
-    git config --global user.name "automation"
+    # https://github.community/t/github-actions-bot-email-address/17204
+    git config --local user.email "action@github.com"
+    git config --local user.name "GitHub Action"
 fi
 
 make update-csv
