@@ -1,3 +1,4 @@
+name: Data update
 on:
   workflow_dispatch:
 

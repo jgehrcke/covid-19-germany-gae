@@ -1,4 +1,4 @@
-name: PR for auto update
+name: PR for data update
 on:
   push:
     branches:
