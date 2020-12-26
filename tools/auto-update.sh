@@ -18,7 +18,7 @@ git checkout "${BRANCH_NAME}"
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     git config --global user.email "jgehrcke@googlemail.com"
-    git config --global user.name "Dr. Jan-Philip Gehrcke (automation)"
+    git config --global user.name "automation"
 fi
 
 make update-csv
@@ -89,5 +89,5 @@ python tools/plot-compare-sources.py
 #git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
 git commit -a -m "daily-change-plot-latest: update $(date +"%m-%d")"
 
-#git push
+git push
 
