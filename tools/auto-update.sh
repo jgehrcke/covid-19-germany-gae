@@ -120,7 +120,5 @@ if [[ $GITHUB_ACTIONS == "true" ]]; then
         --message "Automatic data update ${UPDATE_ID}" \
         --reviewer jgehrcke)"
 
-    # https://stackoverflow.com/a/61474512/145400
-    # hub api -XPUT "repos/{owner}/{repo}/pulls/$ID/merge" "$@"
-    # This outputs the URL to the PR.
+    echo "::set-output name=pr_url::${PR_URL}"
 fi
