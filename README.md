@@ -5,7 +5,8 @@
 (see below for an English version)
 
 * COVID-19 Fallzahlen für **Bundesländer** und **Landkreise**.
-* Täglich aktualisiert. Mit **Zeitreihen**.
+* Mit **Zeitreihen**.
+* Täglich automatisiert aktualisiert.
 * Als präzise maschinenlesbare **CSV**-Dateien zur Verfügung gestellt: Zeitstempel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Notation, Spaltennamen nutzen u.a. [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) country codes.
 * Zwei verschiedene Perspektiven:
   * Die offiziellen Zeitreihen des [**RKI**](https://www.rki.de), auf Basis einer [ArcGIS HTTP Schnittstelle](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Covid19_RKI_Sums/FeatureServer/query) ([docs](https://developers.arcgis.com/rest/)) des [Esri COVID-19 GeoHub Deutschland](https://covid-19-geohub-deutschland-esridech.hub.arcgis.com/datasets/9644cad183f042e79fb6ad00eadc4ecf_0). Diese Zeitreihen werden täglich _in die Vergangenheit hinein_ aktualisiert und bieten einen *kuratierten* Blick auf die vergangenen Monate und Wochen.
@@ -14,7 +15,7 @@
 ## 🇺🇸 Overview
 
 * Historical (**time series**) data for individual Bundesländer and Landkreise (**states and counties**).
-* Daily updates.
+* Automatic daily updates.
 * Provided through machine-readable (**CSV**) files: timestamps are encoded using ISO 8601 time string notation. Column names use the ISO 3166 notation for individual states.
 * Two perspectives on the historical evolution:
   * Official [**RKI**](https://www.rki.de) time series data, based on an [ArcGIS HTTP API](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Covid19_RKI_Sums/FeatureServer/query) ([docs](https://developers.arcgis.com/rest/)) provided by the [Esri COVID-19 GeoHub Deutschland](https://covid-19-geohub-deutschland-esridech.hub.arcgis.com/datasets/9644cad183f042e79fb6ad00eadc4ecf_0). These time series are being re-written as data gets better over time (accounting for delay in reporting etc), and provide a credible, curated view into the past weeks and months.
