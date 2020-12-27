@@ -172,7 +172,7 @@ def main():
     # Remove datetimeindex and restore original (string-based) index column.
     df_result.index = df_result["time_iso8601"]
     df_result.index.name = "time_iso8601"
-    df_result.drop(columns=["time_iso8601"])
+    df_result.drop(columns=["time"])
 
     # print(df_result)
 
@@ -191,9 +191,12 @@ def parse_files_and_check_sanity(args):
 
     # Translate strings into timestamps. Do not do this upon read_csv(): Retain
     # original `time_iso8601` column with string data, so that it can be
-    # restored as index when emitting the output CSV data.
+    # restored as index when emitting the output CSV data. Set a different name
+    # for the index so that there are not two columns with the same name.
     df_base.index = pd.to_datetime(df_base["time_iso8601"], utc=True)
+    df_base.index.name = "time"
     df_ext.index = pd.to_datetime(df_ext["time_iso8601"], utc=True)
+    df_ext.index.name = "time"
 
     log.info("base shape: %s", df_base.shape)
     log.info("df_base:\n%s", df_base)
