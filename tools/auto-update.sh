@@ -93,7 +93,7 @@ git add \
     cases-rl-crowdsource-by-state.csv \
     deaths-rl-crowdsource-by-ags.csv \
     deaths-rl-crowdsource-by-state.csv || true
-git commit -m "RL data: update: ${UPDATE_ID})" || true
+git commit -m "RL data: update: ${UPDATE_ID}" || truepREA
 
 python tools/plot-compare-sources.py
 
