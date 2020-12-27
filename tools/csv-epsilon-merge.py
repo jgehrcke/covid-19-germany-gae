@@ -171,11 +171,11 @@ def main():
 
     # Remove datetimeindex and restore original (string-based) index column.
     orig_index = df_result["time_iso8601"]
-    df_result.drop(columns=["time_iso8601"])
+    df_result.drop(columns=["time_iso8601"], inplace=True)
     df_result.index = orig_index
     df_result.index.name = "time_iso8601"
 
-    print(df_result)
+    log.info("df_result \n%s", df_result)
     result_csv_bytes = df_result.to_csv().encode("utf-8")
 
     sys.stdout.buffer.write(result_csv_bytes)
