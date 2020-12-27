@@ -1,30 +1,30 @@
 #!/usr/bin/env bash
 set -o errexit
 set -o errtrace
-#set -o nounset
+set -o nounset
 #set -o pipefail
 
 echo "running auto-update.sh in dir: $(pwd)"
-echo
 
-set +e
-RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:6])')
-set -e
+RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:4])')
+UPDATE_ID="$(date +"%m-%d-%H%M" --utc)-${RNDSTR}"
+BRANCH_NAME="data-update/${UPDATE_ID}"
 
-BRANCH_NAME="data-update-gha/$(date +"%m-%d")-${RNDSTR}"
+echo "generated branch name: ${RNDSTR}"
 
 git branch "${BRANCH_NAME}" || true
 git checkout "${BRANCH_NAME}"
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     # https://github.community/t/github-actions-bot-email-address/17204
+    # https://github.com/actions/checkout/issues/13#issuecomment-724415212
     git config --local user.email "action@github.com"
     git config --local user.name "GitHub Action"
 fi
 
 make update-csv
 git status --untracked=no --porcelain
-git commit data.csv -m "data.csv: update $(date +"%m-%d")" || true
+git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
 
 #make update-jhu-data
 
@@ -77,23 +77,36 @@ for FPATH in *-rki-*.csv; do
     "${FPATH}.previous" "${FPATH}.current" > \
         "${FPATH}"
 done
-set +x
 
 git status --untracked=no --porcelain
-git commit -a -m "RKI data: update: $(date +"%m-%d")" || true
+git add \
+    cases-rki-by-ags.csv \
+    cases-rki-by-state.csv \
+    deaths-rki-by-ags.csv \
+    deaths-rki-by-state.csv || true
+git commit -m "RKI data: update: ${UPDATE_ID}" || true
 
 python tools/build-rl-csvs.py
 git status --untracked=no --porcelain
-git commit -a -m "cases-rl-*: update: $(date +"%m-%d")" || true
+git add \
+    cases-rl-crowdsource-by-ags.csv \
+    cases-rl-crowdsource-by-state.csv \
+    deaths-rl-crowdsource-by-ags.csv \
+    deaths-rl-crowdsource-by-state.csv || true
+git commit -m "RL data: update: ${UPDATE_ID})" || true
 
 python tools/plot-compare-sources.py
-#git add gae/static/data-sources-comparison-2020-* gae/static/case-rate-rw-*
-git commit -a -m "daily-change-plot-latest: update $(date +"%m-%d")"
+
+git add plots/* || true
+git commit -m "plots: update ${UPDATE_ID})" || true
+
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     git push --set-upstream origin "${BRANCH_NAME}"
 else
     git push
+    # When run locally skip the rest
+    exit
 fi
 
 
@@ -101,12 +114,13 @@ if [[ $GITHUB_ACTIONS == "true" ]]; then
     # `hub` CLI is available through actions/checkout@v2 -- nice!
     # https://github.com/github/hub#github-actions
     # https://hub.github.com/hub-pull-request.1.html
-    hub pull-request \
+    PR_URL="$(hub pull-request \
         --base master \
         --head "${BRANCH_NAME}" \
-        --message "Automatic update (${BRANCH_NAME})" \
-        --reviewer jgehrcke
+        --message "Automatic data update ${UPDATE_ID}" \
+        --reviewer jgehrcke)"
 
     # https://stackoverflow.com/a/61474512/145400
     # hub api -XPUT "repos/{owner}/{repo}/pulls/$ID/merge" "$@"
+    # This outputs the URL to the PR.
 fi
