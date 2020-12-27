@@ -383,7 +383,7 @@ def fetch_history_for_many_ags(ags_list):
     # anymore. Start in Oct, for now. Do from-scratch queries every now
     # and then manually though. Background:
     # https://github.com/jgehrcke/covid-19-germany-gae/pull/274
-    t_start = "2020-10-01 22:00:00"
+    t_start = "2020-05-01 22:00:00"
     d_end = datetime.today() - timedelta(days=0)
     t_end = f"{d_end.strftime('%Y-%m-%d')} 23:59:59"
     ags_padded_list = [str(ags).zfill(5) for ags in ags_list]
