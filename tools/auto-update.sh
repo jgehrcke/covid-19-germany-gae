@@ -120,5 +120,9 @@ if [[ $GITHUB_ACTIONS == "true" ]]; then
         --message "Automatic data update ${UPDATE_ID}" \
         --reviewer jgehrcke)"
 
+    # Split string on slashes and get last item, for extracting PR ID
+    # credits: https://stackoverflow.com/a/3162500/145400
+    PR_ID=${PR_URL##*/}
     echo "::set-output name=pr_url::${PR_URL}"
+    echo "::set-output name=pr_id::${PR_ID}"
 fi

@@ -2,7 +2,9 @@ name: Data update
 on:
   workflow_dispatch: # allow for manual trigger
   schedule:
-    - cron: "0 0,8,12,16,20 * * *"
+    # These hours are in UTC. i.e. result in a different local time in Germany,
+    # either +1 hour (winter) or +2 hours (summer).
+    - cron: "0 0,8,12,15,20 * * *"
 
 jobs:
   scheduled-data-update:
@@ -33,6 +35,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Review behavior for a while, then auto-merge (probably):
         # https://stackoverflow.com/a/61474512/145400
-        # hub api -XPUT "repos/{owner}/{repo}/pulls/$ID/merge" "$@"
+        #
         run: |
-          echo "created PR: ${{ steps.auto-update-script.outputs.pr_url }}"
+          echo "PR URL: ${{ steps.auto-update-script.outputs.pr_url }}"
+          echo "PR ID: ${{ steps.auto-update-script.outputs.pr_id }}"
+          hub api -XPUT "repos/jgehrcke/covid-19-germany-gae/pulls/${{ steps.auto-update-script.outputs.pr_id }}/merge"

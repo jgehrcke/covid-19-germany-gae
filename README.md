@@ -37,6 +37,8 @@ For updates, you can also follow me on Twitter: [@gehrcke](https://twitter.com/g
 
 <img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png" width="1000"/>
 
+**Note (December 2020):** you may be seeing the RKI data-based death rate curve to be monotonically decreasing in the recent past, whereas the Risklayer-based curve is not. Both curves are wrong, and yet both curves are legit. It is important to understand how. **The incidents of death that we learn about today have happened days or weeks in the past.** The RKI tries to account for that fact, and the downwards trend in the RKI curve is an _artifact_ of that: the majority of incidents of death the RKI learns about _today_ are inserted into the time series at a point in time in the past, _back-dated_ by days or weeks. To account for the _actual_ time of death. That implies that the RKI data set _cannot_ show a credible view onto the actual rate of deaths around _today_. It will be available only days or weeks in the future. The Risklayer data set pretends as if the incidents of death we learn about _today_ have happened _yesterday_. While this is not true, the resulting curve is free of of said (potentially misleading) downwards trend in the recent past.
+
 ## The individual data files
 
 - **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**):
