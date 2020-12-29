@@ -98,7 +98,7 @@ git commit -m "RL data: update: ${UPDATE_ID}" || truepREA
 python tools/plot-compare-sources.py
 
 git add plots/* || true
-git commit -m "plots: update ${UPDATE_ID})" || true
+git commit -m "plots: update ${UPDATE_ID}" || true
 
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
