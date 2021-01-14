@@ -44,6 +44,12 @@ set -e
 # This happens every now and then as of ArcGIS system downtime.
 if [ $FETCH_RKI_ECODE -ne 0 ]; then
     echo "error: build-rki-csvs.py returned with code ${FETCH_RKI_ECODE} -- skip"
+
+    # revert the renames
+    for CPATHP in *-rki-*.csv.previous; do
+        # use ${var/Pattern/Replacement} (replace first occurrence)
+        /bin/mv -f "${CPATHP}" "${CPATHP/.previous/}"
+    done
 else
 
     # Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
