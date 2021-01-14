@@ -35,56 +35,67 @@ for CPATH in *-rki-*.csv; do
 done
 
 # Get current data set. Use as "extension" for tolerant merge, below.
+set +e
 python tools/build-rki-csvs.py
+FETCH_RKI_ECODE=$?
+set -e
 
-# Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
-# do a tolerant merge of base and extension, using data points (rows) of the
-# previous data set when the new (current) data set deviates from the previous
-# one by less than a threshold. This is to mitigate the effects of an ArcGIS
-# query instability, to produce better (more useful) diffs -- see
-# https://github.com/jgehrcke/covid-19-germany-gae/pull/274.
-for FPATH in *-rki-*.csv; do
+# Skip RKI data processing if fetching an update failed.
+# This happens every now and then as of ArcGIS system downtime.
+if [ $FETCH_RKI_ECODE -ne 0 ]; then
+    echo "error: build-rki-csvs.py returned with code ${FETCH_RKI_ECODE} -- skip"
+else
 
-    # Set aside as "new"/"current"/"extension" (compared to
-    # "old"/"previous"/"base").
-    /bin/mv -f "${FPATH}" "${FPATH}.current"
+    # Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
+    # do a tolerant merge of base and extension, using data points (rows) of the
+    # previous data set when the new (current) data set deviates from the previous
+    # one by less than a threshold. This is to mitigate the effects of an ArcGIS
+    # query instability, to produce better (more useful) diffs -- see
+    # https://github.com/jgehrcke/covid-19-germany-gae/pull/274.
+    for FPATH in *-rki-*.csv; do
 
-    # See if this is about cases or deaths, and choose the merge threshold
-    # correspondingly.
-    if [[ $FPATH =~ "cases" ]]; then
-        THRESHOLD="15"
-    elif [[ $FPATH =~ "deaths" ]]; then
-        THRESHOLD="5"
-    else
-        echo "FPATH $FPATH did not match either pattern: check manually"
-        exit 1
-    fi
+        # Set aside as "new"/"current"/"extension" (compared to
+        # "old"/"previous"/"base").
+        /bin/mv -f "${FPATH}" "${FPATH}.current"
 
-    cat "${FPATH}.previous" | wc -l
-    stat "${FPATH}.previous"
-    cat "${FPATH}.previous" | head -n3
-    cat "${FPATH}.previous" | tail -n2
+        # See if this is about cases or deaths, and choose the merge threshold
+        # correspondingly.
+        if [[ $FPATH =~ "cases" ]]; then
+            THRESHOLD="15"
+        elif [[ $FPATH =~ "deaths" ]]; then
+            THRESHOLD="5"
+        else
+            echo "FPATH $FPATH did not match either pattern: check manually"
+            exit 1
+        fi
 
-    cat "${FPATH}.current" | wc -l
-    stat "${FPATH}.current"
-    cat "${FPATH}.current" | head -n3
-    cat "${FPATH}.current" | tail -n2
+        cat "${FPATH}.previous" | wc -l
+        stat "${FPATH}.previous"
+        cat "${FPATH}.previous" | head -n3
+        cat "${FPATH}.previous" | tail -n2
 
-    # Select rows by the sum_ column only, to make this selection consistent
-    # across data sets resolved by state/AGS.
-    python tools/csv-epsilon-merge.py \
-    --threshold=${THRESHOLD} --column-allowlist-pattern 'sum_*' \
-    "${FPATH}.previous" "${FPATH}.current" > \
-        "${FPATH}"
-done
+        cat "${FPATH}.current" | wc -l
+        stat "${FPATH}.current"
+        cat "${FPATH}.current" | head -n3
+        cat "${FPATH}.current" | tail -n2
 
-git status --untracked=no --porcelain
-git add \
-    cases-rki-by-ags.csv \
-    cases-rki-by-state.csv \
-    deaths-rki-by-ags.csv \
-    deaths-rki-by-state.csv || true
-git commit -m "RKI data: update: ${UPDATE_ID}" || true
+        # Select rows by the sum_ column only, to make this selection consistent
+        # across data sets resolved by state/AGS.
+        python tools/csv-epsilon-merge.py \
+        --threshold=${THRESHOLD} --column-allowlist-pattern 'sum_*' \
+        "${FPATH}.previous" "${FPATH}.current" > \
+            "${FPATH}"
+    done
+
+    git status --untracked=no --porcelain
+    git add \
+        cases-rki-by-ags.csv \
+        cases-rki-by-state.csv \
+        deaths-rki-by-ags.csv \
+        deaths-rki-by-state.csv || true
+    git commit -m "RKI data: update: ${UPDATE_ID}" || true
+fi
+
 
 python tools/build-rl-csvs.py
 git status --untracked=no --porcelain

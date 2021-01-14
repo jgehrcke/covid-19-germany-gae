@@ -335,14 +335,38 @@ def fetch_lks():
     url = f"{AG_RKI_SUMS_QUERY_BASE_URL}{params}"
 
     log.info("Query for set of LKs, with parameters: %s", paramdict)
-    resp = requests.get(url)
-    resp.raise_for_status()
-    data = resp.json()
 
-    if "features" not in data:
+    attempt = 0
+    while True:
+        attempt += 1
+        try:
+            resp = resp = requests.get(
+                url,
+                timeout=(3.05, 75),
+                headers={
+                    "user-agent": "Mozilla/5.0 (X11; Fedora; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                },
+            )
+            resp.raise_for_status()
+        except requests.exceptions.RequestException as err:
+            log.info("request error (attempt %s): %s", attempt, err)
+            log.info("retry soon")
+            time.sleep(15)
+            continue
+
+        log.info("Got OK response, parse through data")
+
+        data = resp.json()
+        if "features" in data:
+            log.info("response looks good")
+            break
+
         log.info(
-            "unexpected data:\n%s", json.dumps(data, indent=2),
+            "unexpected data (attempt %s) -- retry soon:\n%s",
+            attempt,
+            json.dumps(data, indent=2),
         )
+        time.sleep(15)
 
     objs = [o["attributes"] for o in data["features"]]
 
