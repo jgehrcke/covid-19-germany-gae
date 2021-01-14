@@ -339,6 +339,10 @@ def fetch_lks():
     attempt = 0
     while True:
         attempt += 1
+
+        if attempt >= 7:
+            sys.exit("too many attempts, stop retrying")
+
         try:
             resp = resp = requests.get(
                 url,
@@ -436,6 +440,10 @@ def fetch_history_for_many_ags(ags_list):
     attempt = 0
     while True:
         attempt += 1
+
+        if attempt >= 10:
+            sys.exit("too many attempts, stop retrying")
+
         try:
             resp = requests.get(
                 url,
