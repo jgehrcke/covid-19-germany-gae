@@ -195,7 +195,7 @@ def main():
     if args.figure_out_path:
         plt.savefig(args.figure_out_path, dpi=140)
 
-    plt.show()
+    # plt.show()
 
 
 def calc_7_day_incidence_for_each_ags(df):
