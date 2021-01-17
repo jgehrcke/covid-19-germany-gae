@@ -6,8 +6,9 @@
 
 * COVID-19 Fallzahlen für **Bundesländer** und **Landkreise**.
 * Mit **Zeitreihen**.
-* Täglich automatisiert aktualisiert.
-* Als präzise maschinenlesbare **CSV**-Dateien zur Verfügung gestellt: Zeitstempel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Notation, Spaltennamen nutzen u.a. [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) country codes.
+* Mehrfach täglich automatisiert aktualisiert.
+* Aktuelle Einwohnerzahlen und GeoJSON-Daten, mit transparenten Quellen.
+* Präzise maschinenlesbare **CSV**-Dateien. Zeitstempel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Notation, Spaltennamen nutzen u.a. [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) country codes.
 * Zwei verschiedene Perspektiven:
   * Die offiziellen Zeitreihen des [**RKI**](https://www.rki.de), auf Basis einer [ArcGIS HTTP Schnittstelle](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Covid19_RKI_Sums/FeatureServer/query) ([docs](https://developers.arcgis.com/rest/)) des [Esri COVID-19 GeoHub Deutschland](https://covid-19-geohub-deutschland-esridech.hub.arcgis.com/datasets/9644cad183f042e79fb6ad00eadc4ecf_0). Diese Zeitreihen werden täglich _in die Vergangenheit hinein_ aktualisiert und bieten einen *kuratierten* Blick auf die vergangenen Monate und Wochen.
   * Die Zeitreihen der [Risklayer GmbH](http://www.risklayer.com/)-koordinierten Crowdsourcing-Initiative (die Datenbasis für tagesaktuelle Zahlen einiger deutscher Medien, z. B. [des ZDF](https://www.zdf.de/nachrichten/heute/coronavirus-ausbreitung-infografiken-102.html) aber auch [der JHU](https://bnn.de/karlsruhe/johns-hopkins-university-nutzt-coronavirus-daten-von-risklayer-aus-karlsruhe)).
@@ -15,7 +16,8 @@
 ## 🇺🇸 Overview
 
 * Historical (**time series**) data for individual Bundesländer and Landkreise (**states and counties**).
-* Automatic daily updates.
+* Automatic updates, multiple times per day.
+* Population data and GeoJSON data, with transparent references and code for reproduction.
 * Provided through machine-readable (**CSV**) files: timestamps are encoded using ISO 8601 time string notation. Column names use the ISO 3166 notation for individual states.
 * Two perspectives on the historical evolution:
   * Official [**RKI**](https://www.rki.de) time series data, based on an [ArcGIS HTTP API](https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/Covid19_RKI_Sums/FeatureServer/query) ([docs](https://developers.arcgis.com/rest/)) provided by the [Esri COVID-19 GeoHub Deutschland](https://covid-19-geohub-deutschland-esridech.hub.arcgis.com/datasets/9644cad183f042e79fb6ad00eadc4ecf_0). These time series are being re-written as data gets better over time (accounting for delay in reporting etc), and provide a credible, curated view into the past weeks and months.
@@ -31,23 +33,30 @@ Your feedback, your contributions, and your questions are highly appreciated!
 Please use the [GitHub issue tracker](https://github.com/jgehrcke/covid-19-germany-gae/issues) (preferred) or contact me via [mail](mailto:jgehrcke@googlemail.com).
 For updates, you can also follow me on Twitter: [@gehrcke](https://twitter.com/gehrcke).
 
-## Summary plot
+## Plots
 
-[daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)):
+Note that these plots are updated multiple times per day.
+Feel free to hotlink them.
+
+* [germany-heatmap-7ti-rki.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.pdf)):
+
+<img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png" width="450"/>
+
+* [daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)):
 
 <img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png" width="1000"/>
 
 **Note (December 2020):** you may be seeing the RKI data-based death rate curve with a clear downward trend in the recent past, whereas the Risklayer-based curve does not show that very trend.
 Both curves are wrong, and yet both curves are legit.
 It is essential to understand how.
-**The incidents of death that we learn about today have happened days or weeks in the past.**
-The RKI tries to account for that.
+The incidents of death that we learn about today probably have happened days or weeks in the past.
+It's likely that the RKI tries to account for that.
 The downwards trend in the RKI curve is an _artifact_ of that:
-the majority of deaths the RKI learns about _today_ are inserted into the time series at a point in time in the past, _back-dated_ by days or weeks; to account for the _actual_ time of death.
-That implies that the RKI data set _cannot_ show a credible view of today's actual rate of deaths.
+the majority of deaths the RKI learns about _today_ are inserted into the time series at a point in time in the past, _back-dated_ by days or weeks (likely to account for the actual time of death, but that's not confirmed).
+That implies that the RKI data set cannot show a credible view of today's actual rate of deaths.
 It will be available only days or weeks in the future.
 The Risklayer data set pretends as if the incidents of death we learn about _today_ happened _yesterday_.
-While this is not true, the resulting curve is free of said (potentially misleading) downwards trend in the recent past.
+While this is not true, the resulting curve is free of said artifact. Despite its limitations, the Risklayer data set is the best view on the "current" evolution of deaths that we have.
 
 ## The individual data files
 
@@ -59,7 +68,9 @@ While this is not true, the resulting curve is free of said (potentially mislead
   - [cases-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-ags.csv) and [deaths-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rl-crowdsource-by-ags.csv): **per-Landkreis** time series
   - [cases-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-state.csv) and [deaths-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rl-crowdsource-by-state.csv): **per-Bundesland** time series
   - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) may be a little more credible than what the RKI data set shows. For assessing the differences between the RKI data set(s) and the Risklayer data set(s) please also have a look at the [plot above](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png), and always try to do your own research.
-- [ags.json](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): a map for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details, including latitude and longitude.
+- [ags.json](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json):
+  - for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details, including latitude and longitude.
+  - containing per-county population data (see [pull/383](https://github.com/jgehrcke/covid-19-germany-gae/pull/383) for details).
 - JSON endpoint [/now](https://covid19-germany.appspot.com/now): Germany's total case count (updated in **real time**, always fresh, for the sensationalists)
 - [data.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json): history, mixed data source based on RKI/ZEIT ONLINE. This powers the per-Bundesland time series exposed by the HTTP JSON API.
 - JSON endpoints for per-Bundesland time series, example for Bayern: [/timeseries/DE-BY/cases](https://covid19-germany.appspot.com/timeseries/DE-BY/cases), based on `data.csv`, endpoints for other states linked from this landing page: https://covid19-germany.appspot.com
