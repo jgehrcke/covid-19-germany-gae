@@ -13,5 +13,5 @@ fi
 
 unzip -o vg250data.zip
 
-ogr2ogr -f GeoJSON -simplify 200 \
+ogr2ogr -f GeoJSON -t_srs EPSG:4326 -simplify 200 \
     DE-counties.geojson vg250_*/vg250_ebenen_*/VG250_KRS.shp
