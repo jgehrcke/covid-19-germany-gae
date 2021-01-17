@@ -40,6 +40,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+
+import lib.tsmath
+import lib.io
+
+
 log = logging.getLogger()
 logging.basicConfig(
     level=logging.INFO,
@@ -87,7 +93,7 @@ def main():
     log.info("read %s", DE_COUNTIES_GEOJSON_PATH)
     dfgeo = gpd.read_file(DE_COUNTIES_GEOJSON_PATH)
 
-    df_c19 = read_csv_as_df(args.cases_timeseries_csv_path)
+    df_c19 = lib.io.read_csv_as_df(args.cases_timeseries_csv_path)
 
     df_c19_cases_norm = calc_7_day_incidence_for_each_ags(df_c19)
 
@@ -207,55 +213,6 @@ def write_current_fig(pprefix):
 
 
 def calc_7_day_incidence_for_each_ags(df):
-    def _build_change_rate_rolling_window(df, column, rwdw):
-        """
-        `column` is supposed to be a column that contains a time series for
-        an _absolute_ case or death count.
-        """
-
-        # Get time differences (unit: seconds) in the df's datetimeindex. `dt`
-        # is a magic accessor that yields an array of time deltas.
-        dt_seconds = pd.Series(df.index).diff().dt.total_seconds()
-
-        # Construct new series with original datetimeindex as index and time
-        # differences (unit: days) as values.
-        dt_days = pd.Series(dt_seconds) / 86400.0
-        dt_days.index = df.index
-
-        # print(df)
-        # print(dt_days)
-
-        change_per_day = df[column].diff().div(dt_days)
-        df[f"{column}_change_per_day"] = change_per_day
-        # print(df)
-        # df[f"{column}_change_per_day"]
-        # sys.exit()
-
-        # Assume dirty data, assume irregular distance between data points.
-        # Resample into regular intervals (increase resolution to 1 hour, but
-        # that doesn't matter too much) and forward-fill values. Could also use
-        # `interpolate()` but that's too artificial, I think it's fair to see
-        # the actual discrete jumps in data as of "batch processing". df_change
-        # = df[f"{metric}_change_per_day"].resample("1H").pad()
-
-        series_change = df[f"{column}_change_per_day"].resample("1H").pad()
-
-        # print(type(df_change))
-        # sys.exit()
-
-        # Should be >= 7 to be meaningful.
-        window_width_days = rwdw
-        window = series_change.rolling(window="%sD" % window_width_days)
-
-        # Manually build rolling window SUM (cumulative count for cases during
-        # those N days). This uses the fact that after the resample above
-        # there's N data points per day.
-        output_series = window.sum() / 24.0  # (window_width_days * 24.0)
-
-        # if column == "sum_cases":
-        #    print(output_series)
-
-        return output_series
 
     window_width_days = 7
     for column in df:
@@ -265,8 +222,11 @@ def calc_7_day_incidence_for_each_ags(df):
 
         log.info("build seven-day-rolling-window for AGS %s", ags)
 
-        abs_change_rolling_window = _build_change_rate_rolling_window(
-            df, column, window_width_days
+        abs_change_rolling_window = lib.tsmath.build_daily_change_rate_rolling_window(
+            df=df,
+            column=column,
+            window_width_days=window_width_days,
+            sum_over_time_window=True,
         )
 
         latest_timestamp = pd.to_datetime(
@@ -300,20 +260,6 @@ def calc_7_day_incidence_for_each_ags(df):
         # sys.exit()
 
     print(df)
-    return df
-
-
-def read_csv_as_df(path):
-    log.info("read %s", path)
-    df = pd.read_csv(
-        path,
-        index_col=["time_iso8601"],
-        parse_dates=["time_iso8601"],
-        date_parser=lambda col: pd.to_datetime(col, utc=True),
-    )
-    df.index.name = "time"
-
-    # pragmatic skip of last N days?
     return df
 
 
