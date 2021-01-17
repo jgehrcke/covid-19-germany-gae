@@ -131,6 +131,17 @@ if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
 fi
 
 
+python tools/7di.py cases-rl-crowdsource-by-ags.csv more-data/7di-rl-by-ags.csv
+#python tools/7di.py cases-rl-crowdsource-by-state.csv more-data/7di-rl-by-state.csv
+python tools/7di.py cases-rki-by-ags.csv more-data/7di-rki-by-ags.csv
+#python tools/7di.py cases-rki-by-state.csv more-data/7di-rki-by-state.csv
+
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git add more-data/7di-*.csv || true
+    git commit -m "data: 7di update ${UPDATE_ID}" || true
+fi
+
+
 python tools/plot-compare-sources.py
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
@@ -138,9 +149,11 @@ if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
     git commit -m "plots: dcp update ${UPDATE_ID}" || true
 fi
 
-python tools/heatmap.py cases-rki-by-ags.csv \
+
+python tools/heatmap.py \
+    more-data/7di-rki-by-ags.csv \
     --label-data-source="RKI data" \
-    --figure-out-pprefix plots/germany-heatmap-7ti-rki
+    --figure-out-pprefix=plots/germany-heatmap-7ti-rki
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
     git add plots/germany-heatmap-7ti-rki.p* || true
