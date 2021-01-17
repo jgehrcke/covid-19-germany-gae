@@ -33,7 +33,9 @@ git status --untracked=no --porcelain
 # RKI data: set previous data set aside. Use as "base" for tolerant merge, below.
 set -x
 for CPATH in *-rki-*.csv; do
-    /bin/mv -f "${CPATH}" "${CPATH}.previous"
+    # Copy, so that the current data files are left intact when something
+    # goes wrong below.
+    /bin/cp -f "${CPATH}" "${CPATH}.previous"
 done
 
 # Get current data set. Use as "extension" for tolerant merge, below.
@@ -48,10 +50,11 @@ if [ $FETCH_RKI_ECODE -ne 0 ]; then
     echo "error: build-rki-csvs.py returned with code ${FETCH_RKI_ECODE} -- skip"
 
     # revert the renames
-    for CPATHP in *-rki-*.csv.previous; do
-        # use ${var/Pattern/Replacement} (replace first occurrence)
-        /bin/mv -f "${CPATHP}" "${CPATHP/.previous/}"
-    done
+    # Note(JP): not needed when  using cp instead of mv above!
+    # for CPATHP in *-rki-*.csv.previous; do
+    #     # use ${var/Pattern/Replacement} (replace first occurrence)
+    #     /bin/mv -f "${CPATHP}" "${CPATHP/.previous/}"
+    # done
 else
 
     # Set the (newly) build-rki-csvs.py-generated files aside, as "extension". Then
