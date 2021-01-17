@@ -5,8 +5,9 @@
 (see below for an English version)
 
 * COVID-19 Fallzahlen für **Bundesländer** und **Landkreise**.
-* Mit **Zeitreihen**.
 * Mehrfach täglich automatisiert aktualisiert.
+* Mit **Zeitreihen**.
+* Auch mit 7-Tage-Inzidenz-Zeitreihen.
 * Aktuelle Einwohnerzahlen und GeoJSON-Daten, mit transparenten Quellen.
 * Präzise maschinenlesbare **CSV**-Dateien. Zeitstempel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Notation, Spaltennamen nutzen u.a. [ISO 3166](https://en.wikipedia.org/wiki/ISO_3166-2:DE) country codes.
 * Zwei verschiedene Perspektiven:
@@ -17,6 +18,7 @@
 
 * Historical (**time series**) data for individual Bundesländer and Landkreise (**states and counties**).
 * Automatic updates, multiple times per day.
+* 7-day incidence time series (so that you don't need to compute those).
 * Population data and GeoJSON data, with transparent references and code for reproduction.
 * Provided through machine-readable (**CSV**) files: timestamps are encoded using ISO 8601 time string notation. Column names use the ISO 3166 notation for individual states.
 * Two perspectives on the historical evolution:
@@ -63,11 +65,13 @@ While this is not true, the resulting curve is free of said artifact. Despite it
 - **RKI data (most credible view into the past)**: time series data provided by the Robert Koch-Institut (**updated daily**):
   - [cases-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-ags.csv) and [deaths-rki-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-ags.csv): **per-Landkreis** time series
   - [cases-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rki-by-state.csv) and [deaths-rki-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rki-by-state.csv): **per-Bundesland** time series
+  - 7-day incidence time series resolved by county based on RKI data can be found in `more-data/`.
   - This is the only data source that rigorously accounts for Meldeverzug (reporting delay). The historical evolution of data points in these files is updated daily based on a (less accessible) RKI ArcGIS system. These time series see amendments weeks and months into the past as data gets better over time. This data source has its strength in _the past_, but it often does not yet reflect the latest from today and yesterday.
 - **Crowdsourcing data (fresh view into the last 1-2 days)**: Risklayer GmbH crowdsource effort (see "Attribution" below):
   - [cases-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-ags.csv) and [deaths-rl-crowdsource-by-ags.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rl-crowdsource-by-ags.csv): **per-Landkreis** time series
   - [cases-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/cases-rl-crowdsource-by-state.csv) and [deaths-rl-crowdsource-by-state.csv](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/deaths-rl-crowdsource-by-state.csv): **per-Bundesland** time series
   - For the last ~48 hours these case count numbers (crowdsourced from Gesundheitsämter) may be a little more credible than what the RKI data set shows. For assessing the differences between the RKI data set(s) and the Risklayer data set(s) please also have a look at the [plot above](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png), and always try to do your own research.
+  - 7-day incidence time series resolved by county based on Risklayer data can be found in `more-data/`.
 - [ags.json](https://github.com/jgehrcke/covid-19-germany-gae/blob/master/ags.json):
   - for translating "amtlicher Gemeindeschlüssel" (AGS) to Landreis/Bundesland details, including latitude and longitude.
   - containing per-county population data (see [pull/383](https://github.com/jgehrcke/covid-19-germany-gae/pull/383) for details).
