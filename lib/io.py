@@ -32,7 +32,7 @@ import pandas as pd
 log = logging.getLogger(__file__)
 
 
-def read_csv_as_df(path):
+def parse_csv_timeseries(path):
     log.info("parse CSV file at %s", path)
     df = pd.read_csv(
         path,
@@ -44,3 +44,21 @@ def read_csv_as_df(path):
     )
     df.index.name = "time"
     return df
+
+
+def write_csv_timeseries(df, path, float_format=None):
+    """
+    For when `float_format` might matter, see for instance:
+        https://github.com/pandas-dev/pandas/issues/13159
+        https://github.com/pandas-dev/pandas/issues/16452
+
+    Use this with e.g. `float_format='%.6f'`
+    """
+    # Take control of string-encoding the tz-aware timestamps.
+    df.index = df.index.strftime("%Y-%m-%dT%H:%M:%S%z")
+    # Change index label name to express that these strings are using ISO 8601
+    # notation.
+    df.index.name = "time_iso8601"
+    log.info("write time series data to CSV file %s", path)
+    with open(path, "wb") as f:
+        f.write(df.to_csv(float_format=float_format).encode("utf-8"))
