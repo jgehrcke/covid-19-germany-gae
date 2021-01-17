@@ -80,9 +80,7 @@ def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "cases_timeseries_csv_path", metavar="cases-timeseries-csv-path"
-    )
+    parser.add_argument("timeseries_csv_path", metavar="7di-timeseries-csv-path")
     parser.add_argument("--label-data-source", metavar="LABEL")
     parser.add_argument("--figure-out-pprefix", metavar="PATH_PREFIX")
 
@@ -93,9 +91,7 @@ def main():
     log.info("read %s", DE_COUNTIES_GEOJSON_PATH)
     dfgeo = gpd.read_file(DE_COUNTIES_GEOJSON_PATH)
 
-    df_c19 = lib.io.read_csv_as_df(args.cases_timeseries_csv_path)
-
-    df_c19_cases_norm = calc_7_day_incidence_for_each_ags(df_c19)
+    df_7di = lib.io.parse_csv_timeseries(args.timeseries_csv_path)
 
     cities = {
         "Berlin": (13.404954, 52.520008),
@@ -113,17 +109,19 @@ def main():
     fig, ax = plt.subplots()
 
     last_c7di_vals = []
+    # Each row in `dfgeo` contains information about one AGS (including the
+    # polygons from the GeoJSON file). Iterate through these rows and look up
+    # the last 7di value for each AGS from the `df_7di` dataframe.
     for _, row in dfgeo.iterrows():
-        # Strip leading zeros from ags string in this dataframe.
+        # Strip leading zeros from ags string.
         ags = str(int(row["AGS"]))
-        # ags_props = AGS_PROPERTY_DICT[ags]
-        # print(ags_props)
-        last_c7di_val = df_c19_cases_norm[ags + "_7di"].iloc[-1]
-        # row["last_c7di_val"] = last_c7di_val
+        last_c7di_val = df_7di[ags + "_7di"].iloc[-1]
         last_c7di_vals.append(last_c7di_val)
 
+    # Now add this list of 'last 7di values' as a new column to the geo df.
     dfgeo["last_c7di_val"] = last_c7di_vals
 
+    log.info("create geo plot")
     dfgeo.plot(
         ax=ax,
         alpha=0.7,
@@ -139,6 +137,7 @@ def main():
         cmap=seaborn.color_palette("rocket_r", as_cmap=True),
     )
 
+    log.info("plot cities")
     # Plot cities. Kudos to
     # https://juanitorduz.github.io/germany_plots/
     for c in cities:
@@ -153,7 +152,7 @@ def main():
         )
         ax.plot(cities[c][0], cities[c][1], marker="o", c="black", alpha=0.5)
 
-    latest_timestamp = pd.to_datetime(str(df_c19_cases_norm.index.values[-1]))
+    latest_timestamp = pd.to_datetime(str(df_7di.index.values[-1]))
     latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d")
 
     # title
@@ -200,6 +199,8 @@ def main():
     # fig_filepath_wo_ext = "plots/heatmap-7ti-rl"
     if args.figure_out_pprefix:
         write_current_fig(args.figure_out_pprefix)
+    else:
+        log.info("skip writing figure files")
 
     # plt.show()
 
@@ -212,67 +213,11 @@ def write_current_fig(pprefix):
     plt.savefig(f"{pprefix}.pdf")
 
 
-def calc_7_day_incidence_for_each_ags(df):
-
-    window_width_days = 7
-    for column in df:
-        # For each column in DF, add another column with the "7 Tage Inzidenz"
-        # if not column.startswith("sum_"):
-        ags = column
-
-        log.info("build seven-day-rolling-window for AGS %s", ags)
-
-        abs_change_rolling_window = lib.tsmath.build_daily_change_rate_rolling_window(
-            df=df,
-            column=column,
-            window_width_days=window_width_days,
-            sum_over_time_window=True,
-        )
-
-        latest_timestamp = pd.to_datetime(
-            str(abs_change_rolling_window.index.values[-1])
-        )
-        latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d %H:%M")
-
-        log.info("last data point time: %s", latest_timestamp_day_string)
-
-        log.info(
-            "last data point (absolute count, mean over last %s days): %s",
-            window_width_days,
-            int(abs_change_rolling_window.iloc[-1] / window_width_days),
-        )
-
-        if column.startswith("sum_"):
-            pop = TOTAL_POPULATION_GER
-        else:
-            pop = AGS_PROPERTY_DICT[ags]["population"]
-
-        log.info("normalize by population (1/100000 inhabitants), pop count: %s", pop)
-        norm_change_rolling_window = abs_change_rolling_window / float(pop) * 100000.0
-        log.info(
-            "last data point (normalized on pop, sum over last %s days): %s",
-            window_width_days,
-            int(norm_change_rolling_window.iloc[-1]),
-        )
-
-        df[f"{column}_7di"] = norm_change_rolling_window
-        # print(df[f"{column}_7di"])
-        # sys.exit()
-
-    print(df)
-    return df
-
-
 def matplotlib_config():
     plt.style.use("ggplot")
-    # import seaborn as sns
-
-    # make the gray background of gg plot a little lighter
-    plt.rcParams["axes.facecolor"] = "#eeeeee"
     matplotlib.rcParams["figure.figsize"] = [11, 11.0]
     matplotlib.rcParams["figure.dpi"] = 100
     matplotlib.rcParams["savefig.dpi"] = 150
-    # mpl.rcParams['font.size'] = 12
 
 
 if __name__ == "__main__":
