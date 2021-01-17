@@ -6,6 +6,10 @@ set -o errtrace
 #set -o nounset
 #set -o pipefail
 
+# Change this in local dev branch to not create a branch, and to not make any
+# commits.
+GIT_COMMIT_CHANGES="yes"
+
 echo "running auto-update.sh in dir: $(pwd)"
 
 RNDSTR=$(python -c 'import uuid; print(uuid.uuid4().hex.upper()[0:4])')
@@ -14,8 +18,11 @@ BRANCH_NAME="data-update/${UPDATE_ID}"
 
 echo "generated branch name: ${RNDSTR}"
 
-# git branch "${BRANCH_NAME}" || true
-# git checkout "${BRANCH_NAME}"
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git branch "${BRANCH_NAME}" || true
+    git checkout "${BRANCH_NAME}"
+fi
+
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     # https://github.community/t/github-actions-bot-email-address/17204
@@ -26,7 +33,9 @@ fi
 
 make update-csv
 git status --untracked=no --porcelain
-#git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
+fi
 
 #make update-jhu-data
 
@@ -99,38 +108,49 @@ else
     done
 
     git status --untracked=no --porcelain
-    # git add \
-    #     cases-rki-by-ags.csv \
-    #     cases-rki-by-state.csv \
-    #     deaths-rki-by-ags.csv \
-    #     deaths-rki-by-state.csv || true
-    # git commit -m "RKI data: update: ${UPDATE_ID}" || true
-fi
+    if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+        git add \
+            cases-rki-by-ags.csv \
+            cases-rki-by-state.csv \
+            deaths-rki-by-ags.csv \
+            deaths-rki-by-state.csv || true
+        git commit -m "RKI data: update: ${UPDATE_ID}" || true
+    fi
 
+fi
 
 python tools/build-rl-csvs.py
 git status --untracked=no --porcelain
-# git add \
-#     cases-rl-crowdsource-by-ags.csv \
-#     cases-rl-crowdsource-by-state.csv \
-#     deaths-rl-crowdsource-by-ags.csv \
-#     deaths-rl-crowdsource-by-state.csv || true
-# git commit -m "RL data: update: ${UPDATE_ID}" || truepREA
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git add \
+        cases-rl-crowdsource-by-ags.csv \
+        cases-rl-crowdsource-by-state.csv \
+        deaths-rl-crowdsource-by-ags.csv \
+        deaths-rl-crowdsource-by-state.csv || true
+    git commit -m "RL data: update: ${UPDATE_ID}" || true
+fi
+
 
 python tools/plot-compare-sources.py
 
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git add plots/daily-change-plot.p* || true
+    git commit -m "plots: dcp update ${UPDATE_ID}" || true
+fi
+
 python tools/heatmap.py cases-rki-by-ags.csv \
     --label-data-source="RKI data" \
-    --figure-out-path plots/germany-heatmap-7ti-rki.png
+    --figure-out-pprefix plots/germany-heatmap-7ti-rki
 
-git add plots/* || true
-git commit -m "plots: update ${UPDATE_ID}" || true
-
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git add plots/germany-heatmap-7ti-rki.p* || true
+    git commit -m "plots: gh7tirki update ${UPDATE_ID}" || true
+fi
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     git push --set-upstream origin "${BRANCH_NAME}"
 else
-    git push
+    # git push
     # When run locally skip the rest
     exit
 fi
