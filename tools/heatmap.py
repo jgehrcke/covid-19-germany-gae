@@ -78,7 +78,7 @@ def main():
         "cases_timeseries_csv_path", metavar="cases-timeseries-csv-path"
     )
     parser.add_argument("--label-data-source", metavar="LABEL")
-    parser.add_argument("--figure-out-path", metavar="PATH")
+    parser.add_argument("--figure-out-pprefix", metavar="PATH_PREFIX")
 
     args = parser.parse_args()
 
@@ -192,10 +192,18 @@ def main():
     plt.tight_layout()
     # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
     # fig_filepath_wo_ext = "plots/heatmap-7ti-rl"
-    if args.figure_out_path:
-        plt.savefig(args.figure_out_path, dpi=140)
+    if args.figure_out_pprefix:
+        write_current_fig(args.figure_out_pprefix)
 
     # plt.show()
+
+
+def write_current_fig(pprefix):
+    # Write to path prefix `pprefix` (only append file extensions).
+    log.info(f"write {pprefix}.png")
+    plt.savefig(f"{pprefix}.png", dpi=140)
+    log.info(f"write {pprefix}.pdf")
+    plt.savefig(f"{pprefix}.pdf")
 
 
 def calc_7_day_incidence_for_each_ags(df):
