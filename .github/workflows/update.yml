@@ -39,4 +39,3 @@ jobs:
         run: |
           echo "PR URL: ${{ steps.auto-update-script.outputs.pr_url }}"
           echo "PR ID: ${{ steps.auto-update-script.outputs.pr_id }}"
-          hub api -XPUT "repos/jgehrcke/covid-19-germany-gae/pulls/${{ steps.auto-update-script.outputs.pr_id }}/merge"
