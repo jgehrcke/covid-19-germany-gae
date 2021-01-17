@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -o errexit
 set -o errtrace
-set -o nounset
+
+# GITHUB_ACTIONS may be unbound
+#set -o nounset
 #set -o pipefail
 
 echo "running auto-update.sh in dir: $(pwd)"
@@ -12,8 +14,8 @@ BRANCH_NAME="data-update/${UPDATE_ID}"
 
 echo "generated branch name: ${RNDSTR}"
 
-git branch "${BRANCH_NAME}" || true
-git checkout "${BRANCH_NAME}"
+# git branch "${BRANCH_NAME}" || true
+# git checkout "${BRANCH_NAME}"
 
 if [[ $GITHUB_ACTIONS == "true" ]]; then
     # https://github.community/t/github-actions-bot-email-address/17204
@@ -24,7 +26,7 @@ fi
 
 make update-csv
 git status --untracked=no --porcelain
-git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
+#git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
 
 #make update-jhu-data
 
@@ -94,25 +96,29 @@ else
     done
 
     git status --untracked=no --porcelain
-    git add \
-        cases-rki-by-ags.csv \
-        cases-rki-by-state.csv \
-        deaths-rki-by-ags.csv \
-        deaths-rki-by-state.csv || true
-    git commit -m "RKI data: update: ${UPDATE_ID}" || true
+    # git add \
+    #     cases-rki-by-ags.csv \
+    #     cases-rki-by-state.csv \
+    #     deaths-rki-by-ags.csv \
+    #     deaths-rki-by-state.csv || true
+    # git commit -m "RKI data: update: ${UPDATE_ID}" || true
 fi
 
 
 python tools/build-rl-csvs.py
 git status --untracked=no --porcelain
-git add \
-    cases-rl-crowdsource-by-ags.csv \
-    cases-rl-crowdsource-by-state.csv \
-    deaths-rl-crowdsource-by-ags.csv \
-    deaths-rl-crowdsource-by-state.csv || true
-git commit -m "RL data: update: ${UPDATE_ID}" || truepREA
+# git add \
+#     cases-rl-crowdsource-by-ags.csv \
+#     cases-rl-crowdsource-by-state.csv \
+#     deaths-rl-crowdsource-by-ags.csv \
+#     deaths-rl-crowdsource-by-state.csv || true
+# git commit -m "RL data: update: ${UPDATE_ID}" || truepREA
 
 python tools/plot-compare-sources.py
+
+python tools/heatmap.py cases-rki-by-ags.csv \
+    --label-data-source="RKI data" \
+    --figure-out-path plots/germany-heatmap-7ti-rki.png
 
 git add plots/* || true
 git commit -m "plots: update ${UPDATE_ID}" || true
