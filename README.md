@@ -99,46 +99,9 @@ The `recovered` metric is not presented because it is rather blurry.
 Feel free to consume it from other sources!
 
 
-## Code example: parsing and plotting
-
-This example assumes experience with established tools from the Python ecosystem.
-Create a file called `plot.py`:
-
-```python
-import sys
-import pandas as pd
-import matplotlib.pyplot as plt
-plt.style.use("ggplot")
-
-df = pd.read_csv(
-    sys.argv[1],
-    index_col=["time_iso8601"],
-    parse_dates=["time_iso8601"],
-    date_parser=lambda col: pd.to_datetime(col, utc=True),
-)
-df.index.name = "time"
-
-df["DE-BW"].plot(
-    title="DE-BW confirmed cases (RKI data)", marker="x", grid=True, figsize=[12, 9]
-)
-plt.tight_layout()
-plt.savefig("bw_cases_over_time.png", dpi=70)
-```
-
-Run it, provide `cases-rki-by-state.csv` as an argument:
-
-```bash
-python plot.py cases-rki-by-state.csv
-```
-
-This creates a file `bw_cases_over_time.png` which may look like the following:
-
-<img src="https://i.imgur.com/ksbYcdQ.png" width="600" />
-
-
 ## Quality data sources published by Bundesländer
 
-I tried to discover these step-by-step, they are possibly underrated:
+I tried to discover these step-by-step, they are possibly underrated (April 2020, minor updates towards the end of 2020):
 
 - Bayern: [case numbers, map, LK table](https://www.lgl.bayern.de/gesundheit/infektionsschutz/infektionskrankheiten_a_z/coronavirus/karte_coronavirus/index.htm)
 - Berlin: [case numbers, map, intensive care numbers](https://www.berlin.de/corona/fallstatistik/)
@@ -160,10 +123,10 @@ I tried to discover these step-by-step, they are possibly underrated:
 - Sachsen: [case numbers, LK table, intensive care numbers](https://www.coronavirus.sachsen.de/infektionsfaelle-in-sachsen-4151.html)
 - Sachsen-Anhalt: [case numbers, LK table, intensive care numbers](https://ms.sachsen-anhalt.de/themen/gesundheit/aktuell/coronavirus/)
 - Schleswig-Holstein: [case numbers, LK table](https://www.schleswig-holstein.de/DE/Landesregierung/I/Presse/_documents/Corona-Liste_Kreise.html)
-- Thüringen: [case numbers, LK table, intensive car numbers](https://www.tmasgff.de/covid-19/fallzahlen)
+- Thüringen: [case numbers, LK table, intensive care numbers](https://www.tmasgff.de/covid-19/fallzahlen)
 
 
-## Further resources:
+## Further resources
 
 - In [this blog post](https://gehrcke.de/2020/03/deutschlands-covid-19-fallzahlen-des-rki-und-der-who-haben-inzwischen-2-3-tage-verzogerung/) (German) I try to shed light on why — as of the time of writing (March 18) — the numbers reported in the RKI and WHO situation reports lag behind by 1-3 days.
 - Blog post [Covid-19 HTTP API: German case numbers](https://gehrcke.de/2020/03/covid-19-http-api-for-german-case-numbers/)

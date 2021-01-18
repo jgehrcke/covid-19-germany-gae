@@ -1,6 +1,6 @@
 # MIT License
 
-# Copyright (c) 2020 Dr. Jan-Philip Gehrcke
+# Copyright (c) 2020 - 2021 Dr. Jan-Philip Gehrcke -- https://gehrcke.de
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -35,35 +35,17 @@ from datetime import datetime
 import pandas as pd
 import requests
 
-STATE_NAME_ISONAME_MAP = {
-    "Baden-Württemberg": "DE-BW",
-    "Bayern": "DE-BY",
-    "Brandenburg": "DE-BB",
-    "Berlin": "DE-BE",
-    "Bremen": "DE-HB",
-    "Hamburg": "DE-HH",
-    "Hessen": "DE-HE",
-    "Mecklenburg-Vorpommern": "DE-MV",
-    "Niedersachsen": "DE-NI",
-    "Nordrhein-Westfalen": "DE-NW",
-    "Rheinland-Pfalz": "DE-RP",
-    "Saarland": "DE-SL",
-    "Sachsen-Anhalt": "DE-ST",
-    "Sachsen": "DE-SN",
-    "Schleswig-Holstein": "DE-SH",
-    "Thüringen": "DE-TH",
-}
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
-log = logging.getLogger()
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
-    datefmt="%y%m%d-%H:%M:%S",
-)
+import lib.tsmath
+import lib.io
+import lib.const
+import lib.init_logger
 
 
-with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
-    AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
+AGS_BL_MAP = lib.io.read_ags_prop_json()
+
+log = lib.init_logger()
 
 
 def main():
@@ -83,29 +65,8 @@ def generate(metric):
     df_by_bl[f"sum_{metric}"] = df_by_bl.sum(axis=1)
     df_by_lk[f"sum_{metric}"] = df_by_lk.sum(axis=1)
 
-    # df = pd.read_csv(io.StringIO(resp.text), index_col=["time_iso8601"])
-    # new_row_df.index.name = "time_iso8601"
-
-    log.info("Turn DatetimeIndex into index of ISO 8601 strings")
-
-    # CPython 3.7 for the %z format specifier behavior.
-    df_by_bl.index = df_by_bl.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_bl.index.name = "time_iso8601"
-    print(df_by_bl)
-
-    df_by_lk.index = df_by_lk.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_lk.index.name = "time_iso8601"
-    print(df_by_lk)
-
-    csv_filepath_bk = f"{metric}-rl-crowdsource-by-state.csv"
-    log.info("write data to CSV file %s", csv_filepath_bk)
-    with open(csv_filepath_bk, "wb") as f:
-        f.write(df_by_bl.to_csv().encode("utf-8"))
-
-    csv_filepath_lk = f"{metric}-rl-crowdsource-by-ags.csv"
-    log.info("write data to CSV file %s", csv_filepath_lk)
-    with open(csv_filepath_lk, "wb") as f:
-        f.write(df_by_lk.to_csv().encode("utf-8"))
+    lib.io.write_csv_timeseries(df_by_bl, f"{metric}-rl-crowdsource-by-state.csv")
+    lib.io.write_csv_timeseries(df_by_lk, f"{metric}-rl-crowdsource-by-ags.csv")
 
     log.info("done")
 
@@ -127,7 +88,7 @@ def aggregate_by_bland(df_by_lk):
 
     df_by_bl = pd.DataFrame()
     for cname in df_by_lk:
-        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]["state"]]
+        bland_iso = lib.const.STATE_NAME_ISONAME_MAP[AGS_BL_MAP[str(cname)]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
         else:
@@ -169,7 +130,7 @@ def fetch_and_clean_data(evarname):
     for cname in df:
         if cname == "current":
             # Set the current hour of the day as ISO 8601 string including the
-            # tz info for _current_ Germany (subjet to daylight switch, not
+            # tz info for _current_ Germany (subject to daylight switch, not
             # that it matters too much, but yeah..). Example:
             # '2020-03-26T18:00:00+0100'
             rename_map["current"] = datetime.strftime(
@@ -198,8 +159,7 @@ def fetch_and_clean_data(evarname):
             sample_time_naive
         )
         sample_time_aware_iso8601 = datetime.strftime(
-            sample_time_aware,
-            "%Y-%m-%dT%H:00:00%z",
+            sample_time_aware, "%Y-%m-%dT%H:00:00%z",
         )
 
         rename_map[cname] = sample_time_aware_iso8601
