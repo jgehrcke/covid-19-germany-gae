@@ -38,10 +38,7 @@ import requests
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
-import lib.io
-import lib.const
-import lib.init_logger
-
+import lib
 
 AGS_BL_MAP = lib.io.read_ags_prop_json()
 
