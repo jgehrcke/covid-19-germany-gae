@@ -141,6 +141,11 @@ if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
     git commit -m "data: 7di update ${UPDATE_ID}" || true
 fi
 
+python tools/generate-latest-aggregate.py
+if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+    git add more-data/latest-aggregate.csv || true
+    git commit -m "data: latest-aggregate update ${UPDATE_ID}" || true
+fi
 
 python tools/plot-compare-sources.py
 
