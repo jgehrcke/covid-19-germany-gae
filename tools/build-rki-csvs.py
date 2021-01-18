@@ -1,6 +1,6 @@
 # MIT License
 
-# Copyright (c) 2020 Dr. Jan-Philip Gehrcke
+# Copyright (c) 2020 - 2021 Dr. Jan-Philip Gehrcke -- https://gehrcke.de
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -26,8 +26,6 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 
 import os
 import json
-import io
-import logging
 import sys
 import time
 import pytz
@@ -38,35 +36,16 @@ from itertools import zip_longest
 import pandas as pd
 import requests
 
-STATE_NAME_ISONAME_MAP = {
-    "Baden-Württemberg": "DE-BW",
-    "Bayern": "DE-BY",
-    "Brandenburg": "DE-BB",
-    "Berlin": "DE-BE",
-    "Bremen": "DE-HB",
-    "Hamburg": "DE-HH",
-    "Hessen": "DE-HE",
-    "Mecklenburg-Vorpommern": "DE-MV",
-    "Niedersachsen": "DE-NI",
-    "Nordrhein-Westfalen": "DE-NW",
-    "Rheinland-Pfalz": "DE-RP",
-    "Saarland": "DE-SL",
-    "Sachsen-Anhalt": "DE-ST",
-    "Sachsen": "DE-SN",
-    "Schleswig-Holstein": "DE-SH",
-    "Thüringen": "DE-TH",
-}
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
-log = logging.getLogger()
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
-    datefmt="%y%m%d-%H:%M:%S",
-)
+import lib.io
+import lib.const
+import lib.init_logger
 
 
-with open(os.path.join(os.path.dirname(__file__), "..", "ags.json"), "rb") as f:
-    AGS_BL_MAP = json.loads(f.read().decode("utf-8"))
+AGS_BL_MAP = lib.io.read_ags_prop_json()
+
+log = lib.init_logger()
 
 
 def main():
@@ -108,40 +87,10 @@ def main():
 
     # sys.exit()
 
-    log.info("Turn DatetimeIndex into index of ISO 8601 strings")
-
-    # CPython 3.7 for the %z format specifier behavior.
-    df_by_bl_cases.index = df_by_bl_cases.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_bl_cases.index.name = "time_iso8601"
-    print(df_by_bl_cases)
-    csv_filepath_bl_cases = "cases-rki-by-state.csv"
-    log.info("write data to CSV file %s", csv_filepath_bl_cases)
-    with open(csv_filepath_bl_cases, "wb") as f:
-        f.write(df_by_bl_cases.to_csv().encode("utf-8"))
-
-    df_by_bl_deaths.index = df_by_bl_deaths.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_bl_deaths.index.name = "time_iso8601"
-    print(df_by_bl_deaths)
-    csv_filepath_bl_deaths = "deaths-rki-by-state.csv"
-    log.info("write data to CSV file %s", csv_filepath_bl_deaths)
-    with open(csv_filepath_bl_deaths, "wb") as f:
-        f.write(df_by_bl_deaths.to_csv().encode("utf-8"))
-
-    df_by_lk_cases.index = df_by_lk_cases.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_lk_cases.index.name = "time_iso8601"
-    print(df_by_lk_cases)
-    csv_filepath_lk_cases = "cases-rki-by-ags.csv"
-    log.info("write data to CSV file %s", csv_filepath_lk_cases)
-    with open(csv_filepath_lk_cases, "wb") as f:
-        f.write(df_by_lk_cases.to_csv().encode("utf-8"))
-
-    df_by_lk_deaths.index = df_by_lk_deaths.index.strftime("%Y-%m-%dT%H:%M:%S%z")
-    df_by_lk_deaths.index.name = "time_iso8601"
-    print(df_by_lk_deaths)
-    csv_filepath_lk_deaths = "deaths-rki-by-ags.csv"
-    log.info("write data to CSV file %s", csv_filepath_lk_deaths)
-    with open(csv_filepath_lk_deaths, "wb") as f:
-        f.write(df_by_lk_deaths.to_csv().encode("utf-8"))
+    lib.io.write_csv_timeseries(df_by_bl_cases, "cases-rki-by-state.csv")
+    lib.io.write_csv_timeseries(df_by_bl_deaths, "deaths-rki-by-state.csv")
+    lib.io.write_csv_timeseries(df_by_lk_cases, "cases-rki-by-ags.csv")
+    lib.io.write_csv_timeseries(df_by_lk_deaths, "deaths-rki-by-ags.csv")
 
     log.info("done")
 
@@ -167,9 +116,9 @@ def aggregate_by_bland(df_by_lk):
         if ags == "11000":
             # Berlin is counted twice, once as-a-whole via a virtual AGS 11000
             # and then also via its actual counties (via the actual AGSs).
-            log.info("Ingnore AGS 11000 in Bundesland aggregation")
+            log.info("Ignore AGS 11000 in Bundesland aggregation")
             continue
-        bland_iso = STATE_NAME_ISONAME_MAP[AGS_BL_MAP[ags]["state"]]
+        bland_iso = lib.const.STATE_NAME_ISONAME_MAP[AGS_BL_MAP[ags]["state"]]
         if bland_iso not in df_by_bl:
             df_by_bl[bland_iso] = df_by_lk[cname]
         else:

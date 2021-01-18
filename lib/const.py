@@ -20,22 +20,26 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+
 """
-This program is part of https://github.com/jgehrcke/covid-19-germany-gae
+This module is part of https://github.com/jgehrcke/covid-19-germany-gae
 """
 
-import logging
-
-from . import tsmath
-from . import io
-from . import const
-
-
-def init_logger():
-    logger = logging.getLogger()
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
-        datefmt="%y%m%d-%H:%M:%S",
-    )
-    return logger
+STATE_NAME_ISONAME_MAP = {
+    "Baden-Württemberg": "DE-BW",
+    "Bayern": "DE-BY",
+    "Brandenburg": "DE-BB",
+    "Berlin": "DE-BE",
+    "Bremen": "DE-HB",
+    "Hamburg": "DE-HH",
+    "Hessen": "DE-HE",
+    "Mecklenburg-Vorpommern": "DE-MV",
+    "Niedersachsen": "DE-NI",
+    "Nordrhein-Westfalen": "DE-NW",
+    "Rheinland-Pfalz": "DE-RP",
+    "Saarland": "DE-SL",
+    "Sachsen-Anhalt": "DE-ST",
+    "Sachsen": "DE-SN",
+    "Schleswig-Holstein": "DE-SH",
+    "Thüringen": "DE-TH",
+}
