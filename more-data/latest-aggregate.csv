@@ -1,415 +1,415 @@
-# {"time_iso8601_last_update_rki": "2021-01-24T17:00:00+0000", "time_iso8601_last_update_rl": "2021-01-26T00:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-01-25T17:00:00+0000", "time_iso8601_last_update_rl": "2021-01-26T08:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
-1001,SK Flensburg,Schleswig-Holstein,90164,937,190,18,934,202,18
-1002,SK Kiel,Schleswig-Holstein,246794,2925,63,65,2912,66,61
-1003,SK Lübeck,Schleswig-Holstein,216530,3362,110,38,3344,108,37
-1004,SK Neumünster,Schleswig-Holstein,80196,950,103,16,942,113,15
-1051,LK Dithmarschen,Schleswig-Holstein,133193,1213,62,37,1210,63,35
-1053,LK Herzogtum Lauenburg,Schleswig-Holstein,198019,2388,91,53,2381,93,50
-1054,LK Nordfriesland,Schleswig-Holstein,165951,1573,121,39,1564,131,33
-1055,LK Ostholstein,Schleswig-Holstein,200539,1632,76,28,1628,73,28
-1056,LK Pinneberg,Schleswig-Holstein,316103,6170,198,173,6110,202,167
-1057,LK Plön,Schleswig-Holstein,128686,726,38,18,721,38,18
-1058,LK Rendsburg-Eckernförde,Schleswig-Holstein,274098,2190,57,26,2180,58,26
-1059,LK Schleswig-Flensburg,Schleswig-Holstein,201156,1332,57,34,1317,54,33
-1060,LK Segeberg,Schleswig-Holstein,277175,3453,71,96,3440,71,91
-1061,LK Steinburg,Schleswig-Holstein,131013,1154,65,22,1125,58,20
-1062,LK Stormarn,Schleswig-Holstein,244156,4056,84,123,4053,102,123
-2000,SK Hamburg,Hamburg,1847253,44926,99,988,44718,96,988
-3101,SK Braunschweig,Niedersachsen,249406,3181,107,69,3171,81,69
+1001,SK Flensburg,Schleswig-Holstein,90164,937,182,18,936,190,18
+1002,SK Kiel,Schleswig-Holstein,246794,2925,63,65,2926,64,65
+1003,SK Lübeck,Schleswig-Holstein,216530,3362,109,38,3362,111,38
+1004,SK Neumünster,Schleswig-Holstein,80196,950,102,16,950,115,16
+1051,LK Dithmarschen,Schleswig-Holstein,133193,1213,62,37,1213,62,36
+1053,LK Herzogtum Lauenburg,Schleswig-Holstein,198019,2388,90,53,2389,92,53
+1054,LK Nordfriesland,Schleswig-Holstein,165951,1573,117,39,1573,121,33
+1055,LK Ostholstein,Schleswig-Holstein,200539,1632,76,28,1639,78,28
+1056,LK Pinneberg,Schleswig-Holstein,316103,6170,198,173,6110,198,167
+1057,LK Plön,Schleswig-Holstein,128686,726,37,18,726,37,18
+1058,LK Rendsburg-Eckernförde,Schleswig-Holstein,274098,2190,58,26,2191,57,26
+1059,LK Schleswig-Flensburg,Schleswig-Holstein,201156,1332,57,34,1321,53,33
+1060,LK Segeberg,Schleswig-Holstein,277175,3453,69,96,3448,70,95
+1061,LK Steinburg,Schleswig-Holstein,131013,1154,62,22,1130,59,20
+1062,LK Stormarn,Schleswig-Holstein,244156,4056,82,123,4058,92,123
+2000,SK Hamburg,Hamburg,1847253,44926,99,988,44919,98,990
+3101,SK Braunschweig,Niedersachsen,249406,3181,100,69,3180,86,72
 3102,SK Salzgitter,Niedersachsen,104291,2112,79,44,2112,79,44
-3103,SK Wolfsburg,Niedersachsen,124371,1774,71,65,1769,72,65
-3151,LK Gifhorn,Niedersachsen,176523,3221,119,89,3215,114,89
-3153,LK Goslar,Niedersachsen,136292,1323,49,71,1316,53,51
-3154,LK Helmstedt,Niedersachsen,91297,1237,152,45,1230,150,44
-3155,LK Northeim,Niedersachsen,132285,1291,56,19,1269,53,18
-3157,LK Peine,Niedersachsen,134801,2407,107,49,2402,106,37
-3158,LK Wolfenbüttel,Niedersachsen,119622,1341,53,49,1304,50,47
-3159,LK Göttingen,Niedersachsen,326041,4711,53,155,4593,63,152
-3241,Region Hannover,Niedersachsen,1157115,25365,145,538,25033,144,528
-3251,LK Diepholz,Niedersachsen,217089,4003,73,73,3994,72,70
-3252,LK Hameln-Pyrmont,Niedersachsen,148549,2296,135,49,2280,135,44
-3254,LK Hildesheim,Niedersachsen,275817,5046,128,153,4990,117,153
-3255,LK Holzminden,Niedersachsen,70458,826,104,32,818,103,28
-3256,LK Nienburg (Weser),Niedersachsen,121390,1877,197,48,1859,207,44
-3257,LK Schaumburg,Niedersachsen,157820,2428,106,32,2426,108,31
-3351,LK Celle,Niedersachsen,179011,2245,65,38,2245,67,38
-3352,LK Cuxhaven,Niedersachsen,198038,2363,74,77,2291,53,71
-3353,LK Harburg,Niedersachsen,254431,3658,60,62,3662,62,62
-3354,LK Lüchow-Dannenberg,Niedersachsen,48412,441,43,14,442,43,12
-3355,LK Lüneburg,Niedersachsen,184139,1656,35,36,1655,35,35
-3356,LK Osterholz,Niedersachsen,113928,1567,69,40,1561,61,38
-3357,LK Rotenburg (Wümme),Niedersachsen,163782,2173,38,62,2178,39,63
-3358,LK Heidekreis,Niedersachsen,140673,2012,70,69,2007,59,68
-3359,LK Stade,Niedersachsen,204512,2592,85,68,2592,87,68
-3360,LK Uelzen,Niedersachsen,92389,818,149,16,805,147,13
-3361,LK Verden,Niedersachsen,137133,2463,40,34,2465,42,34
-3401,SK Delmenhorst,Niedersachsen,77559,2020,51,43,2020,54,43
-3402,SK Emden,Niedersachsen,49913,490,36,6,493,36,6
-3403,SK Oldenburg,Niedersachsen,169077,2368,43,34,2230,43,33
-3404,SK Osnabrück,Niedersachsen,165251,3892,77,72,3874,86,70
-3405,SK Wilhelmshaven,Niedersachsen,76089,897,100,35,895,73,34
-3451,LK Ammerland,Niedersachsen,124859,1627,47,25,1605,52,24
-3452,LK Aurich,Niedersachsen,189694,1861,30,24,1849,31,24
-3453,LK Cloppenburg,Niedersachsen,170682,6196,152,87,6200,134,85
-3454,LK Emsland,Niedersachsen,326954,6386,97,108,6386,89,104
-3455,LK Friesland,Niedersachsen,98704,938,26,28,920,24,27
-3456,LK Grafschaft Bentheim,Niedersachsen,137162,3092,68,73,3086,69,73
-3457,LK Leer,Niedersachsen,170756,1553,51,21,1554,52,21
-3458,LK Oldenburg,Niedersachsen,130890,3101,76,80,2978,90,88
-3459,LK Osnabrück,Niedersachsen,358080,9861,93,239,9715,115,219
-3460,LK Vechta,Niedersachsen,142814,4702,52,66,4690,55,62
-3461,LK Wesermarsch,Niedersachsen,88583,1346,181,27,1333,196,28
-3462,LK Wittmund,Niedersachsen,56926,689,77,19,690,77,19
-4011,SK Bremen,Bremen,567559,13816,71,224,13786,73,222
-4012,SK Bremerhaven,Bremen,113643,1641,70,31,1649,86,31
-5111,SK Düsseldorf,Nordrhein-Westfalen,621877,15578,89,174,15407,92,174
-5112,SK Duisburg,Nordrhein-Westfalen,498686,17400,104,456,17411,103,456
-5113,SK Essen,Nordrhein-Westfalen,582760,15791,116,325,15917,134,315
-5114,SK Krefeld,Nordrhein-Westfalen,227417,6458,123,99,6458,123,99
-5116,SK Mönchengladbach,Nordrhein-Westfalen,261034,6843,106,162,6843,108,162
-5117,SK Mülheim a.d.Ruhr,Nordrhein-Westfalen,170632,5082,103,154,5025,86,150
-5119,SK Oberhausen,Nordrhein-Westfalen,210764,6585,123,207,6585,139,207
-5120,SK Remscheid,Nordrhein-Westfalen,111338,3284,89,119,3284,91,119
-5122,SK Solingen,Nordrhein-Westfalen,159245,5506,102,122,5494,105,121
-5124,SK Wuppertal,Nordrhein-Westfalen,355100,11582,130,307,11380,123,287
-5154,LK Kleve,Nordrhein-Westfalen,312465,5695,79,110,5706,76,107
-5158,LK Mettmann,Nordrhein-Westfalen,485570,13483,150,451,13511,150,451
-5162,LK Rhein-Kreis Neuss,Nordrhein-Westfalen,451730,10245,122,200,10203,117,198
-5166,LK Viersen,Nordrhein-Westfalen,298863,7258,89,201,7201,89,200
-5170,LK Wesel,Nordrhein-Westfalen,459976,10394,93,134,10336,98,134
-5314,SK Bonn,Nordrhein-Westfalen,329673,8254,88,123,8253,95,123
-5315,SK Köln,Nordrhein-Westfalen,1087863,29808,96,409,29808,93,409
-5316,SK Leverkusen,Nordrhein-Westfalen,163729,4197,121,55,4197,122,55
-5334,StadtRegion Aachen,Nordrhein-Westfalen,557026,16399,79,393,16387,85,393
-5358,LK Düren,Nordrhein-Westfalen,264638,8092,106,201,8071,107,201
-5362,LK Rhein-Erft-Kreis,Nordrhein-Westfalen,470615,10514,76,260,10494,78,259
-5366,LK Euskirchen,Nordrhein-Westfalen,193656,4548,83,153,4498,81,150
-5370,LK Heinsberg,Nordrhein-Westfalen,255555,7721,160,239,7359,122,236
-5374,LK Oberbergischer Kreis,Nordrhein-Westfalen,272057,7383,135,123,7383,132,123
-5378,LK Rheinisch-Bergischer Kreis,Nordrhein-Westfalen,283271,6459,90,96,6458,91,96
-5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,14113,84,299,13822,87,286
-5512,SK Bottrop,Nordrhein-Westfalen,117565,3489,146,53,3489,153,53
-5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,9105,149,251,9105,137,251
-5515,SK Münster,Nordrhein-Westfalen,315293,5053,43,89,5060,41,88
-5554,LK Borken,Nordrhein-Westfalen,371339,7839,75,167,7864,72,166
-5558,LK Coesfeld,Nordrhein-Westfalen,220586,3519,52,63,3490,54,54
-5562,LK Recklinghausen,Nordrhein-Westfalen,614137,19764,130,489,19630,134,480
-5566,LK Steinfurt,Nordrhein-Westfalen,448220,9400,80,216,9412,85,215
-5570,LK Warendorf,Nordrhein-Westfalen,277840,7437,109,150,7435,109,150
-5711,SK Bielefeld,Nordrhein-Westfalen,334195,9310,126,212,9293,118,206
-5754,LK Gütersloh,Nordrhein-Westfalen,364938,12318,92,213,12509,95,213
-5758,LK Herford,Nordrhein-Westfalen,250578,6566,107,102,6566,106,102
-5762,LK Höxter,Nordrhein-Westfalen,140251,3289,195,82,3285,201,80
-5766,LK Lippe,Nordrhein-Westfalen,347514,10190,117,218,10162,117,218
-5770,LK Minden-Lübbecke,Nordrhein-Westfalen,310409,9167,143,181,9147,145,177
-5774,LK Paderborn,Nordrhein-Westfalen,307839,5652,74,122,5605,63,121
-5911,SK Bochum,Nordrhein-Westfalen,365587,9500,88,119,9474,94,120
-5913,SK Dortmund,Nordrhein-Westfalen,588250,16518,98,233,16481,101,225
-5914,SK Hagen,Nordrhein-Westfalen,188686,6355,183,155,6353,182,155
-5915,SK Hamm,Nordrhein-Westfalen,179916,5997,139,139,5909,116,135
-5916,SK Herne,Nordrhein-Westfalen,156449,5617,143,126,5617,147,127
-5954,LK Ennepe-Ruhr-Kreis,Nordrhein-Westfalen,324106,7680,106,229,7714,105,225
-5958,LK Hochsauerlandkreis,Nordrhein-Westfalen,259777,4953,98,98,4955,98,98
-5962,LK Märkischer Kreis,Nordrhein-Westfalen,410222,9963,141,188,9865,143,188
-5966,LK Olpe,Nordrhein-Westfalen,133955,3263,102,116,3250,105,115
-5970,LK Siegen-Wittgenstein,Nordrhein-Westfalen,276944,5886,100,84,5889,100,84
-5974,LK Soest,Nordrhein-Westfalen,301785,4500,86,115,4485,81,109
-5978,LK Unna,Nordrhein-Westfalen,394891,11516,112,315,11544,123,306
-6411,SK Darmstadt,Hessen,159878,3488,101,96,3488,88,96
-6412,SK Frankfurt am Main,Hessen,763380,23877,80,470,23872,84,466
-6413,SK Offenbach,Hessen,130280,5196,118,112,5185,123,112
-6414,SK Wiesbaden,Hessen,278474,7866,78,156,7836,89,147
-6431,LK Bergstraße,Hessen,270340,6220,139,203,6110,135,189
-6432,LK Darmstadt-Dieburg,Hessen,297844,6755,114,184,6761,115,181
-6433,LK Groß-Gerau,Hessen,275726,8231,122,165,8231,124,165
-6434,LK Hochtaunuskreis,Hessen,236914,4701,89,123,4699,89,122
-6435,LK Main-Kinzig-Kreis,Hessen,420552,12979,97,342,12977,96,339
-6436,LK Main-Taunus-Kreis,Hessen,238558,5464,79,148,5274,75,123
-6437,LK Odenwaldkreis,Hessen,96703,2818,119,148,2818,120,148
-6438,LK Offenbach,Hessen,355813,11178,148,333,11178,149,320
-6439,LK Rheingau-Taunus-Kreis,Hessen,187160,4520,62,128,4512,62,122
-6440,LK Wetteraukreis,Hessen,308339,7709,177,333,7628,140,310
-6531,LK Gießen,Hessen,270688,7887,89,278,7878,95,257
-6532,LK Lahn-Dill-Kreis,Hessen,253319,5815,117,111,5820,117,102
-6533,LK Limburg-Weilburg,Hessen,171912,5169,126,178,5173,126,156
-6534,LK Marburg-Biedenkopf,Hessen,247084,6010,66,171,6061,69,171
-6535,LK Vogelsbergkreis,Hessen,105643,2251,112,80,2251,112,80
-6611,SK Kassel,Hessen,202137,4636,81,111,4623,80,111
-6631,LK Fulda,Hessen,223145,6952,272,168,6935,274,165
-6632,LK Hersfeld-Rotenburg,Hessen,120719,2861,145,96,2852,162,92
-6633,LK Kassel,Hessen,236764,4630,123,126,4618,124,125
-6634,LK Schwalm-Eder-Kreis,Hessen,179673,3976,109,159,3947,112,152
-6635,LK Waldeck-Frankenberg,Hessen,156406,3655,146,80,3657,146,77
-6636,LK Werra-Meißner-Kreis,Hessen,100629,1905,188,93,1835,191,84
-7111,SK Koblenz,Rheinland-Pfalz,114052,2674,135,84,2664,133,73
-7131,LK Ahrweiler,Rheinland-Pfalz,130086,2492,86,36,2477,73,36
-7132,LK Altenkirchen,Rheinland-Pfalz,128805,2086,68,44,2051,54,43
-7133,LK Bad Kreuznach,Rheinland-Pfalz,158345,3629,122,96,3623,118,94
-7134,LK Birkenfeld,Rheinland-Pfalz,80951,1798,317,52,1804,238,52
-7135,LK Cochem-Zell,Rheinland-Pfalz,61375,1291,147,22,1276,139,22
-7137,LK Mayen-Koblenz,Rheinland-Pfalz,214434,3923,133,105,3870,126,95
-7138,LK Neuwied,Rheinland-Pfalz,182811,4490,123,83,4480,123,81
-7140,LK Rhein-Hunsrück-Kreis,Rheinland-Pfalz,103163,2058,118,51,2035,127,47
-7141,LK Rhein-Lahn-Kreis,Rheinland-Pfalz,122297,2226,90,81,2220,89,79
-7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,3899,88,92,3842,93,91
-7211,SK Trier,Rheinland-Pfalz,111528,1652,51,20,1651,53,19
-7231,LK Bernkastel-Wittlich,Rheinland-Pfalz,112483,1848,56,50,1848,53,50
-7232,LK Bitburg-Prüm,Rheinland-Pfalz,99058,2051,47,19,2025,39,18
-7233,LK Vulkaneifel,Rheinland-Pfalz,60646,1188,58,42,1184,46,41
-7235,LK Trier-Saarburg,Rheinland-Pfalz,149398,2730,51,75,2727,54,74
-7311,SK Frankenthal,Rheinland-Pfalz,48762,1275,145,37,1265,127,36
-7312,SK Kaiserslautern,Rheinland-Pfalz,100030,2191,86,54,2208,94,50
-7313,SK Landau i.d.Pfalz,Rheinland-Pfalz,46881,955,149,24,880,149,16
-7314,SK Ludwigshafen,Rheinland-Pfalz,172253,6308,148,222,6287,154,214
-7315,SK Mainz,Rheinland-Pfalz,218578,6284,83,127,6278,86,127
-7316,SK Neustadt a.d.Weinstraße,Rheinland-Pfalz,53264,1068,124,22,1024,112,20
-7317,SK Pirmasens,Rheinland-Pfalz,40231,726,128,40,731,131,39
-7318,SK Speyer,Rheinland-Pfalz,50561,1885,75,44,1878,63,44
-7319,SK Worms,Rheinland-Pfalz,83542,2227,162,59,2220,159,56
-7320,SK Zweibrücken,Rheinland-Pfalz,34193,429,52,3,414,64,3
-7331,LK Alzey-Worms,Rheinland-Pfalz,129687,2977,108,93,2969,109,92
-7332,LK Bad Dürkheim,Rheinland-Pfalz,132671,2722,122,91,2738,121,91
-7333,LK Donnersbergkreis,Rheinland-Pfalz,75325,1401,102,40,1397,100,37
-7334,LK Germersheim,Rheinland-Pfalz,129013,2983,90,85,2981,90,83
-7335,LK Kaiserslautern,Rheinland-Pfalz,105979,2542,110,39,2445,110,37
-7336,LK Kusel,Rheinland-Pfalz,70219,1483,64,55,1484,61,54
-7337,LK Südliche Weinstraße,Rheinland-Pfalz,110521,2123,189,57,2144,182,55
-7338,LK Rhein-Pfalz-Kreis,Rheinland-Pfalz,154609,4170,110,147,4160,112,147
-7339,LK Mainz-Bingen,Rheinland-Pfalz,211417,4631,109,130,4623,113,125
-7340,LK Südwestpfalz,Rheinland-Pfalz,94831,1495,67,48,1543,57,46
-8111,SK Stuttgart,Baden-Württemberg,635911,17224,85,248,17118,89,252
-8115,LK Böblingen,Baden-Württemberg,392807,10166,99,153,10215,70,161
-8116,LK Esslingen,Baden-Württemberg,535024,15293,93,351,14954,87,354
-8117,LK Göppingen,Baden-Württemberg,258145,6742,74,145,6741,82,143
-8118,LK Ludwigsburg,Baden-Württemberg,545423,15780,93,333,15764,96,321
-8119,LK Rems-Murr-Kreis,Baden-Württemberg,427248,11994,100,270,11921,90,267
-8121,SK Heilbronn,Baden-Württemberg,126592,5111,164,92,5110,163,92
-8125,LK Heilbronn,Baden-Württemberg,344456,8841,67,152,8780,72,149
-8126,LK Hohenlohekreis,Baden-Württemberg,112655,2652,45,89,2661,43,91
-8127,LK Schwäbisch Hall,Baden-Württemberg,196761,4667,70,131,4460,71,129
-8128,LK Main-Tauber-Kreis,Baden-Württemberg,132399,2864,130,44,2862,128,43
-8135,LK Heidenheim,Baden-Württemberg,132777,3055,54,123,3050,49,121
-8136,LK Ostalbkreis,Baden-Württemberg,314025,8778,127,187,8627,128,187
-8211,SK Baden-Baden,Baden-Württemberg,55185,1168,56,47,1161,61,45
-8212,SK Karlsruhe,Baden-Württemberg,312060,5867,71,131,5781,72,128
-8215,LK Karlsruhe,Baden-Württemberg,445101,10499,88,341,10323,86,338
-8216,LK Rastatt,Baden-Württemberg,231420,5084,64,108,5037,60,105
-8221,SK Heidelberg,Baden-Württemberg,161485,3549,60,47,3546,50,46
-8222,SK Mannheim,Baden-Württemberg,310658,9768,123,213,9762,126,209
-8225,LK Neckar-Odenwald-Kreis,Baden-Württemberg,143633,3880,149,109,3875,149,109
-8226,LK Rhein-Neckar-Kreis,Baden-Württemberg,548355,13603,92,296,13669,89,282
-8231,SK Pforzheim,Baden-Württemberg,125957,4895,167,106,4817,157,89
-8235,LK Calw,Baden-Württemberg,159201,5138,81,129,5102,97,133
-8236,LK Enzkreis,Baden-Württemberg,199556,5897,90,167,5923,98,168
-8237,LK Freudenstadt,Baden-Württemberg,118243,3132,70,105,3110,81,105
-8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,4959,76,125,4927,77,123
-8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,5560,59,140,5522,63,136
-8316,LK Emmendingen,Baden-Württemberg,166408,3954,64,122,3947,61,122
-8317,LK Ortenaukreis,Baden-Württemberg,430953,11204,133,359,11158,122,350
-8325,LK Rottweil,Baden-Württemberg,139878,4549,150,127,4533,109,126
-8326,LK Schwarzwald-Baar-Kreis,Baden-Württemberg,212506,5558,69,153,5550,71,152
-8327,LK Tuttlingen,Baden-Württemberg,140766,4228,143,99,4224,153,98
-8335,LK Konstanz,Baden-Württemberg,286305,6097,93,198,6024,79,196
-8336,LK Lörrach,Baden-Württemberg,228736,6685,89,202,6675,95,202
-8337,LK Waldshut,Baden-Württemberg,171003,4508,125,139,4296,128,132
-8415,LK Reutlingen,Baden-Württemberg,287034,8265,87,196,8270,99,184
-8416,LK Tübingen,Baden-Württemberg,228678,5804,52,146,5737,46,145
-8417,LK Zollernalbkreis,Baden-Württemberg,189363,4918,92,130,4914,94,128
-8421,SK Ulm,Baden-Württemberg,126790,3184,73,48,3170,75,46
-8425,LK Alb-Donau-Kreis,Baden-Württemberg,197076,4926,123,112,4845,121,110
-8426,LK Biberach,Baden-Württemberg,201282,4208,73,94,4195,72,92
-8435,LK Bodenseekreis,Baden-Württemberg,217470,4214,97,108,4227,105,100
-8436,LK Ravensburg,Baden-Württemberg,285424,6040,157,81,5906,136,70
-8437,LK Sigmaringen,Baden-Württemberg,130849,2677,90,55,2652,82,54
-9161,SK Ingolstadt,Bayern,137392,3895,94,83,3866,79,82
-9162,SK München,Bayern,1484226,50746,80,776,50724,81,772
-9163,SK Rosenheim,Bayern,63551,2688,127,49,2688,126,49
-9171,LK Altötting,Bayern,111516,3444,128,143,3437,123,136
-9172,LK Berchtesgadener Land,Bayern,105929,3727,214,82,3727,215,82
-9173,LK Bad Tölz-Wolfratshausen,Bayern,127917,3142,120,37,3142,122,37
-9174,LK Dachau,Bayern,154899,5408,99,102,5351,88,88
-9175,LK Ebersberg,Bayern,143649,4393,137,113,4390,121,110
-9176,LK Eichstätt,Bayern,132881,3124,94,61,3124,90,61
-9177,LK Erding,Bayern,138182,4892,119,65,4678,82,62
-9178,LK Freising,Bayern,180007,5039,61,90,5157,113,86
-9179,LK Fürstenfeldbruck,Bayern,219311,6572,72,101,6479,69,102
-9180,LK Garmisch-Partenkirchen,Bayern,88424,2528,135,65,2245,121,60
-9181,LK Landsberg a.Lech,Bayern,120302,2676,59,35,2676,55,35
-9182,LK Miesbach,Bayern,100010,2915,70,41,2912,70,41
-9183,LK Mühldorf a.Inn,Bayern,115872,3990,177,100,3999,169,99
-9184,LK München,Bayern,350473,10206,55,164,10507,116,158
-9185,LK Neuburg-Schrobenhausen,Bayern,97303,2622,99,58,2557,84,58
-9186,LK Pfaffenhofen a.d.Ilm,Bayern,128227,3556,68,139,3556,67,139
-9187,LK Rosenheim,Bayern,261330,9834,113,385,9834,115,385
-9188,LK Starnberg,Bayern,136667,3411,75,96,3412,79,60
-9189,LK Traunstein,Bayern,177319,6730,131,174,6727,132,174
-9190,LK Weilheim-Schongau,Bayern,135478,2941,60,42,2927,52,40
-9261,SK Landshut,Bayern,73411,2438,173,53,2438,162,53
-9262,SK Passau,Bayern,52803,2399,173,93,2394,179,89
-9263,SK Straubing,Bayern,47791,1427,69,68,1426,73,67
-9271,LK Deggendorf,Bayern,119478,3822,186,104,3819,181,104
-9272,LK Freyung-Grafenau,Bayern,78362,3123,150,84,3123,145,84
-9273,LK Kelheim,Bayern,123058,3021,93,69,2950,97,70
-9274,LK Landshut,Bayern,159895,4688,92,133,4688,96,133
-9275,LK Passau,Bayern,192656,8729,228,239,8688,225,218
-9276,LK Regen,Bayern,77410,3705,225,126,3713,223,122
-9277,LK Rottal-Inn,Bayern,121502,4608,147,117,4597,157,116
-9278,LK Straubing-Bogen,Bayern,101120,3128,133,103,3127,141,103
-9279,LK Dingolfing-Landau,Bayern,96683,2988,76,70,2988,73,70
-9361,SK Amberg,Bayern,42207,772,84,8,772,85,8
-9362,SK Regensburg,Bayern,153094,4052,55,50,4052,59,50
-9363,SK Weiden i.d.OPf.,Bayern,42743,1688,127,50,1688,140,50
-9371,LK Amberg-Sulzbach,Bayern,103049,2620,56,104,2620,58,104
-9372,LK Cham,Bayern,127998,3210,113,100,3210,113,100
-9373,LK Neumarkt i.d.OPf.,Bayern,134573,3928,98,102,3659,68,97
-9374,LK Neustadt a.d.Waldnaab,Bayern,94450,3323,193,120,3323,175,120
-9375,LK Regensburg,Bayern,194070,4432,55,81,4433,60,81
-9376,LK Schwandorf,Bayern,147872,4071,117,98,4066,95,97
-9377,LK Tirschenreuth,Bayern,72046,3170,240,193,3184,242,190
-9461,SK Bamberg,Bayern,77373,1580,69,63,1580,50,63
-9462,SK Bayreuth,Bayern,74783,1876,140,55,1847,142,56
-9463,SK Coburg,Bayern,41072,1446,217,68,1446,202,66
-9464,SK Hof,Bayern,45825,1753,193,62,1753,157,62
-9471,LK Bamberg,Bayern,147163,3248,109,101,3248,94,101
-9472,LK Bayreuth,Bayern,103664,2730,166,97,2747,161,91
-9473,LK Coburg,Bayern,86747,3020,132,127,3013,149,126
-9474,LK Forchheim,Bayern,116203,2935,112,81,2858,72,79
-9475,LK Hof,Bayern,94801,2987,174,93,2987,191,93
-9476,LK Kronach,Bayern,66743,1982,107,51,1975,106,48
-9477,LK Kulmbach,Bayern,71566,1909,139,77,1908,138,73
-9478,LK Lichtenfels,Bayern,66776,1935,132,50,1915,107,47
-9479,LK Wunsiedel i.Fichtelgebirge,Bayern,72655,2738,291,114,2732,305,110
-9561,SK Ansbach,Bayern,41798,1078,244,22,1059,196,20
-9562,SK Erlangen,Bayern,112528,2578,92,70,2578,90,70
-9563,SK Fürth,Bayern,128497,4523,203,143,4507,197,140
-9564,SK Nürnberg,Bayern,518370,21209,184,418,21209,161,413
-9565,SK Schwabach,Bayern,40981,1444,106,86,1436,85,86
-9571,LK Ansbach,Bayern,184591,4246,119,104,4193,97,97
-9572,LK Erlangen-Höchstadt,Bayern,137262,3276,92,97,3276,93,97
-9573,LK Fürth,Bayern,117853,3401,115,146,3396,115,148
-9574,LK Nürnberger Land,Bayern,170792,4310,51,150,4303,54,138
-9575,LK Neustadt a.d.Aisch-Bad Windsheim,Bayern,101014,2332,108,48,2248,107,51
-9576,LK Roth,Bayern,126749,3722,118,113,3701,112,111
-9577,LK Weißenburg-Gunzenhausen,Bayern,94734,2420,103,75,2420,106,75
-9661,SK Aschaffenburg,Bayern,71002,1885,189,67,1885,181,67
-9662,SK Schweinfurt,Bayern,53426,1436,71,50,1436,69,50
-9663,SK Würzburg,Bayern,127934,2689,89,81,2689,88,81
-9671,LK Aschaffenburg,Bayern,174200,5149,189,148,5149,192,148
+3103,SK Wolfsburg,Niedersachsen,124371,1774,71,65,1771,71,65
+3151,LK Gifhorn,Niedersachsen,176523,3221,120,89,3221,116,89
+3153,LK Goslar,Niedersachsen,136292,1323,50,71,1327,53,54
+3154,LK Helmstedt,Niedersachsen,91297,1237,151,45,1234,149,46
+3155,LK Northeim,Niedersachsen,132285,1291,55,19,1269,50,18
+3157,LK Peine,Niedersachsen,134801,2407,107,49,2402,108,37
+3158,LK Wolfenbüttel,Niedersachsen,119622,1341,51,49,1336,51,48
+3159,LK Göttingen,Niedersachsen,326041,4711,53,155,4642,67,155
+3241,Region Hannover,Niedersachsen,1157115,25365,140,538,25236,134,535
+3251,LK Diepholz,Niedersachsen,217089,4003,71,73,3994,72,70
+3252,LK Hameln-Pyrmont,Niedersachsen,148549,2296,135,49,2281,133,46
+3254,LK Hildesheim,Niedersachsen,275817,5046,125,153,5006,117,159
+3255,LK Holzminden,Niedersachsen,70458,826,100,32,826,103,31
+3256,LK Nienburg (Weser),Niedersachsen,121390,1877,196,48,1877,197,47
+3257,LK Schaumburg,Niedersachsen,157820,2428,107,32,2434,109,32
+3351,LK Celle,Niedersachsen,179011,2245,66,38,2251,67,38
+3352,LK Cuxhaven,Niedersachsen,198038,2363,71,77,2338,72,72
+3353,LK Harburg,Niedersachsen,254431,3658,59,62,3660,60,62
+3354,LK Lüchow-Dannenberg,Niedersachsen,48412,441,43,14,442,43,13
+3355,LK Lüneburg,Niedersachsen,184139,1656,35,36,1656,35,35
+3356,LK Osterholz,Niedersachsen,113928,1567,70,40,1572,66,40
+3357,LK Rotenburg (Wümme),Niedersachsen,163782,2173,42,62,2195,48,64
+3358,LK Heidekreis,Niedersachsen,140673,2012,67,69,2012,62,69
+3359,LK Stade,Niedersachsen,204512,2592,85,68,2600,89,74
+3360,LK Uelzen,Niedersachsen,92389,818,150,16,815,148,14
+3361,LK Verden,Niedersachsen,137133,2463,41,34,2466,42,35
+3401,SK Delmenhorst,Niedersachsen,77559,2020,52,43,2026,55,43
+3402,SK Emden,Niedersachsen,49913,490,36,6,493,35,6
+3403,SK Oldenburg,Niedersachsen,169077,2368,43,34,2232,41,33
+3404,SK Osnabrück,Niedersachsen,165251,3892,75,72,3882,70,70
+3405,SK Wilhelmshaven,Niedersachsen,76089,897,100,35,896,70,35
+3451,LK Ammerland,Niedersachsen,124859,1627,47,25,1618,47,24
+3452,LK Aurich,Niedersachsen,189694,1861,30,24,1850,32,25
+3453,LK Cloppenburg,Niedersachsen,170682,6196,153,87,6200,139,85
+3454,LK Emsland,Niedersachsen,326954,6386,97,108,6389,89,106
+3455,LK Friesland,Niedersachsen,98704,938,26,28,938,37,28
+3456,LK Grafschaft Bentheim,Niedersachsen,137162,3092,69,73,3094,72,75
+3457,LK Leer,Niedersachsen,170756,1553,51,21,1556,52,21
+3458,LK Oldenburg,Niedersachsen,130890,3101,76,80,2988,89,88
+3459,LK Osnabrück,Niedersachsen,358080,9861,93,239,9754,105,219
+3460,LK Vechta,Niedersachsen,142814,4702,52,66,4700,52,62
+3461,LK Wesermarsch,Niedersachsen,88583,1346,173,27,1334,187,28
+3462,LK Wittmund,Niedersachsen,56926,689,79,19,690,85,19
+4011,SK Bremen,Bremen,567559,13816,71,224,13816,73,224
+4012,SK Bremerhaven,Bremen,113643,1641,70,31,1651,80,31
+5111,SK Düsseldorf,Nordrhein-Westfalen,621877,15578,90,174,15478,89,181
+5112,SK Duisburg,Nordrhein-Westfalen,498686,17400,101,456,17446,98,459
+5113,SK Essen,Nordrhein-Westfalen,582760,15791,116,325,15962,129,315
+5114,SK Krefeld,Nordrhein-Westfalen,227417,6458,127,99,6478,138,101
+5116,SK Mönchengladbach,Nordrhein-Westfalen,261034,6843,104,162,6870,107,162
+5117,SK Mülheim a.d.Ruhr,Nordrhein-Westfalen,170632,5082,103,154,5053,96,155
+5119,SK Oberhausen,Nordrhein-Westfalen,210764,6585,123,207,6608,143,213
+5120,SK Remscheid,Nordrhein-Westfalen,111338,3284,91,119,3287,97,121
+5122,SK Solingen,Nordrhein-Westfalen,159245,5506,102,122,5505,103,122
+5124,SK Wuppertal,Nordrhein-Westfalen,355100,11582,131,307,11435,122,305
+5154,LK Kleve,Nordrhein-Westfalen,312465,5695,79,110,5725,78,110
+5158,LK Mettmann,Nordrhein-Westfalen,485570,13483,148,451,13563,141,456
+5162,LK Rhein-Kreis Neuss,Nordrhein-Westfalen,451730,10245,122,200,10243,122,200
+5166,LK Viersen,Nordrhein-Westfalen,298863,7258,88,201,7233,89,206
+5170,LK Wesel,Nordrhein-Westfalen,459976,10394,93,134,10352,93,136
+5314,SK Bonn,Nordrhein-Westfalen,329673,8254,91,123,8253,103,123
+5315,SK Köln,Nordrhein-Westfalen,1087863,29808,95,409,29860,92,417
+5316,SK Leverkusen,Nordrhein-Westfalen,163729,4197,121,55,4216,119,57
+5334,StadtRegion Aachen,Nordrhein-Westfalen,557026,16399,80,393,16409,85,398
+5358,LK Düren,Nordrhein-Westfalen,264638,8092,107,201,8097,100,201
+5362,LK Rhein-Erft-Kreis,Nordrhein-Westfalen,470615,10514,74,260,10517,76,260
+5366,LK Euskirchen,Nordrhein-Westfalen,193656,4548,84,153,4516,86,153
+5370,LK Heinsberg,Nordrhein-Westfalen,255555,7721,154,239,7437,124,239
+5374,LK Oberbergischer Kreis,Nordrhein-Westfalen,272057,7383,135,123,7410,129,126
+5378,LK Rheinisch-Bergischer Kreis,Nordrhein-Westfalen,283271,6459,87,96,6467,86,96
+5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,14113,84,299,13866,83,294
+5512,SK Bottrop,Nordrhein-Westfalen,117565,3489,146,53,3493,153,54
+5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,9105,149,251,9172,142,253
+5515,SK Münster,Nordrhein-Westfalen,315293,5053,42,89,5062,42,89
+5554,LK Borken,Nordrhein-Westfalen,371339,7839,75,167,7865,69,168
+5558,LK Coesfeld,Nordrhein-Westfalen,220586,3519,52,63,3495,54,54
+5562,LK Recklinghausen,Nordrhein-Westfalen,614137,19764,130,489,19656,129,492
+5566,LK Steinfurt,Nordrhein-Westfalen,448220,9400,79,216,9464,84,219
+5570,LK Warendorf,Nordrhein-Westfalen,277840,7437,109,150,7453,110,155
+5711,SK Bielefeld,Nordrhein-Westfalen,334195,9310,127,212,9306,128,212
+5754,LK Gütersloh,Nordrhein-Westfalen,364938,12318,92,213,12515,94,219
+5758,LK Herford,Nordrhein-Westfalen,250578,6566,107,102,6580,108,105
+5762,LK Höxter,Nordrhein-Westfalen,140251,3289,196,82,3293,196,83
+5766,LK Lippe,Nordrhein-Westfalen,347514,10190,117,218,10221,118,221
+5770,LK Minden-Lübbecke,Nordrhein-Westfalen,310409,9167,141,181,9176,143,181
+5774,LK Paderborn,Nordrhein-Westfalen,307839,5652,71,122,5628,69,123
+5911,SK Bochum,Nordrhein-Westfalen,365587,9500,88,119,9510,94,122
+5913,SK Dortmund,Nordrhein-Westfalen,588250,16518,98,233,16522,99,233
+5914,SK Hagen,Nordrhein-Westfalen,188686,6355,184,155,6380,183,159
+5915,SK Hamm,Nordrhein-Westfalen,179916,5997,133,139,5962,109,135
+5916,SK Herne,Nordrhein-Westfalen,156449,5617,145,126,5623,149,131
+5954,LK Ennepe-Ruhr-Kreis,Nordrhein-Westfalen,324106,7680,105,229,7732,101,227
+5958,LK Hochsauerlandkreis,Nordrhein-Westfalen,259777,4953,96,98,4975,96,98
+5962,LK Märkischer Kreis,Nordrhein-Westfalen,410222,9963,146,188,9880,141,192
+5966,LK Olpe,Nordrhein-Westfalen,133955,3263,101,116,3263,105,116
+5970,LK Siegen-Wittgenstein,Nordrhein-Westfalen,276944,5886,100,84,5907,102,92
+5974,LK Soest,Nordrhein-Westfalen,301785,4500,85,115,4498,83,111
+5978,LK Unna,Nordrhein-Westfalen,394891,11516,116,315,11565,123,311
+6411,SK Darmstadt,Hessen,159878,3488,98,96,3491,85,97
+6412,SK Frankfurt am Main,Hessen,763380,23877,79,470,23882,78,471
+6413,SK Offenbach,Hessen,130280,5196,119,112,5188,125,113
+6414,SK Wiesbaden,Hessen,278474,7866,78,156,7852,83,148
+6431,LK Bergstraße,Hessen,270340,6220,137,203,6110,137,189
+6432,LK Darmstadt-Dieburg,Hessen,297844,6755,114,184,6772,113,183
+6433,LK Groß-Gerau,Hessen,275726,8231,123,165,8258,125,169
+6434,LK Hochtaunuskreis,Hessen,236914,4701,88,123,4701,87,123
+6435,LK Main-Kinzig-Kreis,Hessen,420552,12979,97,342,13009,96,353
+6436,LK Main-Taunus-Kreis,Hessen,238558,5464,76,148,5285,74,127
+6437,LK Odenwaldkreis,Hessen,96703,2818,120,148,2822,124,149
+6438,LK Offenbach,Hessen,355813,11178,148,333,11204,145,326
+6439,LK Rheingau-Taunus-Kreis,Hessen,187160,4520,62,128,4526,63,123
+6440,LK Wetteraukreis,Hessen,308339,7709,166,333,7640,123,320
+6531,LK Gießen,Hessen,270688,7887,89,278,7861,95,263
+6532,LK Lahn-Dill-Kreis,Hessen,253319,5815,117,111,5823,116,106
+6533,LK Limburg-Weilburg,Hessen,171912,5169,126,178,5183,124,158
+6534,LK Marburg-Biedenkopf,Hessen,247084,6010,66,171,6062,69,175
+6535,LK Vogelsbergkreis,Hessen,105643,2251,111,80,2251,108,80
+6611,SK Kassel,Hessen,202137,4636,80,111,4629,77,111
+6631,LK Fulda,Hessen,223145,6952,272,168,6958,283,168
+6632,LK Hersfeld-Rotenburg,Hessen,120719,2861,145,96,2852,147,92
+6633,LK Kassel,Hessen,236764,4630,121,126,4627,115,131
+6634,LK Schwalm-Eder-Kreis,Hessen,179673,3976,111,159,3950,120,157
+6635,LK Waldeck-Frankenberg,Hessen,156406,3655,144,80,3671,145,77
+6636,LK Werra-Meißner-Kreis,Hessen,100629,1905,190,93,1845,194,85
+7111,SK Koblenz,Rheinland-Pfalz,114052,2674,135,84,2686,133,73
+7131,LK Ahrweiler,Rheinland-Pfalz,130086,2492,87,36,2516,79,36
+7132,LK Altenkirchen,Rheinland-Pfalz,128805,2086,68,44,2079,65,46
+7133,LK Bad Kreuznach,Rheinland-Pfalz,158345,3629,119,96,3629,122,96
+7134,LK Birkenfeld,Rheinland-Pfalz,80951,1798,326,52,1804,227,52
+7135,LK Cochem-Zell,Rheinland-Pfalz,61375,1291,148,22,1287,144,22
+7137,LK Mayen-Koblenz,Rheinland-Pfalz,214434,3923,133,105,3919,140,98
+7138,LK Neuwied,Rheinland-Pfalz,182811,4490,124,83,4491,120,81
+7140,LK Rhein-Hunsrück-Kreis,Rheinland-Pfalz,103163,2058,117,51,2041,104,49
+7141,LK Rhein-Lahn-Kreis,Rheinland-Pfalz,122297,2226,91,81,2227,89,81
+7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,3899,90,92,3872,90,93
+7211,SK Trier,Rheinland-Pfalz,111528,1652,51,20,1651,51,19
+7231,LK Bernkastel-Wittlich,Rheinland-Pfalz,112483,1848,56,50,1848,56,50
+7232,LK Bitburg-Prüm,Rheinland-Pfalz,99058,2051,48,19,2035,47,18
+7233,LK Vulkaneifel,Rheinland-Pfalz,60646,1188,59,42,1189,56,42
+7235,LK Trier-Saarburg,Rheinland-Pfalz,149398,2730,50,75,2727,50,74
+7311,SK Frankenthal,Rheinland-Pfalz,48762,1275,148,37,1275,131,37
+7312,SK Kaiserslautern,Rheinland-Pfalz,100030,2191,85,54,2229,94,50
+7313,SK Landau i.d.Pfalz,Rheinland-Pfalz,46881,955,153,24,887,159,17
+7314,SK Ludwigshafen,Rheinland-Pfalz,172253,6308,140,222,6308,135,222
+7315,SK Mainz,Rheinland-Pfalz,218578,6284,83,127,6285,81,127
+7316,SK Neustadt a.d.Weinstraße,Rheinland-Pfalz,53264,1068,121,22,1026,105,21
+7317,SK Pirmasens,Rheinland-Pfalz,40231,726,126,40,731,125,39
+7318,SK Speyer,Rheinland-Pfalz,50561,1885,77,44,1885,65,44
+7319,SK Worms,Rheinland-Pfalz,83542,2227,159,59,2227,155,59
+7320,SK Zweibrücken,Rheinland-Pfalz,34193,429,51,3,414,58,3
+7331,LK Alzey-Worms,Rheinland-Pfalz,129687,2977,109,93,2981,110,93
+7332,LK Bad Dürkheim,Rheinland-Pfalz,132671,2722,121,91,2744,123,93
+7333,LK Donnersbergkreis,Rheinland-Pfalz,75325,1401,101,40,1402,100,37
+7334,LK Germersheim,Rheinland-Pfalz,129013,2983,89,85,2979,88,85
+7335,LK Kaiserslautern,Rheinland-Pfalz,105979,2542,106,39,2456,109,37
+7336,LK Kusel,Rheinland-Pfalz,70219,1483,64,55,1485,63,55
+7337,LK Südliche Weinstraße,Rheinland-Pfalz,110521,2123,186,57,2168,196,58
+7338,LK Rhein-Pfalz-Kreis,Rheinland-Pfalz,154609,4170,107,147,4171,105,147
+7339,LK Mainz-Bingen,Rheinland-Pfalz,211417,4631,109,130,4632,108,130
+7340,LK Südwestpfalz,Rheinland-Pfalz,94831,1495,67,48,1544,62,46
+8111,SK Stuttgart,Baden-Württemberg,635911,17224,83,248,17142,86,253
+8115,LK Böblingen,Baden-Württemberg,392807,10166,94,153,10227,71,163
+8116,LK Esslingen,Baden-Württemberg,535024,15293,93,351,15001,90,361
+8117,LK Göppingen,Baden-Württemberg,258145,6742,73,145,6751,76,144
+8118,LK Ludwigsburg,Baden-Württemberg,545423,15780,92,333,15787,85,334
+8119,LK Rems-Murr-Kreis,Baden-Württemberg,427248,11994,99,270,11945,88,270
+8121,SK Heilbronn,Baden-Württemberg,126592,5111,163,92,5111,163,92
+8125,LK Heilbronn,Baden-Württemberg,344456,8841,68,152,8800,73,151
+8126,LK Hohenlohekreis,Baden-Württemberg,112655,2652,44,89,2662,43,91
+8127,LK Schwäbisch Hall,Baden-Württemberg,196761,4667,69,131,4468,68,131
+8128,LK Main-Tauber-Kreis,Baden-Württemberg,132399,2864,130,44,2864,129,44
+8135,LK Heidenheim,Baden-Württemberg,132777,3055,55,123,3053,56,122
+8136,LK Ostalbkreis,Baden-Württemberg,314025,8778,127,187,8654,128,199
+8211,SK Baden-Baden,Baden-Württemberg,55185,1168,53,47,1161,50,45
+8212,SK Karlsruhe,Baden-Württemberg,312060,5867,71,131,5787,70,131
+8215,LK Karlsruhe,Baden-Württemberg,445101,10499,89,341,10336,89,341
+8216,LK Rastatt,Baden-Württemberg,231420,5084,63,108,5038,59,105
+8221,SK Heidelberg,Baden-Württemberg,161485,3549,60,47,3547,56,46
+8222,SK Mannheim,Baden-Württemberg,310658,9768,122,213,9775,123,212
+8225,LK Neckar-Odenwald-Kreis,Baden-Württemberg,143633,3880,149,109,3879,148,113
+8226,LK Rhein-Neckar-Kreis,Baden-Württemberg,548355,13603,91,296,13686,92,287
+8231,SK Pforzheim,Baden-Württemberg,125957,4895,161,106,4829,155,93
+8235,LK Calw,Baden-Württemberg,159201,5138,67,129,5106,95,136
+8236,LK Enzkreis,Baden-Württemberg,199556,5897,89,167,5921,93,169
+8237,LK Freudenstadt,Baden-Württemberg,118243,3132,69,105,3113,78,105
+8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,4959,75,125,4936,73,123
+8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,5560,59,140,5532,57,136
+8316,LK Emmendingen,Baden-Württemberg,166408,3954,64,122,3947,55,122
+8317,LK Ortenaukreis,Baden-Württemberg,430953,11204,135,359,11205,125,359
+8325,LK Rottweil,Baden-Württemberg,139878,4549,148,127,4533,104,126
+8326,LK Schwarzwald-Baar-Kreis,Baden-Württemberg,212506,5558,69,153,5557,73,152
+8327,LK Tuttlingen,Baden-Württemberg,140766,4228,143,99,4230,142,100
+8335,LK Konstanz,Baden-Württemberg,286305,6097,88,198,6036,78,197
+8336,LK Lörrach,Baden-Württemberg,228736,6685,89,202,6689,91,202
+8337,LK Waldshut,Baden-Württemberg,171003,4508,128,139,4312,124,133
+8415,LK Reutlingen,Baden-Württemberg,287034,8265,86,196,8286,91,187
+8416,LK Tübingen,Baden-Württemberg,228678,5804,52,146,5745,49,145
+8417,LK Zollernalbkreis,Baden-Württemberg,189363,4918,92,130,4918,93,130
+8421,SK Ulm,Baden-Württemberg,126790,3184,74,48,3174,80,47
+8425,LK Alb-Donau-Kreis,Baden-Württemberg,197076,4926,122,112,4848,122,112
+8426,LK Biberach,Baden-Württemberg,201282,4208,70,94,4207,69,93
+8435,LK Bodenseekreis,Baden-Württemberg,217470,4214,95,108,4237,96,101
+8436,LK Ravensburg,Baden-Württemberg,285424,6040,147,81,5920,128,71
+8437,LK Sigmaringen,Baden-Württemberg,130849,2677,90,55,2660,83,54
+9161,SK Ingolstadt,Bayern,137392,3895,93,83,3896,93,83
+9162,SK München,Bayern,1484226,50746,80,776,50790,79,785
+9163,SK Rosenheim,Bayern,63551,2688,127,49,2688,128,49
+9171,LK Altötting,Bayern,111516,3444,126,143,3437,127,136
+9172,LK Berchtesgadener Land,Bayern,105929,3727,217,82,3735,214,83
+9173,LK Bad Tölz-Wolfratshausen,Bayern,127917,3142,121,37,3144,123,37
+9174,LK Dachau,Bayern,154899,5408,100,102,5351,96,88
+9175,LK Ebersberg,Bayern,143649,4393,132,113,4394,120,116
+9176,LK Eichstätt,Bayern,132881,3124,95,61,3124,95,61
+9177,LK Erding,Bayern,138182,4892,112,65,4730,113,65
+9178,LK Freising,Bayern,180007,5039,51,90,5162,103,86
+9179,LK Fürstenfeldbruck,Bayern,219311,6572,70,101,6487,71,102
+9180,LK Garmisch-Partenkirchen,Bayern,88424,2528,136,65,2253,119,63
+9181,LK Landsberg a.Lech,Bayern,120302,2676,59,35,2676,57,35
+9182,LK Miesbach,Bayern,100010,2915,69,41,2914,69,43
+9183,LK Mühldorf a.Inn,Bayern,115872,3990,178,100,4009,174,99
+9184,LK München,Bayern,350473,10206,48,164,10506,107,159
+9185,LK Neuburg-Schrobenhausen,Bayern,97303,2622,98,58,2558,87,58
+9186,LK Pfaffenhofen a.d.Ilm,Bayern,128227,3556,65,139,3561,59,139
+9187,LK Rosenheim,Bayern,261330,9834,114,385,9837,117,386
+9188,LK Starnberg,Bayern,136667,3411,74,96,3409,72,63
+9189,LK Traunstein,Bayern,177319,6730,131,174,6734,135,174
+9190,LK Weilheim-Schongau,Bayern,135478,2941,54,42,2928,49,40
+9261,SK Landshut,Bayern,73411,2438,157,53,2441,118,56
+9262,SK Passau,Bayern,52803,2399,173,93,2400,174,91
+9263,SK Straubing,Bayern,47791,1427,71,68,1430,73,67
+9271,LK Deggendorf,Bayern,119478,3822,188,104,3822,185,103
+9272,LK Freyung-Grafenau,Bayern,78362,3123,149,84,3127,154,85
+9273,LK Kelheim,Bayern,123058,3021,92,69,2962,99,72
+9274,LK Landshut,Bayern,159895,4688,93,133,4688,103,133
+9275,LK Passau,Bayern,192656,8729,231,239,8704,226,222
+9276,LK Regen,Bayern,77410,3705,222,126,3713,219,124
+9277,LK Rottal-Inn,Bayern,121502,4608,148,117,4598,148,119
+9278,LK Straubing-Bogen,Bayern,101120,3128,134,103,3130,132,103
+9279,LK Dingolfing-Landau,Bayern,96683,2988,76,70,2997,76,70
+9361,SK Amberg,Bayern,42207,772,87,8,777,97,8
+9362,SK Regensburg,Bayern,153094,4052,55,50,4052,56,50
+9363,SK Weiden i.d.OPf.,Bayern,42743,1688,130,50,1688,139,50
+9371,LK Amberg-Sulzbach,Bayern,103049,2620,56,104,2623,53,104
+9372,LK Cham,Bayern,127998,3210,105,100,3217,113,100
+9373,LK Neumarkt i.d.OPf.,Bayern,134573,3928,89,102,3666,70,98
+9374,LK Neustadt a.d.Waldnaab,Bayern,94450,3323,187,120,3323,171,120
+9375,LK Regensburg,Bayern,194070,4432,53,81,4433,53,81
+9376,LK Schwandorf,Bayern,147872,4071,116,98,4070,95,98
+9377,LK Tirschenreuth,Bayern,72046,3170,241,193,3185,253,190
+9461,SK Bamberg,Bayern,77373,1580,69,63,1583,48,64
+9462,SK Bayreuth,Bayern,74783,1876,144,55,1859,153,56
+9463,SK Coburg,Bayern,41072,1446,215,68,1446,220,68
+9464,SK Hof,Bayern,45825,1753,183,62,1762,185,62
+9471,LK Bamberg,Bayern,147163,3248,111,101,3275,107,102
+9472,LK Bayreuth,Bayern,103664,2730,168,97,2753,164,91
+9473,LK Coburg,Bayern,86747,3020,130,127,3020,133,127
+9474,LK Forchheim,Bayern,116203,2935,104,81,2883,89,80
+9475,LK Hof,Bayern,94801,2987,183,93,2982,196,94
+9476,LK Kronach,Bayern,66743,1982,109,51,1981,107,50
+9477,LK Kulmbach,Bayern,71566,1909,137,77,1909,140,77
+9478,LK Lichtenfels,Bayern,66776,1935,126,50,1916,107,51
+9479,LK Wunsiedel i.Fichtelgebirge,Bayern,72655,2738,291,114,2740,294,114
+9561,SK Ansbach,Bayern,41798,1078,216,22,1074,174,20
+9562,SK Erlangen,Bayern,112528,2578,91,70,2578,85,70
+9563,SK Fürth,Bayern,128497,4523,195,143,4507,172,140
+9564,SK Nürnberg,Bayern,518370,21209,187,418,21347,170,418
+9565,SK Schwabach,Bayern,40981,1444,104,86,1444,94,86
+9571,LK Ansbach,Bayern,184591,4246,114,104,4209,90,100
+9572,LK Erlangen-Höchstadt,Bayern,137262,3276,90,97,3276,86,97
+9573,LK Fürth,Bayern,117853,3401,115,146,3396,113,148
+9574,LK Nürnberger Land,Bayern,170792,4310,49,150,4310,52,139
+9575,LK Neustadt a.d.Aisch-Bad Windsheim,Bayern,101014,2332,108,48,2267,111,49
+9576,LK Roth,Bayern,126749,3722,119,113,3722,121,111
+9577,LK Weißenburg-Gunzenhausen,Bayern,94734,2420,101,75,2422,100,76
+9661,SK Aschaffenburg,Bayern,71002,1885,189,67,1885,166,67
+9662,SK Schweinfurt,Bayern,53426,1436,73,50,1437,74,50
+9663,SK Würzburg,Bayern,127934,2689,90,81,2692,86,82
+9671,LK Aschaffenburg,Bayern,174200,5149,185,148,5157,173,148
 9672,LK Bad Kissingen,Bayern,103235,1986,87,72,1980,84,72
-9673,LK Rhön-Grabfeld,Bayern,79635,1862,120,55,1862,123,55
-9674,LK Haßberge,Bayern,84384,2237,82,59,2237,80,60
-9675,LK Kitzingen,Bayern,91155,1824,118,53,1813,134,52
-9676,LK Miltenberg,Bayern,128743,3594,181,78,3574,180,78
-9677,LK Main-Spessart,Bayern,126158,2974,111,181,2962,106,181
-9678,LK Schweinfurt,Bayern,115445,3087,72,98,3087,71,98
-9679,LK Würzburg,Bayern,162302,2661,87,42,2661,92,42
-9761,SK Augsburg,Bayern,296582,11199,122,257,11049,119,257
-9762,SK Kaufbeuren,Bayern,44398,1430,63,42,1367,69,43
-9763,SK Kempten,Bayern,69151,1611,67,32,1462,47,29
-9764,SK Memmingen,Bayern,44100,1079,128,16,1079,131,16
-9771,LK Aichach-Friedberg,Bayern,134655,3258,78,73,3258,82,70
-9772,LK Augsburg,Bayern,253468,7242,76,132,7182,87,129
-9773,LK Dillingen a.d.Donau,Bayern,96562,2324,62,92,2312,63,90
-9774,LK Günzburg,Bayern,127027,4095,68,87,4095,71,87
-9775,LK Neu-Ulm,Bayern,175204,4418,97,83,4418,96,83
-9776,LK Lindau,Bayern,81981,2083,72,41,2082,80,41
-9777,LK Ostallgäu,Bayern,141182,3577,53,94,3624,56,94
-9778,LK Unterallgäu,Bayern,145341,3685,155,83,3632,166,83
-9779,LK Donau-Ries,Bayern,133783,3436,81,112,3427,83,114
-9780,LK Oberallgäu,Bayern,156008,3199,97,46,3373,97,48
-10041,LK Stadtverband Saarbrücken,Saarland,328714,9665,142,357,9487,149,348
-10042,LK Merzig-Wadern,Saarland,103243,2117,69,33,2159,70,33
-10043,LK Neunkirchen,Saarland,131408,2806,97,66,2782,86,60
-10044,LK Saarlouis,Saarland,194319,5140,105,101,5089,107,98
-10045,LK Saar-Pfalz-Kreis,Saarland,142196,2861,71,76,2780,72,72
-10046,LK Sankt Wendel,Saarland,87007,1996,136,78,1991,135,78
-11000,Berlin,Berlin,3669491,117124,115,2067,116742,113,2040
-11001,SK Berlin Mitte,Berlin,380917,,,,14929,130,199
-11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,10175,90,94
-11003,SK Berlin Pankow,Berlin,409454,,,,9822,111,104
-11004,SK Berlin Charlottenburg-Wilmersdorf,Berlin,342950,,,,9965,99,190
-11005,SK Berlin Spandau,Berlin,244458,,,,8819,118,159
-11006,SK Berlin Steglitz-Zehlendorf,Berlin,308582,,,,8618,97,143
-11007,SK Berlin Tempelhof-Schöneberg,Berlin,351062,,,,11922,104,322
-11008,SK Berlin Neukölln,Berlin,328666,,,,14019,131,276
-11009,SK Berlin Treptow-Köpenick,Berlin,273817,,,,6069,110,95
-11010,SK Berlin Marzahn-Hellersdorf,Berlin,271311,,,,6405,112,111
-11011,SK Berlin Lichtenberg,Berlin,294937,,,,6888,97,147
-11012,SK Berlin Reinickendorf,Berlin,266219,,,,9111,115,200
-12051,SK Brandenburg a.d.Havel,Brandenburg,72184,1295,189,45,1245,175,37
-12052,SK Cottbus,Brandenburg,99678,3787,232,125,2790,255,81
-12053,SK Frankfurt (Oder),Brandenburg,57751,1303,152,50,1300,152,50
-12054,SK Potsdam,Brandenburg,180334,4735,110,177,4218,164,156
-12060,LK Barnim,Brandenburg,185244,3584,100,132,3570,99,131
-12061,LK Dahme-Spreewald,Brandenburg,170791,4380,234,139,4371,187,139
-12062,LK Elbe-Elster,Brandenburg,101827,4318,256,130,4304,253,126
-12063,LK Havelland,Brandenburg,162996,3446,162,88,3436,163,88
-12064,LK Märkisch-Oderland,Brandenburg,195751,4208,89,183,4201,87,182
-12065,LK Oberhavel,Brandenburg,212914,4465,220,105,4419,212,80
-12066,LK Oberspreewald-Lausitz,Brandenburg,109371,4697,250,174,4684,252,173
-12067,LK Oder-Spree,Brandenburg,178803,5007,115,217,4899,256,167
-12068,LK Ostprignitz-Ruppin,Brandenburg,98861,2817,396,79,2600,388,57
-12069,LK Potsdam-Mittelmark,Brandenburg,216566,5061,224,117,5035,173,110
-12070,LK Prignitz,Brandenburg,76158,1818,208,79,1762,200,69
-12071,LK Spree-Neiße,Brandenburg,113720,4928,322,143,4614,79,130
-12072,LK Teltow-Fläming,Brandenburg,169997,4163,139,100,3972,164,83
-12073,LK Uckermark,Brandenburg,118947,2224,246,80,2224,207,80
-13003,SK Rostock,Mecklenburg-Vorpommern,209191,1227,34,12,1209,37,11
-13004,SK Schwerin,Mecklenburg-Vorpommern,95653,1282,84,44,1277,85,43
-13071,LK Mecklenburgische Seenplatte,Mecklenburg-Vorpommern,258074,4391,169,56,4378,167,54
-13072,LK Rostock,Mecklenburg-Vorpommern,215794,1570,57,39,1564,56,37
-13073,LK Vorpommern-Rügen,Mecklenburg-Vorpommern,224702,1808,67,40,1802,66,37
-13074,LK Nordwestmecklenburg,Mecklenburg-Vorpommern,157322,1604,50,33,1598,52,31
-13075,LK Vorpommern-Greifswald,Mecklenburg-Vorpommern,235623,3846,202,82,3725,197,76
-13076,LK Ludwigslust-Parchim,Mecklenburg-Vorpommern,211779,2916,140,84,2909,141,80
-14511,SK Chemnitz,Sachsen,246334,9446,98,330,9421,89,330
-14521,LK Erzgebirgskreis,Sachsen,334948,19365,163,544,19346,160,543
-14522,LK Mittelsachsen,Sachsen,304099,13870,231,322,13818,232,322
-14523,LK Vogtlandkreis,Sachsen,225997,9763,200,411,9749,165,402
-14524,LK Zwickau,Sachsen,315002,16409,157,690,16395,154,630
-14612,SK Dresden,Sachsen,556780,19939,144,629,19865,124,608
-14625,LK Bautzen,Sachsen,299758,17475,272,451,17526,240,450
-14626,LK Görlitz,Sachsen,252725,13651,199,734,13682,198,719
-14627,LK Meißen,Sachsen,241717,11727,185,473,11726,188,471
-14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,13444,263,660,13420,229,655
-14713,SK Leipzig,Sachsen,593145,13490,163,249,13325,159,247
-14729,LK Leipzig,Sachsen,258139,8735,241,153,8692,242,153
-14730,LK Nordsachsen,Sachsen,197741,7881,184,183,7853,179,200
-15001,SK Dessau-Roßlau,Sachsen-Anhalt,80103,1607,224,35,1579,229,41
-15002,SK Halle,Sachsen-Anhalt,238762,5840,187,167,5763,174,162
-15003,SK Magdeburg,Sachsen-Anhalt,237565,3317,87,49,3293,89,48
-15081,LK Altmarkkreis Salzwedel,Sachsen-Anhalt,83173,1158,127,44,1150,129,41
-15082,LK Anhalt-Bitterfeld,Sachsen-Anhalt,158486,3254,402,40,3253,390,40
-15083,LK Börde,Sachsen-Anhalt,170923,2840,198,69,2885,174,65
-15084,LK Burgenlandkreis,Sachsen-Anhalt,178846,6145,532,242,6051,470,234
-15085,LK Harz,Sachsen-Anhalt,213310,4032,174,137,4010,171,136
-15086,LK Jerichower Land,Sachsen-Anhalt,89589,1652,140,68,1650,145,67
-15087,LK Mansfeld-Südharz,Sachsen-Anhalt,134942,3507,216,79,3266,144,76
-15088,LK Saalekreis,Sachsen-Anhalt,183815,5270,204,160,5208,203,157
-15089,LK Salzlandkreis,Sachsen-Anhalt,189125,4576,285,112,4526,283,115
-15090,LK Stendal,Sachsen-Anhalt,111190,2372,168,145,2169,110,117
-15091,LK Wittenberg,Sachsen-Anhalt,124953,3851,192,143,3602,198,138
-16051,SK Erfurt,Thüringen,213981,4153,147,121,4155,149,116
-16052,SK Gera,Thüringen,93125,2665,123,105,2665,125,105
-16053,SK Jena,Thüringen,111343,2479,146,32,2443,132,30
-16054,SK Suhl,Thüringen,36789,1048,133,55,1048,136,55
-16055,SK Weimar,Thüringen,65228,1493,188,61,1493,233,58
-16056,SK Eisenach,Thüringen,42250,856,187,27,862,146,27
-16061,LK Eichsfeld,Thüringen,100006,3266,229,111,3260,228,100
-16062,LK Nordhausen,Thüringen,83416,1417,153,37,1381,125,37
-16063,LK Wartburgkreis,Thüringen,118974,3264,235,108,3183,188,98
-16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,3792,265,146,3741,260,130
-16065,LK Kyffhäuserkreis,Thüringen,74212,1699,221,58,1699,222,58
-16066,LK Schmalkalden-Meiningen,Thüringen,124916,4360,338,151,4349,289,150
-16067,LK Gotha,Thüringen,134908,3569,271,128,3273,190,110
-16068,LK Sömmerda,Thüringen,69427,1770,165,62,1756,163,55
-16069,LK Hildburghausen,Thüringen,63197,3163,341,116,3163,344,116
-16070,LK Ilm-Kreis,Thüringen,106249,2855,140,96,2855,140,96
-16071,LK Weimarer Land,Thüringen,82156,1852,226,25,1831,240,24
-16072,LK Sonneberg,Thüringen,57717,2478,210,108,2463,204,104
-16073,LK Saalfeld-Rudolstadt,Thüringen,103199,3813,352,137,3813,352,137
-16074,LK Saale-Holzland-Kreis,Thüringen,82950,2374,217,61,2375,220,58
-16075,LK Saale-Orla-Kreis,Thüringen,80312,2951,259,63,2951,228,62
-16076,LK Greiz,Thüringen,97398,3176,185,104,3157,195,97
-16077,LK Altenburger Land,Thüringen,89393,4187,333,113,4186,299,113
+9673,LK Rhön-Grabfeld,Bayern,79635,1862,120,55,1875,126,58
+9674,LK Haßberge,Bayern,84384,2237,78,59,2237,73,60
+9675,LK Kitzingen,Bayern,91155,1824,117,53,1813,129,52
+9676,LK Miltenberg,Bayern,128743,3594,181,78,3582,180,78
+9677,LK Main-Spessart,Bayern,126158,2974,110,181,2962,99,182
+9678,LK Schweinfurt,Bayern,115445,3087,74,98,3090,65,98
+9679,LK Würzburg,Bayern,162302,2661,89,42,2663,86,42
+9761,SK Augsburg,Bayern,296582,11199,121,257,11073,120,260
+9762,SK Kaufbeuren,Bayern,44398,1430,64,42,1368,65,43
+9763,SK Kempten,Bayern,69151,1611,68,32,1464,49,29
+9764,SK Memmingen,Bayern,44100,1079,129,16,1079,130,16
+9771,LK Aichach-Friedberg,Bayern,134655,3258,78,73,3261,77,70
+9772,LK Augsburg,Bayern,253468,7242,80,132,7196,89,137
+9773,LK Dillingen a.d.Donau,Bayern,96562,2324,63,92,2312,64,90
+9774,LK Günzburg,Bayern,127027,4095,67,87,4099,69,87
+9775,LK Neu-Ulm,Bayern,175204,4418,97,83,4414,91,83
+9776,LK Lindau,Bayern,81981,2083,72,41,2083,80,42
+9777,LK Ostallgäu,Bayern,141182,3577,52,94,3629,56,94
+9778,LK Unterallgäu,Bayern,145341,3685,150,83,3666,143,86
+9779,LK Donau-Ries,Bayern,133783,3436,80,112,3434,85,115
+9780,LK Oberallgäu,Bayern,156008,3199,95,46,3382,95,48
+10041,LK Stadtverband Saarbrücken,Saarland,328714,9665,141,357,9536,151,351
+10042,LK Merzig-Wadern,Saarland,103243,2117,70,33,2177,72,33
+10043,LK Neunkirchen,Saarland,131408,2806,96,66,2802,99,60
+10044,LK Saarlouis,Saarland,194319,5140,104,101,5097,108,101
+10045,LK Saar-Pfalz-Kreis,Saarland,142196,2861,71,76,2790,74,72
+10046,LK Sankt Wendel,Saarland,87007,1996,137,78,1994,138,79
+11000,Berlin,Berlin,3669491,117124,113,2067,117114,110,2067
+11001,SK Berlin Mitte,Berlin,380917,,,,14996,130,202
+11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,10184,90,94
+11003,SK Berlin Pankow,Berlin,409454,,,,9889,116,105
+11004,SK Berlin Charlottenburg-Wilmersdorf,Berlin,342950,,,,10029,91,194
+11005,SK Berlin Spandau,Berlin,244458,,,,8857,118,159
+11006,SK Berlin Steglitz-Zehlendorf,Berlin,308582,,,,8628,93,143
+11007,SK Berlin Tempelhof-Schöneberg,Berlin,351062,,,,11942,99,330
+11008,SK Berlin Neukölln,Berlin,328666,,,,14025,125,276
+11009,SK Berlin Treptow-Köpenick,Berlin,273817,,,,6113,109,100
+11010,SK Berlin Marzahn-Hellersdorf,Berlin,271311,,,,6418,106,114
+11011,SK Berlin Lichtenberg,Berlin,294937,,,,6910,97,147
+11012,SK Berlin Reinickendorf,Berlin,266219,,,,9123,113,203
+12051,SK Brandenburg a.d.Havel,Brandenburg,72184,1295,189,45,1267,188,42
+12052,SK Cottbus,Brandenburg,99678,3787,231,125,2790,200,81
+12053,SK Frankfurt (Oder),Brandenburg,57751,1303,153,50,1311,157,52
+12054,SK Potsdam,Brandenburg,180334,4735,111,177,4270,167,163
+12060,LK Barnim,Brandenburg,185244,3584,100,132,3592,104,136
+12061,LK Dahme-Spreewald,Brandenburg,170791,4380,235,139,4399,208,143
+12062,LK Elbe-Elster,Brandenburg,101827,4318,255,130,4316,249,131
+12063,LK Havelland,Brandenburg,162996,3446,160,88,3470,151,89
+12064,LK Märkisch-Oderland,Brandenburg,195751,4208,86,183,4205,77,182
+12065,LK Oberhavel,Brandenburg,212914,4465,236,105,4521,216,80
+12066,LK Oberspreewald-Lausitz,Brandenburg,109371,4697,251,174,4709,251,177
+12067,LK Oder-Spree,Brandenburg,178803,5007,111,217,4976,232,180
+12068,LK Ostprignitz-Ruppin,Brandenburg,98861,2817,392,79,2664,439,71
+12069,LK Potsdam-Mittelmark,Brandenburg,216566,5061,213,117,5128,156,116
+12070,LK Prignitz,Brandenburg,76158,1818,208,79,1767,202,70
+12071,LK Spree-Neiße,Brandenburg,113720,4928,318,143,4614,53,130
+12072,LK Teltow-Fläming,Brandenburg,169997,4163,140,100,3993,163,97
+12073,LK Uckermark,Brandenburg,118947,2224,240,80,2273,208,88
+13003,SK Rostock,Mecklenburg-Vorpommern,209191,1227,35,12,1228,40,12
+13004,SK Schwerin,Mecklenburg-Vorpommern,95653,1282,84,44,1282,83,43
+13071,LK Mecklenburgische Seenplatte,Mecklenburg-Vorpommern,258074,4391,164,56,4391,173,56
+13072,LK Rostock,Mecklenburg-Vorpommern,215794,1570,57,39,1572,56,39
+13073,LK Vorpommern-Rügen,Mecklenburg-Vorpommern,224702,1808,66,40,1807,67,40
+13074,LK Nordwestmecklenburg,Mecklenburg-Vorpommern,157322,1604,50,33,1602,50,33
+13075,LK Vorpommern-Greifswald,Mecklenburg-Vorpommern,235623,3846,201,82,3771,200,77
+13076,LK Ludwigslust-Parchim,Mecklenburg-Vorpommern,211779,2916,140,84,2916,140,84
+14511,SK Chemnitz,Sachsen,246334,9446,99,330,9446,94,331
+14521,LK Erzgebirgskreis,Sachsen,334948,19365,162,544,19363,161,544
+14522,LK Mittelsachsen,Sachsen,304099,13870,231,322,13841,227,322
+14523,LK Vogtlandkreis,Sachsen,225997,9763,198,411,9763,170,410
+14524,LK Zwickau,Sachsen,315002,16409,159,690,16397,156,635
+14612,SK Dresden,Sachsen,556780,19939,144,629,19906,125,628
+14625,LK Bautzen,Sachsen,299758,17475,264,451,17639,238,452
+14626,LK Görlitz,Sachsen,252725,13651,199,734,13685,194,729
+14627,LK Meißen,Sachsen,241717,11727,184,473,11748,188,473
+14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,13444,260,660,13426,227,660
+14713,SK Leipzig,Sachsen,593145,13490,162,249,13366,158,247
+14729,LK Leipzig,Sachsen,258139,8735,239,153,8722,237,168
+14730,LK Nordsachsen,Sachsen,197741,7881,184,183,7869,178,200
+15001,SK Dessau-Roßlau,Sachsen-Anhalt,80103,1607,221,35,1589,229,41
+15002,SK Halle,Sachsen-Anhalt,238762,5840,189,167,5781,189,163
+15003,SK Magdeburg,Sachsen-Anhalt,237565,3317,87,49,3315,87,49
+15081,LK Altmarkkreis Salzwedel,Sachsen-Anhalt,83173,1158,128,44,1153,117,46
+15082,LK Anhalt-Bitterfeld,Sachsen-Anhalt,158486,3254,392,40,3291,389,54
+15083,LK Börde,Sachsen-Anhalt,170923,2840,193,69,2888,169,71
+15084,LK Burgenlandkreis,Sachsen-Anhalt,178846,6145,523,242,6063,457,242
+15085,LK Harz,Sachsen-Anhalt,213310,4032,173,137,4030,176,137
+15086,LK Jerichower Land,Sachsen-Anhalt,89589,1652,139,68,1652,140,68
+15087,LK Mansfeld-Südharz,Sachsen-Anhalt,134942,3507,197,79,3304,153,79
+15088,LK Saalekreis,Sachsen-Anhalt,183815,5270,201,160,5270,195,159
+15089,LK Salzlandkreis,Sachsen-Anhalt,189125,4576,287,112,4579,303,122
+15090,LK Stendal,Sachsen-Anhalt,111190,2372,166,145,2170,116,120
+15091,LK Wittenberg,Sachsen-Anhalt,124953,3851,191,143,3710,190,142
+16051,SK Erfurt,Thüringen,213981,4153,147,121,4155,147,116
+16052,SK Gera,Thüringen,93125,2665,123,105,2684,125,107
+16053,SK Jena,Thüringen,111343,2479,145,32,2480,136,30
+16054,SK Suhl,Thüringen,36789,1048,134,55,1053,138,56
+16055,SK Weimar,Thüringen,65228,1493,184,61,1494,204,60
+16056,SK Eisenach,Thüringen,42250,856,191,27,863,146,27
+16061,LK Eichsfeld,Thüringen,100006,3266,228,111,3262,222,107
+16062,LK Nordhausen,Thüringen,83416,1417,147,37,1386,124,39
+16063,LK Wartburgkreis,Thüringen,118974,3264,220,108,3188,188,100
+16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,3792,257,146,3741,221,130
+16065,LK Kyffhäuserkreis,Thüringen,74212,1699,221,58,1703,219,62
+16066,LK Schmalkalden-Meiningen,Thüringen,124916,4360,335,151,4390,298,152
+16067,LK Gotha,Thüringen,134908,3569,272,128,3293,215,116
+16068,LK Sömmerda,Thüringen,69427,1770,164,62,1756,156,55
+16069,LK Hildburghausen,Thüringen,63197,3163,344,116,3169,342,123
+16070,LK Ilm-Kreis,Thüringen,106249,2855,139,96,2869,140,96
+16071,LK Weimarer Land,Thüringen,82156,1852,227,25,1839,250,24
+16072,LK Sonneberg,Thüringen,57717,2478,207,108,2467,204,115
+16073,LK Saalfeld-Rudolstadt,Thüringen,103199,3813,352,137,3859,352,143
+16074,LK Saale-Holzland-Kreis,Thüringen,82950,2374,218,61,2379,218,59
+16075,LK Saale-Orla-Kreis,Thüringen,80312,2951,251,63,2984,238,62
+16076,LK Greiz,Thüringen,97398,3176,181,104,3165,186,100
+16077,LK Altenburger Land,Thüringen,89393,4187,314,113,4193,270,113
