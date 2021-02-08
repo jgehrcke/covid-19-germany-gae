@@ -131,20 +131,24 @@ def build_daily_change_rate_rolling_window(
     # points): Resample into regular intervals (increase resolution to 1 hour,
     # but that doesn't matter too much) and forward-fill values. With this
     # forward-fill technique, the discrete jumps in raw data are retained.
-    change_per_day_rs = change_per_day.resample("1H").pad()
+    # Update: remove resampling for now -- pro: no strong reason to have it (at
+    # least not written down here!), con: see issue #369
+    #
+    # change_per_day_rs =
+    # change_per_day.resample("1H").pad()
 
     # print(type(df_change))
     # sys.exit()
 
     # Should be >= 7 to be meaningful.
-    window = change_per_day_rs.rolling(window="%sD" % window_width_days)
+    window = change_per_day.rolling(window="%sD" % window_width_days)
 
     # Manually build rolling window SUM (cumulative count for cases during
     # those N days). This uses the fact that after the resample above
     # there's N data points per day.
     if sum_over_time_window:
-        output_series = window.sum() / 24.0
+        output_series = window.sum()
     else:
-        output_series = window.sum() / (window_width_days * 24.0)
+        output_series = window.sum() / (window_width_days)
 
     return output_series
