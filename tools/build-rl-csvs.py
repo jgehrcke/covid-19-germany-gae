@@ -25,12 +25,10 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 """
 
 import os
-import json
 import io
-import logging
 import sys
 import pytz
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pandas as pd
 import requests
@@ -139,15 +137,20 @@ def fetch_and_clean_data(evarname):
         except ValueError:
             # There is the special case of `11.03.2020.1`, which seems to represent
             # some later point in time. Assume just a couple of hours.
-            if cname == "11.03.2020.1":
-                rename_map[cname] = f"2020-03-11T10:00:00+0100"
-                continue
+            # Update Feb 2021: looks like this sample has been removed.
+            # if cname == "11.03.2020.1":
+            #     rename_map[cname] = f"2020-03-11T10:00:00+0100"
+            #     continue
             raise
-        # The risklayer crowd does heavy work in their evening, mapping the result
-        # to the _next day_. Example: late in the evening, towards midnight between
-        # March 25 and March 26 they settle on the value that they then publish as
-        # March 26. That is, set an _early_ hour of the day.
-        sample_time_naive = datetime.strptime(f"{cname} 03:00:00", "%d.%m.%Y %H:%M:%S")
+
+        # The RL CSV consumed here contains timestamps with 1 day resolution.
+        # The sample corresponds to the state of the end of the _previous_ day.
+        # Also see
+        # https://github.com/jgehrcke/covid-19-germany-gae/issues/536). That
+        # is, set an hour of the day that's in the evening, of the previous day.
+        sample_time_naive = datetime.strptime(
+            f"{cname} 21:00:00", "%d.%m.%Y %H:%M:%S"
+        ) - timedelta(days=1)
         # This only _sets_ tz info, does not do number conversion (super easy
         # to reason about).
         sample_time_aware = pytz.timezone("Europe/Amsterdam").localize(

@@ -150,7 +150,7 @@ fi
 python tools/plot-compare-sources.py
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
-    git add plots/daily-change-plot.p* || true
+    git add plots/daily-change-plot* || true
     git commit -m "plots: dcp update ${UPDATE_ID}" || true
 fi
 
