@@ -193,19 +193,26 @@ def main():
     # print(df)
     # print(df["rl_cases_total"])
 
-    # Write out all numbers as integers after all, including 7di data
+    # We could write out all numbers as integers after all, including 7di data
     # (which as of the time of writing is of type float in its csv file):
     # integer precision is sufficient for 7-day incidence data -- the
-    # systematic and statistical errors are certainly larger than 1.0.
-    # df = df.apply(pd.to_numeric, downcast="integer", errors="ignore")
-    # Note that traditionally pandas did not support NaNs in an integer column.
-    # But that changed recently, with the Int64 type -- see
+    # systematic and statistical errors are certainly larger than 1.0. However,
+    # as discussed in
+    # https://github.com/jgehrcke/covid-19-germany-gae/issues/369 it's nice to
+    # have one digit precision, for comparability with other sources. df =
+    # df.apply(pd.to_numeric, downcast="integer", errors="ignore") Note that
+    # traditionally pandas did not support NaNs in an integer column. But that
+    # changed recently, with the Int64 type -- see
     # https://stackoverflow.com/a/54194908/145400
     for c in df.columns:
+        if "7di" in c:
+            log.info("do not convert 7di column %s to int", c)
+            continue
+
         try:
             df[c] = df[c].astype("Float64").astype("Int64")
         except Exception as e:
-            log.info("do not convert column %s to Int64: %s", c, str(e))
+            log.info("could not convert column %s to Int64: %s", c, str(e))
             pass
 
     # print(df)
@@ -221,7 +228,7 @@ def main():
     log.info("write latest aggregate state to CSV file %s -- df:\n%s", path, df)
     with open(path, "wb") as f:
         f.write(f"{headerline}\n".encode("utf-8"))
-        f.write(df.to_csv().encode("utf-8"))
+        f.write(df.to_csv(float_format="%.2f").encode("utf-8"))
 
     log.info("done writing %s", path)
 
