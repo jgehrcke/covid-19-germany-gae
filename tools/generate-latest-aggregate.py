@@ -228,7 +228,7 @@ def main():
     log.info("write latest aggregate state to CSV file %s -- df:\n%s", path, df)
     with open(path, "wb") as f:
         f.write(f"{headerline}\n".encode("utf-8"))
-        f.write(df.to_csv(float_format="%.1f").encode("utf-8"))
+        f.write(df.to_csv(float_format="%.2f").encode("utf-8"))
 
     log.info("done writing %s", path)
 
