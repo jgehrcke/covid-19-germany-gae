@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-02-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-02-14T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-02-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-02-14T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1310,151.95,27,1310,150.84,27
 1002,SK Kiel,Schleswig-Holstein,246794,3193,29.98,75,3193,31.20,75
@@ -344,7 +344,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12060,LK Barnim,Brandenburg,185244,3965,71.26,159,3986,66.94,159
 12061,LK Dahme-Spreewald,Brandenburg,170791,4899,83.14,194,4918,77.87,195
 12062,LK Elbe-Elster,Brandenburg,101827,4702,120.79,165,4702,105.08,165
-12063,LK Havelland,Brandenburg,162996,3860,85.28,122,3888,89.57,125
+12063,LK Havelland,Brandenburg,162996,3859,84.66,122,3888,89.57,125
 12064,LK Märkisch-Oderland,Brandenburg,195751,4562,71.52,210,4582,53.64,209
 12065,LK Oberhavel,Brandenburg,212914,5238,78.91,162,5277,77.50,163
 12066,LK Oberspreewald-Lausitz,Brandenburg,109371,5167,106.06,221,5175,81.37,221
@@ -368,7 +368,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14522,LK Mittelsachsen,Sachsen,304099,15094,82.21,502,14973,73.00,501
 14523,LK Vogtlandkreis,Sachsen,225997,10655,112.83,513,10673,99.12,506
 14524,LK Zwickau,Sachsen,315002,17192,59.36,812,17194,55.24,770
-14612,SK Dresden,Sachsen,556780,21308,49.57,812,21291,51.73,813
+14612,SK Dresden,Sachsen,556780,21344,59.27,813,21291,51.73,813
 14625,LK Bautzen,Sachsen,299758,18517,97.41,565,18782,72.39,560
 14626,LK Görlitz,Sachsen,252725,14528,92.59,881,14496,66.08,880
 14627,LK Meißen,Sachsen,241717,12415,68.68,519,12425,57.92,517
