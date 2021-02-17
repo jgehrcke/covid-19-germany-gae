@@ -28,6 +28,7 @@ This program is part of https://github.com/jgehrcke/covid-19-germany-gae
 import argparse
 import os
 import logging
+import math
 import json
 import sys
 from datetime import datetime
@@ -105,8 +106,13 @@ def main():
         "Nürnberg": (11.077438, 49.449820),
         "Hannover": (9.73322, 52.37052),
     }
+    citycoords = [c for _, c in cities.items()]
 
     fig, ax = plt.subplots()
+
+    log.info("dfgeo columns: %s", dfgeo.columns)
+    print(dfgeo)
+    dfgeo["centroid"] = dfgeo["geometry"].centroid
 
     last_c7di_vals = []
     # Each row in `dfgeo` contains information about one AGS (including the
@@ -117,6 +123,7 @@ def main():
         ags = str(int(row["AGS"]))
         last_c7di_val = df_7di[ags + "_7di"].iloc[-1]
         last_c7di_vals.append(last_c7di_val)
+        # log.info("centroid: %s", row["centroid"])
 
     # Now add this list of 'last 7di values' as a new column to the geo df.
     dfgeo["last_c7di_val"] = last_c7di_vals
@@ -144,13 +151,72 @@ def main():
         ax.text(
             x=cities[c][0],
             # Epsilon-shift upwards, to draw this text label above the marker.
-            y=cities[c][1] + 0.08,
+            y=cities[c][1] - 0.08,
             s=c,
-            fontsize=12,
+            fontsize=6,
             ha="center",
             color="#444",
         )
-        ax.plot(cities[c][0], cities[c][1], marker="o", c="black", alpha=0.5)
+        ax.plot(
+            cities[c][0], cities[c][1], marker="o", c="black", alpha=0.5, markersize=3
+        )
+
+    # Add special label for the county with the maximum 7di value.
+    idxmax = dfgeo["last_c7di_val"].idxmax()
+    print(idxmax)
+    maxrow = dfgeo.iloc[idxmax]
+    ax.text(
+        x=maxrow["centroid"].x,
+        y=maxrow["centroid"].y,
+        s=str(round(maxrow["last_c7di_val"])),
+        fontsize=8,
+        ha="center",
+        color="#eee",  # show in bright color, corresponding to dark end of color map
+    )
+
+    # Draw 7di labels for remaining counties, but not too densely.
+    labels_added = []
+    for _, row in dfgeo.iterrows():
+        cur_row_latest_7di = round(df_7di[str(int(row["AGS"])) + "_7di"].iloc[-1])
+        row["centroid"] = row["centroid"]
+
+        # calc min distance to labels added. use pythagoras of lat/long
+        # coords, approximating simple 2d surface
+        if labels_added:
+            # TODO: use numpy/pandas approach to speed up pairwise distance
+            # calculation if performance starts to matter/suck.
+            mind = min(
+                math.sqrt(
+                    (row["centroid"].x - c.x) ** 2 + (row["centroid"].y - c.y) ** 2
+                )
+                for c in labels_added
+            )
+            log.info("mind: %s", mind)
+            if mind < 0.35:
+                log.info("skip drawing this label")
+                continue
+
+        # calculate min distance to city points -- if a city point is super
+        # close, then push the label 'up' a bit.
+        min_distance_to_citypoints = min(
+            math.sqrt((row["centroid"].x - c[0]) ** 2 + (row["centroid"].y - c[1]) ** 2)
+            for c in citycoords
+        )
+        draw_at_x = row["centroid"].x
+        draw_at_y = row["centroid"].y
+        if min_distance_to_citypoints < 0.04:
+            draw_at_y = draw_at_y + 0.05
+        ax.text(
+            x=draw_at_x,
+            y=draw_at_y,
+            s=str(cur_row_latest_7di),
+            fontsize=6,
+            ha="center",
+            color="#444",
+        )
+
+        # Keep track of this label having been added.
+        labels_added.append(row["centroid"])
 
     latest_timestamp = pd.to_datetime(str(df_7di.index.values[-1]))
     latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d")
