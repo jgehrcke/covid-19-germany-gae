@@ -154,12 +154,15 @@ def main():
 
     latest_timestamp = pd.to_datetime(str(df_7di.index.values[-1]))
     latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d")
+    today = NOW.strftime("%Y-%m-%d")
+
+    # log.info("latest timestamp in data set: %s", df_7di.index.values[-1])
 
     # title
     ax.text(
         0.5,
         0.99,
-        '"7-Tage-Inzidenz"',
+        "7-Tage-Inzidenz",
         verticalalignment="center",
         horizontalalignment="center",
         transform=ax.transAxes,
@@ -167,11 +170,14 @@ def main():
         color="#444",
     )
 
+    # Display current all-Germany 7di mean:
+    ag7di = df_7di["germany_7di"].iloc[-1]
+
     # subtitle
     ax.text(
         0.5,
         0.966,
-        "(7-day sum of newly confirmed cases per 100.000 inhabitants)",
+        f"7-day sum of newly confirmed cases per 100.000 inhabitants\nall Germany: {ag7di:.1f}",
         verticalalignment="center",
         horizontalalignment="center",
         fontsize=10,
@@ -183,7 +189,9 @@ def main():
     ax.text(
         0.5,
         0.01,
-        f"{latest_timestamp_day_string} — {args.label_data_source} — https://github.com/jgehrcke/covid-19-germany-gae — Dr. Jan-Philip Gehrcke",
+        f"{args.label_data_source} (state: {latest_timestamp_day_string} end of day)\n"
+        + f"generated on {today} — "
+        + "https://github.com/jgehrcke/covid-19-germany-gae",
         fontsize=8,
         horizontalalignment="center",
         transform=ax.transAxes,
