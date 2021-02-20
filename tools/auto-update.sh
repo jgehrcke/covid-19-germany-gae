@@ -160,9 +160,13 @@ python tools/heatmap.py \
     --label-data-source="RKI data" \
     --figure-out-pprefix=plots/germany-heatmap-7ti-rki
 
+python tools/heatmap.py \
+    more-data/7di-rl-by-ags.csv \
+    --label-data-source="Risklazer data" \
+    --figure-out-pprefix=plots/germany-heatmap-7ti-rl
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
-    git add plots/germany-heatmap-7ti-rki.p* || true
+    git add plots/germany-heatmap-7ti-* || true
     git commit -m "plots: gh7tirki update ${UPDATE_ID}" || true
 fi
 
