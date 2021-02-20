@@ -280,7 +280,7 @@ def main():
     ax.text(
         0.5,
         0.01,
-        f"{args.label_data_source} (state: {latest_timestamp_day_string})\n",
+        f"{args.label_data_source} (state: {latest_timestamp_day_string} UTC)\n",
         weight="bold",
         fontsize=8,
         horizontalalignment="center",
