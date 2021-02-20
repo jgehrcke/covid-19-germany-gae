@@ -150,8 +150,8 @@ def main():
     for c in cities:
         ax.text(
             x=cities[c][0],
-            # Epsilon-shift upwards, to draw this text label above the marker.
-            y=cities[c][1] - 0.08,
+            # Epsilon-shift downwards, to draw this text label below the marker.
+            y=cities[c][1] - 0.09,
             s=c,
             fontsize=6,
             ha="center",
@@ -210,7 +210,7 @@ def main():
             x=draw_at_x,
             y=draw_at_y,
             s=str(cur_row_latest_7di),
-            fontsize=6,
+            fontsize=7,
             ha="center",
             color="#444",
         )
@@ -218,8 +218,14 @@ def main():
         # Keep track of this label having been added.
         labels_added.append(row["centroid"])
 
-    latest_timestamp = pd.to_datetime(str(df_7di.index.values[-1]))
-    latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d")
+    # In a pandas DatetimeIndex, the timezone information (if stored) is stored
+    # on the column. That is, the individual timestamp when accessed with e.g.
+    # df.index.values[-1] does _not_ contain tz information, it's naive. We
+    # know that it's given in UTC, and with `utc=True`, pandas makes the result
+    # tz-aware, explicitly annotating the datetime object with tz info for UTC.
+    latest_timestamp = pd.to_datetime(df_7di.index.values[-1], utc=True)
+    log.info("latest timestamp in file: %s", latest_timestamp)
+    latest_timestamp_day_string = latest_timestamp.strftime("%Y-%m-%d %H:%M")
     today = NOW.strftime("%Y-%m-%d")
 
     # log.info("latest timestamp in data set: %s", df_7di.index.values[-1])
@@ -236,14 +242,11 @@ def main():
         color="#444",
     )
 
-    # Display current all-Germany 7di mean:
-    ag7di = df_7di["germany_7di"].iloc[-1]
-
     # subtitle
     ax.text(
         0.5,
         0.966,
-        f"7-day sum of newly confirmed cases per 100.000 inhabitants\nall Germany: {ag7di:.1f}",
+        "7-day sum of newly confirmed cases per 100.000 inhabitants",
         verticalalignment="center",
         horizontalalignment="center",
         fontsize=10,
@@ -251,13 +254,43 @@ def main():
         color="#444",
     )
 
+    # Display current all-Germany 7di mean:
+    ag7di = df_7di["germany_7di"].iloc[-1]
+    ax.text(
+        0.05,
+        0.13,
+        f"{ag7di:.1f}",
+        # verticalalignment="center",
+        horizontalalignment="center",
+        fontsize=40,
+        transform=ax.transAxes,
+        color="#444",
+    )
+    ax.text(
+        0.05,
+        0.116,
+        "(all Germany)",
+        fontsize=8,
+        transform=ax.transAxes,
+        horizontalalignment="center",
+        color="#444",
+    )
+
     # footer
     ax.text(
         0.5,
         0.01,
-        f"{args.label_data_source} (state: {latest_timestamp_day_string} end of day)\n"
-        + f"generated on {today} — "
-        + "https://github.com/jgehrcke/covid-19-germany-gae",
+        f"{args.label_data_source} (state: {latest_timestamp_day_string})\n",
+        weight="bold",
+        fontsize=8,
+        horizontalalignment="center",
+        transform=ax.transAxes,
+        color="#666666",
+    )
+    ax.text(
+        0.5,
+        0.005,
+        f"generated on {today} — " + "https://github.com/jgehrcke/covid-19-germany-gae",
         fontsize=8,
         horizontalalignment="center",
         transform=ax.transAxes,
