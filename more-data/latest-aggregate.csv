@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-02-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-02-23T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-02-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-02-23T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1493,168.58,33,1493,168.58,32
 1002,SK Kiel,Schleswig-Holstein,246794,3284,31.20,79,3284,32.01,79
@@ -92,7 +92,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5512,SK Bottrop,Nordrhein-Westfalen,117565,3855,72.30,81,3856,70.60,82
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,9906,53.53,321,9939,58.93,323
 5515,SK Münster,Nordrhein-Westfalen,315293,5362,25.06,100,5372,25.37,100
-5554,LK Borken,Nordrhein-Westfalen,371339,8693,64.63,197,8724,61.40,197
+5554,LK Borken,Nordrhein-Westfalen,371339,8693,64.50,197,8724,61.40,197
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,3811,32.64,76,3786,33.09,74
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,21844,79.14,650,21778,72.46,644
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,10281,47.97,253,10358,49.08,258
