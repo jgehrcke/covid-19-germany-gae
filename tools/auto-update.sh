@@ -162,7 +162,7 @@ python tools/heatmap.py \
 
 python tools/heatmap.py \
     more-data/7di-rl-by-ags.csv \
-    --label-data-source="Risklazer data" \
+    --label-data-source="Risklayer data" \
     --figure-out-pprefix=plots/germany-heatmap-7ti-rl
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
