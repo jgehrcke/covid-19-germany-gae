@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-03T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-04T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-03T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-04T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1673,143.07,34,1673,144.18,34
 1002,SK Kiel,Schleswig-Holstein,246794,3477,64.43,81,3477,64.83,81
@@ -338,20 +338,20 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 11011,SK Berlin Lichtenberg,Berlin,294937,,,,7995,69.51,214
 11012,SK Berlin Reinickendorf,Berlin,266219,,,,10138,74.00,257
 12051,SK Brandenburg a.d.Havel,Brandenburg,72184,1589,33.25,72,1580,33.25,71
-12052,SK Cottbus,Brandenburg,99678,4352,91.29,155,4352,91.29,155
-12053,SK Frankfurt (Oder),Brandenburg,57751,1506,34.63,89,1509,32.90,89
-12054,SK Potsdam,Brandenburg,180334,5207,38.82,226,5021,39.37,226
+12052,SK Cottbus,Brandenburg,99678,4359,101.83,155,4352,91.29,155
+12053,SK Frankfurt (Oder),Brandenburg,57751,1508,39.83,89,1509,32.90,89
+12054,SK Potsdam,Brandenburg,180334,5216,46.30,227,5021,39.37,226
 12060,LK Barnim,Brandenburg,185244,4231,49.66,173,4251,45.35,173
-12061,LK Dahme-Spreewald,Brandenburg,170791,5165,68.50,206,5199,60.31,214
-12062,LK Elbe-Elster,Brandenburg,101827,4997,130.61,179,5008,119.81,181
-12063,LK Havelland,Brandenburg,162996,4186,79.14,144,4217,81.60,147
+12061,LK Dahme-Spreewald,Brandenburg,170791,5185,86.07,206,5199,60.31,214
+12062,LK Elbe-Elster,Brandenburg,101827,5008,146.82,181,5008,119.81,181
+12063,LK Havelland,Brandenburg,162996,4215,105.83,147,4217,81.60,147
 12064,LK Märkisch-Oderland,Brandenburg,195751,4754,39.34,227,4789,40.36,227
 12065,LK Oberhavel,Brandenburg,212914,5694,92.06,207,5734,87.36,209
-12066,LK Oberspreewald-Lausitz,Brandenburg,109371,5462,106.06,237,5486,122.52,238
+12066,LK Oberspreewald-Lausitz,Brandenburg,109371,5486,138.98,238,5486,122.52,238
 12067,LK Oder-Spree,Brandenburg,178803,5600,63.76,248,5569,65.99,248
 12068,LK Ostprignitz-Ruppin,Brandenburg,98861,3359,34.39,148,3168,40.46,125
 12069,LK Potsdam-Mittelmark,Brandenburg,216566,5790,46.64,166,5811,43.40,166
-12070,LK Prignitz,Brandenburg,76158,2413,45.96,130,2408,44.64,128
+12070,LK Prignitz,Brandenburg,76158,2420,59.74,132,2408,44.64,128
 12071,LK Spree-Neiße,Brandenburg,113720,5724,108.16,165,5741,87.06,165
 12072,LK Teltow-Fläming,Brandenburg,169997,4672,73.53,163,4713,75.88,163
 12073,LK Uckermark,Brandenburg,118947,2767,47.92,138,2779,51.28,139
@@ -368,12 +368,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14522,LK Mittelsachsen,Sachsen,304099,15728,100.95,558,15534,66.75,560
 14523,LK Vogtlandkreis,Sachsen,225997,11903,233.63,557,11911,215.93,546
 14524,LK Zwickau,Sachsen,315002,17705,61.27,871,17712,69.52,832
-14612,SK Dresden,Sachsen,556780,22303,79.39,928,22261,61.60,927
+14612,SK Dresden,Sachsen,556780,22376,99.05,930,22261,61.60,927
 14625,LK Bautzen,Sachsen,299758,19157,93.74,749,19515,78.40,747
 14626,LK Görlitz,Sachsen,252725,14950,67.66,948,14964,63.31,949
-14627,LK Meißen,Sachsen,241717,12854,83.57,534,12909,81.91,537
+14627,LK Meißen,Sachsen,241717,12904,114.60,537,12909,81.91,537
 14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,15199,100.17,832,15113,65.96,825
-14713,SK Leipzig,Sachsen,593145,15412,56.48,431,15285,41.64,429
+14713,SK Leipzig,Sachsen,593145,15481,73.93,431,15285,41.64,429
 14729,LK Leipzig,Sachsen,258139,10536,77.09,246,10494,65.47,246
 14730,LK Nordsachsen,Sachsen,197741,9229,131.99,302,9256,126.43,304
 15001,SK Dessau-Roßlau,Sachsen-Anhalt,80103,2140,74.90,85,2131,69.91,85
@@ -390,26 +390,26 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 15089,LK Salzlandkreis,Sachsen-Anhalt,189125,6067,119.50,256,6067,89.89,249
 15090,LK Stendal,Sachsen-Anhalt,111190,2668,81.84,161,2516,65.65,135
 15091,LK Wittenberg,Sachsen-Anhalt,124953,4615,105.64,208,4619,108.04,207
-16051,SK Erfurt,Thüringen,213981,5273,74.77,192,5273,71.97,188
-16052,SK Gera,Thüringen,93125,3109,92.35,119,3139,97.72,119
-16053,SK Jena,Thüringen,111343,2925,48.50,61,2934,53.89,59
-16054,SK Suhl,Thüringen,36789,1331,135.91,84,1342,125.04,84
-16055,SK Weimar,Thüringen,65228,1779,70.52,91,1777,61.32,92
+16051,SK Erfurt,Thüringen,213981,5312,102.11,192,5273,71.97,188
+16052,SK Gera,Thüringen,93125,3139,140.67,119,3139,97.72,119
+16053,SK Jena,Thüringen,111343,2939,67.36,61,2934,53.89,59
+16054,SK Suhl,Thüringen,36789,1342,180.76,84,1342,125.04,84
+16055,SK Weimar,Thüringen,65228,1782,77.42,91,1777,61.32,92
 16056,SK Eisenach,Thüringen,42250,1029,99.41,48,1038,89.94,48
-16061,LK Eichsfeld,Thüringen,100006,4233,160.99,161,4258,129.99,145
+16061,LK Eichsfeld,Thüringen,100006,4267,211.99,162,4258,129.99,145
 16062,LK Nordhausen,Thüringen,83416,1727,74.33,43,1674,50.35,44
 16063,LK Wartburgkreis,Thüringen,118974,4198,189.96,155,4128,164.74,145
-16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,4687,167.27,195,4712,159.44,198
-16065,LK Kyffhäuserkreis,Thüringen,74212,2210,179.22,100,2247,180.56,101
+16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,4729,228.89,198,4712,159.44,198
+16065,LK Kyffhäuserkreis,Thüringen,74212,2247,254.00,101,2247,180.56,101
 16066,LK Schmalkalden-Meiningen,Thüringen,124916,6188,277.79,228,6211,205.74,229
 16067,LK Gotha,Thüringen,134908,4812,115.63,182,4457,107.48,150
-16068,LK Sömmerda,Thüringen,69427,2295,161.32,90,2272,122.43,89
-16069,LK Hildburghausen,Thüringen,63197,3849,227.86,181,3889,243.68,183
+16068,LK Sömmerda,Thüringen,69427,2309,191.57,90,2272,122.43,89
+16069,LK Hildburghausen,Thüringen,63197,3889,322.80,183,3889,243.68,183
 16070,LK Ilm-Kreis,Thüringen,106249,3450,80.94,142,3491,99.77,144
 16071,LK Weimarer Land,Thüringen,82156,2460,120.50,50,2468,127.81,49
-16072,LK Sonneberg,Thüringen,57717,2732,64.11,141,2748,71.04,141
-16073,LK Saalfeld-Rudolstadt,Thüringen,103199,4482,140.51,212,4511,127.91,212
-16074,LK Saale-Holzland-Kreis,Thüringen,82950,2914,126.58,78,2928,135.02,78
-16075,LK Saale-Orla-Kreis,Thüringen,80312,3677,215.41,89,3719,239.07,89
+16072,LK Sonneberg,Thüringen,57717,2748,105.69,141,2748,71.04,141
+16073,LK Saalfeld-Rudolstadt,Thüringen,103199,4511,182.66,212,4511,127.91,212
+16074,LK Saale-Holzland-Kreis,Thüringen,82950,2935,164.56,78,2928,135.02,78
+16075,LK Saale-Orla-Kreis,Thüringen,80312,3719,293.85,89,3719,239.07,89
 16076,LK Greiz,Thüringen,97398,3788,218.69,127,3745,198.16,121
 16077,LK Altenburger Land,Thüringen,89393,4812,105.15,208,4839,117.46,209
