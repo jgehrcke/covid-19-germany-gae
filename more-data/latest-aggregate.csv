@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-07T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-08T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-07T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-08T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1712,99.82,34,1712,99.82,34
 1002,SK Kiel,Schleswig-Holstein,246794,3533,48.62,84,3533,50.65,84
@@ -367,7 +367,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14521,LK Erzgebirgskreis,Sachsen,334948,21072,112.85,626,21074,109.57,626
 14522,LK Mittelsachsen,Sachsen,304099,15869,86.81,574,15685,74.98,563
 14523,LK Vogtlandkreis,Sachsen,225997,12263,265.93,560,12270,247.79,550
-14524,LK Zwickau,Sachsen,315002,17842,66.67,871,17842,70.16,833
+14524,LK Zwickau,Sachsen,315002,17848,68.57,871,17842,70.16,833
 14612,SK Dresden,Sachsen,556780,22509,76.51,934,22466,70.58,931
 14625,LK Bautzen,Sachsen,299758,19352,97.08,767,19738,98.08,764
 14626,LK Görlitz,Sachsen,252725,15077,82.30,956,15045,66.87,957
@@ -397,7 +397,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16055,SK Weimar,Thüringen,65228,1805,67.46,91,1800,55.19,92
 16056,SK Eisenach,Thüringen,42250,1053,125.44,48,1053,71.01,48
 16061,LK Eichsfeld,Thüringen,100006,4368,161.99,162,4361,153.99,146
-16062,LK Nordhausen,Thüringen,83416,1750,62.34,44,1710,56.34,44
+16062,LK Nordhausen,Thüringen,83416,1751,63.54,44,1710,56.34,44
 16063,LK Wartburgkreis,Thüringen,118974,4303,216.85,157,4312,231.14,146
 16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,4776,146.73,202,4774,141.83,202
 16065,LK Kyffhäuserkreis,Thüringen,74212,2288,141.49,101,2290,136.10,101
