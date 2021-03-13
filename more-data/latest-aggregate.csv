@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-12T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-13T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-12T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-13T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1767,82.07,34,1767,82.07,34
 1002,SK Kiel,Schleswig-Holstein,246794,3616,43.76,86,3616,44.17,86
@@ -345,7 +345,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12061,LK Dahme-Spreewald,Brandenburg,170791,5320,72.02,211,5330,62.06,213
 12062,LK Elbe-Elster,Brandenburg,101827,5165,135.52,185,5200,156.15,186
 12063,LK Havelland,Brandenburg,162996,4324,53.38,158,4339,52.15,158
-12064,LK Märkisch-Oderland,Brandenburg,195751,4902,58.75,230,4936,57.22,227
+12064,LK Märkisch-Oderland,Brandenburg,195751,4938,86.33,230,4936,57.22,227
 12065,LK Oberhavel,Brandenburg,212914,5992,101.92,219,6027,106.15,219
 12066,LK Oberspreewald-Lausitz,Brandenburg,109371,5693,160.92,241,5711,163.66,244
 12067,LK Oder-Spree,Brandenburg,178803,5804,89.48,253,5766,84.45,253
