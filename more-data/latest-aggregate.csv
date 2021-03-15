@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-14T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-15T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-14T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-15T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1779,74.31,34,1779,74.31,34
 1002,SK Kiel,Schleswig-Holstein,246794,3625,37.28,86,3625,38.90,86
@@ -16,7 +16,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1061,LK Steinburg,Schleswig-Holstein,131013,1481,38.93,28,1454,39.69,27
 1062,LK Stormarn,Schleswig-Holstein,244156,5075,70.04,267,5077,71.68,267
 2000,SK Hamburg,Hamburg,1847253,55007,89.21,1332,54998,80.93,1332
-3101,SK Braunschweig,Niedersachsen,249406,4121,64.55,134,4124,64.15,132
+3101,SK Braunschweig,Niedersachsen,249406,4131,70.57,136,4124,64.15,132
 3102,SK Salzgitter,Niedersachsen,104291,2918,182.18,55,2929,191.77,55
 3103,SK Wolfsburg,Niedersachsen,124371,2172,53.07,70,2173,48.24,70
 3151,LK Gifhorn,Niedersachsen,176523,3901,52.12,163,3901,50.98,163
@@ -91,10 +91,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,16379,72.24,417,16368,72.74,419
 5512,SK Bottrop,Nordrhein-Westfalen,117565,4000,42.53,92,4000,41.68,92
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,10556,96.67,340,10556,91.66,340
-5515,SK Münster,Nordrhein-Westfalen,315293,5738,46.31,101,5762,45.67,101
+5515,SK Münster,Nordrhein-Westfalen,315293,5752,50.75,101,5762,45.67,101
 5554,LK Borken,Nordrhein-Westfalen,371339,9543,90.21,206,9568,89.41,206
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,3991,40.35,80,3993,35.81,76
-5562,LK Recklinghausen,Nordrhein-Westfalen,614137,23055,94.28,724,22983,82.23,724
+5562,LK Recklinghausen,Nordrhein-Westfalen,614137,23055,90.86,724,22983,82.23,724
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,11021,72.73,270,11104,67.15,274
 5570,LK Warendorf,Nordrhein-Westfalen,277840,8653,69.46,204,8655,67.30,205
 5711,SK Bielefeld,Nordrhein-Westfalen,334195,10321,45.18,288,10325,44.58,288
@@ -113,7 +113,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5958,LK Hochsauerlandkreis,Nordrhein-Westfalen,259777,6422,83.92,158,6442,73.14,158
 5962,LK Märkischer Kreis,Nordrhein-Westfalen,410222,12983,155.53,285,12993,152.36,286
 5966,LK Olpe,Nordrhein-Westfalen,133955,3989,77.64,137,3989,78.38,137
-5970,LK Siegen-Wittgenstein,Nordrhein-Westfalen,276944,7355,114.46,123,7381,114.10,123
+5970,LK Siegen-Wittgenstein,Nordrhein-Westfalen,276944,7354,114.10,123,7381,114.10,123
 5974,LK Soest,Nordrhein-Westfalen,301785,5856,69.59,154,5888,67.93,154
 5978,LK Unna,Nordrhein-Westfalen,394891,13367,67.61,416,13375,63.82,416
 6411,SK Darmstadt,Hessen,159878,4183,55.04,121,4187,51.29,121
@@ -128,7 +128,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6436,LK Main-Taunus-Kreis,Hessen,238558,6317,51.56,173,6167,55.75,145
 6437,LK Odenwaldkreis,Hessen,96703,3252,57.91,157,3252,56.88,157
 6438,LK Offenbach,Hessen,355813,13184,122.82,451,13219,128.16,439
-6439,LK Rheingau-Taunus-Kreis,Hessen,187160,5213,84.95,153,5209,75.34,148
+6439,LK Rheingau-Taunus-Kreis,Hessen,187160,5213,81.48,153,5209,75.34,148
 6440,LK Wetteraukreis,Hessen,308339,9483,88.21,480,9498,81.08,439
 6531,LK Gießen,Hessen,270688,9179,100.12,330,9144,100.48,323
 6532,LK Lahn-Dill-Kreis,Hessen,253319,7932,157.11,175,7933,149.22,168
