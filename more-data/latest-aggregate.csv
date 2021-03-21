@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-21T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-21T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1860,96.49,37,1860,96.49,37
 1002,SK Kiel,Schleswig-Holstein,246794,3738,46.60,88,3738,47.41,88
@@ -402,7 +402,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,5048,131.07,210,5052,124.23,210
 16065,LK Kyffhäuserkreis,Thüringen,74212,2503,138.79,110,2507,118.58,110
 16066,LK Schmalkalden-Meiningen,Thüringen,124916,7079,317.01,270,7130,325.02,272
-16067,LK Gotha,Thüringen,134908,5487,202.36,189,5160,275.00,171
+16067,LK Gotha,Thüringen,134908,5587,276.48,189,5160,275.00,171
 16068,LK Sömmerda,Thüringen,69427,2563,230.46,99,2579,201.65,99
 16069,LK Hildburghausen,Thüringen,63197,4095,113.93,199,4116,136.08,199
 16070,LK Ilm-Kreis,Thüringen,106249,3930,198.59,158,3945,189.18,159
