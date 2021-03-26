@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-25T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-26T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-25T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-26T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1918,103.15,38,1918,100.93,38
 1002,SK Kiel,Schleswig-Holstein,246794,3819,50.24,89,3819,51.05,89
@@ -8,7 +8,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1053,LK Herzogtum Lauenburg,Schleswig-Holstein,198019,3631,73.73,102,3632,74.24,102
 1054,LK Nordfriesland,Schleswig-Holstein,165951,2231,17.48,73,2233,18.68,74
 1055,LK Ostholstein,Schleswig-Holstein,200539,2426,30.42,76,2425,30.42,76
-1056,LK Pinneberg,Schleswig-Holstein,316103,8240,92.06,321,8240,99.02,321
+1056,LK Pinneberg,Schleswig-Holstein,316103,8255,96.80,321,8240,99.02,321
 1057,LK Plön,Schleswig-Holstein,128686,992,21.76,26,993,21.76,26
 1058,LK Rendsburg-Eckernförde,Schleswig-Holstein,274098,3050,45.60,44,3050,45.60,44
 1059,LK Schleswig-Flensburg,Schleswig-Holstein,201156,2379,39.77,53,2363,42.75,53
