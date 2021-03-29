@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-29T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-29T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1957,96.68,38,1957,97.60,38
 1002,SK Kiel,Schleswig-Holstein,246794,3891,59.88,89,3891,62.00,89
@@ -26,7 +26,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3157,LK Peine,Niedersachsen,134801,4011,170.11,92,4011,169.88,92
 3158,LK Wolfenbüttel,Niedersachsen,119622,1950,86.94,84,1950,87.78,86
 3159,LK Göttingen,Niedersachsen,326041,6103,66.78,213,6017,61.96,216
-3241,Region Hannover,Niedersachsen,1157115,38963,423.49,896,37275,144.76,876
+3241,Region Hannover,Niedersachsen,1157115,38963,359.64,896,37275,144.76,876
 3251,LK Diepholz,Niedersachsen,217089,5080,86.14,91,5034,70.94,89
 3252,LK Hameln-Pyrmont,Niedersachsen,148549,3328,107.83,90,3314,100.98,87
 3254,LK Hildesheim,Niedersachsen,275817,7037,108.00,249,6961,107.68,250
@@ -91,7 +91,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,17439,88.89,428,17492,97.71,423
 5512,SK Bottrop,Nordrhein-Westfalen,117565,4254,122.08,96,4271,130.99,96
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,11290,157.91,356,11290,147.12,356
-5515,SK Münster,Nordrhein-Westfalen,315293,6192,54.69,103,6214,58.04,103
+5515,SK Münster,Nordrhein-Westfalen,315293,6205,58.99,103,6214,58.04,103
 5554,LK Borken,Nordrhein-Westfalen,371339,10543,150.22,209,10573,148.65,209
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,4297,77.74,83,4298,75.25,80
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,24476,140.83,749,24398,129.78,753
@@ -367,7 +367,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14521,LK Erzgebirgskreis,Sachsen,334948,23212,269.06,642,23211,259.14,642
 14522,LK Mittelsachsen,Sachsen,304099,17520,244.63,591,17188,200.26,580
 14523,LK Vogtlandkreis,Sachsen,225997,14914,450.39,620,14914,424.78,599
-14524,LK Zwickau,Sachsen,315002,19979,302.55,902,19979,300.32,864
+14524,LK Zwickau,Sachsen,315002,19990,306.20,902,19979,300.32,864
 14612,SK Dresden,Sachsen,556780,24438,149.25,981,24414,139.91,981
 14625,LK Bautzen,Sachsen,299758,20596,177.43,799,21036,184.82,794
 14626,LK Görlitz,Sachsen,252725,16305,210.04,1000,16323,209.32,1000
