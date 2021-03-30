@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-03-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-30T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-03-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-03-30T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,1966,100.01,38,1966,100.93,38
 1002,SK Kiel,Schleswig-Holstein,246794,3901,60.29,89,3901,60.37,89
@@ -26,7 +26,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3157,LK Peine,Niedersachsen,134801,4017,173.07,93,4011,168.40,92
 3158,LK Wolfenbüttel,Niedersachsen,119622,1981,89.45,86,1984,85.27,87
 3159,LK Göttingen,Niedersachsen,326041,6103,66.78,213,6043,67.48,217
-3241,Region Hannover,Niedersachsen,1157115,38963,385.51,905,37427,150.89,884
+3241,Region Hannover,Niedersachsen,1157115,38963,331.04,905,37427,150.89,884
 3251,LK Diepholz,Niedersachsen,217089,5115,93.51,91,5069,77.85,89
 3252,LK Hameln-Pyrmont,Niedersachsen,148549,3333,103.79,90,3325,95.59,87
 3254,LK Hildesheim,Niedersachsen,275817,7062,114.52,251,6993,106.59,251
@@ -393,7 +393,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16051,SK Erfurt,Thüringen,213981,6200,156.58,228,6199,149.08,224
 16052,SK Gera,Thüringen,93125,3931,341.29,126,3993,364.03,128
 16053,SK Jena,Thüringen,111343,3243,107.27,63,3238,103.28,61
-16054,SK Suhl,Thüringen,36789,1626,209.30,93,1629,184.84,95
+16054,SK Suhl,Thüringen,36789,1628,214.74,93,1629,184.84,95
 16055,SK Weimar,Thüringen,65228,1946,98.65,92,1942,84.32,93
 16056,SK Eisenach,Thüringen,42250,1343,271.47,56,1350,269.82,56
 16061,LK Eichsfeld,Thüringen,100006,4907,194.38,187,4905,179.99,186
