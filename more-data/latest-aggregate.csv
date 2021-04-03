@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-02T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-03T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-02T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-03T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2024,91.14,39,2024,90.95,39
 1002,SK Kiel,Schleswig-Holstein,246794,4002,65.15,91,4002,64.83,91
@@ -15,8 +15,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1060,LK Segeberg,Schleswig-Holstein,277175,5534,134.76,143,5538,133.49,143
 1061,LK Steinburg,Schleswig-Holstein,131013,1720,79.45,28,1702,82.43,28
 1062,LK Stormarn,Schleswig-Holstein,244156,5628,84.18,281,5631,85.19,281
-2000,SK Hamburg,Hamburg,1847253,62292,165.22,1393,62281,138.31,1397
-3101,SK Braunschweig,Niedersachsen,249406,4753,95.95,148,4820,96.63,145
+2000,SK Hamburg,Hamburg,1847253,62753,200.45,1397,62281,138.31,1397
+3101,SK Braunschweig,Niedersachsen,249406,4796,120.29,148,4820,96.63,145
 3102,SK Salzgitter,Niedersachsen,104291,3570,276.69,57,3570,211.91,57
 3103,SK Wolfsburg,Niedersachsen,124371,2612,182.13,73,2562,132.67,73
 3151,LK Gifhorn,Niedersachsen,176523,4586,185.59,167,4646,160.89,167
@@ -26,7 +26,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3157,LK Peine,Niedersachsen,134801,4198,177.52,94,4196,175.81,94
 3158,LK Wolfenbüttel,Niedersachsen,119622,2064,106.17,86,2070,100.32,87
 3159,LK Göttingen,Niedersachsen,326041,6313,88.87,217,6219,77.29,220
-3241,Region Hannover,Niedersachsen,1157115,38963,234.72,918,38319,116.76,889
+3241,Region Hannover,Niedersachsen,1157115,38963,210.05,918,38319,116.76,889
 3251,LK Diepholz,Niedersachsen,217089,5230,87.52,91,5171,62.65,89
 3252,LK Hameln-Pyrmont,Niedersachsen,148549,3409,80.90,91,3400,76.07,88
 3254,LK Hildesheim,Niedersachsen,275817,7204,94.94,252,7122,77.23,251
@@ -44,7 +44,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3359,LK Stade,Niedersachsen,204512,3668,80.72,107,3708,76.28,107
 3360,LK Uelzen,Niedersachsen,92389,1736,97.41,104,1734,96.33,104
 3361,LK Verden,Niedersachsen,137133,3016,91.28,48,3036,86.78,48
-3401,SK Delmenhorst,Niedersachsen,77559,2610,147.38,60,2631,150.85,60
+3401,SK Delmenhorst,Niedersachsen,77559,2631,185.60,60,2631,150.85,60
 3402,SK Emden,Niedersachsen,49913,740,77.35,7,742,66.12,7
 3403,SK Oldenburg,Niedersachsen,169077,3360,99.47,40,3167,92.27,40
 3404,SK Osnabrück,Niedersachsen,165251,5829,156.05,91,5834,121.63,89
@@ -54,7 +54,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3453,LK Cloppenburg,Niedersachsen,170682,8903,265.76,138,8912,214.43,138
 3454,LK Emsland,Niedersachsen,326954,9942,190.01,152,9940,129.99,151
 3455,LK Friesland,Niedersachsen,98704,1308,56.56,37,1310,51.67,37
-3456,LK Grafschaft Bentheim,Niedersachsen,137162,4138,69.36,110,4163,74.36,110
+3456,LK Grafschaft Bentheim,Niedersachsen,137162,4163,95.09,110,4163,74.36,110
 3457,LK Leer,Niedersachsen,170756,3275,167.36,47,3313,156.36,47
 3458,LK Oldenburg,Niedersachsen,130890,4108,191.00,104,4001,154.33,104
 3459,LK Osnabrück,Niedersachsen,358080,12934,129.00,299,12779,95.79,273
