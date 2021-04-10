@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-10T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-10T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2083,65.44,39,2083,65.44,39
 1002,SK Kiel,Schleswig-Holstein,246794,4167,66.86,93,4167,66.45,93
@@ -293,7 +293,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9576,LK Roth,Bayern,126749,4814,113.61,163,4844,113.61,164
 9577,LK Weißenburg-Gunzenhausen,Bayern,94734,3135,153.06,106,3163,158.34,106
 9661,SK Aschaffenburg,Bayern,71002,2622,94.36,100,2639,112.67,100
-9662,SK Schweinfurt,Bayern,53426,2074,466.07,69,2107,131.02,69
+9662,SK Schweinfurt,Bayern,53426,2074,228.35,69,2107,131.02,69
 9663,SK Würzburg,Bayern,127934,3495,92.24,102,3532,103.96,104
 9671,LK Aschaffenburg,Bayern,174200,6751,139.49,194,6779,124.57,194
 9672,LK Bad Kissingen,Bayern,103235,2803,83.31,90,2806,80.40,89
