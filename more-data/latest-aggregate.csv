@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-11T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-12T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-11T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-12T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2095,61.00,39,2095,61.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,4216,70.91,93,4216,70.50,93
@@ -91,7 +91,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,18875,118.85,441,18946,103.53,436
 5512,SK Bottrop,Nordrhein-Westfalen,117565,4494,84.21,97,4495,79.96,97
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,12164,121.32,361,12164,117.47,361
-5515,SK Münster,Nordrhein-Westfalen,315293,6692,70.09,106,6767,90.39,106
+5515,SK Münster,Nordrhein-Westfalen,315293,6756,90.39,106,6767,90.39,106
 5554,LK Borken,Nordrhein-Westfalen,371339,11417,111.49,219,11443,110.95,219
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,4655,85.23,83,4669,80.24,80
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,26213,134.99,770,26201,135.47,776
@@ -367,7 +367,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14521,LK Erzgebirgskreis,Sachsen,334948,25221,304.82,665,25220,294.08,665
 14522,LK Mittelsachsen,Sachsen,304099,19171,296.94,598,18771,261.76,586
 14523,LK Vogtlandkreis,Sachsen,225997,16484,342.48,679,16484,335.85,658
-14524,LK Zwickau,Sachsen,315002,21699,286.66,918,21699,254.60,875
+14524,LK Zwickau,Sachsen,315002,21719,293.01,918,21699,254.60,875
 14612,SK Dresden,Sachsen,556780,26044,151.59,996,26018,144.94,996
 14625,LK Bautzen,Sachsen,299758,21845,237.52,807,22315,233.19,803
 14626,LK Görlitz,Sachsen,252725,17237,197.05,1020,17271,198.24,1020
