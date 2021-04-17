@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-16T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-17T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-16T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-17T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2125,46.58,39,2125,46.58,39
 1002,SK Kiel,Schleswig-Holstein,246794,4373,83.47,94,4373,83.47,94
@@ -337,7 +337,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 11010,SK Berlin Marzahn-Hellersdorf,Berlin,271311,,,,9314,131.58,230
 11011,SK Berlin Lichtenberg,Berlin,294937,,,,10253,148.85,234
 11012,SK Berlin Reinickendorf,Berlin,266219,,,,12262,179.18,279
-12051,SK Brandenburg a.d.Havel,Brandenburg,72184,1972,73.42,78,1970,91.43,78
+12051,SK Brandenburg a.d.Havel,Brandenburg,72184,1985,91.43,78,1970,91.43,78
 12052,SK Cottbus,Brandenburg,99678,5257,191.62,190,5257,193.62,190
 12053,SK Frankfurt (Oder),Brandenburg,57751,1897,157.57,96,1914,164.50,96
 12054,SK Potsdam,Brandenburg,180334,6165,96.49,234,6048,92.05,234
