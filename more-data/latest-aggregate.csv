@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-17T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-18T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-17T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-18T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2130,45.47,39,2130,45.47,39
 1002,SK Kiel,Schleswig-Holstein,246794,4387,75.77,94,4387,75.77,94
@@ -15,8 +15,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1060,LK Segeberg,Schleswig-Holstein,277175,6123,95.25,150,6125,93.80,150
 1061,LK Steinburg,Schleswig-Holstein,131013,1954,93.12,30,1941,93.12,30
 1062,LK Stormarn,Schleswig-Holstein,244156,6065,91.74,288,6068,90.93,288
-2000,SK Hamburg,Hamburg,1847253,67954,144.92,1429,67944,125.81,1431
-3101,SK Braunschweig,Niedersachsen,249406,5280,120.69,161,5362,116.68,160
+2000,SK Hamburg,Hamburg,1847253,68251,167.62,1431,67944,125.81,1431
+3101,SK Braunschweig,Niedersachsen,249406,5331,149.56,161,5362,116.68,160
 3102,SK Salzgitter,Niedersachsen,104291,4224,381.62,62,4224,319.30,62
 3103,SK Wolfsburg,Niedersachsen,124371,3057,166.44,77,3057,166.44,77
 3151,LK Gifhorn,Niedersachsen,176523,5126,142.19,169,5087,81.01,169
@@ -50,7 +50,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3404,SK Osnabrück,Niedersachsen,165251,6365,171.86,93,6367,142.21,91
 3405,SK Wilhelmshaven,Niedersachsen,76089,1638,106.45,45,1638,85.43,45
 3451,LK Ammerland,Niedersachsen,124859,2661,113.73,55,2661,112.93,55
-3452,LK Aurich,Niedersachsen,189694,2978,83.29,48,2968,60.62,48
+3452,LK Aurich,Niedersachsen,189694,3000,99.67,48,2968,60.62,48
 3453,LK Cloppenburg,Niedersachsen,170682,9708,216.78,146,9696,195.10,146
 3454,LK Emsland,Niedersachsen,326954,11067,173.72,162,11136,145.28,161
 3455,LK Friesland,Niedersachsen,98704,1423,78.01,40,1439,59.77,40
@@ -395,10 +395,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16053,SK Jena,Thüringen,111343,3659,114.96,66,3653,98.79,65
 16054,SK Suhl,Thüringen,36789,1867,328.90,101,1868,282.69,101
 16055,SK Weimar,Thüringen,65228,2177,136.44,96,2176,110.38,96
-16056,SK Eisenach,Thüringen,42250,1556,163.31,60,1558,137.28,60
+16056,SK Eisenach,Thüringen,42250,1557,165.68,60,1558,137.28,60
 16061,LK Eichsfeld,Thüringen,100006,5506,237.99,213,5526,216.99,211
 16062,LK Nordhausen,Thüringen,83416,2227,152.25,54,2156,137.86,54
-16063,LK Wartburgkreis,Thüringen,118974,6818,403.45,202,6868,347.13,202
+16063,LK Wartburgkreis,Thüringen,118974,6819,404.29,202,6868,347.13,202
 16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,5512,126.18,221,5536,135.97,221
 16065,LK Kyffhäuserkreis,Thüringen,74212,3028,200.78,123,3051,207.51,123
 16066,LK Schmalkalden-Meiningen,Thüringen,124916,8695,292.20,318,8736,267.38,318
