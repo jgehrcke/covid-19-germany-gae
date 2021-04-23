@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-23T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-23T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2152,32.16,39,2152,33.27,39
 1002,SK Kiel,Schleswig-Holstein,246794,4553,88.74,95,4553,89.55,95
@@ -68,7 +68,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5113,SK Essen,Nordrhein-Westfalen,582760,22720,148.95,543,22868,155.12,537
 5114,SK Krefeld,Nordrhein-Westfalen,227417,9739,233.93,149,9831,224.70,150
 5116,SK Mönchengladbach,Nordrhein-Westfalen,261034,9342,133.70,214,9406,114.54,216
-5117,SK Mülheim a.d.Ruhr,Nordrhein-Westfalen,170632,7466,302.63,212,7424,227.39,212
+5117,SK Mülheim a.d.Ruhr,Nordrhein-Westfalen,170632,7466,288.37,212,7424,227.39,212
 5119,SK Oberhausen,Nordrhein-Westfalen,210764,9694,212.09,314,9804,154.20,314
 5120,SK Remscheid,Nordrhein-Westfalen,111338,5268,260.47,147,5343,280.23,147
 5122,SK Solingen,Nordrhein-Westfalen,159245,8165,207.86,172,8213,198.44,172
@@ -92,7 +92,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5512,SK Bottrop,Nordrhein-Westfalen,117565,4699,132.69,100,4738,133.54,100
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,13276,282.69,373,13410,269.60,374
 5515,SK Münster,Nordrhein-Westfalen,315293,7310,111.96,110,7324,106.57,110
-5554,LK Borken,Nordrhein-Westfalen,371339,12292,197.08,232,12328,150.81,234
+5554,LK Borken,Nordrhein-Westfalen,371339,12292,183.28,232,12328,150.81,234
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,4985,89.31,89,5004,92.93,86
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,28010,206.63,797,28202,194.42,798
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,14247,156.84,297,14363,138.32,299
@@ -287,7 +287,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9565,SK Schwabach,Bayern,40981,1978,168.37,104,1991,170.81,104
 9571,LK Ansbach,Bayern,184591,7418,241.07,177,7291,210.74,162
 9572,LK Erlangen-Höchstadt,Bayern,137262,4763,143.52,119,4763,118.75,119
-9573,LK Fürth,Bayern,117853,4716,113.70,196,4740,153.58,197
+9573,LK Fürth,Bayern,117853,4764,154.43,196,4740,153.58,197
 9574,LK Nürnberger Land,Bayern,170792,6521,135.25,178,6538,141.69,164
 9575,LK Neustadt a.d.Aisch-Bad Windsheim,Bayern,101014,3795,288.08,97,3742,207.89,97
 9576,LK Roth,Bayern,126749,5118,138.86,163,5148,138.07,163
@@ -356,7 +356,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12072,LK Teltow-Fläming,Brandenburg,169997,6193,125.88,191,6227,120.59,191
 12073,LK Uckermark,Brandenburg,118947,3429,163.94,148,3443,131.15,149
 13003,SK Rostock,Mecklenburg-Vorpommern,209191,2485,80.31,31,2491,81.27,31
-13004,SK Schwerin,Mecklenburg-Vorpommern,95653,2350,42.22,97,2385,109.77,97
+13004,SK Schwerin,Mecklenburg-Vorpommern,95653,2350,58.11,97,2385,109.77,97
 13071,LK Mecklenburgische Seenplatte,Mecklenburg-Vorpommern,258074,7546,188.32,145,7545,189.48,145
 13072,LK Rostock,Mecklenburg-Vorpommern,215794,3815,133.00,105,3815,117.24,105
 13073,LK Vorpommern-Rügen,Mecklenburg-Vorpommern,224702,3369,117.04,70,3362,103.25,70
@@ -411,5 +411,5 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16073,LK Saalfeld-Rudolstadt,Thüringen,103199,5804,229.65,250,5857,227.72,253
 16074,LK Saale-Holzland-Kreis,Thüringen,82950,4039,184.45,92,4079,201.33,92
 16075,LK Saale-Orla-Kreis,Thüringen,80312,5577,473.15,137,5616,377.28,137
-16076,LK Greiz,Thüringen,97398,7029,301.85,166,7000,266.95,165
+16076,LK Greiz,Thüringen,97398,7081,355.24,177,7000,266.95,165
 16077,LK Altenburger Land,Thüringen,89393,6138,190.17,250,6206,228.21,250
