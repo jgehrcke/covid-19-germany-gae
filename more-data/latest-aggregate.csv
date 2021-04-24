@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-23T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-24T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-23T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-24T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2162,41.04,39,2162,42.15,39
 1002,SK Kiel,Schleswig-Holstein,246794,4583,85.09,96,4583,87.93,96
@@ -15,8 +15,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1060,LK Segeberg,Schleswig-Holstein,277175,6279,69.27,153,6282,68.91,151
 1061,LK Steinburg,Schleswig-Holstein,131013,2063,106.86,31,2051,106.86,31
 1062,LK Stormarn,Schleswig-Holstein,244156,6298,108.54,289,6300,106.08,289
-2000,SK Hamburg,Hamburg,1847253,69925,128.46,1447,69920,105.02,1456
-3101,SK Braunschweig,Niedersachsen,249406,5471,100.24,166,5543,89.01,165
+2000,SK Hamburg,Hamburg,1847253,70163,146.65,1456,69920,105.02,1456
+3101,SK Braunschweig,Niedersachsen,249406,5543,140.99,166,5543,89.01,165
 3102,SK Salzgitter,Niedersachsen,104291,4505,325.05,65,4505,269.44,65
 3103,SK Wolfsburg,Niedersachsen,124371,3280,208.25,79,3281,180.11,79
 3151,LK Gifhorn,Niedersachsen,176523,5254,94.61,172,5263,74.78,172
@@ -44,13 +44,13 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3359,LK Stade,Niedersachsen,204512,4377,130.55,109,4404,101.71,110
 3360,LK Uelzen,Niedersachsen,92389,2036,89.84,107,2027,81.18,107
 3361,LK Verden,Niedersachsen,137133,3473,107.20,52,3514,119.59,52
-3401,SK Delmenhorst,Niedersachsen,77559,2974,207.58,62,2995,195.98,62
+3401,SK Delmenhorst,Niedersachsen,77559,2995,245.81,62,2995,195.98,62
 3402,SK Emden,Niedersachsen,49913,921,124.22,7,934,138.24,7
 3403,SK Oldenburg,Niedersachsen,169077,3942,134.26,44,3727,103.50,44
 3404,SK Osnabrück,Niedersachsen,165251,6641,195.46,94,6649,167.62,92
 3405,SK Wilhelmshaven,Niedersachsen,76089,1701,103.83,46,1704,68.34,46
 3451,LK Ammerland,Niedersachsen,124859,2789,112.93,59,2789,112.93,59
-3452,LK Aurich,Niedersachsen,189694,3066,58.52,49,3060,42.70,49
+3452,LK Aurich,Niedersachsen,189694,3090,76.38,49,3060,42.70,49
 3453,LK Cloppenburg,Niedersachsen,170682,9958,181.04,148,9952,174.01,148
 3454,LK Emsland,Niedersachsen,326954,11509,156.90,171,11562,132.43,172
 3455,LK Friesland,Niedersachsen,98704,1488,65.85,40,1488,49.64,40
@@ -356,7 +356,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12072,LK Teltow-Fläming,Brandenburg,169997,6225,124.12,191,6267,120.59,191
 12073,LK Uckermark,Brandenburg,118947,3443,132.83,149,3463,121.06,149
 13003,SK Rostock,Mecklenburg-Vorpommern,209191,2530,95.13,32,2536,94.17,32
-13004,SK Schwerin,Mecklenburg-Vorpommern,95653,2350,11.34,97,2401,109.77,97
+13004,SK Schwerin,Mecklenburg-Vorpommern,95653,2350,34.50,97,2401,109.77,97
 13071,LK Mecklenburgische Seenplatte,Mecklenburg-Vorpommern,258074,7597,177.08,146,7596,178.24,146
 13072,LK Rostock,Mecklenburg-Vorpommern,215794,3869,133.00,105,3869,121.88,105
 13073,LK Vorpommern-Rügen,Mecklenburg-Vorpommern,224702,3400,108.14,70,3391,94.79,70
