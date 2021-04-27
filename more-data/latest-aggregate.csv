@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-04-26T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-27T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-04-26T17:00:00+0000", "time_iso8601_last_update_rl": "2021-04-27T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2180,48.80,39,2180,48.80,39
 1002,SK Kiel,Schleswig-Holstein,246794,4668,92.38,96,4668,94.82,96
@@ -15,12 +15,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1060,LK Segeberg,Schleswig-Holstein,277175,6321,60.25,154,6324,58.81,154
 1061,LK Steinburg,Schleswig-Holstein,131013,2092,90.07,31,2084,93.12,31
 1062,LK Stormarn,Schleswig-Holstein,244156,6367,107.31,290,6369,102.80,290
-2000,SK Hamburg,Hamburg,1847253,70709,118.45,1461,70701,104.70,1467
+2000,SK Hamburg,Hamburg,1847253,70919,134.50,1467,70701,104.70,1467
 3101,SK Braunschweig,Niedersachsen,249406,5612,108.66,166,5616,89.41,167
 3102,SK Salzgitter,Niedersachsen,104291,4648,360.53,66,4648,314.50,65
 3103,SK Wolfsburg,Niedersachsen,124371,3344,209.05,80,3341,186.54,80
 3151,LK Gifhorn,Niedersachsen,176523,5334,96.87,173,5335,91.77,173
-3153,LK Goslar,Niedersachsen,136292,2293,95.38,131,2294,92.45,107
+3153,LK Goslar,Niedersachsen,136292,2296,98.49,131,2294,92.45,107
 3154,LK Helmstedt,Niedersachsen,91297,2176,79.96,89,2174,78.86,88
 3155,LK Northeim,Niedersachsen,132285,2069,92.23,47,2072,86.93,46
 3157,LK Peine,Niedersachsen,134801,4896,174.33,97,4892,171.36,97
@@ -47,7 +47,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3401,SK Delmenhorst,Niedersachsen,77559,3022,197.27,62,3022,165.04,62
 3402,SK Emden,Niedersachsen,49913,936,136.24,7,941,130.23,7
 3403,SK Oldenburg,Niedersachsen,169077,4017,113.56,44,3785,120.06,44
-3404,SK Osnabrück,Niedersachsen,165251,6748,194.25,94,6779,176.10,93
+3404,SK Osnabrück,Niedersachsen,165251,6760,204.50,94,6779,176.10,93
 3405,SK Wilhelmshaven,Niedersachsen,76089,1734,118.28,46,1735,76.23,46
 3451,LK Ammerland,Niedersachsen,124859,2830,115.33,60,2830,115.33,60
 3452,LK Aurich,Niedersachsen,189694,3103,53.24,51,3098,49.03,50
@@ -57,30 +57,30 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,4746,183.72,113,4757,188.10,113
 3457,LK Leer,Niedersachsen,170756,4008,114.20,52,4011,115.37,52
 3458,LK Oldenburg,Niedersachsen,130890,4684,140.58,108,4578,109.25,108
-3459,LK Osnabrück,Niedersachsen,358080,14438,155.83,314,14336,137.96,288
+3459,LK Osnabrück,Niedersachsen,358080,14476,170.81,314,14336,137.96,288
 3460,LK Vechta,Niedersachsen,142814,7938,322.10,91,7931,321.40,82
 3461,LK Wesermarsch,Niedersachsen,88583,3005,119.66,102,3005,114.02,102
 3462,LK Wittmund,Niedersachsen,56926,1124,42.16,32,1125,43.92,32
 4011,SK Bremen,Bremen,567559,20680,157.87,353,20671,159.10,353
 4012,SK Bremerhaven,Bremen,113643,3983,149.59,95,3989,157.51,94
-5111,SK Düsseldorf,Nordrhein-Westfalen,621877,22151,163.70,357,22214,160.96,362
-5112,SK Duisburg,Nordrhein-Westfalen,498686,25878,250.06,591,26042,235.42,592
+5111,SK Düsseldorf,Nordrhein-Westfalen,621877,22214,178.00,362,22214,160.96,362
+5112,SK Duisburg,Nordrhein-Westfalen,498686,26019,289.97,592,26042,235.42,592
 5113,SK Essen,Nordrhein-Westfalen,582760,23325,181.38,546,23407,179.66,540
 5114,SK Krefeld,Nordrhein-Westfalen,227417,10023,233.93,150,10076,233.49,150
-5116,SK Mönchengladbach,Nordrhein-Westfalen,261034,9610,163.58,217,9640,157.45,218
+5116,SK Mönchengladbach,Nordrhein-Westfalen,261034,9639,179.26,218,9640,157.45,218
 5117,SK Mülheim a.d.Ruhr,Nordrhein-Westfalen,170632,7608,244.39,212,7603,232.08,213
-5119,SK Oberhausen,Nordrhein-Westfalen,210764,10000,222.52,314,10035,183.62,316
+5119,SK Oberhausen,Nordrhein-Westfalen,210764,10035,245.97,316,10035,183.62,316
 5120,SK Remscheid,Nordrhein-Westfalen,111338,5462,273.04,148,5474,280.23,147
 5122,SK Solingen,Nordrhein-Westfalen,159245,8317,176.46,172,8326,169.55,173
 5124,SK Wuppertal,Nordrhein-Westfalen,355100,17808,244.44,436,17814,250.92,435
 5154,LK Kleve,Nordrhein-Westfalen,312465,9919,174.74,172,9940,160.98,168
-5158,LK Mettmann,Nordrhein-Westfalen,485570,20790,202.03,682,20975,205.53,681
+5158,LK Mettmann,Nordrhein-Westfalen,485570,20918,239.25,685,20975,205.53,681
 5162,LK Rhein-Kreis Neuss,Nordrhein-Westfalen,451730,15727,225.80,309,15711,155.18,309
 5166,LK Viersen,Nordrhein-Westfalen,298863,10443,129.49,281,10456,137.52,280
 5170,LK Wesel,Nordrhein-Westfalen,459976,15781,176.31,260,15784,168.05,260
 5314,SK Bonn,Nordrhein-Westfalen,329673,12538,189.89,220,12576,190.80,222
 5315,SK Köln,Nordrhein-Westfalen,1087863,46732,257.02,626,46991,240.01,629
-5316,SK Leverkusen,Nordrhein-Westfalen,163729,6617,254.69,89,6688,260.19,89
+5316,SK Leverkusen,Nordrhein-Westfalen,163729,6688,315.91,89,6688,260.19,89
 5334,StadtRegion Aachen,Nordrhein-Westfalen,557026,23325,178.81,525,23349,167.50,524
 5358,LK Düren,Nordrhein-Westfalen,264638,12281,184.78,262,12377,187.80,262
 5362,LK Rhein-Erft-Kreis,Nordrhein-Westfalen,470615,17245,185.50,359,17251,185.93,360
@@ -91,14 +91,14 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,20691,144.82,469,20712,140.82,467
 5512,SK Bottrop,Nordrhein-Westfalen,117565,4788,142.05,101,4796,136.09,101
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,13518,283.46,374,13721,263.44,380
-5515,SK Münster,Nordrhein-Westfalen,315293,7470,111.33,110,7482,101.81,110
+5515,SK Münster,Nordrhein-Westfalen,315293,7498,123.86,111,7482,101.81,110
 5554,LK Borken,Nordrhein-Westfalen,371339,12459,143.80,235,12507,145.69,236
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,5080,90.67,89,5066,86.59,86
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,28716,195.23,803,28680,185.79,802
-5566,LK Steinfurt,Nordrhein-Westfalen,448220,14678,165.77,299,14864,162.42,302
+5566,LK Steinfurt,Nordrhein-Westfalen,448220,14770,194.74,300,14864,162.42,302
 5570,LK Warendorf,Nordrhein-Westfalen,277840,10560,185.72,218,10565,179.96,221
 5711,SK Bielefeld,Nordrhein-Westfalen,334195,13326,230.70,304,13349,210.36,305
-5754,LK Gütersloh,Nordrhein-Westfalen,364938,17320,222.23,293,17415,202.77,294
+5754,LK Gütersloh,Nordrhein-Westfalen,364938,17364,239.25,295,17415,202.77,294
 5758,LK Herford,Nordrhein-Westfalen,250578,9955,192.36,162,9955,164.82,162
 5762,LK Höxter,Nordrhein-Westfalen,140251,4582,78.43,139,4578,71.30,139
 5766,LK Lippe,Nordrhein-Westfalen,347514,15462,158.55,365,15482,155.10,367
@@ -106,9 +106,9 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5774,LK Paderborn,Nordrhein-Westfalen,307839,8967,192.31,147,8839,183.86,147
 5911,SK Bochum,Nordrhein-Westfalen,365587,14060,181.63,205,14090,186.00,204
 5913,SK Dortmund,Nordrhein-Westfalen,588250,24476,206.54,344,24484,206.20,344
-5914,SK Hagen,Nordrhein-Westfalen,188686,10538,268.17,284,10567,270.29,284
+5914,SK Hagen,Nordrhein-Westfalen,188686,10566,289.12,284,10567,270.29,284
 5915,SK Hamm,Nordrhein-Westfalen,179916,8938,291.80,181,8966,287.91,181
-5916,SK Herne,Nordrhein-Westfalen,156449,8580,298.50,248,8641,294.66,251
+5916,SK Herne,Nordrhein-Westfalen,156449,8639,351.74,251,8641,294.66,251
 5954,LK Ennepe-Ruhr-Kreis,Nordrhein-Westfalen,324106,12050,173.09,331,12080,168.46,330
 5958,LK Hochsauerlandkreis,Nordrhein-Westfalen,259777,8374,174.00,178,8403,174.38,182
 5962,LK Märkischer Kreis,Nordrhein-Westfalen,410222,18287,237.68,353,18307,238.41,355
@@ -135,10 +135,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6533,LK Limburg-Weilburg,Hessen,171912,8187,266.42,252,8195,244.31,252
 6534,LK Marburg-Biedenkopf,Hessen,247084,9636,173.63,257,9720,172.01,257
 6535,LK Vogelsbergkreis,Hessen,105643,3628,141.04,104,3633,144.83,104
-6611,SK Kassel,Hessen,202137,7041,222.62,164,7039,210.75,166
+6611,SK Kassel,Hessen,202137,7048,227.51,166,7039,210.75,166
 6631,LK Fulda,Hessen,223145,11837,268.88,239,11840,256.78,239
-6632,LK Hersfeld-Rotenburg,Hessen,120719,5305,246.03,158,5323,255.97,159
-6633,LK Kassel,Hessen,236764,7074,183.30,197,7071,173.17,196
+6632,LK Hersfeld-Rotenburg,Hessen,120719,5331,276.43,161,5323,255.97,159
+6633,LK Kassel,Hessen,236764,7079,186.29,197,7071,173.17,196
 6634,LK Schwalm-Eder-Kreis,Hessen,179673,5739,139.14,225,5725,136.36,222
 6635,LK Waldeck-Frankenberg,Hessen,156406,5385,125.31,141,5392,122.12,134
 6636,LK Werra-Meißner-Kreis,Hessen,100629,3182,146.08,147,3143,145.09,140
@@ -152,7 +152,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 7138,LK Neuwied,Rheinland-Pfalz,182811,7379,166.84,120,7370,167.39,115
 7140,LK Rhein-Hunsrück-Kreis,Rheinland-Pfalz,103163,3353,129.89,89,3355,127.95,89
 7141,LK Rhein-Lahn-Kreis,Rheinland-Pfalz,122297,3650,140.64,96,3655,135.74,96
-7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,6409,156.51,141,6351,148.09,141
+7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,6432,172.59,142,6351,148.09,141
 7211,SK Trier,Rheinland-Pfalz,111528,2429,86.97,27,2433,83.39,24
 7231,LK Bernkastel-Wittlich,Rheinland-Pfalz,112483,2637,139.58,61,2637,139.58,61
 7232,LK Bitburg-Prüm,Rheinland-Pfalz,99058,2996,137.29,22,3001,121.14,23
@@ -179,8 +179,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 7339,LK Mainz-Bingen,Rheinland-Pfalz,211417,6643,139.06,204,6615,129.13,203
 7340,LK Südwestpfalz,Rheinland-Pfalz,94831,2351,80.14,80,2367,80.14,80
 8111,SK Stuttgart,Baden-Württemberg,635911,25172,216.38,383,25072,215.44,383
-8115,LK Böblingen,Baden-Württemberg,392807,14677,212.06,245,14708,185.84,261
-8116,LK Esslingen,Baden-Württemberg,535024,23006,248.40,488,22752,250.27,489
+8115,LK Böblingen,Baden-Württemberg,392807,14706,222.49,246,14708,185.84,261
+8116,LK Esslingen,Baden-Württemberg,535024,23197,298.80,489,22752,250.27,489
 8117,LK Göppingen,Baden-Württemberg,258145,10479,263.81,197,10583,262.26,196
 8118,LK Ludwigsburg,Baden-Württemberg,545423,22857,218.91,467,22848,211.03,467
 8119,LK Rems-Murr-Kreis,Baden-Württemberg,427248,17251,240.38,332,17252,232.89,332
@@ -190,7 +190,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8127,LK Schwäbisch Hall,Baden-Württemberg,196761,10262,255.64,231,10075,256.66,231
 8128,LK Main-Tauber-Kreis,Baden-Württemberg,132399,4653,114.80,84,4654,114.80,84
 8135,LK Heidenheim,Baden-Württemberg,132777,4812,256.07,140,4811,249.29,140
-8136,LK Ostalbkreis,Baden-Württemberg,314025,13172,262.08,330,13129,242.02,332
+8136,LK Ostalbkreis,Baden-Württemberg,314025,13301,320.08,332,13129,242.02,332
 8211,SK Baden-Baden,Baden-Württemberg,55185,1846,221.07,59,1807,181.21,56
 8212,SK Karlsruhe,Baden-Württemberg,312060,9426,154.14,184,9399,157.02,184
 8215,LK Karlsruhe,Baden-Württemberg,445101,16381,168.28,436,16292,171.65,436
@@ -203,8 +203,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8235,LK Calw,Baden-Württemberg,159201,7317,304.02,159,7145,268.84,159
 8236,LK Enzkreis,Baden-Württemberg,199556,8375,254.57,239,8257,227.51,232
 8237,LK Freudenstadt,Baden-Württemberg,118243,4722,277.39,143,4635,263.86,146
-8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,6740,105.97,153,6675,98.19,146
-8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,7911,76.63,180,7822,79.67,175
+8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,6759,117.57,153,6675,98.19,146
+8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,7939,91.63,180,7822,79.67,175
 8316,LK Emmendingen,Baden-Württemberg,166408,5669,104.56,156,5669,89.54,156
 8317,LK Ortenaukreis,Baden-Württemberg,430953,17015,169.16,528,17012,158.25,528
 8325,LK Rottweil,Baden-Württemberg,139878,6553,237.35,152,6553,214.47,152
@@ -304,7 +304,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9677,LK Main-Spessart,Bayern,126158,4298,124.45,201,4304,125.24,201
 9678,LK Schweinfurt,Bayern,115445,4268,148.12,121,4334,151.59,122
 9679,LK Würzburg,Bayern,162302,4017,96.12,68,4031,94.88,67
-9761,SK Augsburg,Bayern,296582,16051,217.14,376,15855,199.27,376
+9761,SK Augsburg,Bayern,296582,16134,256.65,377,15855,199.27,376
 9762,SK Kaufbeuren,Bayern,44398,2190,184.69,50,2096,155.41,49
 9763,SK Kempten,Bayern,69151,2550,284.88,42,2550,255.96,39
 9764,SK Memmingen,Bayern,44100,1774,242.63,23,1787,249.43,23
@@ -368,13 +368,13 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14522,LK Mittelsachsen,Sachsen,304099,21581,367.64,625,20982,334.10,613
 14523,LK Vogtlandkreis,Sachsen,225997,17770,238.94,754,17770,217.26,726
 14524,LK Zwickau,Sachsen,315002,24068,349.20,968,24063,310.16,930
-14612,SK Dresden,Sachsen,556780,27864,165.42,1040,27833,134.34,1040
+14612,SK Dresden,Sachsen,556780,28104,226.27,1041,27833,134.34,1040
 14625,LK Bautzen,Sachsen,299758,24593,221.18,845,24208,317.59,839
 14626,LK Görlitz,Sachsen,252725,18494,245.72,1055,18544,196.26,1055
 14627,LK Meißen,Sachsen,241717,15876,218.44,580,15796,199.82,580
 14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,18709,236.17,925,18478,208.07,916
 14713,SK Leipzig,Sachsen,593145,20153,125.10,491,20147,122.74,485
-14729,LK Leipzig,Sachsen,258139,13344,177.42,314,13311,170.06,314
+14729,LK Leipzig,Sachsen,258139,13407,211.88,314,13311,170.06,314
 14730,LK Nordsachsen,Sachsen,197741,12482,195.71,322,12470,174.98,324
 15001,SK Dessau-Roßlau,Sachsen-Anhalt,80103,2927,166.04,107,2912,156.05,102
 15002,SK Halle,Sachsen-Anhalt,238762,10717,190.99,332,10667,190.99,324
@@ -391,7 +391,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 15090,LK Stendal,Sachsen-Anhalt,111190,4266,226.64,178,4096,187.97,152
 15091,LK Wittenberg,Sachsen-Anhalt,124953,6042,162.46,257,6043,153.66,256
 16051,SK Erfurt,Thüringen,213981,7580,181.79,242,7607,186.93,238
-16052,SK Gera,Thüringen,93125,5066,269.53,173,5110,270.60,175
+16052,SK Gera,Thüringen,93125,5110,336.23,175,5110,270.60,175
 16053,SK Jena,Thüringen,111343,3845,136.52,67,3866,135.62,67
 16054,SK Suhl,Thüringen,36789,1939,192.99,100,1970,255.51,100
 16055,SK Weimar,Thüringen,65228,2324,174.77,97,2324,171.71,97
