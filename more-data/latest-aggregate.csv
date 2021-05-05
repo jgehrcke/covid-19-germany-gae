@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-05-04T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-05T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-05-04T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-05T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2219,38.82,39,2219,38.82,39
 1002,SK Kiel,Schleswig-Holstein,246794,4896,78.61,97,4896,80.23,97
@@ -16,15 +16,15 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1061,LK Steinburg,Schleswig-Holstein,131013,2186,60.30,33,2175,60.30,33
 1062,LK Stormarn,Schleswig-Holstein,244156,6593,69.22,294,6595,70.04,294
 2000,SK Hamburg,Hamburg,1847253,72835,103.72,1504,72828,85.97,1509
-3101,SK Braunschweig,Niedersachsen,249406,5882,106.65,172,5937,100.24,172
+3101,SK Braunschweig,Niedersachsen,249406,5937,137.79,172,5937,100.24,172
 3102,SK Salzgitter,Niedersachsen,104291,4865,199.44,69,4889,171.64,69
 3103,SK Wolfsburg,Niedersachsen,124371,3534,136.69,82,3544,121.41,82
-3151,LK Gifhorn,Niedersachsen,176523,5492,88.94,177,5552,93.47,177
-3153,LK Goslar,Niedersachsen,136292,2418,89.51,132,2431,67.50,108
+3151,LK Gifhorn,Niedersachsen,176523,5552,136.93,177,5552,93.47,177
+3153,LK Goslar,Niedersachsen,136292,2437,109.19,132,2431,67.50,108
 3154,LK Helmstedt,Niedersachsen,91297,2249,74.48,90,2246,72.29,89
 3155,LK Northeim,Niedersachsen,132285,2197,88.45,43,2199,61.23,47
 3157,LK Peine,Niedersachsen,134801,5091,125.37,97,5088,126.11,97
-3158,LK Wolfenbüttel,Niedersachsen,119622,2595,82.76,95,2611,84.43,95
+3158,LK Wolfenbüttel,Niedersachsen,119622,2624,116.99,95,2611,84.43,95
 3159,LK Göttingen,Niedersachsen,326041,7474,94.77,245,7390,89.56,245
 3241,Region Hannover,Niedersachsen,1157115,45252,122.55,1010,45273,111.31,973
 3251,LK Diepholz,Niedersachsen,217089,6356,140.50,96,6352,136.81,89
@@ -41,23 +41,23 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3356,LK Osterholz,Niedersachsen,113928,2521,69.34,58,2540,61.44,58
 3357,LK Rotenburg (Wümme),Niedersachsen,163782,3660,111.12,85,3673,81.82,85
 3358,LK Heidekreis,Niedersachsen,140673,3180,83.88,99,3180,63.98,99
-3359,LK Stade,Niedersachsen,204512,4645,91.93,114,4690,89.48,114
+3359,LK Stade,Niedersachsen,204512,4690,122.99,114,4690,89.48,114
 3360,LK Uelzen,Niedersachsen,92389,2101,51.95,111,2102,53.04,111
-3361,LK Verden,Niedersachsen,137133,3639,78.03,53,3653,61.25,53
-3401,SK Delmenhorst,Niedersachsen,77559,3187,212.74,62,3198,189.53,62
+3361,LK Verden,Niedersachsen,137133,3649,88.32,53,3653,61.25,53
+3401,SK Delmenhorst,Niedersachsen,77559,3198,232.76,62,3198,189.53,62
 3402,SK Emden,Niedersachsen,49913,988,104.18,7,995,66.12,7
-3403,SK Oldenburg,Niedersachsen,169077,4167,85.17,44,3953,75.71,44
-3404,SK Osnabrück,Niedersachsen,165251,6970,127.08,96,7005,112.56,94
+3403,SK Oldenburg,Niedersachsen,169077,4191,105.21,44,3953,75.71,44
+3404,SK Osnabrück,Niedersachsen,165251,6982,137.33,96,7005,112.56,94
 3405,SK Wilhelmshaven,Niedersachsen,76089,1815,97.25,48,1814,44.68,48
 3451,LK Ammerland,Niedersachsen,124859,2930,71.28,61,2930,72.08,61
 3452,LK Aurich,Niedersachsen,189694,3211,55.88,51,3214,45.34,50
 3453,LK Cloppenburg,Niedersachsen,170682,10296,143.54,152,10282,128.31,152
-3454,LK Emsland,Niedersachsen,326954,12004,96.34,180,12010,73.71,179
+3454,LK Emsland,Niedersachsen,326954,12056,118.80,181,12010,73.71,179
 3455,LK Friesland,Niedersachsen,98704,1549,43.56,40,1551,43.56,40
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,4982,164.04,114,5008,148.00,114
 3457,LK Leer,Niedersachsen,170756,4141,76.13,56,4152,64.42,56
 3458,LK Oldenburg,Niedersachsen,130890,4823,97.03,108,4722,90.15,108
-3459,LK Osnabrück,Niedersachsen,358080,14834,99.98,317,14733,95.51,293
+3459,LK Osnabrück,Niedersachsen,358080,14844,103.92,317,14733,95.51,293
 3460,LK Vechta,Niedersachsen,142814,8322,230.37,93,8312,228.27,84
 3461,LK Wesermarsch,Niedersachsen,88583,3087,83.54,106,3086,64.35,105
 3462,LK Wittmund,Niedersachsen,56926,1155,47.43,32,1154,42.16,32
@@ -94,7 +94,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5515,SK Münster,Nordrhein-Westfalen,315293,7768,85.63,113,7781,74.53,113
 5554,LK Borken,Nordrhein-Westfalen,371339,12923,121.45,243,13055,119.30,246
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,5277,77.97,92,5297,74.35,87
-5562,LK Recklinghausen,Nordrhein-Westfalen,614137,29651,145.24,840,29688,136.61,843
+5562,LK Recklinghausen,Nordrhein-Westfalen,614137,29764,171.22,841,29688,136.61,843
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,15578,180.27,308,15753,156.40,307
 5570,LK Warendorf,Nordrhein-Westfalen,277840,10925,130.65,230,11002,133.17,230
 5711,SK Bielefeld,Nordrhein-Westfalen,334195,14037,205.87,311,14166,174.15,311
@@ -152,7 +152,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 7138,LK Neuwied,Rheinland-Pfalz,182811,7675,142.22,122,7662,141.13,117
 7140,LK Rhein-Hunsrück-Kreis,Rheinland-Pfalz,103163,3487,125.04,94,3490,94.03,94
 7141,LK Rhein-Lahn-Kreis,Rheinland-Pfalz,122297,3757,71.96,96,3765,72.77,96
-7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,6723,144.13,145,6694,137.69,145
+7143,LK Westerwaldkreis,Rheinland-Pfalz,201904,6788,189.58,146,6694,137.69,145
 7211,SK Trier,Rheinland-Pfalz,111528,2537,82.49,27,2541,62.76,24
 7231,LK Bernkastel-Wittlich,Rheinland-Pfalz,112483,2773,110.24,61,2773,104.90,61
 7232,LK Bitburg-Prüm,Rheinland-Pfalz,99058,3120,107.01,22,3125,99.94,24
@@ -179,8 +179,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 7339,LK Mainz-Bingen,Rheinland-Pfalz,211417,6870,100.75,206,6849,96.96,205
 7340,LK Südwestpfalz,Rheinland-Pfalz,94831,2431,74.87,81,2447,73.82,81
 8111,SK Stuttgart,Baden-Württemberg,635911,26748,211.51,386,26648,207.58,386
-8115,LK Böblingen,Baden-Württemberg,392807,15398,176.17,250,15518,132.64,265
-8116,LK Esslingen,Baden-Württemberg,535024,24333,212.33,497,24031,185.04,499
+8115,LK Böblingen,Baden-Württemberg,392807,15531,223.97,250,15518,132.64,265
+8116,LK Esslingen,Baden-Württemberg,535024,24513,259.82,499,24031,185.04,499
 8117,LK Göppingen,Baden-Württemberg,258145,11261,264.58,206,11166,160.76,200
 8118,LK Ludwigsburg,Baden-Württemberg,545423,24121,192.51,482,24122,167.58,482
 8119,LK Rems-Murr-Kreis,Baden-Württemberg,427248,18272,195.90,339,18095,147.22,338
