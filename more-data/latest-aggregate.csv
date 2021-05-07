@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-05-06T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-07T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-05-06T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-07T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2232,38.82,39,2232,38.82,39
 1002,SK Kiel,Schleswig-Holstein,246794,4968,84.69,99,4968,87.12,99
@@ -42,7 +42,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3357,LK Rotenburg (Wümme),Niedersachsen,163782,3704,88.53,86,3725,68.99,86
 3358,LK Heidekreis,Niedersachsen,140673,3230,72.51,99,3231,64.69,99
 3359,LK Stade,Niedersachsen,204512,4723,96.33,115,4747,74.32,116
-3360,LK Uelzen,Niedersachsen,92389,2109,34.64,111,2122,46.54,111
+3360,LK Uelzen,Niedersachsen,92389,2121,47.62,111,2122,46.54,111
 3361,LK Verden,Niedersachsen,137133,3686,82.40,53,3717,94.07,53
 3401,SK Delmenhorst,Niedersachsen,77559,3233,180.51,64,3255,175.35,64
 3402,SK Emden,Niedersachsen,49913,1029,138.24,7,1047,144.25,7
@@ -117,7 +117,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5974,LK Soest,Nordrhein-Westfalen,301785,8110,75.88,181,8110,69.59,180
 5978,LK Unna,Nordrhein-Westfalen,394891,17856,162.32,472,17826,145.86,471
 6411,SK Darmstadt,Hessen,159878,5439,127.60,141,5469,105.08,141
-6412,SK Frankfurt am Main,Hessen,763380,36320,147.76,744,36506,142.66,748
+6412,SK Frankfurt am Main,Hessen,763380,36349,151.56,749,36506,142.66,748
 6413,SK Offenbach,Hessen,130280,8654,276.33,172,8706,234.11,171
 6414,SK Wiesbaden,Hessen,278474,11807,135.38,253,11847,138.61,251
 6431,LK Bergstraße,Hessen,270340,10403,112.08,310,10404,112.45,312
@@ -296,7 +296,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9662,SK Schweinfurt,Bayern,53426,2745,421.14,77,2767,271.40,76
 9663,SK Würzburg,Bayern,127934,4181,80.51,113,4199,85.20,112
 9671,LK Aschaffenburg,Bayern,174200,7653,129.74,196,7687,110.22,196
-9672,LK Bad Kissingen,Bayern,103235,3385,117.21,96,3390,110.43,96
+9672,LK Bad Kissingen,Bayern,103235,3384,116.24,96,3390,110.43,96
 9673,LK Rhön-Grabfeld,Bayern,79635,3296,123.06,85,3311,116.78,85
 9674,LK Haßberge,Bayern,84384,3846,110.21,85,3853,98.36,86
 9675,LK Kitzingen,Bayern,91155,2991,60.34,85,2983,48.27,83
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,7875,127.11,144,7880,112.19,144
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4443,118.15,106,4402,111.11,103
 10046,LK Sankt Wendel,Saarland,87007,3060,75.86,107,3056,75.86,106
-11000,Berlin,Berlin,3669491,171145,89.99,3242,171737,98.46,3254
+11000,Berlin,Berlin,3669491,171741,112.92,3255,171737,98.46,3254
 11001,SK Berlin Mitte,Berlin,380917,,,,21575,123.12,287
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,13936,76.19,151
 11003,SK Berlin Pankow,Berlin,409454,,,,14609,61.06,209
