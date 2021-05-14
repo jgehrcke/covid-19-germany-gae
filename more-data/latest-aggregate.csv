@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-05-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-14T12:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-05-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-14T15:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2242,11.09,39,2242,11.09,39
 1002,SK Kiel,Schleswig-Holstein,246794,5158,76.99,99,5158,76.99,99
@@ -76,7 +76,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5154,LK Kleve,Nordrhein-Westfalen,312465,10708,87.69,175,10751,74.89,175
 5158,LK Mettmann,Nordrhein-Westfalen,485570,22956,152.60,728,23160,150.34,729
 5162,LK Rhein-Kreis Neuss,Nordrhein-Westfalen,451730,17207,117.33,329,17195,111.57,329
-5166,LK Viersen,Nordrhein-Westfalen,298863,11168,82.98,297,11185,78.97,297
+5166,LK Viersen,Nordrhein-Westfalen,298863,11168,82.98,296,11185,78.97,297
 5170,LK Wesel,Nordrhein-Westfalen,459976,17029,87.83,281,17066,80.87,281
 5314,SK Bonn,Nordrhein-Westfalen,329673,13610,105.56,233,13658,101.62,234
 5315,SK Köln,Nordrhein-Westfalen,1087863,50869,126.03,672,51040,112.51,673
@@ -191,10 +191,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8128,LK Main-Tauber-Kreis,Baden-Württemberg,132399,4869,46.07,87,4869,45.32,87
 8135,LK Heidenheim,Baden-Württemberg,132777,5641,217.66,149,5641,216.91,149
 8136,LK Ostalbkreis,Baden-Württemberg,314025,14763,137.57,366,14699,128.65,367
-8211,SK Baden-Baden,Baden-Württemberg,55185,2026,97.85,62,1982,79.73,60
+8211,SK Baden-Baden,Baden-Württemberg,55185,2028,101.48,62,1982,79.73,60
 8212,SK Karlsruhe,Baden-Württemberg,312060,10347,106.71,190,10338,104.47,190
 8215,LK Karlsruhe,Baden-Württemberg,445101,17827,114.36,444,17792,113.91,444
-8216,LK Rastatt,Baden-Württemberg,231420,9668,112.35,185,9523,106.30,183
+8216,LK Rastatt,Baden-Württemberg,231420,9682,118.40,185,9523,106.30,183
 8221,SK Heidelberg,Baden-Württemberg,161485,5034,78.03,60,4979,58.21,58
 8222,SK Mannheim,Baden-Württemberg,310658,15658,103.65,292,15678,105.26,292
 8225,LK Neckar-Odenwald-Kreis,Baden-Württemberg,143633,6106,145.51,134,6107,140.64,134
@@ -233,7 +233,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9176,LK Eichstätt,Bayern,132881,4934,65.47,82,4897,65.47,81
 9177,LK Erding,Bayern,138182,6863,70.20,115,6791,73.82,115
 9178,LK Freising,Bayern,180007,8055,70.00,126,8066,59.44,126
-9179,LK Fürstenfeldbruck,Bayern,219311,9471,93.47,134,9499,83.90,134
+9179,LK Fürstenfeldbruck,Bayern,219311,9457,87.09,134,9499,83.90,134
 9180,LK Garmisch-Partenkirchen,Bayern,88424,3891,84.82,87,3484,81.43,87
 9181,LK Landsberg a.Lech,Bayern,120302,3958,46.55,66,3969,38.24,66
 9182,LK Miesbach,Bayern,100010,4321,128.99,74,4343,153.98,77
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8129,130.71,146,8128,131.23,146
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4579,95.64,108,4563,94.24,106
 10046,LK Sankt Wendel,Saarland,87007,3108,55.17,108,3104,55.17,108
-11000,Berlin,Berlin,3669491,174568,95.02,3396,174564,71.54,3396
+11000,Berlin,Berlin,3669491,174568,94.13,3396,174564,71.54,3396
 11001,SK Berlin Mitte,Berlin,380917,,,,21918,89.00,290
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14204,72.05,153
 11003,SK Berlin Pankow,Berlin,409454,,,,14789,45.67,209
