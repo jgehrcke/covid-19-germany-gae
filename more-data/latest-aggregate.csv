@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-05-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-14T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-05-13T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-14T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2242,11.09,39,2242,11.09,39
 1002,SK Kiel,Schleswig-Holstein,246794,5158,76.99,99,5158,76.99,99
@@ -91,7 +91,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,22277,86.39,497,22294,76.07,496
 5512,SK Bottrop,Nordrhein-Westfalen,117565,5147,109.73,103,5169,85.06,103
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,14813,145.20,385,14813,110.54,385
-5515,SK Münster,Nordrhein-Westfalen,315293,7994,41.55,115,8005,35.52,116
+5515,SK Münster,Nordrhein-Westfalen,315293,7996,42.18,116,8005,35.52,116
 5554,LK Borken,Nordrhein-Westfalen,371339,13419,85.91,252,13496,78.90,252
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,5440,49.41,96,5452,53.49,90
 5562,LK Recklinghausen,Nordrhein-Westfalen,614137,30566,99.81,874,30616,93.63,873
@@ -117,7 +117,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5974,LK Soest,Nordrhein-Westfalen,301785,8281,56.66,182,8280,51.03,182
 5978,LK Unna,Nordrhein-Westfalen,394891,18318,116.99,476,18277,121.81,476
 6411,SK Darmstadt,Hessen,159878,5546,66.93,143,5565,60.67,143
-6412,SK Frankfurt am Main,Hessen,763380,37291,123.40,759,37419,116.46,760
+6412,SK Frankfurt am Main,Hessen,763380,37322,127.46,760,37419,116.46,760
 6413,SK Offenbach,Hessen,130280,8883,175.78,176,8892,129.72,177
 6414,SK Wiesbaden,Hessen,278474,12149,122.81,257,12194,126.04,255
 6431,LK Bergstraße,Hessen,270340,10641,88.04,313,10642,88.04,315
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8129,130.71,146,8128,131.23,146
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4579,95.64,108,4563,94.24,106
 10046,LK Sankt Wendel,Saarland,87007,3108,55.17,108,3104,55.17,108
-11000,Berlin,Berlin,3669491,174413,89.06,3325,174564,71.54,3396
+11000,Berlin,Berlin,3669491,174568,95.02,3396,174564,71.54,3396
 11001,SK Berlin Mitte,Berlin,380917,,,,21918,89.00,290
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14204,72.05,153
 11003,SK Berlin Pankow,Berlin,409454,,,,14789,45.67,209
