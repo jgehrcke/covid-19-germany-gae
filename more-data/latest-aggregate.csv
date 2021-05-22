@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-05-21T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-22T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-05-21T17:00:00+0000", "time_iso8601_last_update_rl": "2021-05-22T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2244,0.00,39,2244,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5311,57.54,99,5311,57.54,99
@@ -202,7 +202,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8231,SK Pforzheim,Baden-Württemberg,125957,7779,188.16,189,7415,127.82,180
 8235,LK Calw,Baden-Württemberg,159201,8315,112.44,178,8043,89.82,180
 8236,LK Enzkreis,Baden-Württemberg,199556,9569,118.76,246,9369,88.70,239
-8237,LK Freudenstadt,Baden-Württemberg,118243,5260,80.34,155,5176,79.50,154
+8237,LK Freudenstadt,Baden-Württemberg,118243,5259,79.50,155,5176,79.50,154
 8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,7402,46.71,161,7316,40.66,154
 8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,8417,42.49,185,8303,45.52,180
 8316,LK Emmendingen,Baden-Württemberg,166408,6069,33.65,157,6070,30.05,157
