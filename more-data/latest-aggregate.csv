@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-10T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-10T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2266,4.44,39,2266,5.55,39
 1002,SK Kiel,Schleswig-Holstein,246794,5418,8.10,101,5418,8.91,101
@@ -15,8 +15,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1060,LK Segeberg,Schleswig-Holstein,277175,6842,15.87,160,6843,14.79,160
 1061,LK Steinburg,Schleswig-Holstein,131013,2364,1.53,40,2353,1.53,39
 1062,LK Stormarn,Schleswig-Holstein,244156,7040,20.48,302,7040,20.48,302
-2000,SK Hamburg,Hamburg,1847253,76738,19.00,1578,76737,15.32,1578
-3101,SK Braunschweig,Niedersachsen,249406,6488,5.61,184,6489,4.01,184
+2000,SK Hamburg,Hamburg,1847253,76796,23.43,1578,76737,15.32,1578
+3101,SK Braunschweig,Niedersachsen,249406,6489,6.18,184,6489,4.01,184
 3102,SK Salzgitter,Niedersachsen,104291,5342,23.97,78,5348,22.05,78
 3103,SK Wolfsburg,Niedersachsen,124371,4003,14.47,85,4007,7.24,85
 3151,LK Gifhorn,Niedersachsen,176523,6091,21.53,183,6098,22.09,183
@@ -44,7 +44,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3359,LK Stade,Niedersachsen,204512,5111,30.32,121,5122,23.47,121
 3360,LK Uelzen,Niedersachsen,92389,2182,4.33,115,2182,4.33,115
 3361,LK Verden,Niedersachsen,137133,3942,11.67,58,3945,6.56,58
-3401,SK Delmenhorst,Niedersachsen,77559,3509,21.92,68,3520,32.23,68
+3401,SK Delmenhorst,Niedersachsen,77559,3520,41.94,68,3520,32.23,68
 3402,SK Emden,Niedersachsen,49913,1314,26.05,14,1313,14.02,14
 3403,SK Oldenburg,Niedersachsen,169077,4513,14.79,46,4279,10.65,46
 3404,SK Osnabrück,Niedersachsen,165251,7462,6.05,102,7506,7.26,100
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8510,27.79,151,8510,27.79,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4872,20.39,114,4839,20.39,112
 10046,LK Sankt Wendel,Saarland,87007,3271,19.54,111,3269,20.69,111
-11000,Berlin,Berlin,3669491,179349,21.47,3512,179465,19.59,3513
+11000,Berlin,Berlin,3669491,179470,26.13,3513,179465,19.59,3513
 11001,SK Berlin Mitte,Berlin,380917,,,,22674,25.99,296
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14563,19.65,160
 11003,SK Berlin Pankow,Berlin,409454,,,,15148,10.01,217
