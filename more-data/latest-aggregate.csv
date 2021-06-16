@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-15T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-16T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-15T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-16T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2266,0.00,39,2266,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5425,5.67,101,5425,6.08,101
@@ -133,7 +133,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6531,LK Gießen,Hessen,270688,13813,19.21,364,13852,15.52,359
 6532,LK Lahn-Dill-Kreis,Hessen,253319,12327,8.68,224,12333,8.29,219
 6533,LK Limburg-Weilburg,Hessen,171912,9197,9.89,284,9198,5.82,284
-6534,LK Marburg-Biedenkopf,Hessen,247084,10893,14.85,281,11077,19.43,280
+6534,LK Marburg-Biedenkopf,Hessen,247084,10893,16.78,281,11077,19.43,280
 6535,LK Vogelsbergkreis,Hessen,105643,4052,3.79,107,4052,2.84,107
 6611,SK Kassel,Hessen,202137,8459,21.77,190,8454,17.31,191
 6631,LK Fulda,Hessen,223145,13276,4.93,265,13276,7.62,265
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8538,21.10,151,8538,21.10,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4896,19.69,115,4864,18.99,113
 10046,LK Sankt Wendel,Saarland,87007,3272,5.75,111,3270,5.75,111
-11000,Berlin,Berlin,3669491,179750,14.12,3520,179754,11.20,3529
+11000,Berlin,Berlin,3669491,179772,14.96,3529,179754,11.20,3529
 11001,SK Berlin Mitte,Berlin,380917,,,,22730,20.48,299
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14581,8.62,163
 11003,SK Berlin Pankow,Berlin,409454,,,,15156,2.20,217
@@ -394,22 +394,22 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16052,SK Gera,Thüringen,93125,5691,9.66,199,5693,11.81,199
 16053,SK Jena,Thüringen,111343,4334,6.29,82,4335,6.29,82
 16054,SK Suhl,Thüringen,36789,2175,5.44,113,2175,10.87,113
-16055,SK Weimar,Thüringen,65228,2612,6.13,102,2613,7.67,102
-16056,SK Eisenach,Thüringen,42250,1950,28.40,75,1952,40.24,75
+16055,SK Weimar,Thüringen,65228,2613,8.30,102,2613,7.67,102
+16056,SK Eisenach,Thüringen,42250,1952,35.09,75,1952,40.24,75
 16061,LK Eichsfeld,Thüringen,100006,6215,5.00,247,6216,5.00,243
 16062,LK Nordhausen,Thüringen,83416,2961,4.80,70,2934,3.60,70
-16063,LK Wartburgkreis,Thüringen,118974,8271,10.09,240,8273,5.88,243
-16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,6384,37.17,257,6391,35.21,257
-16065,LK Kyffhäuserkreis,Thüringen,74212,3669,35.03,143,3671,22.91,143
+16063,LK Wartburgkreis,Thüringen,118974,8273,12.46,243,8273,5.88,243
+16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,6391,46.84,257,6391,35.21,257
+16065,LK Kyffhäuserkreis,Thüringen,74212,3671,38.84,143,3671,22.91,143
 16066,LK Schmalkalden-Meiningen,Thüringen,124916,9998,9.61,368,9999,7.20,368
 16067,LK Gotha,Thüringen,134908,9195,25.94,249,8642,22.24,204
 16068,LK Sömmerda,Thüringen,69427,4161,5.76,130,4161,2.88,130
 16069,LK Hildburghausen,Thüringen,63197,5356,30.06,240,5361,28.48,240
 16070,LK Ilm-Kreis,Thüringen,106249,6504,10.35,218,6505,9.41,218
-16071,LK Weimarer Land,Thüringen,82156,4151,13.39,80,4127,13.39,78
-16072,LK Sonneberg,Thüringen,57717,4238,45.05,163,4240,29.45,163
-16073,LK Saalfeld-Rudolstadt,Thüringen,103199,6773,6.78,287,6777,9.69,287
+16071,LK Weimarer Land,Thüringen,82156,4152,15.11,80,4127,13.39,78
+16072,LK Sonneberg,Thüringen,57717,4240,49.94,163,4240,29.45,163
+16073,LK Saalfeld-Rudolstadt,Thüringen,103199,6777,12.26,287,6777,9.69,287
 16074,LK Saale-Holzland-Kreis,Thüringen,82950,4733,3.62,124,4719,3.62,124
-16075,LK Saale-Orla-Kreis,Thüringen,80312,6433,17.43,175,6435,6.23,175
+16075,LK Saale-Orla-Kreis,Thüringen,80312,6435,20.95,175,6435,6.23,175
 16076,LK Greiz,Thüringen,97398,7862,2.05,225,7842,2.05,226
 16077,LK Altenburger Land,Thüringen,89393,6866,20.14,291,6869,15.66,291
