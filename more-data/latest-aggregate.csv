@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-16T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-17T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-16T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-17T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2267,1.11,39,2267,1.11,39
 1002,SK Kiel,Schleswig-Holstein,246794,5428,4.05,101,5428,4.46,101
@@ -133,7 +133,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6531,LK Gießen,Hessen,270688,13827,20.32,364,13854,11.82,359
 6532,LK Lahn-Dill-Kreis,Hessen,253319,12327,3.95,224,12332,2.76,220
 6533,LK Limburg-Weilburg,Hessen,171912,9198,5.82,284,9200,5.82,284
-6534,LK Marburg-Biedenkopf,Hessen,247084,10893,11.74,281,11079,13.76,280
+6534,LK Marburg-Biedenkopf,Hessen,247084,10893,14.02,281,11079,13.76,280
 6535,LK Vogelsbergkreis,Hessen,105643,4052,2.84,107,4052,1.89,107
 6611,SK Kassel,Hessen,202137,8461,17.31,191,8457,14.84,191
 6631,LK Fulda,Hessen,223145,13277,5.38,265,13277,5.83,265
@@ -310,7 +310,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9764,SK Memmingen,Bayern,44100,2256,27.21,25,2256,22.68,25
 9771,LK Aichach-Friedberg,Bayern,134655,5191,12.62,101,5191,12.62,101
 9772,LK Augsburg,Bayern,253468,11382,10.26,225,11402,10.65,225
-9773,LK Dillingen a.d.Donau,Bayern,96562,3778,20.71,117,3766,12.43,115
+9773,LK Dillingen a.d.Donau,Bayern,96562,3777,19.25,117,3766,12.43,115
 9774,LK Günzburg,Bayern,127027,6930,44.87,110,6937,30.70,110
 9775,LK Neu-Ulm,Bayern,175204,7721,57.65,116,7719,34.82,115
 9776,LK Lindau,Bayern,81981,3424,63.43,63,3428,48.79,63
