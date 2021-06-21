@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-21T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-21T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2268,2.22,39,2268,2.22,39
 1002,SK Kiel,Schleswig-Holstein,246794,5434,4.86,102,5434,4.86,102
@@ -57,7 +57,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,5358,9.48,123,5358,7.29,123
 3457,LK Leer,Niedersachsen,170756,4446,2.93,62,4446,2.34,62
 3458,LK Oldenburg,Niedersachsen,130890,5140,5.35,110,5068,11.46,110
-3459,LK Osnabrück,Niedersachsen,358080,15619,4.47,325,15550,1.95,300
+3459,LK Osnabrück,Niedersachsen,358080,15618,4.19,325,15550,1.95,300
 3460,LK Vechta,Niedersachsen,142814,8793,9.80,99,8782,6.30,90
 3461,LK Wesermarsch,Niedersachsen,88583,3245,1.13,113,3246,1.13,113
 3462,LK Wittmund,Niedersachsen,56926,1238,1.76,35,1238,1.76,35
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8552,10.81,151,8552,10.81,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4902,15.47,115,4874,11.96,113
 10046,LK Sankt Wendel,Saarland,87007,3276,3.45,112,3274,5.75,112
-11000,Berlin,Berlin,3669491,179887,5.45,3545,179871,6.16,3545
+11000,Berlin,Berlin,3669491,179888,5.49,3545,179871,6.16,3545
 11001,SK Berlin Mitte,Berlin,380917,,,,22756,12.34,300
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14614,13.79,166
 11003,SK Berlin Pankow,Berlin,409454,,,,15156,1.47,217
