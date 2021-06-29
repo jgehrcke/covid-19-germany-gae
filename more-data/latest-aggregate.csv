@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-29T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-29T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2269,0.00,39,2269,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5447,4.86,102,5447,4.86,102
@@ -33,7 +33,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3255,LK Holzminden,Niedersachsen,70458,1660,9.93,64,1660,9.93,64
 3256,LK Nienburg (Weser),Niedersachsen,121390,3718,0.82,154,3720,0.82,153
 3257,LK Schaumburg,Niedersachsen,157820,4861,3.17,74,4849,2.53,73
-3351,LK Celle,Niedersachsen,179011,4644,6.70,67,4645,7.26,66
+3351,LK Celle,Niedersachsen,179011,4645,7.49,67,4645,7.26,66
 3352,LK Cuxhaven,Niedersachsen,198038,4520,0.00,173,4591,0.50,174
 3353,LK Harburg,Niedersachsen,254431,6587,5.50,113,6584,5.50,113
 3354,LK Lüchow-Dannenberg,Niedersachsen,48412,890,0.00,25,891,0.00,25
@@ -117,7 +117,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5974,LK Soest,Nordrhein-Westfalen,301785,8740,10.93,188,8739,10.93,188
 5978,LK Unna,Nordrhein-Westfalen,394891,19044,6.33,489,18971,6.08,489
 6411,SK Darmstadt,Hessen,159878,5818,8.13,150,5818,7.51,150
-6412,SK Frankfurt am Main,Hessen,763380,39355,14.93,803,39366,17.82,804
+6412,SK Frankfurt am Main,Hessen,763380,39382,18.47,803,39366,17.82,804
 6413,SK Offenbach,Hessen,130280,9286,9.98,185,9287,5.37,185
 6414,SK Wiesbaden,Hessen,278474,13060,10.05,278,13071,10.41,278
 6431,LK Bergstraße,Hessen,270340,11089,4.81,324,11089,4.81,324
