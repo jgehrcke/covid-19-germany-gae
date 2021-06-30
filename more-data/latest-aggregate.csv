@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-06-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-30T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-06-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-06-30T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2269,0.00,39,2269,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5451,6.08,102,5451,6.08,102
@@ -18,7 +18,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 2000,SK Hamburg,Hamburg,1847253,77342,10.12,1590,77341,7.25,1594
 3101,SK Braunschweig,Niedersachsen,249406,6511,2.41,185,6516,2.41,185
 3102,SK Salzgitter,Niedersachsen,104291,5361,6.71,79,5361,5.75,79
-3103,SK Wolfsburg,Niedersachsen,124371,4016,8.04,86,4025,10.45,86
+3103,SK Wolfsburg,Niedersachsen,124371,4022,14.85,86,4025,10.45,86
 3151,LK Gifhorn,Niedersachsen,176523,6113,5.10,187,6114,3.97,187
 3153,LK Goslar,Niedersachsen,136292,2609,0.00,140,2607,0.73,116
 3154,LK Helmstedt,Niedersachsen,91297,2416,-2.19,95,2416,0.00,95
@@ -52,7 +52,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3451,LK Ammerland,Niedersachsen,124859,3158,3.20,64,3158,3.20,64
 3452,LK Aurich,Niedersachsen,189694,3732,3.69,62,3728,2.11,62
 3453,LK Cloppenburg,Niedersachsen,170682,10865,4.69,165,10853,4.69,165
-3454,LK Emsland,Niedersachsen,326954,12674,1.22,188,12650,1.53,188
+3454,LK Emsland,Niedersachsen,326954,12673,1.04,188,12650,1.53,188
 3455,LK Friesland,Niedersachsen,98704,1628,0.00,42,1628,0.00,42
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,5365,5.10,123,5365,3.65,123
 3457,LK Leer,Niedersachsen,170756,4446,0.00,62,4446,0.00,62
@@ -117,7 +117,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5974,LK Soest,Nordrhein-Westfalen,301785,8744,10.93,188,8743,9.94,188
 5978,LK Unna,Nordrhein-Westfalen,394891,19045,5.06,490,18972,4.56,489
 6411,SK Darmstadt,Hessen,159878,5818,8.13,150,5818,3.13,150
-6412,SK Frankfurt am Main,Hessen,763380,39382,17.16,804,39391,17.29,804
+6412,SK Frankfurt am Main,Hessen,763380,39385,17.55,805,39391,17.29,804
 6413,SK Offenbach,Hessen,130280,9287,10.75,185,9292,9.21,185
 6414,SK Wiesbaden,Hessen,278474,13066,10.77,278,13077,11.13,278
 6431,LK Bergstraße,Hessen,270340,11089,4.44,324,11090,4.07,324
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8561,1.54,151,8561,1.54,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4927,11.96,115,4895,12.66,113
 10046,LK Sankt Wendel,Saarland,87007,3280,3.45,112,3279,3.45,112
-11000,Berlin,Berlin,3669491,180166,7.06,3559,180165,4.93,3559
+11000,Berlin,Berlin,3669491,180166,6.75,3559,180165,4.93,3559
 11001,SK Berlin Mitte,Berlin,380917,,,,22810,8.93,301
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14633,3.10,167
 11003,SK Berlin Pankow,Berlin,409454,,,,15180,4.40,220
