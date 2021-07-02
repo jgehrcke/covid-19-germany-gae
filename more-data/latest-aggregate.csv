@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-07-01T17:00:00+0000", "time_iso8601_last_update_rl": "2021-07-02T12:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-07-01T17:00:00+0000", "time_iso8601_last_update_rl": "2021-07-02T15:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2269,0.00,39,2269,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5454,5.67,104,5454,5.67,104
@@ -16,9 +16,9 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1061,LK Steinburg,Schleswig-Holstein,131013,2369,0.76,40,2360,0.76,40
 1062,LK Stormarn,Schleswig-Holstein,244156,7096,4.51,306,7096,4.51,306
 2000,SK Hamburg,Hamburg,1847253,77397,8.72,1596,77396,7.69,1597
-3101,SK Braunschweig,Niedersachsen,249406,6520,4.34,185,6520,3.61,185
+3101,SK Braunschweig,Niedersachsen,249406,6520,4.17,185,6520,3.61,185
 3102,SK Salzgitter,Niedersachsen,104291,5361,5.75,79,5361,0.96,79
-3103,SK Wolfsburg,Niedersachsen,124371,4025,13.20,86,4028,12.06,86
+3103,SK Wolfsburg,Niedersachsen,124371,4025,13.03,86,4028,12.06,86
 3151,LK Gifhorn,Niedersachsen,176523,6114,4.53,187,6114,1.70,187
 3153,LK Goslar,Niedersachsen,136292,2611,1.47,140,2609,2.20,116
 3154,LK Helmstedt,Niedersachsen,91297,2418,2.19,95,2416,0.00,95
@@ -44,10 +44,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3359,LK Stade,Niedersachsen,204512,5201,7.82,121,5209,11.25,121
 3360,LK Uelzen,Niedersachsen,92389,2185,0.00,115,2185,0.00,115
 3361,LK Verden,Niedersachsen,137133,3961,1.46,59,3961,1.46,59
-3401,SK Delmenhorst,Niedersachsen,77559,3550,7.51,69,3550,7.74,69
+3401,SK Delmenhorst,Niedersachsen,77559,3550,6.96,69,3550,7.74,69
 3402,SK Emden,Niedersachsen,49913,1329,6.01,14,1327,4.01,14
 3403,SK Oldenburg,Niedersachsen,169077,4536,1.77,46,4298,1.77,46
-3404,SK Osnabrück,Niedersachsen,165251,7504,6.44,103,7531,3.03,101
+3404,SK Osnabrück,Niedersachsen,165251,7504,5.93,103,7531,3.03,101
 3405,SK Wilhelmshaven,Niedersachsen,76089,1939,1.31,56,1936,1.31,56
 3451,LK Ammerland,Niedersachsen,124859,3158,1.60,64,3158,1.60,64
 3452,LK Aurich,Niedersachsen,189694,3734,2.11,62,3731,3.16,62
@@ -57,7 +57,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,5365,2.92,123,5365,1.46,123
 3457,LK Leer,Niedersachsen,170756,4446,0.00,62,4446,0.00,62
 3458,LK Oldenburg,Niedersachsen,130890,5154,5.35,115,5083,6.88,116
-3459,LK Osnabrück,Niedersachsen,358080,15634,4.14,327,15563,1.40,302
+3459,LK Osnabrück,Niedersachsen,358080,15634,4.02,327,15563,1.40,302
 3460,LK Vechta,Niedersachsen,142814,8797,0.70,99,8793,0.00,92
 3461,LK Wesermarsch,Niedersachsen,88583,3245,0.00,113,3246,0.00,113
 3462,LK Wittmund,Niedersachsen,56926,1240,0.00,35,1243,5.27,35
@@ -228,7 +228,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9171,LK Altötting,Bayern,111516,6045,-0.90,210,6045,3.59,210
 9172,LK Berchtesgadener Land,Bayern,105929,6012,10.38,102,6014,7.55,102
 9173,LK Bad Tölz-Wolfratshausen,Bayern,127917,5079,7.82,78,5071,6.25,78
-9174,LK Dachau,Bayern,154899,8240,11.62,143,8241,7.75,143
+9174,LK Dachau,Bayern,154899,8241,12.40,143,8241,7.75,143
 9175,LK Ebersberg,Bayern,143649,6363,4.18,180,6364,2.78,180
 9176,LK Eichstätt,Bayern,132881,5109,7.53,85,5071,6.77,85
 9177,LK Erding,Bayern,138182,7048,2.17,118,6970,2.17,118
@@ -250,12 +250,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9263,SK Straubing,Bayern,47791,2379,0.00,87,2379,0.00,87
 9271,LK Deggendorf,Bayern,119478,6988,0.00,160,6988,0.00,160
 9272,LK Freyung-Grafenau,Bayern,78362,4913,0.00,128,4914,1.28,128
-9273,LK Kelheim,Bayern,123058,5936,3.25,109,5938,4.88,109
+9273,LK Kelheim,Bayern,123058,5938,5.20,109,5938,4.88,109
 9274,LK Landshut,Bayern,159895,8015,-21.26,175,8016,0.00,175
 9275,LK Passau,Bayern,192656,12961,1.04,394,12961,0.52,370
 9276,LK Regen,Bayern,77410,5531,1.29,163,5531,2.58,163
 9277,LK Rottal-Inn,Bayern,121502,7551,4.12,182,7549,2.47,182
-9278,LK Straubing-Bogen,Bayern,101120,5367,0.00,141,5368,0.99,141
+9278,LK Straubing-Bogen,Bayern,101120,5368,1.19,141,5368,0.99,141
 9279,LK Dingolfing-Landau,Bayern,96683,5813,4.14,98,5814,4.14,98
 9361,SK Amberg,Bayern,42207,1747,0.00,24,1747,0.00,24
 9362,SK Regensburg,Bayern,153094,6989,5.88,88,6993,7.84,88
@@ -292,11 +292,11 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9575,LK Neustadt a.d.Aisch-Bad Windsheim,Bayern,101014,4387,0.99,107,4385,0.99,107
 9576,LK Roth,Bayern,126749,5683,1.58,174,5684,2.37,174
 9577,LK Weißenburg-Gunzenhausen,Bayern,94734,3921,2.11,116,3921,1.06,116
-9661,SK Aschaffenburg,Bayern,71002,3486,9.86,115,3489,11.27,115
+9661,SK Aschaffenburg,Bayern,71002,3489,14.93,115,3489,11.27,115
 9662,SK Schweinfurt,Bayern,53426,3163,20.59,94,3163,9.36,91
 9663,SK Würzburg,Bayern,127934,4542,16.41,124,4544,13.29,125
 9671,LK Aschaffenburg,Bayern,174200,8014,6.89,212,8014,6.31,212
-9672,LK Bad Kissingen,Bayern,103235,3640,0.00,104,3642,1.94,104
+9672,LK Bad Kissingen,Bayern,103235,3642,2.32,104,3642,1.94,104
 9673,LK Rhön-Grabfeld,Bayern,79635,3546,3.77,89,3547,2.51,89
 9674,LK Haßberge,Bayern,84384,4070,1.19,87,4070,1.19,87
 9675,LK Kitzingen,Bayern,91155,3293,4.39,87,3290,5.49,87
@@ -304,12 +304,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9677,LK Main-Spessart,Bayern,126158,4752,9.51,215,4754,8.72,215
 9678,LK Schweinfurt,Bayern,115445,5140,6.06,137,5142,6.06,138
 9679,LK Würzburg,Bayern,162302,4450,9.24,73,4455,11.71,73
-9761,SK Augsburg,Bayern,296582,18207,11.46,404,17971,11.80,404
+9761,SK Augsburg,Bayern,296582,18212,13.49,404,17971,11.80,404
 9762,SK Kaufbeuren,Bayern,44398,2501,0.00,57,2386,0.00,56
 9763,SK Kempten,Bayern,69151,3278,-17.35,51,3278,-17.35,48
 9764,SK Memmingen,Bayern,44100,2252,2.27,26,2253,4.54,26
 9771,LK Aichach-Friedberg,Bayern,134655,5180,-0.74,101,5179,0.74,101
-9772,LK Augsburg,Bayern,253468,11426,7.89,227,11441,5.52,227
+9772,LK Augsburg,Bayern,253468,11427,8.36,227,11441,5.52,227
 9773,LK Dillingen a.d.Donau,Bayern,96562,3787,5.18,117,3774,4.14,115
 9774,LK Günzburg,Bayern,127027,6958,10.23,110,6959,6.30,110
 9775,LK Neu-Ulm,Bayern,175204,7755,9.13,120,7758,6.85,119
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8566,3.60,151,8567,4.12,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4933,8.44,115,4899,7.74,113
 10046,LK Sankt Wendel,Saarland,87007,3280,2.30,112,3279,2.30,112
-11000,Berlin,Berlin,3669491,180228,5.52,3560,180225,4.36,3560
+11000,Berlin,Berlin,3669491,180228,5.43,3560,180225,4.36,3560
 11001,SK Berlin Mitte,Berlin,380917,,,,22814,5.25,301
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14647,6.21,167
 11003,SK Berlin Pankow,Berlin,409454,,,,15182,3.66,220
