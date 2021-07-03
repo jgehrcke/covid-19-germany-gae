@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-07-02T17:00:00+0000", "time_iso8601_last_update_rl": "2021-07-03T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-07-02T17:00:00+0000", "time_iso8601_last_update_rl": "2021-07-03T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2269,0.00,39,2269,0.00,39
 1002,SK Kiel,Schleswig-Holstein,246794,5455,4.46,104,5454,4.05,104
@@ -190,7 +190,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8127,LK Schwäbisch Hall,Baden-Württemberg,196761,11690,2.54,260,11490,2.54,260
 8128,LK Main-Tauber-Kreis,Baden-Württemberg,132399,5132,3.78,90,5131,3.78,90
 8135,LK Heidenheim,Baden-Württemberg,132777,6150,9.79,161,6150,9.79,161
-8136,LK Ostalbkreis,Baden-Württemberg,314025,15763,11.15,408,15628,9.23,408
+8136,LK Ostalbkreis,Baden-Württemberg,314025,15765,12.04,408,15628,9.23,408
 8211,SK Baden-Baden,Baden-Württemberg,55185,2090,21.75,67,2097,16.31,64
 8212,SK Karlsruhe,Baden-Württemberg,312060,10790,6.41,220,10764,7.69,220
 8215,LK Karlsruhe,Baden-Württemberg,445101,18649,4.49,467,18538,3.82,467
@@ -203,8 +203,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 8235,LK Calw,Baden-Württemberg,159201,8281,6.28,182,8281,5.03,182
 8236,LK Enzkreis,Baden-Württemberg,199556,10084,13.03,268,9700,4.51,261
 8237,LK Freudenstadt,Baden-Württemberg,118243,5465,8.46,160,5362,5.07,158
-8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,7619,6.49,166,7499,3.89,159
-8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,8699,0.76,189,8548,1.14,183
+8311,SK Freiburg i.Breisgau,Baden-Württemberg,231195,7613,2.82,166,7499,3.89,159
+8315,LK Breisgau-Hochschwarzwald,Baden-Württemberg,263601,8703,2.90,189,8548,1.14,183
 8316,LK Emmendingen,Baden-Württemberg,166408,6185,4.21,158,6186,3.00,158
 8317,LK Ortenaukreis,Baden-Württemberg,430953,19155,3.02,566,19149,2.55,566
 8325,LK Rottweil,Baden-Württemberg,139878,7752,4.29,162,7752,4.29,162
@@ -303,8 +303,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9676,LK Miltenberg,Bayern,128743,6121,5.44,129,5998,3.11,129
 9677,LK Main-Spessart,Bayern,126158,4754,8.72,215,4754,4.76,215
 9678,LK Schweinfurt,Bayern,115445,5142,7.80,137,5142,6.06,139
-9679,LK Würzburg,Bayern,162302,4455,11.71,73,4456,11.09,73
-9761,SK Augsburg,Bayern,296582,18212,11.80,404,17972,11.46,404
+9679,LK Würzburg,Bayern,162302,4456,12.58,73,4456,11.09,73
+9761,SK Augsburg,Bayern,296582,18216,13.71,404,17972,11.46,404
 9762,SK Kaufbeuren,Bayern,44398,2501,0.00,57,2386,0.00,56
 9763,SK Kempten,Bayern,69151,3278,-17.35,51,3278,-15.91,48
 9764,SK Memmingen,Bayern,44100,2253,4.54,26,2253,2.27,26
@@ -317,14 +317,14 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9777,LK Ostallgäu,Bayern,141182,7056,4.96,133,7157,0.71,134
 9778,LK Unterallgäu,Bayern,145341,7277,5.50,166,7280,2.06,166
 9779,LK Donau-Ries,Bayern,133783,5999,5.23,165,5991,5.23,165
-9780,LK Oberallgäu,Bayern,156008,5967,-10.26,91,5968,-7.69,89
+9780,LK Oberallgäu,Bayern,156008,5968,-9.35,91,5968,-7.69,89
 10041,LK Stadtverband Saarbrücken,Saarland,328714,15866,8.52,475,15810,7.61,466
 10042,LK Merzig-Wadern,Saarland,103243,3405,8.72,61,3472,8.72,61
 10043,LK Neunkirchen,Saarland,131408,5449,3.04,116,5474,5.33,123
 10044,LK Saarlouis,Saarland,194319,8570,5.15,151,8572,6.18,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,4936,7.74,115,4902,7.03,113
 10046,LK Sankt Wendel,Saarland,87007,3281,3.45,112,3281,4.60,112
-11000,Berlin,Berlin,3669491,180228,3.84,3560,180263,4.61,3559
+11000,Berlin,Berlin,3669491,180266,5.30,3559,180263,4.61,3559
 11001,SK Berlin Mitte,Berlin,380917,,,,22819,4.73,301
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,14655,8.96,167
 11003,SK Berlin Pankow,Berlin,409454,,,,15184,3.17,220
@@ -340,12 +340,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12051,SK Brandenburg a.d.Havel,Brandenburg,72184,2346,1.39,87,2332,1.39,87
 12052,SK Cottbus,Brandenburg,99678,5951,5.02,206,5944,8.03,206
 12053,SK Frankfurt (Oder),Brandenburg,57751,2254,1.73,111,2254,0.00,111
-12054,SK Potsdam,Brandenburg,180334,7257,2.22,243,7104,1.11,243
-12060,LK Barnim,Brandenburg,185244,6096,1.62,225,6095,1.08,225
+12054,SK Potsdam,Brandenburg,180334,7256,1.44,243,7104,1.11,243
+12060,LK Barnim,Brandenburg,185244,6095,0.86,225,6095,1.08,225
 12061,LK Dahme-Spreewald,Brandenburg,170791,7092,5.27,252,7091,2.34,252
-12062,LK Elbe-Elster,Brandenburg,101827,7142,13.75,246,7145,13.75,246
-12063,LK Havelland,Brandenburg,162996,6270,0.00,182,6268,-1.23,182
-12064,LK Märkisch-Oderland,Brandenburg,195751,6949,-0.51,276,6950,-0.51,276
+12062,LK Elbe-Elster,Brandenburg,101827,7145,17.91,246,7145,13.75,246
+12063,LK Havelland,Brandenburg,162996,6268,-1.73,182,6268,-1.23,182
+12064,LK Märkisch-Oderland,Brandenburg,195751,6950,0.21,276,6950,-0.51,276
 12065,LK Oberhavel,Brandenburg,212914,8395,-0.47,307,8395,-1.41,307
 12066,LK Oberspreewald-Lausitz,Brandenburg,109371,7201,-1.83,260,7201,0.00,260
 12067,LK Oder-Spree,Brandenburg,178803,8286,6.15,312,8230,4.47,312
@@ -353,7 +353,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 12069,LK Potsdam-Mittelmark,Brandenburg,216566,7882,3.69,207,7884,0.92,207
 12070,LK Prignitz,Brandenburg,76158,3232,-1.31,164,3232,-1.31,164
 12071,LK Spree-Neiße,Brandenburg,113720,7650,0.00,199,7635,4.40,199
-12072,LK Teltow-Fläming,Brandenburg,169997,6888,4.12,209,6889,3.53,209
+12072,LK Teltow-Fläming,Brandenburg,169997,6889,4.95,209,6889,3.53,209
 12073,LK Uckermark,Brandenburg,118947,3923,0.84,166,3923,0.84,166
 13003,SK Rostock,Mecklenburg-Vorpommern,209191,3145,1.91,43,3143,1.43,43
 13004,SK Schwerin,Mecklenburg-Vorpommern,95653,2695,2.09,109,2695,2.09,109
@@ -373,7 +373,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14626,LK Görlitz,Sachsen,252725,20433,1.98,1158,20435,1.58,1158
 14627,LK Meißen,Sachsen,241717,17264,-1.65,600,17234,0.00,600
 14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,20840,5.29,987,20598,21.58,977
-14713,SK Leipzig,Sachsen,593145,22458,4.05,539,22414,3.03,533
+14713,SK Leipzig,Sachsen,593145,22462,5.00,539,22414,3.03,533
 14729,LK Leipzig,Sachsen,258139,14752,1.94,351,14719,1.16,351
 14730,LK Nordsachsen,Sachsen,197741,13515,1.01,407,13515,1.01,407
 15001,SK Dessau-Roßlau,Sachsen-Anhalt,80103,3297,0.00,123,3287,0.00,123
@@ -391,8 +391,8 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 15090,LK Stendal,Sachsen-Anhalt,111190,4802,0.00,203,4763,0.00,179
 15091,LK Wittenberg,Sachsen-Anhalt,124953,6688,0.00,298,6688,0.00,298
 16051,SK Erfurt,Thüringen,213981,8622,1.40,273,8622,1.40,273
-16052,SK Gera,Thüringen,93125,5704,4.30,202,5705,4.30,202
-16053,SK Jena,Thüringen,111343,4330,-2.69,82,4330,-0.90,83
+16052,SK Gera,Thüringen,93125,5705,5.81,202,5705,4.30,202
+16053,SK Jena,Thüringen,111343,4330,-2.69,83,4330,-0.90,83
 16054,SK Suhl,Thüringen,36789,2176,0.00,113,2176,0.00,113
 16055,SK Weimar,Thüringen,65228,2616,3.07,103,2616,3.07,103
 16056,SK Eisenach,Thüringen,42250,1959,4.73,75,1959,4.73,75
@@ -410,6 +410,6 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16072,LK Sonneberg,Thüringen,57717,4255,5.20,163,4255,-1.73,163
 16073,LK Saalfeld-Rudolstadt,Thüringen,103199,6782,0.00,288,6782,0.00,288
 16074,LK Saale-Holzland-Kreis,Thüringen,82950,4749,8.44,126,4737,1.21,126
-16075,LK Saale-Orla-Kreis,Thüringen,80312,6459,13.70,179,6460,11.21,180
+16075,LK Saale-Orla-Kreis,Thüringen,80312,6460,15.45,180,6460,11.21,180
 16076,LK Greiz,Thüringen,97398,7869,4.11,227,7846,2.05,228
 16077,LK Altenburger Land,Thüringen,89393,6884,0.00,291,6884,-1.12,292
