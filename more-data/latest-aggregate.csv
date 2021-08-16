@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-08-15T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-16T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-08-15T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-16T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2501,113.13,39,2500,112.02,39
 1002,SK Kiel,Schleswig-Holstein,246794,6054,96.44,105,6054,99.68,105
@@ -91,12 +91,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,24114,44.94,553,24114,39.28,553
 5512,SK Bottrop,Nordrhein-Westfalen,117565,5524,43.38,113,5524,35.72,113
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,15889,57.39,415,15889,56.62,415
-5515,SK Münster,Nordrhein-Westfalen,315293,8590,34.57,122,8615,39.96,122
+5515,SK Münster,Nordrhein-Westfalen,315293,8615,42.50,122,8615,39.96,122
 5554,LK Borken,Nordrhein-Westfalen,371339,14459,50.36,264,14458,51.70,264
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,5775,24.03,102,5775,24.03,98
-5562,LK Recklinghausen,Nordrhein-Westfalen,614137,32421,37.61,985,32443,38.75,987
+5562,LK Recklinghausen,Nordrhein-Westfalen,614137,32421,37.61,986,32443,38.75,987
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,17599,48.86,331,17594,44.17,331
-5570,LK Warendorf,Nordrhein-Westfalen,277840,12002,38.15,250,12002,38.15,250
+5570,LK Warendorf,Nordrhein-Westfalen,277840,12001,37.79,250,12002,38.15,250
 5711,SK Bielefeld,Nordrhein-Westfalen,334195,16356,71.22,348,16372,71.22,348
 5754,LK Gütersloh,Nordrhein-Westfalen,364938,20617,55.90,320,20638,56.72,320
 5758,LK Herford,Nordrhein-Westfalen,250578,11525,61.46,184,11538,63.05,184
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,8851,50.43,151,8851,48.37,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,5067,18.99,115,5044,26.72,113
 10046,LK Sankt Wendel,Saarland,87007,3313,6.90,113,3313,6.90,113
-11000,Berlin,Berlin,3669491,186531,64.40,3587,186533,61.34,3587
+11000,Berlin,Berlin,3669491,186531,64.24,3587,186533,61.34,3587
 11001,SK Berlin Mitte,Berlin,380917,,,,23350,64.58,303
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,15477,78.94,170
 11003,SK Berlin Pankow,Berlin,409454,,,,15746,43.96,221
@@ -370,7 +370,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 14524,LK Zwickau,Sachsen,315002,26808,9.21,1086,26865,8.89,1054
 14612,SK Dresden,Sachsen,556780,31067,20.65,1111,31022,14.73,1111
 14625,LK Bautzen,Sachsen,299758,27705,6.67,944,27534,5.67,940
-14626,LK Görlitz,Sachsen,252725,20474,6.33,1160,20477,5.94,1161
+14626,LK Görlitz,Sachsen,252725,20481,9.10,1160,20477,5.94,1161
 14627,LK Meißen,Sachsen,241717,17293,5.38,603,17264,5.79,603
 14628,LK Sächsische Schweiz-Osterzgebirge,Sachsen,245586,20911,12.62,987,20681,9.77,981
 14713,SK Leipzig,Sachsen,593145,22854,16.02,540,22798,13.66,535
