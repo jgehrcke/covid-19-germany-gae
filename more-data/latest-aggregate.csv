@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-08-21T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-22T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-08-21T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-22T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2558,83.18,39,2558,83.18,39
 1002,SK Kiel,Schleswig-Holstein,246794,6228,77.80,106,6228,77.39,106
@@ -320,11 +320,11 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9780,LK Oberallgäu,Bayern,156008,6118,32.05,92,6119,26.92,90
 10041,LK Stadtverband Saarbrücken,Saarland,328714,16705,81.83,475,16649,81.23,466
 10042,LK Merzig-Wadern,Saarland,103243,3619,47.46,61,3685,47.46,61
-10043,LK Neunkirchen,Saarland,131408,5637,38.81,119,5690,43.38,126
+10043,LK Neunkirchen,Saarland,131408,5646,45.66,119,5690,43.38,126
 10044,LK Saarlouis,Saarland,194319,8978,70.50,151,8977,69.99,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,5145,54.85,116,5129,61.89,113
 10046,LK Sankt Wendel,Saarland,87007,3345,39.08,113,3345,39.08,113
-11000,Berlin,Berlin,3669491,189005,71.21,3587,189095,67.26,3587
+11000,Berlin,Berlin,3669491,189100,74.86,3587,189095,67.26,3587
 11001,SK Berlin Mitte,Berlin,380917,,,,23631,71.93,303
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,15735,83.42,169
 11003,SK Berlin Pankow,Berlin,409454,,,,15916,43.72,221
