@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-08-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-29T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-08-28T17:00:00+0000", "time_iso8601_last_update_rl": "2021-08-29T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2614,62.11,39,2614,62.11,39
 1002,SK Kiel,Schleswig-Holstein,246794,6435,83.88,108,6435,81.04,108
@@ -119,7 +119,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6411,SK Darmstadt,Hessen,159878,6323,86.32,154,6336,84.44,154
 6412,SK Frankfurt am Main,Hessen,763380,42385,101.92,822,42503,103.49,822
 6413,SK Offenbach,Hessen,130280,9787,122.04,186,9816,123.58,185
-6414,SK Wiesbaden,Hessen,278474,13958,77.21,281,13991,87.26,281
+6414,SK Wiesbaden,Hessen,278474,13985,86.90,281,13991,87.26,281
 6431,LK Bergstraße,Hessen,270340,11839,93.59,332,11865,85.82,332
 6432,LK Darmstadt-Dieburg,Hessen,297844,11772,71.51,314,11724,76.89,312
 6433,LK Groß-Gerau,Hessen,275726,15118,95.75,306,15158,94.30,306
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,9129,77.71,152,9130,78.22,151
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,5271,88.61,116,5266,96.35,113
 10046,LK Sankt Wendel,Saarland,87007,3393,55.17,113,3394,56.32,113
-11000,Berlin,Berlin,3669491,191709,73.69,3592,191783,67.80,3592
+11000,Berlin,Berlin,3669491,191788,76.73,3592,191783,67.80,3592
 11001,SK Berlin Mitte,Berlin,380917,,,,24085,94.77,304
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,15970,77.56,169
 11003,SK Berlin Pankow,Berlin,409454,,,,16096,42.98,222
