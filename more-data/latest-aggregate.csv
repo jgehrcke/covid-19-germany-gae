@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-09-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-09-10T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-09-09T17:00:00+0000", "time_iso8601_last_update_rl": "2021-09-10T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2726,63.22,39,2726,63.22,39
 1002,SK Kiel,Schleswig-Holstein,246794,6781,77.39,110,6781,76.99,110
@@ -16,10 +16,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 1061,LK Steinburg,Schleswig-Holstein,131013,2755,38.16,42,2749,38.93,42
 1062,LK Stormarn,Schleswig-Holstein,244156,7825,43.41,313,7825,42.60,313
 2000,SK Hamburg,Hamburg,1847253,87836,92.52,1658,87834,78.28,1658
-3101,SK Braunschweig,Niedersachsen,249406,7261,65.76,190,7291,65.76,190
-3102,SK Salzgitter,Niedersachsen,104291,6029,227.25,80,6072,168.76,80
-3103,SK Wolfsburg,Niedersachsen,124371,4756,127.84,88,4778,106.13,88
-3151,LK Gifhorn,Niedersachsen,176523,6707,99.14,191,6734,95.74,191
+3101,SK Braunschweig,Niedersachsen,249406,7291,82.74,190,7291,65.76,190
+3102,SK Salzgitter,Niedersachsen,104291,6072,285.46,80,6072,168.76,80
+3103,SK Wolfsburg,Niedersachsen,124371,4778,152.82,88,4778,106.13,88
+3151,LK Gifhorn,Niedersachsen,176523,6734,120.73,191,6734,95.74,191
 3153,LK Goslar,Niedersachsen,136292,2907,52.83,142,2917,57.23,137
 3154,LK Helmstedt,Niedersachsen,91297,2661,75.58,95,2661,76.67,95
 3155,LK Northeim,Niedersachsen,132285,2893,75.59,59,2900,67.28,61
@@ -44,10 +44,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3359,LK Stade,Niedersachsen,204512,5787,81.17,122,5812,78.72,122
 3360,LK Uelzen,Niedersachsen,92389,2361,30.31,115,2361,30.31,115
 3361,LK Verden,Niedersachsen,137133,4499,104.28,65,4519,97.72,66
-3401,SK Delmenhorst,Niedersachsen,77559,3925,145.70,69,3953,150.85,69
-3402,SK Emden,Niedersachsen,49913,1475,80.14,15,1479,44.08,15
-3403,SK Oldenburg,Niedersachsen,169077,5104,88.13,47,4884,75.71,47
-3404,SK Osnabrück,Niedersachsen,165251,8259,103.48,105,8296,86.54,103
+3401,SK Delmenhorst,Niedersachsen,77559,3953,196.66,69,3953,150.85,69
+3402,SK Emden,Niedersachsen,49913,1480,94.28,15,1479,44.08,15
+3403,SK Oldenburg,Niedersachsen,169077,5122,103.16,47,4884,75.71,47
+3404,SK Osnabrück,Niedersachsen,165251,8287,127.40,105,8296,86.54,103
 3405,SK Wilhelmshaven,Niedersachsen,76089,2146,70.97,57,2152,59.14,57
 3451,LK Ammerland,Niedersachsen,124859,3462,58.47,64,3462,57.67,64
 3452,LK Aurich,Niedersachsen,189694,4096,41.65,62,4104,35.32,62
@@ -57,7 +57,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 3456,LK Grafschaft Bentheim,Niedersachsen,137162,5849,63.43,125,5873,71.45,125
 3457,LK Leer,Niedersachsen,170756,4648,27.52,64,4653,24.60,64
 3458,LK Oldenburg,Niedersachsen,130890,5488,77.93,119,5421,79.46,119
-3459,LK Osnabrück,Niedersachsen,358080,16879,70.10,332,16823,65.07,305
+3459,LK Osnabrück,Niedersachsen,358080,16921,86.65,332,16823,65.07,305
 3460,LK Vechta,Niedersachsen,142814,9242,67.22,101,9240,67.92,94
 3461,LK Wesermarsch,Niedersachsen,88583,3468,65.48,116,3471,58.70,116
 3462,LK Wittmund,Niedersachsen,56926,1332,52.70,35,1335,54.46,35
@@ -226,7 +226,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9162,SK München,Bayern,1484226,79996,97.49,1284,80294,58.48,1285
 9163,SK Rosenheim,Bayern,63551,4432,221.87,71,4455,206.13,71
 9171,LK Altötting,Bayern,111516,6538,114.78,211,6564,121.96,211
-9172,LK Berchtesgadener Land,Bayern,105929,6676,178.42,102,6711,174.65,102
+9172,LK Berchtesgadener Land,Bayern,105929,6711,225.07,102,6711,174.65,102
 9173,LK Bad Tölz-Wolfratshausen,Bayern,127917,5569,114.92,80,5583,97.72,80
 9174,LK Dachau,Bayern,154899,9014,94.25,144,9056,110.39,144
 9175,LK Ebersberg,Bayern,143649,6895,107.21,181,6926,107.21,181
@@ -395,10 +395,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16053,SK Jena,Thüringen,111343,4483,59.28,84,4491,61.07,84
 16054,SK Suhl,Thüringen,36789,2229,48.93,113,2231,27.18,113
 16055,SK Weimar,Thüringen,65228,2684,32.19,104,2688,38.33,104
-16056,SK Eisenach,Thüringen,42250,1979,-13.11,78,1979,0.00,78
+16056,SK Eisenach,Thüringen,42250,1979,-10.02,78,1979,0.00,78
 16061,LK Eichsfeld,Thüringen,100006,6352,36.00,253,6358,28.00,250
 16062,LK Nordhausen,Thüringen,83416,3038,31.17,70,3016,34.77,70
-16063,LK Wartburgkreis,Thüringen,118974,8535,94.46,250,8535,53.79,250
+16063,LK Wartburgkreis,Thüringen,118974,8535,78.76,250,8535,53.79,250
 16064,LK Unstrut-Hainich-Kreis,Thüringen,102232,6474,29.35,264,6483,35.21,264
 16065,LK Kyffhäuserkreis,Thüringen,74212,3726,20.21,145,3730,22.91,145
 16066,LK Schmalkalden-Meiningen,Thüringen,124916,10189,29.62,372,10195,27.22,372
