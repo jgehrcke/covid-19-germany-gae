@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-09-24T17:00:00+0000", "time_iso8601_last_update_rl": "2021-09-25T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-09-24T17:00:00+0000", "time_iso8601_last_update_rl": "2021-09-25T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2791,44.36,39,2783,35.49,39
 1002,SK Kiel,Schleswig-Holstein,246794,7077,53.89,112,7077,52.68,112
@@ -241,7 +241,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9184,LK München,Bayern,350473,17143,99.29,299,17225,75.61,298
 9185,LK Neuburg-Schrobenhausen,Bayern,97303,4731,93.52,84,4731,78.11,83
 9186,LK Pfaffenhofen a.d.Ilm,Bayern,128227,6306,93.58,161,6305,77.21,161
-9187,LK Rosenheim,Bayern,261330,16087,164.54,471,16087,134.31,471
+9187,LK Rosenheim,Bayern,261330,16153,200.20,472,16087,134.31,471
 9188,LK Starnberg,Bayern,136667,5861,60.73,123,5860,64.39,122
 9189,LK Traunstein,Bayern,177319,12599,214.87,220,12598,196.26,220
 9190,LK Weilheim-Schongau,Bayern,135478,5842,93.74,84,5871,95.22,84
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,9746,44.26,156,9746,44.26,156
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,5686,35.16,117,5646,31.65,115
 10046,LK Sankt Wendel,Saarland,87007,3546,45.97,113,3547,45.97,113
-11000,Berlin,Berlin,3669491,204119,92.36,3624,204125,68.78,3624
+11000,Berlin,Berlin,3669491,204119,87.36,3624,204125,68.78,3624
 11001,SK Berlin Mitte,Berlin,380917,,,,25743,92.67,310
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,17178,83.77,173
 11003,SK Berlin Pankow,Berlin,409454,,,,17110,58.37,225
@@ -395,7 +395,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16053,SK Jena,Thüringen,111343,4605,48.50,84,4621,52.99,84
 16054,SK Suhl,Thüringen,36789,2260,19.03,113,2263,21.75,113
 16055,SK Weimar,Thüringen,65228,2767,53.66,104,2779,58.26,104
-16056,SK Eisenach,Thüringen,42250,1976,-26.22,78,1976,0.00,78
+16056,SK Eisenach,Thüringen,42250,1976,-20.05,78,1976,0.00,78
 16061,LK Eichsfeld,Thüringen,100006,6451,56.00,253,6460,57.00,250
 16062,LK Nordhausen,Thüringen,83416,3091,33.57,70,3070,38.36,70
 16063,LK Wartburgkreis,Thüringen,118974,10710,71.44,328,8734,59.68,250
