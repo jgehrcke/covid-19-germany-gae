@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-09-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-10-02T12:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-09-29T17:00:00+0000", "time_iso8601_last_update_rl": "2021-10-02T15:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,2815,26.62,39,2809,34.38,39
 1002,SK Kiel,Schleswig-Holstein,246794,7183,42.95,112,7148,44.57,112
@@ -241,7 +241,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9184,LK München,Bayern,350473,17507,103.86,302,17524,95.01,298
 9185,LK Neuburg-Schrobenhausen,Bayern,97303,4814,85.30,85,4820,100.72,84
 9186,LK Pfaffenhofen a.d.Ilm,Bayern,128227,6405,77.21,163,6397,86.57,162
-9187,LK Rosenheim,Bayern,261330,16729,257.64,473,16528,192.48,472
+9187,LK Rosenheim,Bayern,261330,16729,251.48,473,16528,192.48,472
 9188,LK Starnberg,Bayern,136667,5967,77.56,123,5929,73.90,123
 9189,LK Traunstein,Bayern,177319,13072,266.75,220,12932,252.65,220
 9190,LK Weilheim-Schongau,Bayern,135478,5966,91.53,85,5953,94.48,84
@@ -395,7 +395,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 16053,SK Jena,Thüringen,111343,4688,74.54,84,4674,74.54,84
 16054,SK Suhl,Thüringen,36789,2284,65.24,113,2266,19.03,113
 16055,SK Weimar,Thüringen,65228,2815,73.59,104,2806,70.52,104
-16056,SK Eisenach,Thüringen,42250,0,-6622.76,0,1975,0.00,78
+16056,SK Eisenach,Thüringen,42250,0,-5629.35,0,1975,0.00,78
 16061,LK Eichsfeld,Thüringen,100006,6528,77.00,253,6509,65.00,250
 16062,LK Nordhausen,Thüringen,83416,3119,33.57,70,3086,33.57,70
 16063,LK Wartburgkreis,Thüringen,118974,10785,63.04,328,8796,59.68,250
