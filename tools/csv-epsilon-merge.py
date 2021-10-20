@@ -82,8 +82,15 @@ def main():
     # Using `base` as the base of this comparison means that `base` (old) data
     # will appear as `self` in the output, and `ext` (new) data will appear as
     # `other`.
-    log.info("df_overlap_base: %s", df_overlap_base)
-    log.info("df_overlap_ext: %s", df_overlap_ext)
+    log.info("df_overlap_base:\n%s", df_overlap_base)
+    log.info("df_overlap_ext:\n%s", df_overlap_ext)
+
+    log.info('sort columns in both overlap DFs by column name to make compare() work')
+    df_overlap_base = df_overlap_base.sort_index(axis=1)
+    df_overlap_ext = df_overlap_ext.sort_index(axis=1)
+
+    log.info("df_overlap_base:\n%s", df_overlap_base)
+    log.info("df_overlap_ext:\n%s", df_overlap_ext)
 
     try:
         df_diff = df_overlap_base.compare(df_overlap_ext)
@@ -202,6 +209,13 @@ def parse_files_and_check_sanity(args):
     log.info("df_base:\n%s", df_base)
     log.info("ext shape: %s", df_ext.shape)
     log.info("df_ext:\n%s", df_ext)
+
+    log.info('look for base columns that are not part of extension columns')
+    for c in df_base.columns:
+        if c not in df_ext.columns:
+            lv = df_base[c].iloc[-1]
+            log.info(f'base column `{c}` not in extension column set, add (forward-fill last value: {lv})')
+            df_ext[c] = lv
 
     columns_diff = set(df_base.columns) - set(df_ext.columns)
     if columns_diff:
