@@ -121,6 +121,12 @@ def main():
     for _, row in dfgeo.iterrows():
         # Strip leading zeros from ags string.
         ags = str(int(row["AGS"]))
+        if ags == '16056':
+            # Fall back to using the 7DI data from 16063, see
+            # https://github.com/jgehrcke/covid-19-germany-gae/issues/1748
+            # 16056 and 16063 are now reported together under 16063.
+            log.info('for Eisenach AGS 16056 use 7DI data from Wartburgkreis AGS 16063')
+            ags = '16063'
         last_c7di_val = df_7di[ags + "_7di"].iloc[-1]
         last_c7di_vals.append(last_c7di_val)
         # log.info("centroid: %s", row["centroid"])
@@ -177,7 +183,15 @@ def main():
     # Draw 7di labels for remaining counties, but not too densely.
     labels_added = []
     for _, row in dfgeo.iterrows():
-        cur_row_latest_7di = round(df_7di[str(int(row["AGS"])) + "_7di"].iloc[-1])
+
+        ags = str(int(row["AGS"]))
+        if ags == '16056':
+            # Fall back to using the 7DI data from 16063, do not show 7di label
+            # for 16056. See
+            log.info('skip creating 7di label for AGS 16056')
+            continue
+
+        cur_row_latest_7di = round(df_7di[ags + "_7di"].iloc[-1])
         row["centroid"] = row["centroid"]
 
         # calc min distance to labels added. use pythagoras of lat/long

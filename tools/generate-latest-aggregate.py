@@ -152,6 +152,10 @@ def main():
     rows_for_df = []
     for ags, props in ags_properties.items():
 
+        if ags == '16056':
+            log.info("ags: 16056 now reported as 16063, see issue 1748")
+            continue
+
         if props["name"] == "LK Göttingen (alt)":
             # That AGS is in ags.json for legacy reasons, skip processing.
             continue
