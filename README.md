@@ -37,9 +37,9 @@ For updates, you can also follow me on Twitter: [@gehrcke](https://twitter.com/g
 Note that these plots are updated multiple times per day.
 Feel free to hotlink them.
 
-* [germany-heatmap-7ti-rki.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.pdf)):
+* [germany-heatmap-7ti-rl.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.pdf)):
 
-<img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png" width="450"/>
+<img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.png" width="450"/>
 
 * [daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)):
 
