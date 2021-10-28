@@ -82,11 +82,9 @@ TOTAL_POPULATION_GER = (
 def main():
 
     parser = argparse.ArgumentParser()
-
     parser.add_argument("timeseries_csv_path", metavar="7di-timeseries-csv-path")
     parser.add_argument("--label-data-source", metavar="LABEL")
     parser.add_argument("--figure-out-pprefix", metavar="PATH_PREFIX")
-
     args = parser.parse_args()
 
     matplotlib_config()
@@ -95,17 +93,18 @@ def main():
     dfgeo = gpd.read_file(DE_COUNTIES_GEOJSON_PATH)
     df_7di = lib.io.parse_csv_timeseries(args.timeseries_csv_path)
 
-    print(df_7di)
+    # print(df_7di)
 
     largest_7di_value = df_7di.max().max()
-    log.info('largest 7di value: %s', largest_7di_value)
+    log.info("largest 7di value: %s", largest_7di_value)
 
     log.info("dfgeo columns: %s", dfgeo.columns)
-    print(dfgeo)
+    # print(dfgeo)
+
     dfgeo["centroid"] = dfgeo["geometry"].centroid
     datapoint_count = len(df_7di)
     row_indices = list(range(datapoint_count))
-    log.info('row indices: %s', row_indices)
+    log.info("row indices: %s", row_indices)
 
     # Create one image file per row
     # for rowindex in row_indices:
@@ -113,9 +112,10 @@ def main():
 
     # Do the same, but distribute work across N processes
     create_figure_func = functools.partial(
-        create_figure_for_row_index, args, dfgeo, df_7di, largest_7di_value)
+        create_figure_for_row_index, args, dfgeo, df_7di, largest_7di_value
+    )
     with multiprocessing.Pool(12) as pool:
-        #pool.map(create_figure_func, row_indices[:5])
+        # pool.map(create_figure_func, row_indices[:5])
         pool.map(create_figure_func, row_indices)
 
 
@@ -132,7 +132,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
         "Nürnberg": (11.077438, 49.449820),
         "Hannover": (9.73322, 52.37052),
     }
-    #citycoords = [c for _, c in cities.items()]
+    # citycoords = [c for _, c in cities.items()]
 
     fig, ax = plt.subplots()
 
@@ -145,12 +145,14 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     for _, row in dfgeo.iterrows():
         # Strip leading zeros from ags string.
         ags = str(int(row["AGS"]))
-        if ags == '16056':
+        if ags == "16056":
             # Fall back to using the 7DI data from 16063, see
             # https://github.com/jgehrcke/covid-19-germany-gae/issues/1748
             # 16056 and 16063 are now reported together under 16063.
-            log.debug('for Eisenach AGS 16056 use 7DI data from Wartburgkreis AGS 16063')
-            ags = '16063'
+            log.debug(
+                "for Eisenach AGS 16056 use 7DI data from Wartburgkreis AGS 16063"
+            )
+            ags = "16063"
         c7di_val = df_7di[ags + "_7di"].iloc[rowindex]
         c7di_vals.append(c7di_val)
         # log.info("centroid: %s", row["centroid"])
@@ -173,11 +175,10 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
         # This is a key decision here. Lovely background info:
         # https://seaborn.pydata.org/tutorial/color_palettes.html
         # Use a sequential one.
-        #cmap=seaborn.color_palette("rocket_r", as_cmap=True),
+        # cmap=seaborn.color_palette("rocket_r", as_cmap=True),
         cmap=seaborn.color_palette("icefire", as_cmap=True),
     )
 
-    # log.info("plot cities")
     # Plot cities. Kudos to
     # https://juanitorduz.github.io/germany_plots/
     for c in cities:
@@ -203,7 +204,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     elif valmax < 600:
         col = "#eee"  # bright-ish color
     else:
-        col = '#000'
+        col = "#000"
     # print(idxmax)
     maxrow = dfgeo.iloc[idxmax]
     ax.text(
@@ -214,60 +215,8 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
         weight="bold",
         ha="center",
         va="center",
-        color=col
+        color=col,
     )
-
-    # Draw 7di labels for remaining counties, but not too densely.
-    # labels_added = []
-    # for _, row in dfgeo.iterrows():
-
-    #     ags = str(int(row["AGS"]))
-    #     if ags == '16056':
-    #         # Fall back to using the 7DI data from 16063, do not show 7di label
-    #         # for 16056. See
-    #         log.info('skip creating 7di label for AGS 16056')
-    #         continue
-
-    #     cur_row_latest_7di = round(df_7di[ags + "_7di"].iloc[-1])
-    #     row["centroid"] = row["centroid"]
-
-    #     # calc min distance to labels added. use pythagoras of lat/long
-    #     # coords, approximating simple 2d surface
-    #     if labels_added:
-    #         # TODO: use numpy/pandas approach to speed up pairwise distance
-    #         # calculation if performance starts to matter/suck.
-    #         mind = min(
-    #             math.sqrt(
-    #                 (row["centroid"].x - c.x) ** 2 + (row["centroid"].y - c.y) ** 2
-    #             )
-    #             for c in labels_added
-    #         )
-    #         log.info("mind: %s", mind)
-    #         if mind < 0.35:
-    #             log.info("skip drawing this label")
-    #             continue
-
-    #     # calculate min distance to city points -- if a city point is super
-    #     # close, then push the label 'up' a bit.
-    #     min_distance_to_citypoints = min(
-    #         math.sqrt((row["centroid"].x - c[0]) ** 2 + (row["centroid"].y - c[1]) ** 2)
-    #         for c in citycoords
-    #     )
-    #     draw_at_x = row["centroid"].x
-    #     draw_at_y = row["centroid"].y
-    #     if min_distance_to_citypoints < 0.04:
-    #         draw_at_y = draw_at_y + 0.05
-    #     ax.text(
-    #         x=draw_at_x,
-    #         y=draw_at_y,
-    #         s=str(cur_row_latest_7di),
-    #         fontsize=7,
-    #         ha="center",
-    #         color="#444",
-    #     )
-
-    #     # Keep track of this label having been added.
-    #     labels_added.append(row["centroid"])
 
     # In a pandas DatetimeIndex, the timezone information (if stored) is stored
     # on the column. That is, the individual timestamp when accessed with e.g.
@@ -343,7 +292,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
         1,
         0.01,
         f"{args.label_data_source} (state: {timestamp_day_string} UTC)\n",
-        #weight="bold",
+        # weight="bold",
         fontsize=7,
         horizontalalignment="right",
         transform=ax.transAxes,
@@ -364,16 +313,18 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     # plt.axis('equal')
 
     # location for the zoomed portion
-    miniplot = plt.axes([0.00, 0.015, .5, .078])
-    #sub_axes.plot(df_7di["germany_7di"], Y_detail)
+    miniplot = plt.axes([0.00, 0.015, 0.5, 0.078])
+    # sub_axes.plot(df_7di["germany_7di"], Y_detail)
     df_7di["germany_7di"].plot(xticks=[], xlabel="", ylabel="", yticks=[])
     miniplot.plot(
         [df_7di.index.values[rowindex]],
         [df_7di["germany_7di"].iloc[rowindex]],
-        marker='o', markersize=5, color="red"
-        )
+        marker="o",
+        markersize=5,
+        color="red",
+    )
     # transparent background (face)
-    miniplot.set_facecolor((0.0, 0.0, 1.0, 0.0))#'#fff')
+    miniplot.set_facecolor((0.0, 0.0, 1.0, 0.0))  #'#fff')
 
     # Do not draw (white) frame around axes
     miniplot.set_frame_on(False)
@@ -382,19 +333,15 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     # fig_filepath_wo_ext = f"gae/static/case-rate-rw-{NOW.strftime('%Y-%m-%d')}"
     # fig_filepath_wo_ext = "plots/heatmap-7ti-rl"
     if args.figure_out_pprefix:
-        write_current_fig(args.figure_out_pprefix + '_' + str(rowindex).zfill(5))
+        write_current_fig(args.figure_out_pprefix + "_" + str(rowindex).zfill(5))
     else:
         log.info("skip writing figure files")
-
-    # plt.show()
 
 
 def write_current_fig(pprefix):
     # Write to path prefix `pprefix` (only append file extensions).
     log.info(f"write {pprefix}.png")
     plt.savefig(f"{pprefix}.png", dpi=140)
-    #log.info(f"write {pprefix}.pdf")
-    #plt.savefig(f"{pprefix}.pdf")
 
 
 def matplotlib_config():
