@@ -186,7 +186,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
             # Epsilon-shift downwards, to draw this text label below the marker.
             y=cities[c][1] - 0.09,
             s=c,
-            fontsize=6,
+            fontsize=8,
             ha="center",
             color="#444",
         )
@@ -296,11 +296,11 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     # subtitle
     ax.text(
         0.5,
-        0.968,
+        0.969,
         "7-day sum of newly confirmed cases per 100.000 inhabitants",
         verticalalignment="center",
         horizontalalignment="center",
-        fontsize=10,
+        fontsize=9,
         transform=ax.transAxes,
         color="#444",
     )
@@ -333,7 +333,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
         f"{timestamp_monthyear_string}",
         # verticalalignment="center",
         horizontalalignment="left",
-        fontsize=18,
+        fontsize=16,
         transform=ax.transAxes,
         color="#444",
     )
@@ -364,7 +364,7 @@ def create_figure_for_row_index(args, dfgeo, df_7di, largest_7di_value, rowindex
     # plt.axis('equal')
 
     # location for the zoomed portion
-    miniplot = plt.axes([0.015, 0.01, .4, .075])
+    miniplot = plt.axes([0.00, 0.015, .5, .078])
     #sub_axes.plot(df_7di["germany_7di"], Y_detail)
     df_7di["germany_7di"].plot(xticks=[], xlabel="", ylabel="", yticks=[])
     miniplot.plot(
