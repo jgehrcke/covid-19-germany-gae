@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-12-17T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-18T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-12-17T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-18T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,3868,216.27,46,3868,216.27,46
 1002,SK Kiel,Schleswig-Holstein,246794,10096,160.86,124,10099,168.56,124
