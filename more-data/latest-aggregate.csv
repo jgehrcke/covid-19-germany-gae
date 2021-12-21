@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-12-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-21T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-12-20T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-21T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,3928,219.60,47,3928,219.60,47
 1002,SK Kiel,Schleswig-Holstein,246794,10202,151.95,126,10202,152.76,126
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,15166,249.59,193,15166,250.62,193
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,9043,312.95,137,9052,328.42,139
 10046,LK Sankt Wendel,Saarland,87007,5158,159.76,119,5164,159.76,119
-11000,Berlin,Berlin,3669491,309708,334.46,3964,312659,325.30,3969
+11000,Berlin,Berlin,3669491,312649,454.68,3969,312659,325.30,3969
 11001,SK Berlin Mitte,Berlin,380917,,,,37451,331.83,375
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,26571,264.41,187
 11003,SK Berlin Pankow,Berlin,409454,,,,29016,354.62,239
