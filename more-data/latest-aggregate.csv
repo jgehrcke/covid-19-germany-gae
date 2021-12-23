@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2021-12-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-23T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2021-12-22T17:00:00+0000", "time_iso8601_last_update_rl": "2021-12-23T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,3978,210.73,47,3978,210.73,47
 1002,SK Kiel,Schleswig-Holstein,246794,10345,158.84,127,10345,161.27,127
@@ -136,7 +136,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 6534,LK Marburg-Biedenkopf,Hessen,247084,15463,132.75,308,15560,123.04,308
 6535,LK Vogelsbergkreis,Hessen,105643,5967,161.87,119,6009,170.39,119
 6611,SK Kassel,Hessen,202137,13386,203.33,212,13456,188.98,212
-6631,LK Fulda,Hessen,223145,21331,271.12,320,21457,303.84,320
+6631,LK Fulda,Hessen,223145,21457,327.59,320,21457,303.84,320
 6632,LK Hersfeld-Rotenburg,Hessen,120719,8545,246.03,202,8494,193.84,202
 6633,LK Kassel,Hessen,236764,12619,141.91,236,12691,136.85,235
 6634,LK Schwalm-Eder-Kreis,Hessen,179673,9845,135.80,265,9832,126.34,262
@@ -320,11 +320,11 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9780,LK Oberallgäu,Bayern,156008,15345,210.89,134,15415,237.81,133
 10041,LK Stadtverband Saarbrücken,Saarland,328714,26459,238.81,548,26355,238.20,537
 10042,LK Merzig-Wadern,Saarland,103243,6424,277.02,81,6486,277.02,81
-10043,LK Neunkirchen,Saarland,131408,9195,168.94,139,9326,219.93,150
+10043,LK Neunkirchen,Saarland,131408,9261,219.16,139,9326,219.93,150
 10044,LK Saarlouis,Saarland,194319,15318,212.54,196,15318,214.60,196
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,9111,203.94,140,9190,260.20,141
 10046,LK Sankt Wendel,Saarland,87007,5198,147.11,119,5204,147.11,119
-11000,Berlin,Berlin,3669491,317431,485.52,3986,317441,333.13,3986
+11000,Berlin,Berlin,3669491,317431,451.62,3986,317441,333.13,3986
 11001,SK Berlin Mitte,Berlin,380917,,,,37941,337.87,376
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,26926,253.38,187
 11003,SK Berlin Pankow,Berlin,409454,,,,29481,341.43,240
