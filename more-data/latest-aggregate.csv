@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2022-01-02T17:00:00+0000", "time_iso8601_last_update_rl": "2022-01-03T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2022-01-02T17:00:00+0000", "time_iso8601_last_update_rl": "2022-01-03T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,4396,346.04,48,4396,346.04,48
 1002,SK Kiel,Schleswig-Holstein,246794,11402,353.33,129,11402,363.87,129
@@ -91,10 +91,10 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 5382,LK Rhein-Sieg-Kreis,Nordrhein-Westfalen,600764,41412,221.05,631,41513,149.81,630
 5512,SK Bottrop,Nordrhein-Westfalen,117565,8604,131.84,142,8630,125.04,142
 5513,SK Gelsenkirchen,Nordrhein-Westfalen,259645,24451,158.29,484,24451,127.10,484
-5515,SK Münster,Nordrhein-Westfalen,315293,15274,325.09,139,15308,316.85,139
+5515,SK Münster,Nordrhein-Westfalen,315293,15313,337.46,139,15308,316.85,139
 5554,LK Borken,Nordrhein-Westfalen,371339,23934,277.64,317,23930,273.60,317
 5558,LK Coesfeld,Nordrhein-Westfalen,220586,9518,132.37,110,9567,133.28,106
-5562,LK Recklinghausen,Nordrhein-Westfalen,614137,48153,119.68,1094,48268,157.78,1094
+5562,LK Recklinghausen,Nordrhein-Westfalen,614137,48324,147.52,1094,48268,157.78,1094
 5566,LK Steinfurt,Nordrhein-Westfalen,448220,29927,267.50,387,29990,253.89,385
 5570,LK Warendorf,Nordrhein-Westfalen,277840,20532,244.75,305,20534,244.75,305
 5711,SK Bielefeld,Nordrhein-Westfalen,334195,28682,156.79,434,28778,111.91,434
@@ -282,12 +282,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 9479,LK Wunsiedel i.Fichtelgebirge,Bayern,72655,7125,83.96,215,7125,83.96,215
 9561,SK Ansbach,Bayern,41798,3888,198.57,54,3817,186.61,54
 9562,SK Erlangen,Bayern,112528,7333,141.30,117,7342,138.63,117
-9563,SK Fürth,Bayern,128497,13892,144.75,275,13919,147.86,274
+9563,SK Fürth,Bayern,128497,13910,158.76,275,13919,147.86,274
 9564,SK Nürnberg,Bayern,518370,60967,175.94,1093,61219,199.86,1088
 9565,SK Schwabach,Bayern,40981,4111,151.29,121,4116,158.61,121
 9571,LK Ansbach,Bayern,184591,17672,203.69,233,17744,191.23,233
 9572,LK Erlangen-Höchstadt,Bayern,137262,10281,138.42,163,10292,136.24,163
-9573,LK Fürth,Bayern,117853,10293,151.04,246,10341,173.95,246
+9573,LK Fürth,Bayern,117853,10336,187.52,245,10341,173.95,246
 9574,LK Nürnberger Land,Bayern,170792,14033,158.67,241,14078,161.01,225
 9575,LK Neustadt a.d.Aisch-Bad Windsheim,Bayern,101014,8556,117.81,125,8585,119.79,125
 9576,LK Roth,Bayern,126749,11452,168.84,199,11473,167.26,200
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,15794,170.85,199,15795,171.88,199
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,9502,158.94,146,9608,175.81,146
 10046,LK Sankt Wendel,Saarland,87007,5503,302.27,120,5512,305.72,120
-11000,Berlin,Berlin,3669491,331291,306.45,4016,331784,264.67,4016
+11000,Berlin,Berlin,3669491,331770,326.03,4016,331784,264.67,4016
 11001,SK Berlin Mitte,Berlin,380917,,,,39737,342.59,377
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,28771,340.25,187
 11003,SK Berlin Pankow,Berlin,409454,,,,31072,224.45,242
