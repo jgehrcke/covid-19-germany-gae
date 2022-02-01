@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2022-01-31T17:00:00+0000", "time_iso8601_last_update_rl": "2022-02-01T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2022-01-31T17:00:00+0000", "time_iso8601_last_update_rl": "2022-02-01T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,7940,1246.62,51,7940,1246.62,51
 1002,SK Kiel,Schleswig-Holstein,246794,20679,901.16,142,20697,910.07,142
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,21924,1352.42,205,21929,1353.96,205
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,13198,1073.17,157,13463,1202.57,157
 10046,LK Sankt Wendel,Saarland,87007,7438,729.83,127,7457,734.42,127
-11000,Berlin,Berlin,3669491,528248,2004.80,4107,540491,1758.91,4124
+11000,Berlin,Berlin,3669491,540468,2504.33,4124,540491,1758.91,4124
 11001,SK Berlin Mitte,Berlin,380917,,,,70251,2305.75,384
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,51770,2468.95,187
 11003,SK Berlin Pankow,Berlin,409454,,,,56720,1847.83,253
@@ -338,12 +338,12 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 11011,SK Berlin Lichtenberg,Berlin,294937,,,,36696,1537.28,309
 11012,SK Berlin Reinickendorf,Berlin,266219,,,,39757,1445.05,365
 12051,SK Brandenburg a.d.Havel,Brandenburg,72184,7858,1220.49,131,7858,1220.49,131
-12052,SK Cottbus,Brandenburg,99678,16959,920.97,266,16917,880.84,266
-12053,SK Frankfurt (Oder),Brandenburg,57751,7360,1769.67,160,7519,1951.48,160
+12052,SK Cottbus,Brandenburg,99678,17005,990.19,268,16917,880.84,266
+12053,SK Frankfurt (Oder),Brandenburg,57751,7519,2182.65,160,7519,1951.48,160
 12054,SK Potsdam,Brandenburg,180334,23229,1813.30,264,23543,1532.71,264
 12060,LK Barnim,Brandenburg,185244,19904,1026.21,321,20289,1054.82,320
-12061,LK Dahme-Spreewald,Brandenburg,170791,23994,1237.77,348,24412,1166.34,348
-12062,LK Elbe-Elster,Brandenburg,101827,18300,479.24,358,18326,500.85,358
+12061,LK Dahme-Spreewald,Brandenburg,170791,24412,1604.89,348,24412,1166.34,348
+12062,LK Elbe-Elster,Brandenburg,101827,18326,517.54,358,18326,500.85,358
 12063,LK Havelland,Brandenburg,162996,20361,2340.55,228,20531,1661.39,229
 12064,LK Märkisch-Oderland,Brandenburg,195751,23417,1678.15,352,24897,2015.32,352
 12065,LK Oberhavel,Brandenburg,212914,24647,1443.78,365,25355,1441.90,365
