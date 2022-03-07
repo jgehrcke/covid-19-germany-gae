@@ -1,4 +1,4 @@
-# {"time_iso8601_last_update_rki": "2022-03-06T17:00:00+0000", "time_iso8601_last_update_rl": "2022-03-07T08:00:00+0000"}
+# {"time_iso8601_last_update_rki": "2022-03-06T17:00:00+0000", "time_iso8601_last_update_rl": "2022-03-07T12:00:00+0000"}
 ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki_cases_total,rki_cases_7di,rki_deaths_total
 1001,SK Flensburg,Schleswig-Holstein,90164,14221,1883.23,57,14221,1884.34,57
 1002,SK Kiel,Schleswig-Holstein,246794,30140,958.29,158,30141,955.45,158
@@ -18,28 +18,28 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 2000,SK Hamburg,Hamburg,1847253,361381,703.04,2319,361354,621.14,2319
 3101,SK Braunschweig,Niedersachsen,249406,31623,1127.48,228,31623,997.57,228
 3102,SK Salzgitter,Niedersachsen,104291,20811,1467.05,133,20811,1468.01,132
-3103,SK Wolfsburg,Niedersachsen,124371,21144,1703.77,138,21187,1616.94,138
-3151,LK Gifhorn,Niedersachsen,176523,27215,1438.34,271,27431,1485.36,271
+3103,SK Wolfsburg,Niedersachsen,124371,21187,1755.63,138,21187,1616.94,138
+3151,LK Gifhorn,Niedersachsen,176523,27430,1621.04,271,27431,1485.36,271
 3153,LK Goslar,Niedersachsen,136292,17660,1243.65,171,17620,1245.12,164
 3154,LK Helmstedt,Niedersachsen,91297,12088,1365.87,121,12088,865.31,121
-3155,LK Northeim,Niedersachsen,132285,15352,1508.86,96,15352,1523.23,96
+3155,LK Northeim,Niedersachsen,132285,15351,1507.73,96,15352,1523.23,96
 3157,LK Peine,Niedersachsen,134801,21009,1509.63,128,20913,1397.62,128
-3158,LK Wolfenbüttel,Niedersachsen,119622,14343,1438.70,114,14343,1440.37,113
+3158,LK Wolfenbüttel,Niedersachsen,119622,14343,1438.70,113,14343,1440.37,113
 3159,LK Göttingen,Niedersachsen,326041,40800,1209.05,342,40837,1199.85,343
-3241,Region Hannover,Niedersachsen,1157115,196659,1424.15,1334,198093,1347.49,1334
-3251,LK Diepholz,Niedersachsen,217089,30162,1047.96,125,30162,1053.95,124
+3241,Region Hannover,Niedersachsen,1157115,196766,1438.02,1325,198093,1347.49,1334
+3251,LK Diepholz,Niedersachsen,217089,30162,1047.96,124,30162,1053.95,124
 3252,LK Hameln-Pyrmont,Niedersachsen,148549,21757,1396.17,121,21912,1485.03,118
-3254,LK Hildesheim,Niedersachsen,275817,37818,1329.14,358,38078,1353.43,358
+3254,LK Hildesheim,Niedersachsen,275817,38078,1470.54,358,38078,1353.43,358
 3255,LK Holzminden,Niedersachsen,70458,8684,1185.10,94,8684,1196.46,94
-3256,LK Nienburg (Weser),Niedersachsen,121390,16120,1059.40,181,16120,1059.40,180
-3257,LK Schaumburg,Niedersachsen,157820,21828,1610.06,137,21951,1694.97,131
-3351,LK Celle,Niedersachsen,179011,25041,1295.45,116,25065,1192.66,116
+3256,LK Nienburg (Weser),Niedersachsen,121390,16120,1059.40,180,16120,1059.40,180
+3257,LK Schaumburg,Niedersachsen,157820,21949,1725.07,131,21951,1694.97,131
+3351,LK Celle,Niedersachsen,179011,25065,1315.56,116,25065,1192.66,116
 3352,LK Cuxhaven,Niedersachsen,198038,23103,975.57,207,23104,990.72,207
 3353,LK Harburg,Niedersachsen,254431,35554,916.16,166,35535,917.34,166
 3354,LK Lüchow-Dannenberg,Niedersachsen,48412,5226,1547.14,30,5226,1226.97,30
 3355,LK Lüneburg,Niedersachsen,184139,22385,1069.30,88,21944,827.09,88
 3356,LK Osterholz,Niedersachsen,113928,13712,851.41,75,13742,828.59,75
-3357,LK Rotenburg (Wümme),Niedersachsen,163782,18589,897.53,121,18589,613.01,120
+3357,LK Rotenburg (Wümme),Niedersachsen,163782,18589,897.53,120,18589,613.01,120
 3358,LK Heidekreis,Niedersachsen,140673,16316,1143.08,134,16312,911.33,134
 3359,LK Stade,Niedersachsen,204512,24638,878.68,174,24638,691.89,174
 3360,LK Uelzen,Niedersachsen,92389,9445,763.08,136,9445,783.64,136
@@ -324,7 +324,7 @@ ags,county_name,state,population,rl_cases_total,rl_cases_7di,rl_deaths_total,rki
 10044,LK Saarlouis,Saarland,194319,36680,1536.13,211,36684,1530.99,211
 10045,LK Saar-Pfalz-Kreis,Saarland,142196,22811,1411.43,164,23063,1448.00,164
 10046,LK Sankt Wendel,Saarland,87007,12918,1595.27,136,12936,1598.72,136
-11000,Berlin,Berlin,3669491,768746,915.09,4277,769092,882.38,4277
+11000,Berlin,Berlin,3669491,769047,927.39,4277,769092,882.38,4277
 11001,SK Berlin Mitte,Berlin,380917,,,,91176,792.04,390
 11002,SK Berlin Friedrichshain-Kreuzberg,Berlin,290083,,,,69184,910.08,192
 11003,SK Berlin Pankow,Berlin,409454,,,,82157,948.34,271
