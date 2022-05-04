@@ -1,5 +1,7 @@
 # COVID-19 case numbers for Germany 😷
 
+Update May 2022: the Risklayer crowdsourcing effort mentioned below has been discontinued in March 2022. Corresponding data files and plots are not updated anymore in this repository.
+
 ## 🇩🇪 Übersicht
 
 (see below for an English version)
@@ -37,9 +39,9 @@ For updates, you can also follow me on Twitter: [@gehrcke](https://twitter.com/g
 Note that these plots are updated multiple times per day.
 Feel free to hotlink them.
 
-* [germany-heatmap-7ti-rl.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.pdf)):
+* [germany-heatmap-7ti-rki.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.pdf)):
 
-<img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rl.png" width="450"/>
+<img src="https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/germany-heatmap-7ti-rki.png" width="450"/>
 
 * [daily-change-plot-latest.png](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.png) (also available as [PDF](https://raw.githubusercontent.com/jgehrcke/covid-19-germany-gae/master/plots/daily-change-plot-latest.pdf)):
 
