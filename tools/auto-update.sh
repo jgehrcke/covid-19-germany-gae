@@ -31,11 +31,11 @@ if [[ $GITHUB_ACTIONS == "true" ]]; then
     git config --local user.name "GitHub Action"
 fi
 
-make update-csv
-git status --untracked=no --porcelain
-if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
-    git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
-fi
+# make update-csv
+# git status --untracked=no --porcelain
+# if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+#     git commit data.csv -m "data.csv: update ${UPDATE_ID}" || true
+# fi
 
 #make update-jhu-data
 
@@ -119,19 +119,20 @@ else
 
 fi
 
-python tools/build-rl-csvs.py
-git status --untracked=no --porcelain
-if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
-    git add \
-        cases-rl-crowdsource-by-ags.csv \
-        cases-rl-crowdsource-by-state.csv \
-        deaths-rl-crowdsource-by-ags.csv \
-        deaths-rl-crowdsource-by-state.csv || true
-    git commit -m "RL data: update: ${UPDATE_ID}" || true
-fi
+# Risklayer Covid data: "This service has been discontinued since March 13th, 2022"
+# python tools/build-rl-csvs.py
+# git status --untracked=no --porcelain
+# if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
+#     git add \
+#         cases-rl-crowdsource-by-ags.csv \
+#         cases-rl-crowdsource-by-state.csv \
+#         deaths-rl-crowdsource-by-ags.csv \
+#         deaths-rl-crowdsource-by-state.csv || true
+#     git commit -m "RL data: update: ${UPDATE_ID}" || true
+# fi
 
 
-python tools/7di.py cases-rl-crowdsource-by-ags.csv more-data/7di-rl-by-ags.csv
+#python tools/7di.py cases-rl-crowdsource-by-ags.csv more-data/7di-rl-by-ags.csv
 #python tools/7di.py cases-rl-crowdsource-by-state.csv more-data/7di-rl-by-state.csv
 python tools/7di.py cases-rki-by-ags.csv more-data/7di-rki-by-ags.csv
 #python tools/7di.py cases-rki-by-state.csv more-data/7di-rki-by-state.csv
@@ -160,10 +161,10 @@ python tools/heatmap.py \
     --label-data-source="RKI data" \
     --figure-out-pprefix=plots/germany-heatmap-7ti-rki
 
-python tools/heatmap.py \
-    more-data/7di-rl-by-ags.csv \
-    --label-data-source="Risklayer data" \
-    --figure-out-pprefix=plots/germany-heatmap-7ti-rl
+# python tools/heatmap.py \
+#     more-data/7di-rl-by-ags.csv \
+#     --label-data-source="Risklayer data" \
+#     --figure-out-pprefix=plots/germany-heatmap-7ti-rl
 
 if [[ $GIT_COMMIT_CHANGES == "yes" ]]; then
     git add plots/germany-heatmap-7ti-* || true
