@@ -2,9 +2,13 @@
 
 **Update April 2023: no more daily updates**.
 
-Some counties [have stopped reporting data](https://github.com/jgehrcke/covid-19-germany-gae/issues/4184#issuecomment-1434351740) in January 2023, and it is probably fair to say that by now there is [not so much demand anymore](https://jgehrcke.github.io/ghrs-test/jgehrcke/covid-19-germany-gae/latest-report/report.html) for a project like this.
+Some counties in Germany [have stopped reporting data](https://github.com/jgehrcke/covid-19-germany-gae/issues/4184#issuecomment-1434351740) in January 2023, and it is probably fair to say that by now there is [not so much demand anymore](https://jgehrcke.github.io/ghrs-test/jgehrcke/covid-19-germany-gae/latest-report/report.html) for a project like this.
 
-I would like to say a huge **Thank You** for your [tremendous](https://github.com/jgehrcke/covid-19-germany-gae/issues/4) [interest](https://github.com/jgehrcke/covid-19-germany-gae/issues/3), for [contributing](https://github.com/jgehrcke/covid-19-germany-gae/issues/491), for [critical](https://github.com/jgehrcke/covid-19-germany-gae/issues/666) [discussion](https://github.com/jgehrcke/covid-19-germany-gae/issues/562), and for helping reveal [the most brittle kind of edge cases](https://github.com/jgehrcke/covid-19-germany-gae/issues/1748). Hopefully this was the last time where an underground software engineering effort delivered better results than the state of Germany when it comes to the exposure of relevant data via _useful_, predictable, robust interfaces.
+I would like to say a huge **Thank You** for your [tremendous](https://github.com/jgehrcke/covid-19-germany-gae/issues/4) [interest](https://github.com/jgehrcke/covid-19-germany-gae/issues/3), for [contributing](https://github.com/jgehrcke/covid-19-germany-gae/issues/491), for [critical](https://github.com/jgehrcke/covid-19-germany-gae/issues/666) [discussion](https://github.com/jgehrcke/covid-19-germany-gae/issues/562), and for helping reveal [the most brittle kind of edge cases](https://github.com/jgehrcke/covid-19-germany-gae/issues/1748). All that helped keep the data flowing while rarely compromising on _quality_.
+
+In the future, we hopefully do not need an underground software engineering effort like this anymore, and state of Germany will be able to expose relevant data _quickly_ via useful and robust interfaces.
+
+For me personally, this was a rather significant engineering effort and I learned a whole lot. I feel both, pain and happiness when I go through the almost [300 patches](https://github.com/jgehrcke/covid-19-germany-gae/pulls?q=is%3Apr+is%3Aclosed+author%3Ajgehrcke) that I had been working on since March 20, 2020.
 
 ## Literature referencing this project
 
