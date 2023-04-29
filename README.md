@@ -1,10 +1,46 @@
 # COVID-19 case numbers for Germany 😷
 
-Update April 2023: no more daily updates! It's over. Some counties [have stopped reporting data](https://github.com/jgehrcke/covid-19-germany-gae/issues/4184#issuecomment-1434351740) in January 2023, and it is probably fair to say that by now there is [not so much demand anymore](https://jgehrcke.github.io/ghrs-test/jgehrcke/covid-19-germany-gae/latest-report/report.html) for a project like this.
+**Update April 2023: no more daily updates**.
 
-I want to say a huge Thank You for your [tremendous](https://github.com/jgehrcke/covid-19-germany-gae/issues/4) [interest](https://github.com/jgehrcke/covid-19-germany-gae/issues/3), for [contributing](https://github.com/jgehrcke/covid-19-germany-gae/issues/491), for [critical](https://github.com/jgehrcke/covid-19-germany-gae/issues/666) [discussion](https://github.com/jgehrcke/covid-19-germany-gae/issues/562), and for helping reveal [the most brittle kind of edge cases](https://github.com/jgehrcke/covid-19-germany-gae/issues/1748). Hopefully this was the last time where an underground software engineering effort delivered better results than the state of Germany when it comes to the exposure of relevant data via _useful_, predictable, robust interfaces.
+Some counties in Germany [have stopped reporting data](https://github.com/jgehrcke/covid-19-germany-gae/issues/4184#issuecomment-1434351740) in January 2023, and it is probably fair to say that by now there is [not so much demand anymore](https://jgehrcke.github.io/ghrs-test/jgehrcke/covid-19-germany-gae/latest-report/report.html) for a project like this.
 
-Update May 2022: the Risklayer crowdsourcing effort mentioned below has been discontinued in March 2022. Corresponding data files and plots are not updated anymore in this repository.
+I would like to say a huge **Thank You** for your [tremendous](https://github.com/jgehrcke/covid-19-germany-gae/issues/4) [interest](https://github.com/jgehrcke/covid-19-germany-gae/issues/3), for [contributing](https://github.com/jgehrcke/covid-19-germany-gae/issues/491), for [critical](https://github.com/jgehrcke/covid-19-germany-gae/issues/666) [discussion](https://github.com/jgehrcke/covid-19-germany-gae/issues/562), and for helping reveal [the most brittle kind of edge cases](https://github.com/jgehrcke/covid-19-germany-gae/issues/1748). All that helped keep the data flowing while rarely compromising on _quality_.
+
+In the future, we hopefully do not need an underground software engineering effort like this anymore, and state of Germany will be able to expose relevant data _quickly_ via useful and robust interfaces.
+
+For me personally, this was a rather significant engineering effort and I learned a whole lot. I feel both, pain and happiness when I go through the almost [300 patches](https://github.com/jgehrcke/covid-19-germany-gae/pulls?q=is%3Apr+is%3Aclosed+author%3Ajgehrcke) that I had been working on since March 20, 2020.
+
+## Literature referencing this project
+
+The following list is based on a non-exhaustive web search:
+
+* Björn Thor Arnarson, 2021. _How a school holiday led to persistent COVID-19 outbreaks in Europe_. Nature Scientific Reports (11). [HTML](https://www.nature.com/articles/s41598-021-03927-z_)
+* Luigi Palatella et al., 2021. _A phenomenological estimate of the true scale of COVID-19 from primary data_. Chaos, Solitons & Fractals (146). [HTML](https://www.sciencedirect.com/science/article/pii/S0960077921002071)
+* Marcella Alsan et al., 2020; revised 2023. _Civil Liberties in Times of Crisis_. NBER Working Papers. [HTML](https://www.nber.org/papers/w27972), [PDF](https://repec.cepr.org/repec/cpr/ceprdp/DP15410.pdf), [Appendix PDF](https://scholar.harvard.edu/files/stantcheva/files/aejapp-2021-0736_onlineappendix.pdf)
+* Naqvi A, 2021. _COVID-19 European regional tracker._ Scientific Data (8). [HTML](https://europepmc.org/article/pmc/pmc8282658), [PDF](https://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC8282658&blobtype=pdf)
+* Philip Eisenlohr, 2020. _Comparative visualization of global COVID-19 progression over time_. medium.com. [HTML](https://medium.com/@pe_49347/comparative-visualization-of-global-covid-19-progression-over-time-a22d350a160)
+* Teodoro Alamo et al., 2020. _COVID-19: Open-Data Resources for Monitoring, Modeling, and Forecasting the Epidemic_. Electronics (9). [HTML](https://doi.org/10.3390/electronics9050827)
+* S Di Federico, 2022. _Availability of open data related to COVID-19 epidemic in Italy_. Annali di Igiene. [HTML](https://pubmed.ncbi.nlm.nih.gov/36178129/), [PDF](https://iris.unimore.it/retrieve/e09f1b4c-83ac-4669-a517-f78b80e356b7/AnnaliIgiene_Covid_SDF.pdf)
+* Mattia Mazzoli et al., 2021. _Interplay between mobility, multi-seeding and lockdowns shapes COVID-19 local impact_. PLOS Computational Biology. [HTML](https://doi.org/10.1371/journal.pcbi.1009326)
+* Elaine Ford, Winfried Weck, 2020. _Internet and the Pandemic in the Americas. The First Health Crisis of the Digital Era_. Book. Konrad Adenauer Stiftung. [HTML](https://www.kas.de/en/web/regionalprogramm-adela/single-title/-/content/internet-and-pandemic-in-the-americas)
+* Björn Thor Arnarson, 2021. _Breaks and Breakouts: Explaining the Persistence of COVID-19_. SSRN Electronic Journal. [HTML](https://dx.doi.org/10.2139/ssrn.3775506)
+* Abdollah Jalilian, Jorge Mateu, 2021. _A hierarchical spatio-temporal model to analyze relative risk variations of COVID-19: a focus on Spain, Italy and Germany_. Stochastic Environmental Research and Risk Assessment. [HTML](https://www.academia.edu/52769065/)
+* Ben-Hur Cardoso, Sebastian Gonçalves, 2020. Universal scaling law for COVID-19 propagation in urban centers. Preprint. [HTML](https://www.researchgate.net/publication/342402171_Universal_scaling_law_for_COVID-19_propagation_in_urban_centers), [PDF](https://www.medrxiv.org/content/10.1101/2020.06.22.20137604v1.full.pdf)
+* Fabrizio Pecoraro, Daniela Luzi, 2021. _Open Data Resources on COVID-19 in Six European Countries: Issues and Opportunities_. Int J Environ Res Public Health. [HTML](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8507931/), [PDF](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8507931/pdf/ijerph-18-10496.pdf)
+* Teodoro Alamo et al, 2020. _Data-Driven Methods to Monitor, Model, Forecast and Control Covid-19 Pandemic: Leveraging Data Science, Epidemiology and Control Theory_. [HTML](https://www.researchgate.net/publication/341793331_Data-Driven_Methods_to_Monitor_Model_Forecast_and_Control_Covid-19_Pandemic_Leveraging_Data_Science_Epidemiology_and_Control_Theory), [PDF](https://arxiv.org/pdf/2006.01731v2.pdf)
+* J. Delgado, 2021. _Applying the FAIR Principles to Accelerate Health Research in Europe in the Post COVID-19 Era_.  Proceedings of the 2021 EFMI Special Topic Conference. [Google Books Preview](https://books.google.de/books?id=sltcEAAAQBAJ&printsec=frontcover#v=onepage&q&f=false)
+* Luis Baibás et al., 2020. _COVID-19 effective reproductive ratio determination: An application, and analysis of issues and influential factors_. Preprint. [HTML](https://europepmc.org/article/ppr/ppr187956)
+
+### Other projects that are or were using this repository
+
+* https://www.researchgate.net/publication/358965720_Predict_Covid_Cases_with_LSTM-Network
+* https://gist.github.com/denis-bz/d5259a341ba3b134fc2ecf2293b8f159
+* https://data.world/liz-friedman/covid-19-in-germany
+* https://www.cg.tuwien.ac.at/courses/Visualisierung2/HallOfFame/2020/projects/Goertler2018-Alexander%20Bayerl_44328754_assignsubmission_file_/doc/CodeDocumentation.pdf
+* https://www.medrxiv.org/content/medrxiv/suppl/2020/04/07/2020.04.05.20054288.DC1/2020.04.05.20054288-1.pdf
+* https://quantitas.it/data/coronavirus/
+* https://www.studocu.com/de/document/technische-universitat-munchen/grundlagen-der-kunstlichen-intelligenz-in2062/exercise-4/21966548
+* https://corona-open-data.ckan.de/dataset/covid-19-case-numbers-for-germany/resource/59f3eccd-0376-4b31-a1fa-498059c6176f
 
 ## 🇩🇪 Übersicht
 
@@ -132,9 +168,13 @@ I tried to discover these step-by-step, they are possibly underrated (April 2020
 - Blog post [Covid-19 HTTP API: case numbers as time series, for individual German states](https://gehrcke.de/2020/03/covid-19-http-api-german-states-timeseries)
 
 
-## HTTP API details
+## Changelog
 
-Update Feb 2021: I disabled the HTTP API. It's best to directly use the data files from this respository.
+This is a very high-level changelog. Technical details of reporting changed all the time, most details can be inferred from GitHub issues.
+
+* **2023-04**: disabled daily updates
+* **2022-05**: the Risklayer crowdsourcing effort mentioned below has been discontinued in March 2022. Corresponding data files and plots are not updated anymore in this repository.
+* **2021-02**: I disabled the HTTP API. It's best to directly use the data files from this respository.
 
 
 ## What you should know before reading these numbers
