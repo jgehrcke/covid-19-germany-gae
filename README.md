@@ -1,5 +1,9 @@
 # COVID-19 case numbers for Germany 😷
 
+Update April 2023: no more daily updates! It's over. Some counties [have stopped reporting data](https://github.com/jgehrcke/covid-19-germany-gae/issues/4184#issuecomment-1434351740) in January 2023, and it is probably fair to say that by now there is [not so much demand anymore](https://jgehrcke.github.io/ghrs-test/jgehrcke/covid-19-germany-gae/latest-report/report.html) for a project like this.
+
+I want to say a huge Thank You for your [tremendous](https://github.com/jgehrcke/covid-19-germany-gae/issues/4) [interest](https://github.com/jgehrcke/covid-19-germany-gae/issues/3), for [contributing](https://github.com/jgehrcke/covid-19-germany-gae/issues/491), for [critical](https://github.com/jgehrcke/covid-19-germany-gae/issues/666) [discussion](https://github.com/jgehrcke/covid-19-germany-gae/issues/562), and for helping reveal [the most brittle kind of edge cases](https://github.com/jgehrcke/covid-19-germany-gae/issues/1748). Hopefully this was the last time where an underground software engineering effort delivered better results than the state of Germany when it comes to the exposure of relevant data via _useful_, predictable, robust interfaces.
+
 Update May 2022: the Risklayer crowdsourcing effort mentioned below has been discontinued in March 2022. Corresponding data files and plots are not updated anymore in this repository.
 
 ## 🇩🇪 Übersicht

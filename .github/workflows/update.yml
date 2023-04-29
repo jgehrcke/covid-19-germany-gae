@@ -1,10 +1,11 @@
 name: Data update
 on:
   workflow_dispatch: # allow for manual trigger
-  schedule:
-    # These hours are in UTC. i.e. result in a different local time in Germany,
-    # either +1 hour (winter) or +2 hours (summer).
-    - cron: "0 0,8,12,15,20 * * *"
+# Update 2023-04-29: stopping regular updates
+#  schedule:
+#    # These hours are in UTC. i.e. result in a different local time in Germany,
+#    # either +1 hour (winter) or +2 hours (summer).
+#    - cron: "0 0,8,12,15,20 * * *"
 
 jobs:
   scheduled-data-update:
